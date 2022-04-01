@@ -1,13 +1,66 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <title>Quiple</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.min.css">
-    <style>
-      h1 { height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center; }
-    </style>
-  </head>
-  <body>
-    <h1>Quiple</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Quiple</title>
+  <link rel="icon" href="./images/q.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.min.css">
+  <style>
+    html { font-family: -apple-system, BlinkMacSystemFont, Pretendard, Interop, Helvetica Neue, Helvetica, Arial, Hiragino Sans, Hiragino Kaku Gothic ProN, AXIS Std, IBM Plex Sans JP, Source Han Sans JP, Noto Sans JP, Source Han Sans KR, Noto Sans KR, Meiryo, Yu Gothic, MS UI Gothic, MS PGothic, sans-serif; }
+    body { background: #222; }
+    .wrap { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    h1 { width: 50vw; margin: 0; display: flex; justify-content: center; align-items: center; gap: 4%; }
+    #symbol { width: 19%; transform: translateY(-11%); }
+    #wordmark { width: 80%; }
+    #symbol, #wordmark { animation: blur 1s linear 1 normal forwards; }
+    #ezskpA7tZL23_to { animation: ezskpA7tZL23_to__to 2s linear 1 normal forwards; }
+    @keyframes ezskpA7tZL23_to__to {
+      0% { offset-distance: 0%; animation-timing-function: cubic-bezier(.39,.575,.565,1); }
+      100% { offset-distance: 100%; }
+    }
+    #ezskpA7tZL25_to { animation: ezskpA7tZL25_to__to 2s linear 1 normal forwards; }
+    @keyframes ezskpA7tZL25_to__to {
+      0% { offset-distance: 0%; animation-timing-function: cubic-bezier(.39,.575,.565,1); }
+      100% { offset-distance: 100%; }
+    }
+    @keyframes blur {
+      0% { opacity: 0; filter: blur(1vw); animation-timing-function: ease-out; }
+      100% { opacity: 1; filter: blur(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>
+      <svg id="symbol" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+        <ellipse rx="50" ry="50" transform="translate(50 50)" fill="#fff" fill-rule="evenodd" stroke-width="0" />
+        <g id="ezskpA7tZL23_to" style="offset-path:path('M65,65L75,75');offset-rotate:0deg">
+          <rect width="50" height="50" rx="0" ry="0" transform="translate(-25,-25)" fill="#fff" fill-rule="evenodd" stroke-width="0" />
+        </g>
+        <g mask="url(#ezskpA7tZL26)">
+          <g id="ezskpA7tZL25_to" style="offset-path:path('M65,65L75,75');offset-rotate:0deg">
+            <rect width="50" height="50" rx="0" ry="0" transform="translate(-25,-25)" fill="#222" fill-rule="evenodd" stroke-width="0" />
+          </g>
+          <mask id="ezskpA7tZL26" mask-type="alpha">
+            <ellipse rx="50" ry="50" transform="translate(50 50)" fill="#fff" fill-rule="evenodd" stroke-width="0" />
+          </mask>
+        </g>
+      </svg>
+      <svg id="wordmark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 426.575 126.14">
+        <g fill="#fff">
+          <path d="M82.179,82.039l9.239,9.521l-11.76,11.62l-10.5-10.78c-6.439,3.36-14.279,5.32-23.1,5.32C16.38,97.72,0,76.3,0,50.96C0,24.359,18.06,3.92,46.619,3.92c29.12,0,46.34,21.14,46.34,46.76C92.958,62.72,89.179,73.64,82.179,82.039z M46.479,20.439c-18.06,0-26.179,12.88-26.179,30.1c0,16.521,7.56,30.66,26.739,30.66c3.641,0,7-0.56,9.801-1.54l-13.721-14.14l11.761-11.62l14.279,14.7c2.38-4.76,3.5-10.64,3.5-17.36C72.659,31.92,63.418,20.439,46.479,20.439z" />
+          <path d="M154.136,96.319v-9.66c-4.06,7-11.06,10.92-20.3,10.92c-11.899,0-22.119-6.859-22.119-21.84V46.76h-8.4V33.18h26.46v35.56c0,10.92,3.64,15.12,10.78,15.12c8.68,0,13.579-6.16,13.579-14.979V46.76h-10.22V33.18h28.28v49.56h9.1v13.58h-27.16V96.319z" />
+          <path d="M191.936,96.319v-13.58h8.4v-35.84h-9.1V33.18h27.159v49.56h8.4v13.58h-34.859V96.319z M199.636,3.22h18.061v18.76h-18.061V3.22z" />
+          <path d="M281.395,97.72c-9.1,0-15.54-3.5-19.32-9.38v23.8h11.2v14h-37.66v-14h8.4V46.76h-9.1V33.18h27.159v12.04c3.36-7.28,9.8-13.3,21.28-13.3c15.96,0,27.02,11.62,27.02,31.359C310.375,81.899,300.435,97.72,281.395,97.72z M276.915,46.199c-9.38,0-14.279,7.7-14.699,18.34l-0.141,2.24c0,10.36,5.88,16.66,14.84,16.66c8.54,0,14.7-5.74,14.7-18.34C291.615,52.779,285.595,46.199,276.915,46.199z" />
+          <path d="M320.175,96.319v-13.58h8.4V13.72h-9.1V0h27.159v82.739h8.4v13.58H320.175z" />
+          <path d="M397.173,97.72c-18.76,0-32.479-10.641-32.479-31.78c0-19.46,11.619-34.02,31.64-34.02c17.5,0,29.399,11.06,29.68,27.439c0,2.8-0.28,5.88-0.98,9.1h-41.439c0.98,9.801,5.74,14.98,14.84,14.98c9.66,0,12.32-6.021,13.021-9.8l15.119,2.8C425.733,87.64,415.374,97.72,397.173,97.72z M396.333,44.8c-7.42,0-11.48,5.319-12.601,13.16h23.66C408.233,51.659,404.874,44.8,396.333,44.8z" />
+        </g>
+      </svg>
+    </h1>
+  </div>
+</body>
+
 </html>
