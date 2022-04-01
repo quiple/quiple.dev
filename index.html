@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -9,24 +9,33 @@
   <style>
     html { font-family: -apple-system, BlinkMacSystemFont, Pretendard, Interop, Helvetica Neue, Helvetica, Arial, Hiragino Sans, Hiragino Kaku Gothic ProN, AXIS Std, IBM Plex Sans JP, Source Han Sans JP, Noto Sans JP, Source Han Sans KR, Noto Sans KR, Meiryo, Yu Gothic, MS UI Gothic, MS PGothic, sans-serif; }
     body { background: #222; }
-    .wrap { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .wrap { gap: 4vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
     h1 { width: 50vw; margin: 0; display: flex; justify-content: center; align-items: center; gap: 4%; }
     #symbol { width: 19%; transform: translateY(-11%); }
     #wordmark { width: 80%; }
     #symbol, #wordmark { animation: blur 1s linear 1 normal forwards; }
-    #ezskpA7tZL23_to { animation: ezskpA7tZL23_to__to 2s linear 1 normal forwards; }
+    ul, li { gap: 2vw; }
+    ul, li, li a { padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; }
+    li { animation: blur-up 1s linear 1 normal forwards; }
+    li a { width: 3.5vw; height: 3.5vw; border-radius: 2vw; background: #fff; }
+    .brand { width: 2vw; height: 2vw; display: block; }
+    #ezskpA7tZL23_to { animation: ezskpA7tZL23_to__to 1s linear 1 normal forwards; }
     @keyframes ezskpA7tZL23_to__to {
-      0% { offset-distance: 0%; animation-timing-function: cubic-bezier(.39,.575,.565,1); }
+      0% { offset-distance: 0%; animation-timing-function: cubic-bezier(0,.75,.5,1); }
       100% { offset-distance: 100%; }
     }
-    #ezskpA7tZL25_to { animation: ezskpA7tZL25_to__to 2s linear 1 normal forwards; }
+    #ezskpA7tZL25_to { animation: ezskpA7tZL25_to__to 1s linear 1 normal forwards; }
     @keyframes ezskpA7tZL25_to__to {
-      0% { offset-distance: 0%; animation-timing-function: cubic-bezier(.39,.575,.565,1); }
+      0% { offset-distance: 0%; animation-timing-function: cubic-bezier(0,.75,.5,1); }
       100% { offset-distance: 100%; }
     }
     @keyframes blur {
-      0% { opacity: 0; filter: blur(1vw); animation-timing-function: ease-out; }
+      0% { opacity: 0; filter: blur(.5vw); animation-timing-function: cubic-bezier(0,.75,.5,1); }
       100% { opacity: 1; filter: blur(0); }
+    }
+    @keyframes blur-up {
+      0% { transform: translateY(2vw); opacity: 0; filter: blur(.5vw); animation-timing-function: cubic-bezier(0,.75,.5,1); }
+      100% { transform: translateY(0); opacity: 1; filter: blur(0); }
     }
   </style>
 </head>
@@ -60,6 +69,12 @@
         </g>
       </svg>
     </h1>
+    <ul>
+      <li><a href="https://github.com/quiple"><img class="brand" src="./images/github.svg" alt="GitHub"></a></li>
+      <li><a href="https://blog.quiple.dev"><img class="brand" src="./images/tistory.svg" alt="Tistory"></a></li>
+      <li><a href="https://steamcommunity.com/id/quiple"><img class="brand" src="./images/steam.svg" alt="Steam"></a></li>
+      <li><a href="https://open.spotify.com/user/nbkx34piq6kbwbb6zfbqdfgro"><img class="brand" src="./images/spotify.svg" alt="Spotify"></a></li>
+    </ul>
   </div>
 </body>
 
