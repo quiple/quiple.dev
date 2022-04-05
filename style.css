@@ -1,0 +1,38 @@
+:root { --dur: 2s; }
+html { font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, SF Pro JP, SF Pro KR, Pretendard, Interop, Helvetica Neue, Helvetica, Arial, Hiragino Sans, Hiragino Kaku Gothic ProN, AXIS Std, IBM Plex Sans JP, Source Han Sans JP, Noto Sans JP, Source Han Sans KR, Noto Sans KR, Meiryo, Yu Gothic, MS UI Gothic, MS PGothic, sans-serif; }
+body { background: #222; }
+.wrap { gap: 4vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+h1 { animation: blur var(--dur) linear 1 normal forwards; width: 50vw; margin: 0; display: flex; justify-content: center; align-items: center; gap: 4%; }
+#symbol { width: 19%; position: relative; top: -10%; }
+#wordmark { width: 83%; }
+ul, li { gap: 2vw; }
+ul, li, li a { padding: 0; margin: 0; display: flex; justify-content: center; align-items: center; }
+ul { animation: blur-up var(--dur) linear 1 normal forwards; }
+li a { width: 3.5vw; height: 3.5vw; border-radius: 2vw; background: #fff; }
+li a:hover { outline: .25vw solid rgba(255,255,255,.25); }
+.brand { width: 2vw; height: 2vw; display: block; }
+.brand.q { transform: scale(.9); }
+#ezskpA7tZL23_to { animation: ezskpA7tZL23_to__to var(--dur) linear 1 normal forwards; }
+@keyframes ezskpA7tZL23_to__to {
+  0% { offset-distance: 0%; animation-timing-function: cubic-bezier(0,.75,.5,1); }
+  100% { offset-distance: 100%; }
+}
+#ezskpA7tZL25_to { animation: ezskpA7tZL25_to__to var(--dur) linear 1 normal forwards; }
+@keyframes ezskpA7tZL25_to__to {
+  0% { offset-distance: 0%; animation-timing-function: cubic-bezier(0,.75,.5,1); }
+  100% { offset-distance: 100%; }
+}
+@keyframes blur {
+  0% { transform: translateY(-2vw) scale(1.1); opacity: 0; filter: blur(.5vw); animation-timing-function: cubic-bezier(0,.75,.5,1); }
+  100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes blur-up {
+  0% { transform: translateY(1vw) scale(1.1); opacity: 0; filter: blur(.5vw); animation-timing-function: cubic-bezier(0,.75,.5,1); }
+  100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+}
+@media (max-width: 720px) {
+  .wrap { gap: 6vw; }
+  h1 { width: 80vw; }
+  li a { width: 15vw; height: 15vw; border-radius: 8vw; }
+  .brand { width: 8vw; height: 8vw; }
+}
