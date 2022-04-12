@@ -3,7 +3,6 @@ html { font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, SF Pro JP, S
 body { background: #222; }
 .wrap { gap: 4vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
 h1 { animation: blur var(--dur) linear 1 normal forwards; width: 50vw; margin: 0; display: flex; justify-content: center; align-items: center; gap: 4%; }
-a { transition: .05s; }
 #symbol { width: 19%; position: relative; top: -10%; }
 #wordmark { width: 83%; }
 ul, li { gap: 2vw; }
