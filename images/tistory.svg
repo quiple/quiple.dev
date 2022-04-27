@@ -1,28 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="레이어_1" xmlns:serif="http://www.serif.com/"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 269.999 269.999"
-	 enable-background="new 0 0 269.999 269.999" xml:space="preserve">
-<g id="icon" transform="matrix(1.04895,0,0,1.04895,38.4615,44.7552)">
-	<g transform="matrix(1.00704,0,0,1.00704,-13.169,30.1761)">
-		<circle fill-rule="evenodd" clip-rule="evenodd" fill="#EA5220" cx="104.467" cy="55.466" r="127.8"/>
-	</g>
-	<g>
-		<g transform="matrix(0.986042,0,0,0.986042,0.428741,-1.92393)">
-			<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="36.431" cy="45.061" r="22.5"/>
-		</g>
-		<g transform="matrix(0.986042,0,0,0.986042,62.2981,-1.92393)">
-			<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="30.156" cy="45.061" r="22.5"/>
-		</g>
-		<g transform="matrix(0.986042,0,0,0.986042,62.2981,59.9454)">
-			<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="30.156" cy="38.786" r="22.5"/>
-		</g>
-		<g transform="matrix(0.986042,0,0,0.986042,62.2981,121.815)">
-			<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="30.156" cy="32.512" r="22.5"/>
-		</g>
-		<g transform="matrix(0.986042,0,0,0.986042,124.167,-1.92393)">
-			<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="23.882" cy="45.061" r="22.5"/>
-		</g>
-	</g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.999 269.999">
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#f5f5f5" d="M135,0C60.442,0,0,60.441,0,134.999s60.441,135,135,135
+	s135-60.441,135-135S209.558,0,135,0z M76.592,112.616c-12.853,0-23.272-10.419-23.272-23.272s10.419-23.272,23.272-23.272
+	c12.853,0,23.272,10.419,23.272,23.272S89.445,112.616,76.592,112.616z M135,229.432c-12.853,0-23.272-10.419-23.272-23.272
+	s10.419-23.272,23.272-23.272s23.272,10.419,23.272,23.272S147.852,229.432,135,229.432z M135,171.024
+	c-12.853,0-23.272-10.419-23.272-23.272S122.147,124.48,135,124.48s23.272,10.419,23.272,23.272S147.852,171.024,135,171.024z
+	 M135,112.616c-12.853,0-23.272-10.419-23.272-23.272S122.147,66.072,135,66.072s23.272,10.419,23.272,23.272
+	S147.852,112.616,135,112.616z M193.408,112.616c-12.853,0-23.272-10.419-23.272-23.272s10.419-23.272,23.272-23.272
+	s23.272,10.419,23.272,23.272S206.261,112.616,193.408,112.616z"/>
 </svg>
