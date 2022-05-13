@@ -12,19 +12,22 @@ li a { width: 2.5vw; height: 2.5vw; border-radius: 2vw; border: 3px solid transp
 li a .brand { opacity: .5; transition: .1s; }
 li a:hover .brand { opacity: .9; }
 li a:focus { border-color: #f5f5f5; }
+li a:active { transform: scale(.9); }
 .brand { width: 2vw; height: 2vw; display: block; }
 .brand.q { transform: scale(.9); }
 #ezskpA7tZL23_to { animation: ezskpA7tZL23_to__to var(--dur) linear 1 normal forwards; }
 article { display: flex; flex-direction: column; width: calc(100vw / 3); margin: 0 auto; margin-bottom: 4rem; }
 article h2 { color: #f5f5f5; margin: 0; padding: 1rem calc(1.5rem + 3px); }
-.card { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: flex-start; text-decoration: none; color: #f5f5f5; border-radius: 1rem; padding: 1rem 1.5rem; border: 3px solid transparent; transition: .1s; }
-.card:hover { color: #222; background-color: rgba(255,255,255,.9); }
-.card:focus { border-color: #f5f5f5; }
+.card { text-decoration: none; color: #f5f5f5; border-radius: 1rem; padding: 1rem 1.5rem; border: 3px solid transparent; transition: .1s; }
+.card .wrap { display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: flex-start; transition: .1s; height: auto; }
+.card:hover, .card:focus { border-color: #f5f5f5; }
+.card:active { background-color: rgba(255,255,255,.25); }
+.card:active .wrap { transform: scale(.98); }
 .card h3 { font-size: 1.5rem; margin-top: 0; margin-bottom: .25rem; }
 .card p { margin: 0; margin-bottom: .25rem; opacity: .75; }
 .card img { display: block; }
 .card :only-child { margin-right: auto; }
-.card .image { border-radius: .5rem; margin-left: 1.5rem; margin-right: -.5rem; width: 3rem; height: 3rem; background-image: url('./images/galmuri.svg'); background-position: center; background-size: cover; }
+.card .image { border-radius: .5rem; margin-left: 1.5rem; margin-right: -.25rem; width: 3rem; height: 3rem; background-image: url('./images/galmuri.svg'); background-position: center; background-size: cover; }
 footer { color: #f5f5f5; position: fixed; left: 1rem; bottom: 1rem; opacity: .5; }
 @keyframes ezskpA7tZL23_to__to {
   0% { offset-distance: 0%; animation-timing-function: cubic-bezier(0,.75,.5,1); }
