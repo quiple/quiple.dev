@@ -1,0 +1,111 @@
+$path: 'galmuri/dist/';
+$display: fallback;
+
+@font-face {
+  font: {
+    family: Galmuri14;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('Galmuri14 Regular'),
+    url($path + 'Galmuri14.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: Galmuri11;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('Galmuri11 Regular'),
+    url($path + 'Galmuri11.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: Galmuri11;
+    style: normal;
+    stretch: normal;
+    weight: 700;
+    display: $display;
+  }
+  src:
+    local('Galmuri11 Bold'),
+    url($path + 'Galmuri11-Bold.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: Galmuri11;
+    style: normal;
+    stretch: condensed;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('Galmuri11 Condensed'),
+    url($path + 'Galmuri11-Condensed.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: Galmuri9;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('Galmuri9 Regular'),
+    url($path + 'Galmuri9.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: Galmuri7;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('Galmuri7 Regular'),
+    url($path + 'Galmuri7.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: GalmuriMono11;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('GalmuriMono11 Regular'),
+    url($path + 'GalmuriMono11.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: GalmuriMono9;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('GalmuriMono9 Regular'),
+    url($path + 'GalmuriMono9.woff2') format('woff2');
+}
+@font-face {
+  font: {
+    family: GalmuriMono7;
+    style: normal;
+    stretch: normal;
+    weight: 400;
+    display: $display;
+  }
+  src:
+    local('GalmuriMono7 Regular'),
+    url($path + 'GalmuriMono7.woff2') format('woff2');
+}

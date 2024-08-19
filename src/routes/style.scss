@@ -1,0 +1,188 @@
+@charset 'utf-8';
+
+:root {
+  --accents-red-dark: rgb(255, 69, 58);
+  --accents-orange: rgb(255, 149, 0);
+  --accents-orange-dark: rgb(255, 159, 10);
+  --accents-yellow: rgb(255, 204, 0);
+  --accents-yellow-dark: rgb(255, 214, 10);
+  --accents-green: rgb(40, 205, 65);
+  --accents-green-dark: rgb(50, 215, 75);
+  --accents-mint: rgb(0, 199, 190);
+  --accents-mint-dark: rgb(102, 212, 207);
+  --accents-teal: rgb(89, 173, 196);
+  --accents-teal-dark: rgb(106, 196, 220);
+  --accents-cyan: rgb(85, 190, 240);
+  --accents-cyan-dark: rgb(90, 200, 245);
+  --accents-blue: rgb(0, 122, 255);
+  --accents-blue-dark: rgb(10, 132, 255);
+  --accents-indigo: rgb(88, 86, 214);
+  --accents-indigo-dark: rgb(94, 92, 230);
+  --accents-purple: rgb(175, 82, 222);
+  --accents-purple-dark: rgb(191, 90, 242);
+  --accents-pink: rgb(255, 45, 85);
+  --accents-pink-dark: rgb(255, 55, 95);
+  --accents-gray: rgb(142, 142, 147);
+  --accents-gray-dark: rgb(152, 152, 157);
+  --accents-brown: rgb(162, 132, 94);
+  --accents-brown-dark: rgb(172, 142, 104);
+  --accents-vibrant-red: rgb(245, 49, 38);
+  --accents-vibrant-red-dark: rgb(255, 79, 68);
+  --accents-vibrant-orange: rgb(245, 139, 0);
+  --accents-vibrant-orange-dark: rgb(255, 169, 20);
+  --accents-vibrant-yellow: rgb(245, 194, 0);
+  --accents-vibrant-yellow-dark: rgb(255, 224, 20);
+  --accents-vibrant-green: rgba(30, 195, 55, 0.4);
+  --accents-vibrant-green-dark: rgb(60, 225, 85);
+  --accents-vibrant-mint: rgba(0, 189, 180, 0.4);
+  --accents-vibrant-mint-dark: rgb(108, 224, 219);
+  --accents-vibrant-teal: rgba(46, 167, 189, 0.4);
+  --accents-vibrant-teal-dark: rgb(68, 212, 250);
+  --accents-vibrant-cyan: rgba(65, 175, 220, 0.4);
+  --accents-vibrant-cyan-dark: rgb(90, 205, 250);
+  --accents-vibrant-blue: rgba(0, 112, 245, 0.4);
+  --accents-vibrant-blue-dark: rgb(20, 142, 255);
+  --accents-vibrant-indigo: rgba(84, 82, 204, 0.4);
+  --accents-vibrant-indigo-dark: rgb(99, 97, 242);
+  --accents-vibrant-purple: rgba(159, 75, 201, 0.4);
+  --accents-vibrant-purple-dark: rgb(204, 101, 255);
+  --accents-vibrant-pink: rgba(245, 35, 75, 0.4);
+  --accents-vibrant-pink-dark: rgb(255, 65, 105);
+  --accents-vibrant-brown: rgba(152, 122, 84, 0.4);
+  --accents-vibrant-brown-dark: rgb(182, 152, 114);
+  --accents-vibrant-gray: rgba(132, 132, 137, 0.4);
+  --accents-vibrant-gray-dark: rgb(162, 162, 167);
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.5);
+  --text-tertiary: rgba(0, 0, 0, 0.25);
+  --text-quaternary: rgba(0, 0, 0, 0.1);
+  --text-quinary: rgba(0, 0, 0, 0.05);
+  --text-primary-dark: rgba(255, 255, 255, 0.85);
+  --text-secondary-dark: rgba(255, 255, 255, 0.55);
+  --text-tertiary-dark: rgba(255, 255, 255, 0.25);
+  --text-quaternary-dark: rgba(255, 255, 255, 0.1);
+  --text-quinary-dark: rgba(255, 255, 255, 0.05);
+  --text-vibrant-secondary: rgb(128, 128, 128);
+  --text-vibrant-tertiary: rgb(191, 191, 191);
+  --text-vibrant-quaternary: rgb(191, 191, 191);
+  --text-vibrant-quinary: rgb(191, 191, 191);
+  --text-vibrant-primary-dark: rgb(229, 229, 229);
+  --text-vibrant-secondary-dark: rgb(124, 124, 124);
+  --text-vibrant-tertiary-dark: rgb(65, 65, 65);
+  --text-vibrant-quaternary-dark: rgb(65, 65, 65);
+  --text-vibrant-quinary-dark: rgb(65, 65, 65);
+}
+
+.prose {
+  --tw-prose-links: #06c;
+}
+
+html {
+  @apply font-normal not-italic;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+body {
+  @apply bg-white;
+  color: var(--text-primary);
+}
+
+abbr {
+  @apply cursor-help;
+}
+
+[disabled],
+.disabled {
+  pointer-events: none;
+}
+
+.button {
+  @apply flex cursor-default flex-col items-center justify-center bg-white transition;
+  padding: 3px 7px;
+  box-shadow:
+    0px 0.5px 2.5px rgba(0, 0, 0, 0.3),
+    0px 0px 0px 0.5px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+
+  &:active {
+    filter: brightness(0.94);
+  }
+
+  &[disabled],
+  &.disabled {
+    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0px 0.5px 2.5px rgba(0, 0, 0, 0.15),
+      0px 0px 0px 0.5px rgba(0, 0, 0, 0.03);
+  }
+
+  &.big {
+    @apply self-stretch;
+    padding: 6px 7px;
+  }
+
+  &.primary {
+    @apply text-white;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.17) 0%,
+        transparent 100%
+      ),
+      var(--accents-blue);
+    box-shadow:
+      0px 1px 2.5px rgba(0, 122, 255, 0.24),
+      0px 0px 0px 0.5px rgba(0, 122, 255, 0.12);
+
+    &[disabled],
+    &.disabled {
+      color: var(--text-tertiary);
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow:
+        0px 0.5px 2.5px rgba(0, 0, 0, 0.15),
+        0px 0px 0px 0.5px rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+
+.form {
+  @apply flex flex-col items-stretch;
+  padding: 0px 10px;
+  background: rgba(0, 0, 0, 0.015);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+
+  .form-row {
+    @apply flex flex-row flex-wrap items-center justify-between;
+    padding: 0px;
+    /* column-gap: 56px; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .left {
+      @apply flex flex-col items-start justify-center;
+      padding: 10px 10px 10px 0px;
+    }
+
+    .right {
+      @apply flex flex-row items-start justify-end;
+      padding: 8px 0px 8px 9px;
+      gap: 10px;
+
+      input[type='text'],
+      input[type='number'] {
+        width: 80px;
+      }
+    }
+  }
+}
+
+#preview {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
