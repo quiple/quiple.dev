@@ -17,6 +17,14 @@ export default component$(() => {
             <Link href="/generator">Generator</Link>
           </li>
         </ul>
+        <ul>
+          <li>
+            <ExternalLink
+              text="과거 웹사이트"
+              href="https://legacy.quiple.dev"
+            />
+          </li>
+        </ul>
       </article>
     </main>
   )
