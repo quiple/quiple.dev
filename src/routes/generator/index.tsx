@@ -14,6 +14,7 @@ import fetchline from 'fetchline'
 import fileReaderStream from 'filereader-stream'
 import * as readline from 'readline'
 
+// import * as fs from 'fs'
 import { fonts } from '../galmuri/data'
 import style from '../style.scss?inline'
 import { charsets } from './charset'
@@ -223,6 +224,9 @@ export default component$(() => {
         // }
         // reader.readAsText(customFont)
 
+        // const fileStream = fs.createReadStream(filepath, {
+        //   encoding: 'utf-8',
+        // })
         const fileStream = fileReaderStream(customFont)
         const rl = readline.createInterface({
           input: fileStream,
