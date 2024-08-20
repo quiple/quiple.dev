@@ -24,9 +24,7 @@ type CanvasContext = { fillStyle: any; fillRect: any }
 const escapeRegExp = (s: string): string =>
   s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
 
-export async function* fileToAsyncIterable(
-  file: File,
-): AsyncIterableIterator<string> {
+async function* fileToAsyncIterable(file: File): AsyncIterableIterator<string> {
   const reader = file.stream().getReader()
   const delimiter = /\r?\n/g
 
@@ -70,7 +68,7 @@ export async function* fileToAsyncIterable(
 export const drawFont = worker$(
   async (
     type: 0 | 1,
-    fontName: string | AsyncIterableIterator<string>,
+    fontName: string,
     charset: string,
     options?: {
       linelimit?: number | null
@@ -86,11 +84,11 @@ export const drawFont = worker$(
     if (type === 0) {
       font = await $Font(
         fetchline(
-          `https://cdn.jsdelivr.net/npm/galmuri/dist/${(fontName as string).replaceAll(' ', '-')}.bdf`,
+          `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
         ),
       )
     } else {
-      font = await $Font(fontName as AsyncIterableIterator<string>)
+      font = await $Font(fileToAsyncIterable(fontName))
     }
 
     return font.draw(charset, options)
@@ -256,10 +254,12 @@ export default component$(() => {
       }
 
       let __type: 0 | 1
-      let __font: string | AsyncIterableIterator<string>
+      let __font: string
       if (fontCurrent.value === 'custom') {
         __type = 1
-        __font = fileToAsyncIterable(customFont)
+        __font = JSON.stringify(customFont)
+        console.log(customFont)
+        console.log(__font)
       } else {
         __type = 0
         __font = font
