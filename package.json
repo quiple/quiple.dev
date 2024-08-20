@@ -51,7 +51,7 @@
     "fetchline": "^1.0.1",
     "galmuri": "^2.39.4",
     "hast-util-to-html": "^9.0.1",
-    "husky": "^9.1.4",
+    "husky": "^9.1.5",
     "inter-ui": "^4.0.2",
     "lint-staged": "^15.2.9",
     "postcss": "^8.4.41",
