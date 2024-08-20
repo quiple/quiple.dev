@@ -11,7 +11,8 @@ import {
   type GlyphMeta,
 } from 'bdfparser'
 import fetchline from 'fetchline'
-import getline from 'readlineiter'
+import fileReaderStream from 'filereader-stream'
+import * as readline from 'readline'
 
 import { fonts } from '../galmuri/data'
 import style from '../style.scss?inline'
@@ -25,7 +26,7 @@ type CanvasContext = { fillStyle: any; fillRect: any }
 export const drawFont = worker$(
   async (
     type: 0 | 1,
-    fontName: string,
+    fontName: string | AsyncIterableIterator<string>,
     charset: string,
     options?: {
       linelimit?: number | null
@@ -41,11 +42,11 @@ export const drawFont = worker$(
     if (type === 0) {
       font = await $Font(
         fetchline(
-          `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
+          `https://cdn.jsdelivr.net/npm/galmuri/dist/${(fontName as string).replaceAll(' ', '-')}.bdf`,
         ),
       )
     } else {
-      font = await $Font(getline(fontName))
+      font = await $Font(fontName as AsyncIterableIterator<string>)
     }
 
     return font.draw(charset, options)
@@ -96,7 +97,7 @@ export default component$(() => {
         }
       }
 
-      let customCharset: string = ''
+      let customCharset = ''
       if (charsetCurrent.value === 'custom') {
         customCharset = formData.get('custom-charset') as string
 
@@ -182,7 +183,7 @@ export default component$(() => {
         yOff++
       }
 
-      let __charset: string = ''
+      let __charset = ''
       if (charsetCurrent.value === 'custom') {
         __charset = customCharset
       } else {
@@ -210,18 +211,26 @@ export default component$(() => {
         )
       }
 
-      let __type: 0 | 1 = 0
-      let __font: string = ''
+      let __type: 0 | 1
+      let __font: string | AsyncIterableIterator<string>
       if (fontCurrent.value === 'custom') {
         __type = 1
 
-        const reader = new FileReader()
-        reader.onload = async () => {
-          console.log(reader.result)
-          __font = reader.result as string
-        }
-        reader.readAsText(customFont)
+        // const reader = new FileReader()
+        // reader.onload = async () => {
+        //   console.log(reader.result)
+        //   __font = reader.result as string
+        // }
+        // reader.readAsText(customFont)
+
+        const fileStream = fileReaderStream(customFont)
+        const rl = readline.createInterface({
+          input: fileStream,
+          crlfDelay: Infinity,
+        })
+        __font = rl[Symbol.asyncIterator]()
       } else {
+        __type = 0
         __font = font
       }
 

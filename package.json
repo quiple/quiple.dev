@@ -49,6 +49,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-qwik": "^1.8.0",
     "fetchline": "^1.0.1",
+    "filereader-stream": "^2.0.0",
     "galmuri": "^2.39.4",
     "hast-util-to-html": "^9.0.1",
     "husky": "^9.1.4",
