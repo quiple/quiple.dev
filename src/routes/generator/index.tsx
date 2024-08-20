@@ -435,7 +435,7 @@ export default component$(() => {
               </div>
             </div>
             <div class="form-row">
-              <label class="left" for="shadow-use">
+              <label class="left" for="shadow-color">
                 그림자 색
               </label>
               <div class="right">
@@ -455,7 +455,7 @@ export default component$(() => {
               </div>
             </div>
             <div class="form-row">
-              <label class="left" for="shadow-use">
+              <label class="left" for="shadow-bottomright">
                 그림자 위치
               </label>
               <div class="right">
