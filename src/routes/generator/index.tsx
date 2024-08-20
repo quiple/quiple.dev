@@ -39,13 +39,14 @@ export const drawFont = worker$(
       ),
     )
 
-    return font.draw(charsets[charset], options)
+    return font.draw(charset, options)
   },
 )
 
 export default component$(() => {
   useStyles$(style)
   useStyles$(pageStyle)
+  const charsetCurrent = useSignal<string>()
   const canvas = useSignal<HTMLCanvasElement>()
   const drawButtonDisabled = useSignal<boolean>(false)
   const copyButton = useSignal<HTMLAnchorElement>()
@@ -74,6 +75,16 @@ export default component$(() => {
           formData.get('shadow-bottom') as string,
           formData.get('shadow-bottomright') as string,
         ]
+
+      let customCharset: string = ''
+      if (charsetCurrent.value === 'custom') {
+        customCharset = formData.get('custom-charset') as string
+
+        if (!customCharset) {
+          alert('사용자 지정 문자 집합을 입력하세요.')
+          return false
+        }
+      }
 
       if (!tileWidth || !tileHeight) {
         alert('타일 크기를 입력하세요.')
@@ -151,9 +162,16 @@ export default component$(() => {
         yOff++
       }
 
+      let __charset: string = ''
+      if (charsetCurrent.value === 'custom') {
+        __charset = customCharset
+      } else {
+        __charset = charsets[charset]
+      }
+
       const cvs = canvas.value!
       cvs.width = tileWidth * tileColumn
-      cvs.height = tileHeight * Math.ceil(charsets[charset].length / tileColumn)
+      cvs.height = tileHeight * Math.ceil(__charset.length / tileColumn)
       const ctx = cvs.getContext('2d')
       ctx!.reset()
       if (background !== '') {
@@ -162,17 +180,17 @@ export default component$(() => {
           0,
           0,
           tileWidth * tileColumn,
-          tileHeight * Math.floor(charsets[charset].length / tileColumn),
+          tileHeight * Math.floor(__charset.length / tileColumn),
         )
         ctx!.fillRect(
           0,
-          tileHeight * Math.floor(charsets[charset].length / tileColumn),
-          tileWidth * (charsets[charset].length % tileColumn),
-          tileHeight * Math.ceil(charsets[charset].length / tileColumn),
+          tileHeight * Math.floor(__charset.length / tileColumn),
+          tileWidth * (__charset.length % tileColumn),
+          tileHeight * Math.ceil(__charset.length / tileColumn),
         )
       }
 
-      let bitmap = await drawFont(font, charset, {
+      let bitmap = await drawFont(font, __charset, {
         mode: -1,
         bb: [tileWidth, tileHeight, -xOff, -(tileHeight - fontSize) + yOff],
         linelimit: tileWidth * tileColumn,
@@ -243,7 +261,12 @@ export default component$(() => {
                 문자 집합
               </label>
               <div class="right">
-                <select name="charset" id="charset">
+                <select
+                  name="charset"
+                  id="charset"
+                  onChange$={(event, target) =>
+                    (charsetCurrent.value = target.value)
+                  }>
                   <optgroup label="한글 음절">
                     <option value="set2350" selected>
                       2350자
@@ -255,11 +278,11 @@ export default component$(() => {
                   </optgroup>
                   <optgroup label="EUC-KR">
                     <option value="seteuckr">한자 제외</option>
-                    <option value="seteuckr2355">한자 제외 한글 2355자</option>
-                    <option value="seteuckr2780">한자 제외 한글 2780자</option>
-                    <option value="seteuckr4358">한자 제외 한글 4358자</option>
+                    <option value="seteuckr2355">한자 제외, 한글 2355자</option>
+                    <option value="seteuckr2780">한자 제외, 한글 2780자</option>
+                    <option value="seteuckr4358">한자 제외, 한글 4358자</option>
                     <option value="seteuckr11172">
-                      한자 제외 한글 11172자
+                      한자 제외, 한글 11172자
                     </option>
                   </optgroup>
                   <optgroup label="일본 한자">
@@ -270,9 +293,26 @@ export default component$(() => {
                       Unicode 순서 6355자
                     </option>
                   </optgroup>
+                  <optgroup>
+                    <option value="custom">직접 입력하기</option>
+                  </optgroup>
                 </select>
               </div>
             </div>
+            {charsetCurrent.value === 'custom' && (
+              <div class="form-row col">
+                <label class="left" for="custom-charset">
+                  사용자 지정 문자 집합
+                </label>
+                <div class="right">
+                  <textarea
+                    id="custom-charset"
+                    name="custom-charset"
+                    class="w-full"
+                  />
+                </div>
+              </div>
+            )}
             <div class="form-row">
               <label class="left" for="x-offset">
                 오프셋
