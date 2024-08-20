@@ -6,10 +6,12 @@ import {
   $Bitmap,
   $Font,
   type DirectionType,
+  type Font,
   type Glyph,
   type GlyphMeta,
 } from 'bdfparser'
 import fetchline from 'fetchline'
+import getline from 'readlineiter'
 
 import { fonts } from '../galmuri/data'
 import style from '../style.scss?inline'
@@ -22,6 +24,7 @@ type CanvasContext = { fillStyle: any; fillRect: any }
 
 export const drawFont = worker$(
   async (
+    type: 0 | 1,
     fontName: string,
     charset: string,
     options?: {
@@ -33,11 +36,17 @@ export const drawFont = worker$(
       bb?: [number, number, number, number] | null
     },
   ) => {
-    const font = await $Font(
-      fetchline(
-        `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
-      ),
-    )
+    let font: Font
+
+    if (type === 0) {
+      font = await $Font(
+        fetchline(
+          `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
+        ),
+      )
+    } else {
+      font = await $Font(getline(fontName))
+    }
 
     return font.draw(charset, options)
   },
@@ -46,6 +55,7 @@ export const drawFont = worker$(
 export default component$(() => {
   useStyles$(style)
   useStyles$(pageStyle)
+  const fontCurrent = useSignal<string>()
   const charsetCurrent = useSignal<string>()
   const canvas = useSignal<HTMLCanvasElement>()
   const drawButtonDisabled = useSignal<boolean>(false)
@@ -75,6 +85,16 @@ export default component$(() => {
           formData.get('shadow-bottom') as string,
           formData.get('shadow-bottomright') as string,
         ]
+
+      let customFont: File = new File([], '')
+      if (fontCurrent.value === 'custom') {
+        customFont = formData.get('custom-font') as File
+
+        if (!customFont.size) {
+          alert('사용자 지정 폰트를 업로드하세요.')
+          return false
+        }
+      }
 
       let customCharset: string = ''
       if (charsetCurrent.value === 'custom') {
@@ -190,7 +210,22 @@ export default component$(() => {
         )
       }
 
-      let bitmap = await drawFont(font, __charset, {
+      let __type: 0 | 1 = 0
+      let __font: string = ''
+      if (fontCurrent.value === 'custom') {
+        __type = 1
+
+        const reader = new FileReader()
+        reader.onload = async () => {
+          console.log(reader.result)
+          __font = reader.result as string
+        }
+        reader.readAsText(customFont)
+      } else {
+        __font = font
+      }
+
+      let bitmap = await drawFont(__type, __font, __charset, {
         mode: -1,
         bb: [tileWidth, tileHeight, -xOff, -(tileHeight - fontSize) + yOff],
         linelimit: tileWidth * tileColumn,
@@ -232,7 +267,7 @@ export default component$(() => {
 
   return (
     <main class="container mx-auto flex items-start gap-[20px] p-[20px]">
-      <aside class="sticky top-[20px] flex w-[22rem] flex-col gap-[20px]">
+      <aside class="sticky top-[20px] flex w-[24rem] flex-col gap-[20px]">
         <form
           class="flex flex-col gap-[10px]"
           preventdefault:submit
@@ -243,7 +278,12 @@ export default component$(() => {
                 폰트
               </label>
               <div class="right">
-                <select name="font" id="font">
+                <select
+                  id="font"
+                  name="font"
+                  onChange$={(event, target) => {
+                    fontCurrent.value = target.value
+                  }}>
                   {fonts.map((font) => (
                     <option
                       key={`option_${font.name.replaceAll(' ', '-')}`}
@@ -252,10 +292,25 @@ export default component$(() => {
                       {font.name}
                     </option>
                   ))}
-                  {/* <option value="customfont">직접 BDF 폰트 업로드</option> */}
+                  <option value="custom">사용자 지정 폰트 업로드</option>
                 </select>
               </div>
             </div>
+            {fontCurrent.value === 'custom' && (
+              <div class="form-row col">
+                <label class="left" for="custom-font">
+                  사용자 지정 폰트 (.bdf)
+                </label>
+                <div class="right">
+                  <input
+                    type="file"
+                    id="custom-font"
+                    name="custom-font"
+                    accept=".bdf"
+                  />
+                </div>
+              </div>
+            )}
             <div class="form-row">
               <label class="left" for="charset">
                 문자 집합
@@ -264,9 +319,9 @@ export default component$(() => {
                 <select
                   name="charset"
                   id="charset"
-                  onChange$={(event, target) =>
-                    (charsetCurrent.value = target.value)
-                  }>
+                  onChange$={(event, target) => {
+                    charsetCurrent.value = target.value
+                  }}>
                   <optgroup label="한글 음절">
                     <option value="set2350" selected>
                       2350자
@@ -294,7 +349,7 @@ export default component$(() => {
                     </option>
                   </optgroup>
                   <optgroup>
-                    <option value="custom">직접 입력하기</option>
+                    <option value="custom">사용자 지정 문자 집합 입력</option>
                   </optgroup>
                 </select>
               </div>
