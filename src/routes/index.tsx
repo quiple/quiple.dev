@@ -21,7 +21,7 @@ export default component$(() => {
         <ul>
           <li>
             <ExternalLink
-              text="과거 웹사이트"
+              text="이전 웹사이트"
               href="https://legacy.quiple.dev"
             />
           </li>
