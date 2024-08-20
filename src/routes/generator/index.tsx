@@ -11,10 +11,7 @@ import {
   type GlyphMeta,
 } from 'bdfparser'
 import fetchline from 'fetchline'
-import fileReaderStream from 'filereader-stream'
-import * as readline from 'readline'
 
-// import * as fs from 'fs'
 import { fonts } from '../galmuri/data'
 import style from '../style.scss?inline'
 import { charsets } from './charset'
@@ -23,6 +20,52 @@ import ExternalLink from '~/components/ExternalLink'
 import Spinner from '~/media/spinner.svg?jsx'
 
 type CanvasContext = { fillStyle: any; fillRect: any }
+
+const escapeRegExp = (s: string): string =>
+  s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
+
+export async function* fileToAsyncIterable(
+  file: File,
+): AsyncIterableIterator<string> {
+  const reader = file.stream().getReader()
+  const delimiter = /\r?\n/g
+
+  let { value: chunk, done: readerDone } = await reader.read()
+  const decoder = new TextDecoder('utf-8')
+  let chunkStr = chunk ? decoder.decode(chunk) : ''
+
+  let re: RegExp
+  if (typeof delimiter === 'string') {
+    if (delimiter === '') {
+      throw new Error('delimiter cannot be empty string!')
+    }
+    re = new RegExp(escapeRegExp(delimiter), 'g')
+  } else if (/g/.test(delimiter.flags) === false) {
+    re = new RegExp(delimiter.source, delimiter.flags + 'g')
+  } else {
+    re = delimiter
+  }
+
+  let startIndex = 0
+
+  while (true) {
+    const result = re.exec(chunkStr)
+    if (result === null) {
+      if (readerDone === true) {
+        break
+      }
+      const remainder = chunkStr.substring(startIndex)
+      ;({ value: chunk, done: readerDone } = await reader.read())
+      chunkStr = remainder + (chunkStr ? decoder.decode(chunk) : '')
+      startIndex = 0
+      continue
+    }
+    yield chunkStr.substring(startIndex, result.index)
+    startIndex = re.lastIndex
+  }
+
+  yield chunkStr.substring(startIndex)
+}
 
 export const drawFont = worker$(
   async (
@@ -216,23 +259,7 @@ export default component$(() => {
       let __font: string | AsyncIterableIterator<string>
       if (fontCurrent.value === 'custom') {
         __type = 1
-
-        // const reader = new FileReader()
-        // reader.onload = async () => {
-        //   console.log(reader.result)
-        //   __font = reader.result as string
-        // }
-        // reader.readAsText(customFont)
-
-        // const fileStream = fs.createReadStream(filepath, {
-        //   encoding: 'utf-8',
-        // })
-        const fileStream = fileReaderStream(customFont)
-        const rl = readline.createInterface({
-          input: fileStream,
-          crlfDelay: Infinity,
-        })
-        __font = rl[Symbol.asyncIterator]()
+        __font = fileToAsyncIterable(customFont)
       } else {
         __type = 0
         __font = font
