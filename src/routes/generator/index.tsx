@@ -6,7 +6,6 @@ import {
   $Bitmap,
   $Font,
   type DirectionType,
-  type Font,
   type Glyph,
   type GlyphMeta,
 } from 'bdfparser'
@@ -110,7 +109,6 @@ async function* fileToAsyncIterable(file: File): AsyncIterableIterator<string> {
 
 export const drawFont = worker$(
   async (
-    type: 0 | 1,
     fontName: string,
     charset: string,
     options?: {
@@ -122,18 +120,7 @@ export const drawFont = worker$(
       bb?: [number, number, number, number] | null
     },
   ) => {
-    let font: Font
-
-    if (type === 0) {
-      font = await $Font(
-        fetchline(
-          `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
-        ),
-      )
-    } else {
-      font = await $Font(fetchline(fontName))
-    }
-
+    const font = await $Font(fetchline(fontName))
     return font.draw(charset, options)
   },
 )
@@ -296,76 +283,63 @@ export default component$(() => {
         )
       }
 
-      let __type: 0 | 1
       let __font: string
-      const jsdelivr = 'https://cdn.jsdelivr.net/gh'
+      const jsdelivr = 'https://cdn.jsdelivr.net'
       switch (font) {
         case 'k6x8-gothic':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/k6x8/k6x8_gothic.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/k6x8/k6x8_gothic.bdf'
           yOff = yOff - 4
           break
         case 'k6x8-mincho':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/k6x8/k6x8_mincho.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/k6x8/k6x8_mincho.bdf'
           yOff = yOff - 4
           break
         case 'misaki-gothic':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/misaki/misaki_gothic.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/misaki/misaki_gothic.bdf'
           yOff = yOff - 5
           break
         case 'misaki-gothic-2nd':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/misaki/misaki_gothic_2nd.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/misaki/misaki_gothic_2nd.bdf'
           yOff = yOff - 4
           break
         case 'misaki-mincho':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/misaki/misaki_mincho.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/misaki/misaki_mincho.bdf'
           yOff = yOff - 5
           break
         case 'k8x12':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/k8x12/k8x12.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/k8x12/k8x12.bdf'
           yOff = yOff - 1
           break
         case 'k8x12l':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/k8x12/k8x12L.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/k8x12/k8x12L.bdf'
           yOff = yOff - 1
           break
         case 'k8x12s':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/k8x12/k8x12S.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/k8x12/k8x12S.bdf'
           yOff = yOff - 1
           break
         case 'k12x8':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/k12x8/k12x8.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/k12x8/k12x8.bdf'
           yOff = yOff - 4
           break
         case 'unifont':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/unifont/unifont.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/unifont/unifont.bdf'
           yOff = yOff + 2
           break
         case 'unifont_jp':
-          __type = 1
-          __font = jsdelivr + '/quiple/fonts/unifont/unifont_jp.bdf'
+          __font = jsdelivr + '/gh/quiple/fonts/unifont/unifont_jp.bdf'
           yOff = yOff + 2
           break
         case 'zpix':
-          __type = 1
-          __font = jsdelivr + '/SolidZORO/zpix-pixel-font/dist/zpix.bdf'
+          __font = jsdelivr + '/gh/SolidZORO/zpix-pixel-font/dist/zpix.bdf'
           break
         default:
-          __type = 0
-          __font = font
+          __font =
+            jsdelivr + `/npm/galmuri/dist/${font.replaceAll(' ', '-')}.bdf`
           break
       }
 
-      let bitmap = await drawFont(__type, __font, __charset, {
+      let bitmap = await drawFont(__font, __charset, {
         mode: -1,
         bb: [tileWidth, tileHeight, -xOff, -(tileHeight - fontSize) + yOff],
         linelimit: tileWidth * tileColumn,
