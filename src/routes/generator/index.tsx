@@ -262,39 +262,48 @@ export default component$(() => {
         case 'k6x8-gothic':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_gothic.bdf'
+          yOff = yOff - 4
           break
         case 'k6x8-mincho':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_mincho.bdf'
+          yOff = yOff - 4
           break
         case 'misaki-gothic':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic.bdf'
+          yOff = yOff - 4
           break
         case 'misaki-gothic-2nd':
           __type = 1
           __font =
             jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic_2nd.bdf'
+          yOff = yOff - 4
           break
         case 'misaki-mincho':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_mincho.bdf'
+          yOff = yOff - 4
           break
         case 'k8x12':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12.bdf'
+          yOff = yOff - 4
           break
         case 'k8x12l':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12L.bdf'
+          yOff = yOff - 4
           break
         case 'k8x12s':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12S.bdf'
+          yOff = yOff - 4
           break
         case 'k12x8':
           __type = 1
           __font = jsdelivr + '/quiple/kadoma-fonts/k12x8/k12x8.bdf'
+          yOff = yOff - 4
           break
         case 'zpix':
           __type = 1
