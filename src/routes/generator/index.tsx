@@ -6,6 +6,7 @@ import {
   $Bitmap,
   $Font,
   type DirectionType,
+  type Font,
   type Glyph,
   type GlyphMeta,
 } from 'bdfparser'
@@ -20,8 +21,55 @@ import Spinner from '~/media/spinner.svg?jsx'
 
 type CanvasContext = { fillStyle: any; fillRect: any }
 
+/*
+const escapeRegExp = (s: string): string =>
+  s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
+
+async function* fileToAsyncIterable(file: File): AsyncIterableIterator<string> {
+  const reader = file.stream().getReader()
+  const delimiter = /\r?\n/g
+
+  let { value: chunk, done: readerDone } = await reader.read()
+  const decoder = new TextDecoder('utf-8')
+  let chunkStr = chunk ? decoder.decode(chunk) : ''
+
+  let re: RegExp
+  if (typeof delimiter === 'string') {
+    if (delimiter === '') {
+      throw new Error('delimiter cannot be empty string!')
+    }
+    re = new RegExp(escapeRegExp(delimiter), 'g')
+  } else if (/g/.test(delimiter.flags) === false) {
+    re = new RegExp(delimiter.source, delimiter.flags + 'g')
+  } else {
+    re = delimiter
+  }
+
+  let startIndex = 0
+
+  while (true) {
+    const result = re.exec(chunkStr)
+    if (result === null) {
+      if (readerDone === true) {
+        break
+      }
+      const remainder = chunkStr.substring(startIndex)
+      ;({ value: chunk, done: readerDone } = await reader.read())
+      chunkStr = remainder + (chunkStr ? decoder.decode(chunk) : '')
+      startIndex = 0
+      continue
+    }
+    yield chunkStr.substring(startIndex, result.index)
+    startIndex = re.lastIndex
+  }
+
+  yield chunkStr.substring(startIndex)
+}
+*/
+
 export const drawFont = worker$(
   async (
+    type: 0 | 1,
     fontName: string,
     charset: string,
     options?: {
@@ -33,11 +81,17 @@ export const drawFont = worker$(
       bb?: [number, number, number, number] | null
     },
   ) => {
-    const font = await $Font(
-      fetchline(
-        `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
-      ),
-    )
+    let font: Font
+
+    if (type === 0) {
+      font = await $Font(
+        fetchline(
+          `https://cdn.jsdelivr.net/npm/galmuri/dist/${fontName.replaceAll(' ', '-')}.bdf`,
+        ),
+      )
+    } else {
+      font = await $Font(fetchline(fontName))
+    }
 
     return font.draw(charset, options)
   },
@@ -46,6 +100,7 @@ export const drawFont = worker$(
 export default component$(() => {
   useStyles$(style)
   useStyles$(pageStyle)
+  const fontCurrent = useSignal<string>()
   const charsetCurrent = useSignal<string>()
   const canvas = useSignal<HTMLCanvasElement>()
   const drawButtonDisabled = useSignal<boolean>(false)
@@ -76,7 +131,17 @@ export default component$(() => {
           formData.get('shadow-bottomright') as string,
         ]
 
-      let customCharset: string = ''
+      let customFont: File = new File([], '')
+      if (fontCurrent.value === 'custom') {
+        customFont = formData.get('custom-font') as File
+
+        if (!customFont.size) {
+          alert('사용자 지정 폰트를 업로드하세요.')
+          return false
+        }
+      }
+
+      let customCharset = ''
       if (charsetCurrent.value === 'custom') {
         customCharset = formData.get('custom-charset') as string
 
@@ -162,7 +227,7 @@ export default component$(() => {
         yOff++
       }
 
-      let __charset: string = ''
+      let __charset = ''
       if (charsetCurrent.value === 'custom') {
         __charset = customCharset
       } else {
@@ -190,7 +255,67 @@ export default component$(() => {
         )
       }
 
-      let bitmap = await drawFont(font, __charset, {
+      let __type: 0 | 1
+      let __font: string
+      const jsdelivr = 'https://cdn.jsdelivr.net/gh'
+      switch (font) {
+        case 'k6x8-gothic':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_gothic.bdf'
+          yOff = yOff - 4
+          break
+        case 'k6x8-mincho':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_mincho.bdf'
+          yOff = yOff - 4
+          break
+        case 'misaki-gothic':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic.bdf'
+          yOff = yOff - 4
+          break
+        case 'misaki-gothic-2nd':
+          __type = 1
+          __font =
+            jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic_2nd.bdf'
+          yOff = yOff - 4
+          break
+        case 'misaki-mincho':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_mincho.bdf'
+          yOff = yOff - 4
+          break
+        case 'k8x12':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12.bdf'
+          yOff = yOff - 4
+          break
+        case 'k8x12l':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12L.bdf'
+          yOff = yOff - 4
+          break
+        case 'k8x12s':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12S.bdf'
+          yOff = yOff - 4
+          break
+        case 'k12x8':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k12x8/k12x8.bdf'
+          yOff = yOff - 4
+          break
+        case 'zpix':
+          __type = 1
+          __font = jsdelivr + '/SolidZORO/zpix-pixel-font/dist/zpix.bdf'
+          break
+        default:
+          __type = 0
+          __font = font
+          break
+      }
+
+      let bitmap = await drawFont(__type, __font, __charset, {
         mode: -1,
         bb: [tileWidth, tileHeight, -xOff, -(tileHeight - fontSize) + yOff],
         linelimit: tileWidth * tileColumn,
@@ -229,10 +354,13 @@ export default component$(() => {
   const overrideNumber = $((event: any, target: HTMLInputElement) => {
     target.value = target.value.replaceAll(/\D/g, '')
   })
+  const overrideNumberMinus = $((event: any, target: HTMLInputElement) => {
+    target.value = target.value.replaceAll(/[^\d-]/g, '')
+  })
 
   return (
-    <main class="container mx-auto flex items-start gap-[20px] p-[20px]">
-      <aside class="sticky top-[20px] flex w-[22rem] flex-col gap-[20px]">
+    <main class="container mx-auto flex flex-col-reverse lg:flex-row items-start gap-[20px] p-[20px]">
+      <aside class="sticky top-[20px] flex lg:w-[24rem] flex-col gap-[20px]">
         <form
           class="flex flex-col gap-[10px]"
           preventdefault:submit
@@ -243,19 +371,57 @@ export default component$(() => {
                 폰트
               </label>
               <div class="right">
-                <select name="font" id="font">
-                  {fonts.map((font) => (
-                    <option
-                      key={`option_${font.name.replaceAll(' ', '-')}`}
-                      value={font.name.replaceAll(' ', '-')}
-                      selected={font.name === 'Galmuri11' ? true : false}>
-                      {font.name}
+                <select
+                  id="font"
+                  name="font"
+                  onChange$={(event, target) => {
+                    fontCurrent.value = target.value
+                  }}>
+                  <optgroup label="Galmuri">
+                    {fonts.map((font) => (
+                      <option
+                        key={`option_${font.name.replaceAll(' ', '-')}`}
+                        value={font.name.replaceAll(' ', '-')}
+                        selected={font.name === 'Galmuri11' ? true : false}>
+                        {font.name} ({font.size}px)
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Num Kadoma">
+                    <option value="k6x8-gothic">k6x8 Gothic (8px)</option>
+                    <option value="k6x8-mincho">k6x8 Mincho (8px)</option>
+                    <option value="misaki-gothic">Misaki Gothic (8px)</option>
+                    <option value="misaki-gothic-2nd">
+                      Misaki Gothic 2nd (8px)
                     </option>
-                  ))}
-                  {/* <option value="customfont">직접 BDF 폰트 업로드</option> */}
+                    <option value="misaki-mincho">Misaki Mincho (8px)</option>
+                    <option value="k8x12">k8x12 (12px)</option>
+                    <option value="k8x12l">k8x12L (12px)</option>
+                    <option value="k8x12s">k8x12S (12px)</option>
+                    <option value="k12x8">k12x8 (8px)</option>
+                  </optgroup>
+                  <optgroup>
+                    <option value="zpix">Zpix (12px)</option>
+                  </optgroup>
+                  {/* <option value="custom">사용자 지정 폰트 업로드</option> */}
                 </select>
               </div>
             </div>
+            {fontCurrent.value === 'custom' && (
+              <div class="form-row col">
+                <label class="left" for="custom-font">
+                  사용자 지정 폰트 (.bdf)
+                </label>
+                <div class="right">
+                  <input
+                    type="file"
+                    id="custom-font"
+                    name="custom-font"
+                    accept=".bdf"
+                  />
+                </div>
+              </div>
+            )}
             <div class="form-row">
               <label class="left" for="charset">
                 문자 집합
@@ -264,9 +430,9 @@ export default component$(() => {
                 <select
                   name="charset"
                   id="charset"
-                  onChange$={(event, target) =>
-                    (charsetCurrent.value = target.value)
-                  }>
+                  onChange$={(event, target) => {
+                    charsetCurrent.value = target.value
+                  }}>
                   <optgroup label="한글 음절">
                     <option value="set2350" selected>
                       2350자
@@ -294,7 +460,7 @@ export default component$(() => {
                     </option>
                   </optgroup>
                   <optgroup>
-                    <option value="custom">직접 입력하기</option>
+                    <option value="custom">사용자 지정 문자 집합 입력</option>
                   </optgroup>
                 </select>
               </div>
@@ -324,10 +490,10 @@ export default component$(() => {
                   class="tabular-nums"
                   type="number"
                   value="0"
-                  onKeyDown$={overrideNumber}
-                  onKeyPress$={overrideNumber}
-                  onKeyUp$={overrideNumber}
-                  onBlur$={overrideNumber}
+                  onKeyDown$={overrideNumberMinus}
+                  onKeyPress$={overrideNumberMinus}
+                  onKeyUp$={overrideNumberMinus}
+                  onBlur$={overrideNumberMinus}
                 />
                 ,{' '}
                 <input
@@ -336,10 +502,10 @@ export default component$(() => {
                   class="tabular-nums"
                   type="number"
                   value="0"
-                  onKeyDown$={overrideNumber}
-                  onKeyPress$={overrideNumber}
-                  onKeyUp$={overrideNumber}
-                  onBlur$={overrideNumber}
+                  onKeyDown$={overrideNumberMinus}
+                  onKeyPress$={overrideNumberMinus}
+                  onKeyUp$={overrideNumberMinus}
+                  onBlur$={overrideNumberMinus}
                 />
               </div>
             </div>
@@ -645,12 +811,12 @@ export default component$(() => {
           <p>&copy; 2024 Lee Minseo</p>
         </article>
       </aside>
-      <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50">
+      <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50 min-h-40">
         <canvas id="preview" class="hidden max-w-full" ref={canvas} />
         {drawButtonDisabled.value ? (
           <Spinner height="2em" class="stroke-current" />
         ) : (
-          <span class="canvas-placeholder">
+          <span class="canvas-placeholder m-4">
             폰트 이미지를 만들려면 조건을 설정하고 만들기 버튼을 누르세요.
           </span>
         )}

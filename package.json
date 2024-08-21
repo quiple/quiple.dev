@@ -51,7 +51,7 @@
     "fetchline": "^1.0.1",
     "galmuri": "^2.39.4",
     "hast-util-to-html": "^9.0.1",
-    "husky": "^9.1.4",
+    "husky": "^9.1.5",
     "inter-ui": "^4.0.2",
     "lint-staged": "^15.2.9",
     "postcss": "^8.4.41",
@@ -59,6 +59,7 @@
     "prettier-plugin-tailwindcss": "^0.6.6",
     "prism-themes": "^1.9.0",
     "qwik-blurhash": "^0.0.4",
+    "readline": "^1.3.0",
     "readlineiter": "^1.0.1",
     "refractor": "^4.8.1",
     "sass": "^1.77.8",
@@ -66,7 +67,7 @@
     "typescript": "5.5.4",
     "undici": "^6.19.8",
     "vercel": "^36.0.0",
-    "vite": "^5.4.1",
+    "vite": "^5.4.2",
     "vite-tsconfig-paths": "^5.0.1"
   },
   "lint-staged": {
