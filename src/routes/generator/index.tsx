@@ -21,6 +21,7 @@ import Spinner from '~/media/spinner.svg?jsx'
 
 type CanvasContext = { fillStyle: any; fillRect: any }
 
+/*
 const escapeRegExp = (s: string): string =>
   s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
 
@@ -64,6 +65,7 @@ async function* fileToAsyncIterable(file: File): AsyncIterableIterator<string> {
 
   yield chunkStr.substring(startIndex)
 }
+*/
 
 export const drawFont = worker$(
   async (
@@ -88,7 +90,7 @@ export const drawFont = worker$(
         ),
       )
     } else {
-      font = await $Font(fileToAsyncIterable(fontName))
+      font = await $Font(fetchline(fontName))
     }
 
     return font.draw(charset, options)
@@ -255,14 +257,53 @@ export default component$(() => {
 
       let __type: 0 | 1
       let __font: string
-      if (fontCurrent.value === 'custom') {
-        __type = 1
-        __font = JSON.stringify(customFont)
-        console.log(customFont)
-        console.log(__font)
-      } else {
-        __type = 0
-        __font = font
+      const jsdelivr = 'https://cdn.jsdelivr.net/gh'
+      switch (font) {
+        case 'k6x8-gothic':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_gothic.bdf'
+          break
+        case 'k6x8-mincho':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_mincho.bdf'
+          break
+        case 'misaki-gothic':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic.bdf'
+          break
+        case 'misaki-gothic-2nd':
+          __type = 1
+          __font =
+            jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic_2nd.bdf'
+          break
+        case 'misaki-mincho':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_mincho.bdf'
+          break
+        case 'k8x12':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12.bdf'
+          break
+        case 'k8x12l':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12L.bdf'
+          break
+        case 'k8x12s':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12S.bdf'
+          break
+        case 'k12x8':
+          __type = 1
+          __font = jsdelivr + '/quiple/kadoma-fonts/k12x8/k12x8.bdf'
+          break
+        case 'zpix':
+          __type = 1
+          __font = jsdelivr + '/SolidZORO/zpix-pixel-font/dist/zpix.bdf'
+          break
+        default:
+          __type = 0
+          __font = font
+          break
       }
 
       let bitmap = await drawFont(__type, __font, __charset, {
@@ -304,10 +345,13 @@ export default component$(() => {
   const overrideNumber = $((event: any, target: HTMLInputElement) => {
     target.value = target.value.replaceAll(/\D/g, '')
   })
+  const overrideNumberMinus = $((event: any, target: HTMLInputElement) => {
+    target.value = target.value.replaceAll(/[^\d-]/g, '')
+  })
 
   return (
-    <main class="container mx-auto flex items-start gap-[20px] p-[20px]">
-      <aside class="sticky top-[20px] flex w-[24rem] flex-col gap-[20px]">
+    <main class="container mx-auto flex flex-col-reverse lg:flex-row items-start gap-[20px] p-[20px]">
+      <aside class="sticky top-[20px] flex lg:w-[24rem] flex-col gap-[20px]">
         <form
           class="flex flex-col gap-[10px]"
           preventdefault:submit
@@ -324,15 +368,33 @@ export default component$(() => {
                   onChange$={(event, target) => {
                     fontCurrent.value = target.value
                   }}>
-                  {fonts.map((font) => (
-                    <option
-                      key={`option_${font.name.replaceAll(' ', '-')}`}
-                      value={font.name.replaceAll(' ', '-')}
-                      selected={font.name === 'Galmuri11' ? true : false}>
-                      {font.name}
+                  <optgroup label="Galmuri">
+                    {fonts.map((font) => (
+                      <option
+                        key={`option_${font.name.replaceAll(' ', '-')}`}
+                        value={font.name.replaceAll(' ', '-')}
+                        selected={font.name === 'Galmuri11' ? true : false}>
+                        {font.name} ({font.size}px)
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Num Kadoma">
+                    <option value="k6x8-gothic">k6x8 Gothic (8px)</option>
+                    <option value="k6x8-mincho">k6x8 Mincho (8px)</option>
+                    <option value="misaki-gothic">Misaki Gothic (8px)</option>
+                    <option value="misaki-gothic-2nd">
+                      Misaki Gothic 2nd (8px)
                     </option>
-                  ))}
-                  <option value="custom">사용자 지정 폰트 업로드</option>
+                    <option value="misaki-mincho">Misaki Mincho (8px)</option>
+                    <option value="k8x12">k8x12 (12px)</option>
+                    <option value="k8x12l">k8x12L (12px)</option>
+                    <option value="k8x12s">k8x12S (12px)</option>
+                    <option value="k12x8">k12x8 (8px)</option>
+                  </optgroup>
+                  <optgroup>
+                    <option value="zpix">Zpix (12px)</option>
+                  </optgroup>
+                  {/* <option value="custom">사용자 지정 폰트 업로드</option> */}
                 </select>
               </div>
             </div>
@@ -419,10 +481,10 @@ export default component$(() => {
                   class="tabular-nums"
                   type="number"
                   value="0"
-                  onKeyDown$={overrideNumber}
-                  onKeyPress$={overrideNumber}
-                  onKeyUp$={overrideNumber}
-                  onBlur$={overrideNumber}
+                  onKeyDown$={overrideNumberMinus}
+                  onKeyPress$={overrideNumberMinus}
+                  onKeyUp$={overrideNumberMinus}
+                  onBlur$={overrideNumberMinus}
                 />
                 ,{' '}
                 <input
@@ -431,10 +493,10 @@ export default component$(() => {
                   class="tabular-nums"
                   type="number"
                   value="0"
-                  onKeyDown$={overrideNumber}
-                  onKeyPress$={overrideNumber}
-                  onKeyUp$={overrideNumber}
-                  onBlur$={overrideNumber}
+                  onKeyDown$={overrideNumberMinus}
+                  onKeyPress$={overrideNumberMinus}
+                  onKeyUp$={overrideNumberMinus}
+                  onBlur$={overrideNumberMinus}
                 />
               </div>
             </div>
@@ -740,12 +802,12 @@ export default component$(() => {
           <p>&copy; 2024 Lee Minseo</p>
         </article>
       </aside>
-      <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50">
+      <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50 min-h-40">
         <canvas id="preview" class="hidden max-w-full" ref={canvas} />
         {drawButtonDisabled.value ? (
           <Spinner height="2em" class="stroke-current" />
         ) : (
-          <span class="canvas-placeholder">
+          <span class="canvas-placeholder m-4">
             폰트 이미지를 만들려면 조건을 설정하고 만들기 버튼을 누르세요.
           </span>
         )}
