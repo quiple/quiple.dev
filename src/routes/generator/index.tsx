@@ -328,17 +328,17 @@ export default component$(() => {
         case 'k8x12':
           __type = 1
           __font = jsdelivr + '/quiple/fonts/k8x12/k8x12.bdf'
-          yOff = yOff - 4
+          yOff = yOff - 1
           break
         case 'k8x12l':
           __type = 1
           __font = jsdelivr + '/quiple/fonts/k8x12/k8x12L.bdf'
-          yOff = yOff - 4
+          yOff = yOff - 1
           break
         case 'k8x12s':
           __type = 1
           __font = jsdelivr + '/quiple/fonts/k8x12/k8x12S.bdf'
-          yOff = yOff - 4
+          yOff = yOff - 1
           break
         case 'k12x8':
           __type = 1
@@ -535,8 +535,22 @@ export default component$(() => {
                 <div class="right">
                   <textarea
                     id="charset-preview"
-                    class="w-full min-h-20"
+                    class="w-full min-h-20 break-all"
                     value={loadCharset(charsetCurrent.value)}
+                    lang={
+                      [
+                        'jis2965',
+                        'jis6355',
+                        'unicode2965',
+                        'unicode6355',
+                        'shiftjis',
+                        'shiftjis_level1',
+                      ].some((charset) =>
+                        charsetCurrent.value.startsWith(charset),
+                      )
+                        ? 'ja'
+                        : 'ko'
+                    }
                     onClick$={(event, target) => target.select()}
                     readOnly
                   />
@@ -913,7 +927,7 @@ export default component$(() => {
           </p>
         </article>
       </aside>
-      <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50 min-h-40">
+      <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50 min-h-40 rounded-md">
         <canvas id="preview" class="hidden max-w-full" ref={canvas} />
         {drawButtonDisabled.value ? (
           <Spinner height="2em" class="stroke-current" />
