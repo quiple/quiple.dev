@@ -101,7 +101,7 @@ export default component$(() => {
   useStyles$(style)
   useStyles$(pageStyle)
   const fontCurrent = useSignal<string>()
-  const charsetCurrent = useSignal<string>()
+  const charsetCurrent = useSignal<string>('set2350')
   const canvas = useSignal<HTMLCanvasElement>()
   const drawButtonDisabled = useSignal<boolean>(false)
   const copyButton = useSignal<HTMLAnchorElement>()
@@ -459,15 +459,29 @@ export default component$(() => {
                       Unicode 순서 6355자
                     </option>
                   </optgroup>
-                  <optgroup>
+                  {/* <optgroup>
                     <option value="shiftjis">Shift_JIS</option>
-                  </optgroup>
+                  </optgroup> */}
                   <optgroup>
                     <option value="custom">사용자 지정 문자 집합 입력</option>
                   </optgroup>
                 </select>
               </div>
             </div>
+            {charsetCurrent.value !== 'custom' && (
+              <div class="form-row col">
+                <label class="left">문자 집합 미리보기</label>
+                <div class="right">
+                  <textarea
+                    id="charset-preview"
+                    class="w-full min-h-20"
+                    value={charsets[charsetCurrent.value]}
+                    onClick$={(event, target) => target.select()}
+                    readOnly
+                  />
+                </div>
+              </div>
+            )}
             {charsetCurrent.value === 'custom' && (
               <div class="form-row col">
                 <label class="left" for="custom-charset">
@@ -477,7 +491,7 @@ export default component$(() => {
                   <textarea
                     id="custom-charset"
                     name="custom-charset"
-                    class="w-full"
+                    class="w-full min-h-20"
                   />
                 </div>
               </div>
@@ -807,10 +821,14 @@ export default component$(() => {
                 </li>
               </ul>
             </li>
-            <li>
-              Shift_JIS: JIS X 0201과 JIS X 0208을 포함하는 문자 집합. 라틴
-              문자와 기호 등을 포함합니다.
-            </li>
+            {/* <li>
+              <ExternalLink
+                text="Shift_JIS"
+                href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/SHIFTJIS.TXT"
+              />
+              : JIS X 0201과 JIS X 0208을 포함하는 문자 집합. 라틴 문자와 기호
+              등을 포함합니다.
+            </li> */}
           </ul>
           <p>Galmuri7은 한글 음절 11172자를 지원하지 않습니다.</p>
           <p>
