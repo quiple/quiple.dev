@@ -313,7 +313,7 @@ export default component$(() => {
         case 'misaki-gothic':
           __type = 1
           __font = jsdelivr + '/quiple/fonts/misaki/misaki_gothic.bdf'
-          yOff = yOff - 4
+          yOff = yOff - 5
           break
         case 'misaki-gothic-2nd':
           __type = 1
@@ -323,7 +323,7 @@ export default component$(() => {
         case 'misaki-mincho':
           __type = 1
           __font = jsdelivr + '/quiple/fonts/misaki/misaki_mincho.bdf'
-          yOff = yOff - 4
+          yOff = yOff - 5
           break
         case 'k8x12':
           __type = 1
