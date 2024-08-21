@@ -14,12 +14,45 @@ import fetchline from 'fetchline'
 
 import { fonts } from '../galmuri/data'
 import style from '../style.scss?inline'
-import { charsets } from './charset'
+import { hangul } from './hangul'
+import { hanja } from './hanja'
+import { japanese } from './japanese'
+import { kanji } from './kanji'
+import { korean } from './korean'
 import pageStyle from './style.scss?inline'
 import ExternalLink from '~/components/ExternalLink'
 import Spinner from '~/media/spinner.svg?jsx'
 
 type CanvasContext = { fillStyle: any; fillRect: any }
+
+const loadCharset = (charset: string) => {
+  switch (charset) {
+    case 'ks4888':
+      return hanja.ks4888
+    case 'unicode4888':
+      return hanja.unicode4888
+    case 'jis6355':
+      return kanji.jis6355
+    case 'unicode6355':
+      return kanji.unicode6355
+    case 'euckr':
+      return korean.restOfEuckr + hangul.set2350 + hanja.ks4888
+    case 'euckrWoHanja':
+      return korean.restOfEuckr + hangul.set2350
+    case 'euckrWoHanja2355':
+      return korean.restOfEuckr + hangul.set2355
+    case 'euckrWoHanja2780':
+      return korean.restOfEuckr + hangul.set2780
+    case 'euckrWoHanja4358':
+      return korean.restOfEuckr + hangul.set4358
+    case 'euckrWoHanja11172':
+      return korean.restOfEuckr + hangul.set11172
+    case 'shiftjis':
+      return japanese.restOfShiftjis + kanji.jis6355
+    default:
+      return hangul[charset]
+  }
+}
 
 /*
 const escapeRegExp = (s: string): string =>
@@ -231,7 +264,7 @@ export default component$(() => {
       if (charsetCurrent.value === 'custom') {
         __charset = customCharset
       } else {
-        __charset = charsets[charset]
+        __charset = loadCharset(charset)
       }
 
       const cvs = canvas.value!
@@ -401,7 +434,7 @@ export default component$(() => {
                     <option value="k8x12s" label="k8x12S (12px)" />
                     <option value="k12x8" label="k12x8 (8px)" />
                   </optgroup>
-                  <optgroup>
+                  <optgroup label="기타">
                     <option value="zpix" label="Zpix (12px)" />
                   </optgroup>
                   {/* <option value="custom">사용자 지정 폰트 업로드</option> */}
@@ -443,25 +476,31 @@ export default component$(() => {
                     <option value="set4358">4358자</option>
                     <option value="set11172">11172자</option>
                   </optgroup>
+                  <optgroup label="한자">
+                    <option value="ks4888">KS 순서 4888자</option>
+                    <option value="unicode4888">Unicode 순서 4888자</option>
+                    <option value="jis6355">JIS 순서 6355자</option>
+                    <option value="unicode6355">Unicode 순서 6355자</option>
+                  </optgroup>
                   <optgroup label="EUC-KR">
-                    <option value="seteuckrhanja">한자 포함</option>
-                    <option value="seteuckr">한자 제외</option>
-                    <option value="seteuckr2355">한자 제외, 한글 2355자</option>
-                    <option value="seteuckr2780">한자 제외, 한글 2780자</option>
-                    <option value="seteuckr4358">한자 제외, 한글 4358자</option>
-                    <option value="seteuckr11172">
+                    <option value="euckr">EUC-KR</option>
+                    <option value="euckrWoHanja">한자 제외</option>
+                    <option value="euckrWoHanja2355">
+                      한자 제외, 한글 2355자
+                    </option>
+                    <option value="euckrWoHanja2780">
+                      한자 제외, 한글 2780자
+                    </option>
+                    <option value="euckrWoHanja4358">
+                      한자 제외, 한글 4358자
+                    </option>
+                    <option value="euckrWoHanja11172">
                       한자 제외, 한글 11172자
                     </option>
                   </optgroup>
-                  <optgroup label="일본 한자">
-                    <option value="setKanji6355jis">JIS 순서 6355자</option>
-                    <option value="setKanji6355unicode">
-                      Unicode 순서 6355자
-                    </option>
-                  </optgroup>
-                  {/* <optgroup>
+                  <optgroup label="Shift_JIS">
                     <option value="shiftjis">Shift_JIS</option>
-                  </optgroup> */}
+                  </optgroup>
                   <optgroup>
                     <option value="custom">사용자 지정 문자 집합 입력</option>
                   </optgroup>
@@ -475,7 +514,7 @@ export default component$(() => {
                   <textarea
                     id="charset-preview"
                     class="w-full min-h-20"
-                    value={charsets[charsetCurrent.value]}
+                    value={loadCharset(charsetCurrent.value)}
                     onClick$={(event, target) => target.select()}
                     readOnly
                   />
