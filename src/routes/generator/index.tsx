@@ -31,8 +31,12 @@ const loadCharset = (charset: string) => {
       return hanja.ks4888
     case 'unicode4888':
       return hanja.unicode4888
+    case 'jis2965':
+      return kanji.jisX0208_level1
     case 'jis6355':
-      return kanji.jis6355
+      return kanji.jisX0208_level1 + kanji.jisX0208_level2
+    case 'unicode2965':
+      return kanji.unicode2965
     case 'unicode6355':
       return kanji.unicode6355
     case 'euckr':
@@ -48,7 +52,11 @@ const loadCharset = (charset: string) => {
     case 'euckrWoHanja11172':
       return korean.restOfEuckr + hangul.set11172
     case 'shiftjis':
-      return japanese.restOfShiftjis + kanji.jis6355
+      return (
+        japanese.restOfShiftjis + kanji.jisX0208_level1 + kanji.jisX0208_level2
+      )
+    case 'shiftjis_level1':
+      return japanese.restOfShiftjis + kanji.jisX0208_level1
     default:
       return hangul[charset]
   }
@@ -479,7 +487,9 @@ export default component$(() => {
                   <optgroup label="한자">
                     <option value="ks4888">KS 순서 4888자</option>
                     <option value="unicode4888">Unicode 순서 4888자</option>
+                    <option value="jis2965">JIS 순서 2965자</option>
                     <option value="jis6355">JIS 순서 6355자</option>
+                    <option value="unicode2965">Unicode 순서 2965자</option>
                     <option value="unicode6355">Unicode 순서 6355자</option>
                   </optgroup>
                   <optgroup label="EUC-KR">
@@ -500,6 +510,7 @@ export default component$(() => {
                   </optgroup>
                   <optgroup label="Shift_JIS">
                     <option value="shiftjis">Shift_JIS</option>
+                    <option value="shiftjis_level1">제1수준 한자만 포함</option>
                   </optgroup>
                   <optgroup>
                     <option value="custom">사용자 지정 문자 집합 입력</option>
@@ -812,12 +823,7 @@ export default component$(() => {
                   의 모든 한글 음절. KS X 1001의 2350자를 포함합니다.
                 </li>
                 <li>
-                  4358자: Adobe-KR-0과{' '}
-                  <ExternalLink
-                    text="Adobe-KR-1"
-                    href="https://github.com/adobe-type-tools/Adobe-KR"
-                  />
-                  의 모든 한글 음절. KS X 1001,{' '}
+                  4358자: Adobe-KR-0과 Adobe-KR-1의 모든 한글 음절. KS X 1001,{' '}
                   <ExternalLink
                     text="KS X 1002"
                     href="https://en.wikipedia.org/wiki/KS_X_1002"
@@ -838,36 +844,57 @@ export default component$(() => {
               </ul>
             </li>
             <li>
-              EUC-KR: KS X 1001과 KS X 1003을 포함하는 문자 집합. 라틴 문자와
-              기호, 한자 등을 포함합니다.
+              한자
               <ul>
                 <li>
-                  한자 포함: EUC-KR의 한자 4888자를 그대로 포함하는 문자 집합.
+                  KS 4888자:{' '}
+                  <ExternalLink
+                    text="KS X 1001"
+                    href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/KSC/KSX1001.TXT"
+                  />
+                  의 모든 한자.
+                </li>
+                <li>
+                  JIS 2965자:{' '}
+                  <ExternalLink
+                    text="JIS X 0208"
+                    href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0208.TXT"
+                  />
+                  의 제1수준 한자.
+                </li>
+                <li>
+                  JIS 6355자: JIS X 0208의 제1수준과 제2수준을 합한 모든 한자.
+                </li>
+              </ul>
+            </li>
+            <li>
+              EUC-KR
+              <ul>
+                <li>
+                  EUC-KR: KS X 1001과 KS X 1003을 포함하는 문자 집합. 라틴
+                  문자와 기호, 한자 등을 포함합니다.
                 </li>
                 <li>한자 제외: EUC-KR에서 한자를 제외한 문자 집합.</li>
               </ul>
             </li>
             <li>
-              일본 한자
+              Shift_JIS
               <ul>
                 <li>
-                  6355자:{' '}
+                  Shift_JIS:{' '}
                   <ExternalLink
-                    text="JIS X 0208"
-                    href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0208.TXT"
+                    text="JIS X 0201"
+                    href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT"
                   />
-                  의 모든 한자.
+                  과 JIS X 0208을 포함하는 문자 집합. 라틴 문자와 기호 등을
+                  포함합니다.
+                </li>
+                <li>
+                  제1수준 한자만 포함: Shift_JIS에서 JIS X 0208의 제2수준 한자
+                  3390자를 제외한 문자 집합.
                 </li>
               </ul>
             </li>
-            {/* <li>
-              <ExternalLink
-                text="Shift_JIS"
-                href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/SHIFTJIS.TXT"
-              />
-              : JIS X 0201과 JIS X 0208을 포함하는 문자 집합. 라틴 문자와 기호
-              등을 포함합니다.
-            </li> */}
           </ul>
           <p>Galmuri7은 한글 음절 11172자를 지원하지 않습니다.</p>
           <p>
