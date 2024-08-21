@@ -382,26 +382,27 @@ export default component$(() => {
                       <option
                         key={`option_${font.name.replaceAll(' ', '-')}`}
                         value={font.name.replaceAll(' ', '-')}
-                        selected={font.name === 'Galmuri11' ? true : false}>
-                        {font.name} ({font.size}px)
-                      </option>
+                        selected={font.name === 'Galmuri11' ? true : false}
+                        label={`${font.name} (${font.size}px)`}
+                      />
                     ))}
                   </optgroup>
                   <optgroup label="Num Kadoma">
-                    <option value="k6x8-gothic">k6x8 Gothic (8px)</option>
-                    <option value="k6x8-mincho">k6x8 Mincho (8px)</option>
-                    <option value="misaki-gothic">Misaki Gothic (8px)</option>
-                    <option value="misaki-gothic-2nd">
-                      Misaki Gothic 2nd (8px)
-                    </option>
-                    <option value="misaki-mincho">Misaki Mincho (8px)</option>
-                    <option value="k8x12">k8x12 (12px)</option>
-                    <option value="k8x12l">k8x12L (12px)</option>
-                    <option value="k8x12s">k8x12S (12px)</option>
-                    <option value="k12x8">k12x8 (8px)</option>
+                    <option value="k6x8-gothic" label="k6x8 Gothic (8px)" />
+                    <option value="k6x8-mincho" label="k6x8 Mincho (8px)" />
+                    <option value="misaki-gothic" label="Misaki Gothic (8px)" />
+                    <option
+                      value="misaki-gothic-2nd"
+                      label="Misaki Gothic 2nd (8px)"
+                    />
+                    <option value="misaki-mincho" label="Misaki Mincho (8px)" />
+                    <option value="k8x12" label="k8x12 (12px)" />
+                    <option value="k8x12l" label="k8x12L (12px)" />
+                    <option value="k8x12s" label="k8x12S (12px)" />
+                    <option value="k12x8" label="k12x8 (8px)" />
                   </optgroup>
                   <optgroup>
-                    <option value="zpix">Zpix (12px)</option>
+                    <option value="zpix" label="Zpix (12px)" />
                   </optgroup>
                   {/* <option value="custom">사용자 지정 폰트 업로드</option> */}
                 </select>
@@ -452,9 +453,7 @@ export default component$(() => {
                     </option>
                   </optgroup>
                   <optgroup label="일본 한자">
-                    <option value="setKanji6355sjis">
-                      Shift_JIS 순서 6355자
-                    </option>
+                    <option value="setKanji6355sjis">JIS 순서 6355자</option>
                     <option value="setKanji6355unicode">
                       Unicode 순서 6355자
                     </option>
@@ -796,8 +795,8 @@ export default component$(() => {
                 <li>
                   6355자:{' '}
                   <ExternalLink
-                    text="Shift_JIS"
-                    href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/SHIFTJIS.TXT"
+                    text="JIS X 0208"
+                    href="https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0208.TXT"
                   />
                   의 모든 한자.
                 </li>
