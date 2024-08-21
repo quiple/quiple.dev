@@ -464,41 +464,48 @@ export default component$(() => {
                     <option value="set2350" selected>
                       2350자
                     </option>
-                    <option value="set2355">2355자</option>
-                    <option value="set2780">2780자</option>
-                    <option value="set4358">4358자</option>
-                    <option value="set11172">11172자</option>
+                    <option value="set2355" label="2355자" />
+                    <option value="set2780" label="2780자" />
+                    <option value="set4358" label="4358자" />
+                    <option value="set11172" label="11172자" />
                   </optgroup>
                   <optgroup label="한자">
-                    <option value="ks4888">KS 순서 4888자</option>
-                    <option value="unicode4888">Unicode 순서 4888자</option>
-                    <option value="jis2965">JIS 순서 2965자</option>
-                    <option value="jis6355">JIS 순서 6355자</option>
-                    <option value="unicode2965">Unicode 순서 2965자</option>
-                    <option value="unicode6355">Unicode 순서 6355자</option>
+                    <option value="ks4888" label="KS 순서 4888자" />
+                    <option value="unicode4888" label="Unicode 순서 4888자" />
+                    <option value="jis2965" label="JIS 순서 2965자" />
+                    <option value="unicode2965" label="Unicode 순서 2965자" />
+                    <option value="jis6355" label="JIS 순서 6355자" />
+                    <option value="unicode6355" label="Unicode 순서 6355자" />
                   </optgroup>
                   <optgroup label="EUC-KR">
-                    <option value="euckr">EUC-KR</option>
-                    <option value="euckrWoHanja">한자 제외</option>
-                    <option value="euckrWoHanja2355">
-                      한자 제외, 한글 2355자
-                    </option>
-                    <option value="euckrWoHanja2780">
-                      한자 제외, 한글 2780자
-                    </option>
-                    <option value="euckrWoHanja4358">
-                      한자 제외, 한글 4358자
-                    </option>
-                    <option value="euckrWoHanja11172">
-                      한자 제외, 한글 11172자
-                    </option>
+                    <option value="euckr" label="EUC-KR" />
+                    <option value="euckrWoHanja" label="한자 제외" />
+                    <option
+                      value="euckrWoHanja2355"
+                      label="한자 제외, 한글 2355자"
+                    />
+                    <option
+                      value="euckrWoHanja2780"
+                      label="한자 제외, 한글 2780자"
+                    />
+                    <option
+                      value="euckrWoHanja4358"
+                      label="한자 제외, 한글 4358자"
+                    />
+                    <option
+                      value="euckrWoHanja11172"
+                      label="한자 제외, 한글 11172자"
+                    />
                   </optgroup>
                   <optgroup label="Shift_JIS">
-                    <option value="shiftjis">Shift_JIS</option>
-                    <option value="shiftjis_level1">제1수준 한자만 포함</option>
+                    <option value="shiftjis" label="Shift_JIS" />
+                    <option
+                      value="shiftjis_level1"
+                      label="제1수준 한자만 포함"
+                    />
                   </optgroup>
                   <optgroup>
-                    <option value="custom">사용자 지정 문자 집합 입력</option>
+                    <option value="custom" label="사용자 지정 문자 집합 입력" />
                   </optgroup>
                 </select>
               </div>
