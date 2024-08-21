@@ -444,6 +444,7 @@ export default component$(() => {
                     <option value="set11172">11172자</option>
                   </optgroup>
                   <optgroup label="EUC-KR">
+                    <option value="seteuckrhanja">한자 포함</option>
                     <option value="seteuckr">한자 제외</option>
                     <option value="seteuckr2355">한자 제외, 한글 2355자</option>
                     <option value="seteuckr2780">한자 제외, 한글 2780자</option>
@@ -453,10 +454,13 @@ export default component$(() => {
                     </option>
                   </optgroup>
                   <optgroup label="일본 한자">
-                    <option value="setKanji6355sjis">JIS 순서 6355자</option>
+                    <option value="setKanji6355jis">JIS 순서 6355자</option>
                     <option value="setKanji6355unicode">
                       Unicode 순서 6355자
                     </option>
+                  </optgroup>
+                  <optgroup>
+                    <option value="shiftjis">Shift_JIS</option>
                   </optgroup>
                   <optgroup>
                     <option value="custom">사용자 지정 문자 집합 입력</option>
@@ -781,12 +785,13 @@ export default component$(() => {
               </ul>
             </li>
             <li>
-              EUC-KR
+              EUC-KR: KS X 1001과 KS X 1003을 포함하는 문자 집합. 라틴 문자와
+              기호, 한자 등을 포함합니다.
               <ul>
                 <li>
-                  한자 제외: KS X 1001와 KS X 1003을 포함하는 EUC-KR에서 한자를
-                  제외한 문자 집합. 라틴 문자와 기호를 포함합니다.
+                  한자 포함: EUC-KR의 한자 4888자를 그대로 포함하는 문자 집합.
                 </li>
+                <li>한자 제외: EUC-KR에서 한자를 제외한 문자 집합.</li>
               </ul>
             </li>
             <li>
@@ -801,6 +806,10 @@ export default component$(() => {
                   의 모든 한자.
                 </li>
               </ul>
+            </li>
+            <li>
+              Shift_JIS: JIS X 0201과 JIS X 0208을 포함하는 문자 집합. 라틴
+              문자와 기호 등을 포함합니다.
             </li>
           </ul>
           <p>Galmuri7은 한글 음절 11172자를 지원하지 않습니다.</p>
