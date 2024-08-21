@@ -104,12 +104,6 @@ importers:
       qwik-blurhash:
         specifier: ^0.0.4
         version: 0.0.4(@builder.io/qwik@1.8.0(@types/node@22.4.2)(sass@1.77.8))(blurhash@2.0.5)
-      readline:
-        specifier: ^1.3.0
-        version: 1.3.0
-      readlineiter:
-        specifier: ^1.0.1
-        version: 1.0.1
       refractor:
         specifier: ^4.8.1
         version: 4.8.1
@@ -2774,13 +2768,6 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
-
-  readline@1.3.0:
-    resolution: {integrity: sha512-k2d6ACCkiNYz222Fs/iNze30rRJ1iIicW7JuX/7/cozvih6YCkFZH+J6mAFDVgv0dRBaAyr4jDqC95R2y4IADg==}
-
-  readlineiter@1.0.1:
-    resolution: {integrity: sha512-MBYfZO9b2UMXlIOHtx7CvlzCcGWPJqJS8Oaok02LaTiWNrBVuM74BE1xl3Z93NW48WSVwyds7XPJFhv7Skm5gw==}
-    engines: {node: '>= 12.0'}
 
   refractor@4.8.1:
     resolution: {integrity: sha512-/fk5sI0iTgFYlmVGYVew90AoYnNMP6pooClx/XKqyeeCQXrL0Kvgn8V0VEht5ccdljbzzF1i3Q213gcntkRExg==}
@@ -6322,10 +6309,6 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
-
-  readline@1.3.0: {}
-
-  readlineiter@1.0.1: {}
 
   refractor@4.8.1:
     dependencies:
