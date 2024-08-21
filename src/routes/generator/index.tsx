@@ -302,49 +302,58 @@ export default component$(() => {
       switch (font) {
         case 'k6x8-gothic':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_gothic.bdf'
+          __font = jsdelivr + '/quiple/fonts/k6x8/k6x8_gothic.bdf'
           yOff = yOff - 4
           break
         case 'k6x8-mincho':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/k6x8/k6x8_mincho.bdf'
+          __font = jsdelivr + '/quiple/fonts/k6x8/k6x8_mincho.bdf'
           yOff = yOff - 4
           break
         case 'misaki-gothic':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic.bdf'
+          __font = jsdelivr + '/quiple/fonts/misaki/misaki_gothic.bdf'
           yOff = yOff - 4
           break
         case 'misaki-gothic-2nd':
           __type = 1
-          __font =
-            jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_gothic_2nd.bdf'
+          __font = jsdelivr + '/quiple/fonts/misaki/misaki_gothic_2nd.bdf'
           yOff = yOff - 4
           break
         case 'misaki-mincho':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/misaki/misaki_mincho.bdf'
+          __font = jsdelivr + '/quiple/fonts/misaki/misaki_mincho.bdf'
           yOff = yOff - 4
           break
         case 'k8x12':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12.bdf'
+          __font = jsdelivr + '/quiple/fonts/k8x12/k8x12.bdf'
           yOff = yOff - 4
           break
         case 'k8x12l':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12L.bdf'
+          __font = jsdelivr + '/quiple/fonts/k8x12/k8x12L.bdf'
           yOff = yOff - 4
           break
         case 'k8x12s':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/k8x12/k8x12S.bdf'
+          __font = jsdelivr + '/quiple/fonts/k8x12/k8x12S.bdf'
           yOff = yOff - 4
           break
         case 'k12x8':
           __type = 1
-          __font = jsdelivr + '/quiple/kadoma-fonts/k12x8/k12x8.bdf'
+          __font = jsdelivr + '/quiple/fonts/k12x8/k12x8.bdf'
           yOff = yOff - 4
+          break
+        case 'unifont':
+          __type = 1
+          __font = jsdelivr + '/quiple/fonts/unifont/unifont.bdf'
+          yOff = yOff + 2
+          break
+        case 'unifont_jp':
+          __type = 1
+          __font = jsdelivr + '/quiple/fonts/unifont/unifont_jp.bdf'
+          yOff = yOff + 2
           break
         case 'zpix':
           __type = 1
@@ -443,6 +452,8 @@ export default component$(() => {
                     <option value="k12x8" label="k12x8 (8px)" />
                   </optgroup>
                   <optgroup label="기타">
+                    <option value="unifont" label="Unifont (16px)" />
+                    <option value="unifont_jp" label="Unifont JP (16px)" />
                     <option value="zpix" label="Zpix (12px)" />
                   </optgroup>
                   {/* <option value="custom">사용자 지정 폰트 업로드</option> */}
@@ -896,11 +907,10 @@ export default component$(() => {
               </ul>
             </li>
           </ul>
-          <p>Galmuri7은 한글 음절 11172자를 지원하지 않습니다.</p>
           <p>
-            Galmuri11 Bold 및 Galmuri11 Condensed는 한자를 지원하지 않습니다.
+            &copy; 2024 Lee Minseo. 각 폰트는 해당 소유자 및 사용 허가자의 상표
+            및 저작권 자산입니다.
           </p>
-          <p>&copy; 2024 Lee Minseo</p>
         </article>
       </aside>
       <div class="flex flex-1 items-center justify-center self-stretch bg-zinc-50 min-h-40">
