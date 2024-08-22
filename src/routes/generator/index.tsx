@@ -322,6 +322,10 @@ export default component$(() => {
           __font = jsdelivr + '/gh/quiple/fonts/k12x8/k12x8.bdf'
           yOff = yOff - 4
           break
+        case 'hbios-sys':
+          __font = jsdelivr + '/gh/quiple/hbios-sys/hbios-sys.bdf'
+          yOff = yOff + 2
+          break
         case 'unifont':
           __font = jsdelivr + '/gh/quiple/fonts/unifont/unifont.bdf'
           yOff = yOff + 2
@@ -426,6 +430,7 @@ export default component$(() => {
                     <option value="k12x8" label="k12x8 (8px)" />
                   </optgroup>
                   <optgroup label="기타">
+                    <option value="hbios-sys" label="HBIOS-SYS (16px)" />
                     <option value="unifont" label="Unifont (16px)" />
                     <option value="unifont_jp" label="Unifont JP (16px)" />
                     <option value="zpix" label="Zpix (12px)" />
