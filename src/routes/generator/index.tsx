@@ -770,6 +770,7 @@ export default component$(() => {
             ) : (
               '만들기'
             )}
+            {drawButtonDisabled.value && '만드는 중…'}
           </button>
           <div class="flex gap-[10px]">
             <button

@@ -98,7 +98,7 @@ abbr {
 }
 
 .button {
-  @apply flex cursor-default flex-col items-center justify-center bg-white transition;
+  @apply flex cursor-default flex-wrap gap-2 items-center justify-center bg-white transition;
   padding: 3px 7px;
   box-shadow:
     0px 0.5px 2.5px rgba(0, 0, 0, 0.3),
