@@ -23,6 +23,11 @@ export default component$(() => {
           />
         )}
         <RouterHead />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
+        />
       </head>
       <body>
         <RouterOutlet />
