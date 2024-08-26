@@ -22,44 +22,112 @@ import pageStyle from './style.scss?inline'
 import ExternalLink from '~/components/ExternalLink'
 import Spinner from '~/media/spinner.svg?jsx'
 
-type CanvasContext = { fillStyle: any; fillRect: any }
-
-const loadCharset = (charset: string) => {
-  switch (charset) {
-    case 'ks4888':
-      return hanja.ks4888
-    case 'unicode4888':
-      return hanja.unicode4888
-    case 'jis2965':
-      return kanji.jisX0208_level1
-    case 'jis6355':
-      return kanji.jisX0208_level1 + kanji.jisX0208_level2
-    case 'unicode2965':
-      return kanji.unicode2965
-    case 'unicode6355':
-      return kanji.unicode6355
-    case 'euckr':
-      return korean.restOfEuckr + hangul.set2350 + hanja.ks4888
-    case 'euckrWoHanja':
-      return korean.restOfEuckr + hangul.set2350
-    case 'euckrWoHanja2355':
-      return korean.restOfEuckr + hangul.set2355
-    case 'euckrWoHanja2780':
-      return korean.restOfEuckr + hangul.set2780
-    case 'euckrWoHanja4358':
-      return korean.restOfEuckr + hangul.set4358
-    case 'euckrWoHanja11172':
-      return korean.restOfEuckr + hangul.set11172
-    case 'shiftjis':
-      return (
-        japanese.restOfShiftjis + kanji.jisX0208_level1 + kanji.jisX0208_level2
-      )
-    case 'shiftjis_level1':
-      return japanese.restOfShiftjis + kanji.jisX0208_level1
-    default:
-      return hangul[charset]
-  }
+interface CanvasContext {
+  fillStyle: any
+  fillRect: any
 }
+
+interface charsets {
+  [index: string]: string
+}
+const charsets: charsets = {
+  // Hangul syllables
+  set2350: hangul.set2350,
+  set2355: hangul.set2355,
+  set2780: hangul.set2780,
+  set4358: hangul.set4358,
+  set11172: hangul.set11172,
+  // Kanji
+  ks4888: hanja.ks4888,
+  unicode4888: hanja.unicode4888,
+  jis2965: kanji.jisX0208_level1,
+  unicode2965: kanji.unicode2965,
+  jis6355: kanji.jisX0208_level1 + kanji.jisX0208_level2,
+  unicode6355: kanji.unicode6355,
+  // EUC-KR
+  euckr: korean.restOfEuckr + hangul.set2350 + hanja.ks4888,
+  euckrWoHanja: korean.restOfEuckr + hangul.set2350,
+  euckrWoHanja2355: korean.restOfEuckr + hangul.set2355,
+  euckrWoHanja2780: korean.restOfEuckr + hangul.set2780,
+  euckrWoHanja4358: korean.restOfEuckr + hangul.set4358,
+  euckrWoHanja11172: korean.restOfEuckr + hangul.set11172,
+  // Shift_JIS
+  shiftjis:
+    japanese.restOfShiftjis + kanji.jisX0208_level1 + kanji.jisX0208_level2,
+  shiftjis_level1: japanese.restOfShiftjis + kanji.jisX0208_level1,
+}
+
+const getCharset = (charset: string): string => charsets[charset] || ''
+
+/**
+ * Height from baseline to ascent
+ */
+interface fontSize {
+  [index: string]: number
+}
+const fontSize: fontSize = {
+  // Galmuri
+  Galmuri14: 14,
+  Galmuri11: 11,
+  'Galmuri11-Bold': 11,
+  'Galmuri11-Condensed': 11,
+  Galmuri9: 9,
+  Galmuri7: 7,
+  GalmuriMono11: 11,
+  GalmuriMono9: 9,
+  GalmuriMono7: 7,
+  // Num Kadoma
+  'k6x8-gothic': 7,
+  'k6x8-mincho': 7,
+  'misaki-gothic': 6,
+  'misaki-gothic-2nd': 7,
+  'misaki-mincho': 6,
+  k8x12: 10,
+  k8x12l: 10,
+  k8x12s: 10,
+  k12x8: 7,
+  // Others
+  'hbios-sys': 13,
+  unifont: 14,
+  unifont_jp: 14,
+  zpix: 9,
+}
+
+const getFontSize = (font: string): number => fontSize[font] || 16
+
+interface fontUrl {
+  [index: string]: string
+}
+const fontUrl: fontUrl = {
+  // Galmuri
+  Galmuri14: 'npm/galmuri/dist/Galmuri14.bdf',
+  Galmuri11: 'npm/galmuri/dist/Galmuri11.bdf',
+  'Galmuri11-Bold': 'npm/galmuri/dist/Galmuri11-Bold.bdf',
+  'Galmuri11-Condensed': 'npm/galmuri/dist/Galmuri11-Condensed.bdf',
+  Galmuri9: 'npm/galmuri/dist/Galmuri9.bdf',
+  Galmuri7: 'npm/galmuri/dist/Galmuri7.bdf',
+  GalmuriMono11: 'npm/galmuri/dist/GalmuriMono11.bdf',
+  GalmuriMono9: 'npm/galmuri/dist/GalmuriMono9.bdf',
+  GalmuriMono7: 'npm/galmuri/dist/GalmuriMono7.bdf',
+  // Num Kadoma
+  'k6x8-gothic': 'gh/quiple/fonts/k6x8/k6x8_gothic.bdf',
+  'k6x8-mincho': 'gh/quiple/fonts/k6x8/k6x8_mincho.bdf',
+  'misaki-gothic': 'gh/quiple/fonts/misaki/misaki_gothic.bdf',
+  'misaki-gothic-2nd': 'gh/quiple/fonts/misaki/misaki_gothic_2nd.bdf',
+  'misaki-mincho': 'gh/quiple/fonts/misaki/misaki_mincho.bdf',
+  k8x12: 'gh/quiple/fonts/k8x12/k8x12.bdf',
+  k8x12l: 'gh/quiple/fonts/k8x12/k8x12L.bdf',
+  k8x12s: 'gh/quiple/fonts/k8x12/k8x12S.bdf',
+  k12x8: 'gh/quiple/fonts/k12x8/k12x8.bdf',
+  // Others
+  'hbios-sys': 'gh/quiple/hbios-sys/hbios-sys.bdf',
+  unifont: 'gh/quiple/fonts/unifont/unifont.bdf',
+  unifont_jp: 'gh/quiple/fonts/unifont/unifont_jp.bdf',
+  zpix: 'gh/SolidZORO/zpix-pixel-font/dist/zpix.bdf',
+}
+
+const getFontUrl = (font: string): string =>
+  `https://cdn.jsdelivr.net/${fontUrl[font]}` || ''
 
 /*
 const escapeRegExp = (s: string): string =>
@@ -207,27 +275,7 @@ export default component$(() => {
       copyButton.value!.classList.add('disabled')
       downloadButton.value!.classList.add('disabled')
 
-      let fontSize: number
-      switch (font) {
-        default:
-          fontSize = 11
-          break
-        case 'Galmuri14':
-          fontSize = 14
-          break
-        case 'Galmuri9':
-          fontSize = 9
-          break
-        case 'Galmuri7':
-          fontSize = 7
-          break
-        case 'GalmuriMono9':
-          fontSize = 9
-          break
-        case 'GalmuriMono7':
-          fontSize = 7
-          break
-      }
+      const __fontSize = getFontSize(font)
 
       const position: number[][] = []
       shadowPosition.forEach((e) => {
@@ -257,7 +305,7 @@ export default component$(() => {
         yOff++
       }
 
-      let __charset = loadCharset(charset)
+      let __charset = getCharset(charset)
       if (charsetCurrent.value === 'custom') {
         __charset = customCharset
       }
@@ -283,69 +331,11 @@ export default component$(() => {
         )
       }
 
-      let __font: string
-      const jsdelivr = 'https://cdn.jsdelivr.net'
-      switch (font) {
-        case 'k6x8-gothic':
-          __font = jsdelivr + '/gh/quiple/fonts/k6x8/k6x8_gothic.bdf'
-          yOff = yOff - 4
-          break
-        case 'k6x8-mincho':
-          __font = jsdelivr + '/gh/quiple/fonts/k6x8/k6x8_mincho.bdf'
-          yOff = yOff - 4
-          break
-        case 'misaki-gothic':
-          __font = jsdelivr + '/gh/quiple/fonts/misaki/misaki_gothic.bdf'
-          yOff = yOff - 5
-          break
-        case 'misaki-gothic-2nd':
-          __font = jsdelivr + '/gh/quiple/fonts/misaki/misaki_gothic_2nd.bdf'
-          yOff = yOff - 4
-          break
-        case 'misaki-mincho':
-          __font = jsdelivr + '/gh/quiple/fonts/misaki/misaki_mincho.bdf'
-          yOff = yOff - 5
-          break
-        case 'k8x12':
-          __font = jsdelivr + '/gh/quiple/fonts/k8x12/k8x12.bdf'
-          yOff = yOff - 1
-          break
-        case 'k8x12l':
-          __font = jsdelivr + '/gh/quiple/fonts/k8x12/k8x12L.bdf'
-          yOff = yOff - 1
-          break
-        case 'k8x12s':
-          __font = jsdelivr + '/gh/quiple/fonts/k8x12/k8x12S.bdf'
-          yOff = yOff - 1
-          break
-        case 'k12x8':
-          __font = jsdelivr + '/gh/quiple/fonts/k12x8/k12x8.bdf'
-          yOff = yOff - 4
-          break
-        case 'hbios-sys':
-          __font = jsdelivr + '/gh/quiple/hbios-sys/hbios-sys.bdf'
-          yOff = yOff + 2
-          break
-        case 'unifont':
-          __font = jsdelivr + '/gh/quiple/fonts/unifont/unifont.bdf'
-          yOff = yOff + 2
-          break
-        case 'unifont_jp':
-          __font = jsdelivr + '/gh/quiple/fonts/unifont/unifont_jp.bdf'
-          yOff = yOff + 2
-          break
-        case 'zpix':
-          __font = jsdelivr + '/gh/SolidZORO/zpix-pixel-font/dist/zpix.bdf'
-          break
-        default:
-          __font =
-            jsdelivr + `/npm/galmuri/dist/${font.replaceAll(' ', '-')}.bdf`
-          break
-      }
+      const __font = getFontUrl(font)
 
       let bitmap = await drawFont(__font, __charset, {
         mode: -1,
-        bb: [tileWidth, tileHeight, -xOff, -(tileHeight - fontSize) + yOff],
+        bb: [tileWidth, tileHeight, -xOff, -(tileHeight - __fontSize) + yOff],
         linelimit: tileWidth * tileColumn,
       })
       if (position.length > 0 && shadowColor) {
@@ -522,7 +512,7 @@ export default component$(() => {
                   <textarea
                     id="charset-preview"
                     class="w-full min-h-20 break-all"
-                    value={loadCharset(charsetCurrent.value)}
+                    value={getCharset(charsetCurrent.value)}
                     lang={
                       [
                         'jis2965',
