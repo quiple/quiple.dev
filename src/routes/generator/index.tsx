@@ -182,7 +182,8 @@ export default component$(() => {
       if (!tileWidth || !tileHeight) {
         alert('타일 크기를 입력하세요.')
         return false
-      } else if (tileWidth <= 0 || tileHeight <= 0) {
+      }
+      if (tileWidth <= 0 || tileHeight <= 0) {
         alert('타일 크기에 양숫값을 입력하세요.')
         return false
       }
@@ -190,7 +191,8 @@ export default component$(() => {
       if (!tileColumn) {
         alert('열 수를 입력하세요.')
         return false
-      } else if (tileColumn <= 0) {
+      }
+      if (tileColumn <= 0) {
         alert('열 수에 양숫값을 입력하세요.')
         return false
       }
@@ -255,11 +257,9 @@ export default component$(() => {
         yOff++
       }
 
-      let __charset = ''
+      let __charset = loadCharset(charset)
       if (charsetCurrent.value === 'custom') {
         __charset = customCharset
-      } else {
-        __charset = loadCharset(charset)
       }
 
       const cvs = canvas.value!
