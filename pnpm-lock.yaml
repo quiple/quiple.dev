@@ -22,7 +22,7 @@ importers:
         version: 0.0.1(@builder.io/qwik@1.8.0(@types/node@22.5.0)(sass@1.77.8))
       '@splidejs/splide':
         specifier: github:quiple/splide
-        version: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20
+        version: git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20
       '@tailwindcss/typography':
         specifier: ^0.5.14
         version: 0.5.14(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.5.4)))
@@ -55,7 +55,7 @@ importers:
         version: 6.0.1
       bdfparser:
         specifier: github:quiple/bdfparser-js
-        version: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60
+        version: git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60
       blurhash:
         specifier: ^2.0.5
         version: 2.0.5
@@ -120,8 +120,8 @@ importers:
         specifier: ^6.19.8
         version: 6.19.8
       vercel:
-        specifier: ^37.1.1
-        version: 37.1.1
+        specifier: ^37.1.2
+        version: 37.1.2
       vite:
         specifier: ^5.4.2
         version: 5.4.2(@types/node@22.5.0)(sass@1.77.8)
@@ -669,8 +669,8 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20':
-    resolution: {tarball: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20':
+    resolution: {commit: 0219865baafe7210a43b3e007639ff3ba057dc20, repo: git@github.com:quiple/splide.git, type: git}
     version: 4.1.4
 
   '@tailwindcss/typography@0.5.14':
@@ -1022,8 +1022,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60:
-    resolution: {tarball: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60:
+    resolution: {commit: 403b488ff568c6f3af52ea123467e79635098e60, repo: git@github.com:quiple/bdfparser-js.git, type: git}
     version: 2.2.5
     engines: {node: '>= 12.0'}
 
@@ -3242,8 +3242,8 @@ packages:
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
-  vercel@37.1.1:
-    resolution: {integrity: sha512-QgdbZBCGQMl5utxR4KVsPaXDiexstV9yPTGXGna0cJD4kHOLURQoCsY0FnnmH5u+wPED65jqIITOUTbROKz2lQ==}
+  vercel@37.1.2:
+    resolution: {integrity: sha512-GhkaAwOhoy0xk+rkA/43cGSDuIMMzG71Gw1RZGsf5R1r//3BUqIyYqR5enQSw6php8wp2+HwTALyl31p+cJ4jw==}
     engines: {node: '>= 16'}
     hasBin: true
 
@@ -3877,7 +3877,7 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20': {}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20': {}
 
   '@tailwindcss/typography@0.5.14(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.5.0)(typescript@5.5.4)))':
     dependencies:
@@ -4343,7 +4343,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60: {}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60: {}
 
   binary-extensions@2.3.0: {}
 
@@ -4557,7 +4557,7 @@ snapshots:
 
   debug@4.1.1:
     dependencies:
-      ms: 2.1.1
+      ms: 2.1.2
 
   debug@4.3.6:
     dependencies:
@@ -6893,7 +6893,7 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  vercel@37.1.1:
+  vercel@37.1.2:
     dependencies:
       '@vercel/build-utils': 8.3.7
       '@vercel/fun': 1.1.0
