@@ -285,7 +285,7 @@ export default component$(() => {
             <h3>{font.name}</h3>
             <div class="btns">
               <a
-                data-umami-event="다운로드"
+                data-umami-event="Galmuri 다운로드"
                 data-umami-event-font={font.name}
                 data-umami-event-format="TTF"
                 download
@@ -294,7 +294,7 @@ export default component$(() => {
                 TTF
               </a>
               <a
-                data-umami-event="다운로드"
+                data-umami-event="Galmuri 다운로드"
                 data-umami-event-font={font.name}
                 data-umami-event-format="WOFF2"
                 download
@@ -303,7 +303,7 @@ export default component$(() => {
                 WOFF2
               </a>
               <a
-                data-umami-event="다운로드"
+                data-umami-event="Galmuri 다운로드"
                 data-umami-event-font={font.name}
                 data-umami-event-format="BDF"
                 download
