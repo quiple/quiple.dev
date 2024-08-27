@@ -285,18 +285,27 @@ export default component$(() => {
             <h3>{font.name}</h3>
             <div class="btns">
               <a
+                data-umami-event="다운로드"
+                data-umami-event-font={font.name}
+                data-umami-event-format="TTF"
                 download
                 class="btn"
                 href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.ttf`}>
                 TTF
               </a>
               <a
+                data-umami-event="다운로드"
+                data-umami-event-font={font.name}
+                data-umami-event-format="WOFF2"
                 download
                 class="btn"
                 href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.woff2`}>
                 WOFF2
               </a>
               <a
+                data-umami-event="다운로드"
+                data-umami-event-font={font.name}
+                data-umami-event-format="BDF"
                 download
                 class="btn"
                 href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.bdf`}>
