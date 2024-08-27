@@ -748,6 +748,7 @@ export default component$(() => {
             </div>
           </div>
           <button
+            data-umami-event="비트맵 폰트 이미지 만들기"
             disabled={drawButtonDisabled.value}
             type="submit"
             class="button big primary">
