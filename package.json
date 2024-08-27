@@ -50,7 +50,7 @@
     "eslint-plugin-qwik": "^1.8.0",
     "fetchline": "^1.0.1",
     "galmuri": "^2.39.4",
-    "hast-util-to-html": "^9.0.1",
+    "hast-util-to-html": "^9.0.2",
     "husky": "^9.1.5",
     "inter-ui": "^4.0.2",
     "lint-staged": "^15.2.9",
