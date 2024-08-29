@@ -605,6 +605,14 @@ export default component$(() => {
           content={<div ref={kakao} />}
         />
       </div>
+
+      <div class="btns">
+        <ExternalLink
+          text="GitHub Sponsors"
+          href="https://github.com/sponsors/quiple"
+          class="btn line"
+        />
+      </div>
     </>
   )
 })
