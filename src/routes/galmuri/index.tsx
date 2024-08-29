@@ -162,7 +162,7 @@ export default component$(() => {
     const qrOptions: Partial<qrOptions> = {
       width: 240,
       height: 240,
-      type: 'svg',
+      type: 'canvas',
       dotsOptions: {
         color: '#fafafa',
         type: 'square',
