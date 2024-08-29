@@ -172,7 +172,7 @@ export default component$(() => {
         color: 'transparent',
       },
       imageOptions: {
-        crossOrigin: 'anonymous',
+        crossOrigin: 'use-credentials',
         margin: 0,
       },
     }
