@@ -5,6 +5,7 @@ import {
   useOnWindow,
   useSignal,
   useStyles$,
+  useVisibleTask$,
 } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 
@@ -12,6 +13,7 @@ import { Splide } from '@splidejs/splide'
 import splideCore from '@splidejs/splide/css/core?inline'
 import autosize from 'autosize'
 import { toHtml } from 'hast-util-to-html'
+import QRCodeStyling, { type Options as qrOptions } from 'qr-code-styling'
 import { BlurhashCanvas } from 'qwik-blurhash'
 import { refractor } from 'refractor'
 
@@ -102,6 +104,8 @@ export default component$(() => {
   const test = useSignal<HTMLTextAreaElement>()
   const testFont = useSignal<string>('Galmuri11')
   const testFontSize = useSignal<CSSProperties>({ fontSize: '36px' })
+  const toss = useSignal<HTMLDivElement>()
+  const kakao = useSignal<HTMLDivElement>()
 
   const shuffle = $(
     () =>
@@ -152,6 +156,36 @@ export default component$(() => {
       }
     }),
   )
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(() => {
+    const qrOptions: Partial<qrOptions> = {
+      type: 'canvas',
+      dotsOptions: {
+        color: '#fafafa',
+        type: 'square',
+      },
+      backgroundOptions: {
+        color: 'transparent',
+      },
+      imageOptions: {
+        crossOrigin: 'use-credentials',
+        margin: 0,
+      },
+    }
+
+    new QRCodeStyling({
+      image: '/images/toss.svg',
+      data: 'supertoss://send?amount=0&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100036350780&origin=qr',
+      ...qrOptions,
+    }).append(toss.value)
+
+    new QRCodeStyling({
+      image: '/images/kakao.svg',
+      data: 'https://qr.kakaopay.com/281006011000033397832181',
+      ...qrOptions,
+    }).append(kakao.value)
+  })
 
   return (
     <>
@@ -565,31 +599,13 @@ export default component$(() => {
       <div id="donate-img">
         <ExternalLink
           text="토스로 후원하기"
-          href="https://toss.me/quiple"
-          content={
-            <img
-              loading="lazy"
-              width={240}
-              height={240}
-              // eslint-disable-next-line qwik/jsx-img
-              src="/images/toss.svg"
-              alt="토스로 후원하기"
-            />
-          }
+          href="supertoss://send?amount=0&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100036350780"
+          content={<div ref={toss} />}
         />
         <ExternalLink
           text="카카오페이로 후원하기"
           href="https://qr.kakaopay.com/Ej8JN15fH"
-          content={
-            <img
-              loading="lazy"
-              width={240}
-              height={240}
-              // eslint-disable-next-line qwik/jsx-img
-              src="/images/kakao.svg"
-              alt="카카오페이로 후원하기"
-            />
-          }
+          content={<div ref={kakao} />}
         />
       </div>
     </>
