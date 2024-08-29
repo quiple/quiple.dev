@@ -563,11 +563,8 @@ export default component$(() => {
         </li>
         <li>
           GNU Unifont .hex 형식 폰트 변환:{' '}
-          <ExternalLink
-            text="Unifont Utilities"
-            href="http://unifoundry.com/unifont/unifont-utilities.html"
-          />{' '}
-          by Unifoundry.com
+          <ExternalLink text="hexdraw" href="https://czyborra.com/unifont" /> by
+          Roman Czyborra
         </li>
         <li>
           비트맵 폰트 편집 및 TrueType 윤곽선 폰트 생성:{' '}
