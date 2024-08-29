@@ -164,8 +164,6 @@ export default component$(() => {
       width: 300,
       height: 300,
       type: 'svg',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
       dotsOptions: {
         color: '#fafafa',
         type: 'square',
@@ -180,14 +178,16 @@ export default component$(() => {
     }
 
     const qrToss = new QRCodeStyling({
-      ...qrOptions,
+      image: '/images/toss.svg',
       data: 'supertoss://send?amount=0&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100036350780&origin=qr',
+      ...qrOptions,
     })
     qrToss.append(toss.value)
 
     const qrKakao = new QRCodeStyling({
-      ...qrOptions,
+      image: '/images/kakao.svg',
       data: 'https://qr.kakaopay.com/281006011000033397832181',
+      ...qrOptions,
     })
     qrKakao.append(kakao.value)
   })
