@@ -161,8 +161,8 @@ export default component$(() => {
   useVisibleTask$(() => {
     const qrOptions: Partial<qrOptions> = {
       margin: 0,
-      width: 300,
-      height: 300,
+      width: 240,
+      height: 240,
       type: 'svg',
       dotsOptions: {
         color: '#fafafa',
