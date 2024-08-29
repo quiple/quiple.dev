@@ -160,8 +160,6 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     const qrOptions: Partial<qrOptions> = {
-      width: 240,
-      height: 240,
       type: 'canvas',
       dotsOptions: {
         color: '#fafafa',
