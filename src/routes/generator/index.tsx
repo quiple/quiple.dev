@@ -752,16 +752,10 @@ export default component$(() => {
             disabled={drawButtonDisabled.value}
             type="submit"
             class="button big primary">
-            {drawButtonDisabled.value ? (
-              <Spinner
-                height="1em"
-                class="stroke-current"
-                style={{ margin: '1.5px' }}
-              />
-            ) : (
-              '만들기'
+            {drawButtonDisabled.value && (
+              <Spinner height="1em" class="stroke-current" />
             )}
-            {drawButtonDisabled.value ? '만드는 중…' : undefined}
+            {drawButtonDisabled.value ? '만드는 중…' : '만들기'}
           </button>
           <div class="flex gap-[10px]">
             <button
