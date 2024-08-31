@@ -15,6 +15,7 @@ import autosize from 'autosize'
 import { toHtml } from 'hast-util-to-html'
 import QRCodeStyling, { type Options as qrOptions } from 'qr-code-styling'
 import { BlurhashCanvas } from 'qwik-blurhash'
+import { inlineTranslate } from 'qwik-speak'
 import { refractor } from 'refractor'
 
 import { fonts, pangramEn, pangramKo, showcase } from './data'
@@ -100,6 +101,7 @@ const switchFont = (value: string) => {
 
 export default component$(() => {
   useStyles$(splideCore)
+  const t = inlineTranslate()
   const title = useSignal<HTMLDivElement>()
   const test = useSignal<HTMLTextAreaElement>()
   const testFont = useSignal<string>('Galmuri11')
@@ -312,7 +314,7 @@ export default component$(() => {
         에서 확인할 수 있습니다.
       </p>
 
-      <h2 id="download">다운로드</h2>
+      <h2 id="download">{t('galmuri.download.title@@Download')}</h2>
       <section class="download">
         {fonts.map((font) => (
           <div class="item" key={`download_${font.name.replaceAll(' ', '-')}`}>

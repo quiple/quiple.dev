@@ -10,6 +10,7 @@ import {
   type GlyphMeta,
 } from 'bdfparser'
 import fetchline from 'fetchline'
+import { inlineTranslate } from 'qwik-speak'
 
 import { fonts } from '../galmuri/data'
 import style from '../style.scss?inline'
@@ -196,6 +197,7 @@ export const drawFont = worker$(
 export default component$(() => {
   useStyles$(style)
   useStyles$(pageStyle)
+  const t = inlineTranslate()
   const fontCurrent = useSignal<string>()
   const charsetCurrent = useSignal<string>('set2350')
   const canvas = useSignal<HTMLCanvasElement>()
@@ -792,7 +794,7 @@ export default component$(() => {
               href="#"
               download
               class="button big disabled flex-1">
-              다운로드
+              {t('generator.download@@Download')}
             </a>
           </div>
         </form>
