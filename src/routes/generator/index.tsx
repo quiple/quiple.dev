@@ -543,6 +543,7 @@ export default component$(() => {
                     id="custom-charset"
                     name="custom-charset"
                     class="w-full min-h-20"
+                    placeholder="사용자 지정 문자 집합을 입력하세요."
                   />
                 </div>
               </div>
