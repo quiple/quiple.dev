@@ -15,16 +15,18 @@ export default component$(() => {
       <article class="prose prose-zinc max-w-full">
         <ul>
           <li>
-            <a href="/galmuri">Galmuri</a>
+            <a href="/galmuri">{t('app.galmuri@@Galmuri')}</a>
           </li>
           <li>
-            <Link href="/generator">{t('Bitmap font image generator')}</Link>
+            <Link href="/generator">
+              {t('app.generator@@Bitmap font image generator')}
+            </Link>
           </li>
         </ul>
         <ul>
           <li>
             <ExternalLink
-              text="이전 웹사이트"
+              text={t('app.legacy@@Legacy website')}
               href="https://legacy.quiple.dev"
             />
           </li>
