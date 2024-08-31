@@ -1,6 +1,7 @@
 import { partytownVite } from '@builder.io/partytown/utils'
 import { qwikCity } from '@builder.io/qwik-city/vite'
 import { qwikVite } from '@builder.io/qwik/optimizer'
+import { qwikSpeakInline } from 'qwik-speak/inline'
 
 import { join } from 'path'
 import { type UserConfig, defineConfig } from 'vite'
@@ -26,6 +27,11 @@ export default defineConfig(({ command, mode }): UserConfig => {
         },
       }),
       qwikVite(),
+      qwikSpeakInline({
+        supportedLangs: ['en-US', 'ko-KR'],
+        defaultLang: 'en-US',
+        assetsPath: 'src/locales',
+      }),
       partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
       tsconfigPaths(),
     ],
