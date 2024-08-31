@@ -26,8 +26,8 @@ export default defineConfig(({ command, mode }): UserConfig => {
         },
       }),
       qwikVite(),
-      tsconfigPaths(),
       partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
+      tsconfigPaths(),
     ],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
