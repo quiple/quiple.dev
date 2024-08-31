@@ -39,7 +39,6 @@
     "@types/node": "^22.5.1",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "@vercel/speed-insights": "^1.0.12",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
     "autoprefixer": "^10.4.20",
     "autosize": "^6.0.1",
