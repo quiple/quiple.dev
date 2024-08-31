@@ -6,10 +6,13 @@ import {
 } from '@builder.io/qwik-city'
 import { isDev } from '@builder.io/qwik/build'
 
+import { injectSpeedInsights } from '@vercel/speed-insights'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 
 import { RouterHead } from '~/components/router-head/router-head'
 import '~/global.scss'
+
+injectSpeedInsights()
 
 export default component$(() => {
   return (
