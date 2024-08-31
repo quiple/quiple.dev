@@ -17,17 +17,19 @@ export default component$(() => {
       <head>
         <meta charset="utf-8" />
         {!isDev && (
-          <link
-            rel="manifest"
-            href={`${import.meta.env.BASE_URL}manifest.json`}
-          />
+          <>
+            <link
+              rel="manifest"
+              href={`${import.meta.env.BASE_URL}manifest.json`}
+            />
+            <script
+              defer
+              src="https://cloud.umami.is/script.js"
+              data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
+            />
+          </>
         )}
         <RouterHead />
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
-        />
       </head>
       <body>
         <RouterOutlet />
