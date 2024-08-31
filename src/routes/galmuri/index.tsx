@@ -611,7 +611,6 @@ export default component$(() => {
           aria-label="카카오페이로 후원하기 (앱에서 열림)"
         />
       </div>
-
       <div class="btns">
         <ExternalLink
           text="GitHub Sponsors"
