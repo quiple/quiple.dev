@@ -754,19 +754,14 @@ export default component$(() => {
             disabled={drawButtonDisabled.value}
             type="submit"
             class="button big primary">
-            {drawButtonDisabled.value ? (
-              <Spinner
-                height="1em"
-                class="stroke-current"
-                style={{ margin: '1.5px' }}
-              />
-            ) : (
-              '만들기'
+            {drawButtonDisabled.value && (
+              <Spinner height="1em" class="stroke-current" />
             )}
-            {drawButtonDisabled.value ? '만드는 중…' : undefined}
+            {drawButtonDisabled.value ? '만드는 중…' : '만들기'}
           </button>
           <div class="flex gap-[10px]">
             <button
+              data-umami-event="비트맵 폰트 이미지 복사"
               ref={copyButton}
               type="button"
               class="button big disabled flex-1"
@@ -790,6 +785,7 @@ export default component$(() => {
               복사하기
             </button>
             <a
+              data-umami-event="비트맵 폰트 이미지 다운로드"
               ref={downloadButton}
               href="#"
               download
