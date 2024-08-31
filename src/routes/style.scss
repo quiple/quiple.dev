@@ -177,7 +177,12 @@ abbr {
     .right {
       @apply flex flex-row items-start justify-end;
       padding: 8px 0px 8px 9px;
-      gap: 10px;
+      gap: 8px 10px;
+
+      > div {
+        @apply flex;
+        gap: 2px;
+      }
 
       input[type='text'],
       input[type='number'] {

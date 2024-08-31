@@ -545,6 +545,7 @@ export default component$(() => {
                     id="custom-charset"
                     name="custom-charset"
                     class="w-full min-h-20"
+                    placeholder="사용자 지정 문자 집합을 입력하세요."
                   />
                 </div>
               </div>
@@ -553,62 +554,76 @@ export default component$(() => {
               <label class="left" for="x-offset">
                 오프셋
               </label>
-              <div class="right">
-                <input
-                  id="x-offset"
-                  name="x-offset"
-                  class="tabular-nums"
-                  type="number"
-                  value="0"
-                  onKeyDown$={overrideNumberMinus}
-                  onKeyPress$={overrideNumberMinus}
-                  onKeyUp$={overrideNumberMinus}
-                  onBlur$={overrideNumberMinus}
-                />
-                ,{' '}
-                <input
-                  id="y-offset"
-                  name="y-offset"
-                  class="tabular-nums"
-                  type="number"
-                  value="0"
-                  onKeyDown$={overrideNumberMinus}
-                  onKeyPress$={overrideNumberMinus}
-                  onKeyUp$={overrideNumberMinus}
-                  onBlur$={overrideNumberMinus}
-                />
+              <div class="right !flex-col">
+                <div>
+                  x:&nbsp;
+                  <input
+                    id="x-offset"
+                    name="x-offset"
+                    class="tabular-nums"
+                    type="number"
+                    value="0"
+                    onKeyDown$={overrideNumberMinus}
+                    onKeyPress$={overrideNumberMinus}
+                    onKeyUp$={overrideNumberMinus}
+                    onBlur$={overrideNumberMinus}
+                  />
+                  px
+                </div>
+                <div>
+                  y:&nbsp;
+                  <input
+                    id="y-offset"
+                    name="y-offset"
+                    class="tabular-nums"
+                    type="number"
+                    value="0"
+                    onKeyDown$={overrideNumberMinus}
+                    onKeyPress$={overrideNumberMinus}
+                    onKeyUp$={overrideNumberMinus}
+                    onBlur$={overrideNumberMinus}
+                  />
+                  px
+                </div>
               </div>
             </div>
             <div class="form-row">
               <label class="left" for="tile-width">
                 타일 크기
               </label>
-              <div class="right">
-                <input
-                  id="tile-width"
-                  name="tile-width"
-                  class="tabular-nums"
-                  type="number"
-                  value="16"
-                  min="1"
-                  onKeyDown$={overrideNumber}
-                  onKeyPress$={overrideNumber}
-                  onKeyUp$={overrideNumber}
-                  onBlur$={overrideNumber}
-                />{' '}
-                ×{' '}
-                <input
-                  id="tile-height"
-                  name="tile-height"
-                  class="tabular-nums"
-                  type="number"
-                  value="16"
-                  min="1"
-                  onKeyDown$={overrideNumber}
-                  onKeyPress$={overrideNumber}
-                  onKeyUp$={overrideNumber}
-                  onBlur$={overrideNumber}
-                />
+              <div class="right !flex-col">
+                <div>
+                  너비:&nbsp;
+                  <input
+                    id="tile-width"
+                    name="tile-width"
+                    class="tabular-nums"
+                    type="number"
+                    value="16"
+                    min="1"
+                    onKeyDown$={overrideNumber}
+                    onKeyPress$={overrideNumber}
+                    onKeyUp$={overrideNumber}
+                    onBlur$={overrideNumber}
+                  />
+                  px
+                </div>
+                <div>
+                  높이:&nbsp;
+                  <input
+                    id="tile-height"
+                    name="tile-height"
+                    class="tabular-nums"
+                    type="number"
+                    value="16"
+                    min="1"
+                    onKeyDown$={overrideNumber}
+                    onKeyPress$={overrideNumber}
+                    onKeyUp$={overrideNumber}
+                    onBlur$={overrideNumber}
+                  />
+                  px
+                </div>
               </div>
             </div>
             <div class="form-row">
@@ -634,60 +649,66 @@ export default component$(() => {
               <label class="left" for="foreground">
                 전경색
               </label>
-              <div class="right">
-                #
-                <input
-                  id="foreground"
-                  name="foreground"
-                  class="tabular-nums"
-                  type="text"
-                  spellcheck={false}
-                  value="63cf63"
-                  onKeyDown$={overrideColor}
-                  onKeyPress$={overrideColor}
-                  onKeyUp$={overrideColor}
-                  onBlur$={overrideColor}
-                />
+              <div class="right !flex-col">
+                <div>
+                  #
+                  <input
+                    id="foreground"
+                    name="foreground"
+                    class="tabular-nums"
+                    type="text"
+                    spellcheck={false}
+                    value="63cf63"
+                    onKeyDown$={overrideColor}
+                    onKeyPress$={overrideColor}
+                    onKeyUp$={overrideColor}
+                    onBlur$={overrideColor}
+                  />
+                </div>
               </div>
             </div>
             <div class="form-row">
               <label class="left" for="background">
                 <abbr title="비워 두면 투명을 사용합니다.">배경색</abbr>
               </label>
-              <div class="right">
-                #
-                <input
-                  id="background"
-                  name="background"
-                  class="tabular-nums"
-                  type="text"
-                  spellcheck={false}
-                  value="000000"
-                  onKeyDown$={overrideColor}
-                  onKeyPress$={overrideColor}
-                  onKeyUp$={overrideColor}
-                  onBlur$={overrideColor}
-                />
+              <div class="right !flex-col">
+                <div>
+                  #
+                  <input
+                    id="background"
+                    name="background"
+                    class="tabular-nums"
+                    type="text"
+                    spellcheck={false}
+                    value="000000"
+                    onKeyDown$={overrideColor}
+                    onKeyPress$={overrideColor}
+                    onKeyUp$={overrideColor}
+                    onBlur$={overrideColor}
+                  />
+                </div>
               </div>
             </div>
             <div class="form-row">
               <label class="left" for="shadow-color">
                 그림자 색
               </label>
-              <div class="right">
-                #
-                <input
-                  id="shadow-color"
-                  name="shadow-color"
-                  class="tabular-nums"
-                  type="text"
-                  spellcheck={false}
-                  value="3933ff"
-                  onKeyDown$={overrideColor}
-                  onKeyPress$={overrideColor}
-                  onKeyUp$={overrideColor}
-                  onBlur$={overrideColor}
-                />
+              <div class="right !flex-col">
+                <div>
+                  #
+                  <input
+                    id="shadow-color"
+                    name="shadow-color"
+                    class="tabular-nums"
+                    type="text"
+                    spellcheck={false}
+                    value="3933ff"
+                    onKeyDown$={overrideColor}
+                    onKeyPress$={overrideColor}
+                    onKeyUp$={overrideColor}
+                    onBlur$={overrideColor}
+                  />
+                </div>
               </div>
             </div>
             <div class="form-row">
@@ -695,7 +716,7 @@ export default component$(() => {
                 그림자 위치
               </label>
               <div class="right">
-                <div class="grid grid-cols-3">
+                <div class="!grid grid-cols-3 !gap-0">
                   <input
                     type="checkbox"
                     name="shadow-topleft"
