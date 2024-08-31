@@ -7,11 +7,19 @@ import {
 import { isDev } from '@builder.io/qwik/build'
 
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
+import { useQwikSpeak } from 'qwik-speak'
 
 import { RouterHead } from '~/components/router-head/router-head'
 import '~/global.scss'
+import { config } from '~/speak-config'
+import { translationFn } from '~/speak-functions'
 
 export default component$(() => {
+  /**
+   * Init Qwik Speak
+   */
+  useQwikSpeak({ config, translationFn })
+
   return (
     <QwikCityProvider>
       <head>
