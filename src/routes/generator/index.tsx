@@ -759,6 +759,7 @@ export default component$(() => {
           </button>
           <div class="flex gap-[10px]">
             <button
+              data-umami-event="비트맵 폰트 이미지 복사"
               ref={copyButton}
               type="button"
               class="button big disabled flex-1"
@@ -782,6 +783,7 @@ export default component$(() => {
               복사하기
             </button>
             <a
+              data-umami-event="비트맵 폰트 이미지 다운로드"
               ref={downloadButton}
               href="#"
               download
