@@ -1,11 +1,14 @@
 import { component$, useStyles$ } from '@builder.io/qwik'
 import { type DocumentHead, Link } from '@builder.io/qwik-city'
 
+import { inlineTranslate } from 'qwik-speak'
+
 import style from './style.scss?inline'
 import ExternalLink from '~/components/ExternalLink'
 
 export default component$(() => {
   useStyles$(style)
+  const t = inlineTranslate()
 
   return (
     <main class="container mx-auto p-[20px]">
@@ -15,7 +18,7 @@ export default component$(() => {
             <a href="/galmuri">Galmuri</a>
           </li>
           <li>
-            <Link href="/generator">Generator</Link>
+            <Link href="/generator">{t('Bitmap font image generator')}</Link>
           </li>
         </ul>
         <ul>
