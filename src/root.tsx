@@ -12,9 +12,9 @@ import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import { RouterHead } from '~/components/router-head/router-head'
 import '~/global.scss'
 
-export default component$(() => {
-  injectSpeedInsights()
+injectSpeedInsights()
 
+export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
