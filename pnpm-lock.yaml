@@ -107,6 +107,9 @@ importers:
       qwik-blurhash:
         specifier: ^0.0.4
         version: 0.0.4(@builder.io/qwik@1.8.0(@types/node@22.5.1)(sass@1.77.8))(blurhash@2.0.5)
+      qwik-speak:
+        specifier: ^0.23.0
+        version: 0.23.0(@builder.io/qwik@1.8.0(@types/node@22.5.1)(sass@1.77.8))
       refractor:
         specifier: ^4.8.1
         version: 4.8.1
@@ -2724,6 +2727,13 @@ packages:
     peerDependencies:
       '@builder.io/qwik': '>=1'
       blurhash: ^2.0.3
+
+  qwik-speak@0.23.0:
+    resolution: {integrity: sha512-7bxNbXpDzWhqQ0H3nKCWnTdeo4tpjVFoc1XpzO9W1izo6GgvNIjyvK4u/qCF1d9yzyuMJCfibA7CSzhoxSbkaQ==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    peerDependencies:
+      '@builder.io/qwik': '>=1.5.5'
 
   raw-body@2.4.1:
     resolution: {integrity: sha512-9WmIKF6mkvA0SLmA2Knm9+qj89e+j1zqgyn8aXGd7+nAduPoqgI9lO57SAZNn/Byzo5P7JhXTyg9PzaJbH73bA==}
@@ -6180,6 +6190,10 @@ snapshots:
     dependencies:
       '@builder.io/qwik': 1.8.0(@types/node@22.5.1)(sass@1.77.8)
       blurhash: 2.0.5
+
+  qwik-speak@0.23.0(@builder.io/qwik@1.8.0(@types/node@22.5.1)(sass@1.77.8)):
+    dependencies:
+      '@builder.io/qwik': 1.8.0(@types/node@22.5.1)(sass@1.77.8)
 
   raw-body@2.4.1:
     dependencies:
