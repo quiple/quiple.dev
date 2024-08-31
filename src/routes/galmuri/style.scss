@@ -685,13 +685,8 @@ footer {
   gap: 1em;
   a {
     max-width: 50%;
-    img {
-      background-color: #fff;
-      color: $black;
-      image-rendering: auto;
-      width: 12em;
-      max-width: 100%;
-    }
+    image-rendering: auto;
+    width: 12em;
   }
 }
 @keyframes b {
