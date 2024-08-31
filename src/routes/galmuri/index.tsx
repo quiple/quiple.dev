@@ -162,6 +162,8 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     const qrOptions: Partial<qrOptions> = {
+      width: 1813,
+      height: 1813,
       type: 'canvas',
       dotsOptions: {
         color: '#fafafa',
@@ -596,15 +598,19 @@ export default component$(() => {
 
       <h2 id="donate">후원하기</h2>
       <div id="donate-img">
-        <ExternalLink
-          text="토스로 후원하기"
+        <a
+          ref={toss}
+          target="_blank"
+          rel="noreferrer noopener"
           href="supertoss://send?amount=0&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100036350780"
-          content={<div ref={toss} />}
+          aria-label="토스로 후원하기 (앱에서 열림)"
         />
-        <ExternalLink
-          text="카카오페이로 후원하기"
+        <a
+          ref={kakao}
+          target="_blank"
+          rel="noreferrer noopener"
           href="https://qr.kakaopay.com/Ej8JN15fH"
-          content={<div ref={kakao} />}
+          aria-label="카카오페이로 후원하기 (앱에서 열림)"
         />
       </div>
 
