@@ -22,7 +22,7 @@ export default component$(() => {
               rel="manifest"
               href={`${import.meta.env.BASE_URL}manifest.json`}
             />
-            <QwikPartytown forward={['gtag', 'dataLayer.push']} />
+            <QwikPartytown />
             <script
               type="text/partytown"
               dangerouslySetInnerHTML={`
