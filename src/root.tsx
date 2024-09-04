@@ -24,9 +24,15 @@ export default component$(() => {
             />
             <QwikPartytown forward={['gtag', 'dataLayer.push']} />
             <script
-              async
               type="text/partytown"
-              src={`https://t.fullres.net/quiple.js?${Number(new Date()) - (Number(new Date()) % 43200000)}`}
+              dangerouslySetInnerHTML={`
+                (function(){
+                  var fullres = document.createElement('script');
+                  fullres.async = true;
+                  fullres.src = 'https://t.fullres.net/quiple.js?'+(new Date()-new Date()%43200000);
+                  document.head.appendChild(fullres);
+                })();
+              `}
             />
           </>
         )}
