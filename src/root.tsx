@@ -6,7 +6,6 @@ import {
 } from '@builder.io/qwik-city'
 import { isDev } from '@builder.io/qwik/build'
 
-import { QwikPartytown } from '@/components/partytown/partytown'
 import { RouterHead } from '@/components/router-head/router-head'
 import '@/global.scss'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
@@ -22,36 +21,16 @@ export default component$(() => {
               rel="manifest"
               href={`${import.meta.env.BASE_URL}manifest.json`}
             />
-            <QwikPartytown forward={['gtag', 'dataLayer.push']} />
             <script
-              async
-              type="text/partytown"
-              src="https://www.googletagmanager.com/gtag/js?id=GTM-PQDW5FKR"
-            />
-            <script
-              type="text/partytown"
-              dangerouslySetInnerHTML={`
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = function() {
-                  dataLayer.push(arguments);
-                }
-                gtag('js', new Date());
-                gtag('config', 'GTM-PQDW5FKR');
-              `}
+              defer
+              src="https://cloud.umami.is/script.js"
+              data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
             />
           </>
         )}
         <RouterHead />
       </head>
       <body>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PQDW5FKR"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          />
-        </noscript>
         <RouterOutlet />
         {!isDev && <ServiceWorkerRegister />}
       </body>
