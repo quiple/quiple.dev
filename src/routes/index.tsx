@@ -1,8 +1,9 @@
 import { component$, useStyles$ } from '@builder.io/qwik'
 import { type DocumentHead, Link } from '@builder.io/qwik-city'
 
+import ExternalLink from '@/components/ExternalLink'
+
 import style from './style.scss?inline'
-import ExternalLink from '~/components/ExternalLink'
 
 export default component$(() => {
   useStyles$(style)

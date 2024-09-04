@@ -9,6 +9,7 @@ import {
 } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 
+import ExternalLink from '@/components/ExternalLink'
 import { Splide } from '@splidejs/splide'
 import splideCore from '@splidejs/splide/css/core?inline'
 import autosize from 'autosize'
@@ -19,7 +20,6 @@ import { refractor } from 'refractor'
 
 import { fonts, pangramEn, pangramKo, showcase } from './data'
 import { info } from './info'
-import ExternalLink from '~/components/ExternalLink'
 
 let cssExamples: string = ''
 

@@ -2,6 +2,8 @@ import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 import { worker$ } from '@builder.io/qwik-worker'
 
+import ExternalLink from '@/components/ExternalLink'
+import Spinner from '@/media/spinner.svg?jsx'
 import {
   $Bitmap,
   $Font,
@@ -19,8 +21,6 @@ import japanese from './japanese'
 import kanji from './kanji'
 import korean from './korean'
 import pageStyle from './style.scss?inline'
-import ExternalLink from '~/components/ExternalLink'
-import Spinner from '~/media/spinner.svg?jsx'
 
 interface CanvasContext {
   fillStyle: any
