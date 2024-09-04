@@ -6,6 +6,7 @@ import {
 } from '@builder.io/qwik-city'
 import { isDev } from '@builder.io/qwik/build'
 
+import { QwikPartytown } from '@/components/partytown/partytown'
 import { RouterHead } from '@/components/router-head/router-head'
 import '@/global.scss'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
@@ -21,10 +22,11 @@ export default component$(() => {
               rel="manifest"
               href={`${import.meta.env.BASE_URL}manifest.json`}
             />
+            <QwikPartytown forward={['gtag', 'dataLayer.push']} />
             <script
-              defer
-              src="https://cloud.umami.is/script.js"
-              data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
+              async
+              type="text/partytown"
+              src={`https://t.fullres.net/quiple.js?${Number(new Date()) - (Number(new Date()) % 43200000)}`}
             />
           </>
         )}
