@@ -24,15 +24,9 @@ export default component$(() => {
             />
             <QwikPartytown />
             <script
+              async
               type="text/partytown"
-              dangerouslySetInnerHTML={`
-                (function(){
-                  var fullres = document.createElement('script');
-                  fullres.async = true;
-                  fullres.src = 'https://t.fullres.net/quiple.js?'+(new Date()-new Date()%43200000);
-                  document.head.appendChild(fullres);
-                })();
-              `}
+              src={`https://t.fullres.net/quiple.js?${Number(new Date()) - (Number(new Date()) % 43200000)}`}
             />
           </>
         )}
