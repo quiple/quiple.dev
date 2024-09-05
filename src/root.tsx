@@ -23,8 +23,8 @@ export default component$(() => {
             />
             <script
               defer
-              src="https://cloud.umami.is/script.js"
-              data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
+              src="https://umami.quiple.dev/script.js"
+              data-website-id="c11336e5-f347-4ae5-a289-3f7c9edbe5cd"
             />
           </>
         )}
