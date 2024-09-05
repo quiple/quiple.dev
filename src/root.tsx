@@ -22,8 +22,9 @@ export default component$(() => {
               href={`${import.meta.env.BASE_URL}manifest.json`}
             />
             <script
-              async
-              src={`https://t.fullres.net/quiple.js?${Number(new Date()) - (Number(new Date()) % 43200000)}`}
+              defer
+              src="https://cloud.umami.is/script.js"
+              data-website-id="c45c193f-4a46-482e-b87c-6fa40886f3c1"
             />
           </>
         )}
