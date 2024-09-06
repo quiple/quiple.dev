@@ -201,7 +201,7 @@ export default component$(() => {
   const charsetCurrent = useSignal<string>('set2350')
   const canvas = useSignal<HTMLCanvasElement>()
   const drawButtonDisabled = useSignal<boolean>(false)
-  const copyButton = useSignal<HTMLAnchorElement>()
+  const copyButton = useSignal<HTMLButtonElement>()
   const downloadButton = useSignal<HTMLAnchorElement>()
 
   const drawFontImage = $(
