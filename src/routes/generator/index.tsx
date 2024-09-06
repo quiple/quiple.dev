@@ -2,6 +2,7 @@ import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 import { worker$ } from '@builder.io/qwik-worker'
 
+import Button from '@/components/Button'
 import ExternalLink from '@/components/ExternalLink'
 import Spinner from '@/media/spinner.svg?jsx'
 import {
@@ -768,16 +769,15 @@ export default component$(() => {
               </div>
             </div>
           </div>
-          <button
+          <Button
             data-umami-event="비트맵 폰트 이미지 만들기"
             disabled={drawButtonDisabled.value}
+            loading={drawButtonDisabled.value}
             type="submit"
-            class="button big primary">
-            {drawButtonDisabled.value && (
-              <Spinner height="1em" class="stroke-current" />
-            )}
+            primary
+            big>
             {drawButtonDisabled.value ? '만드는 중…' : '만들기'}
-          </button>
+          </Button>
           <div class="flex gap-[10px]">
             <button
               data-umami-event="비트맵 폰트 이미지 복사"
