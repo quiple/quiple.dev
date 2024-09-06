@@ -12,28 +12,30 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default component$<ButtonProps>((props) => {
   return (
     <button
+      disabled={props.disabled}
       class={[
-        'flex',
         'cursor-pointer',
+        'flex',
         'flex-wrap',
+        'gap-2',
         'items-center',
         'justify-center',
-        'gap-2',
-        'transition',
         'rounded-[5px]',
+        'transition',
         props.big ? 'p-[6px_7px]' : 'p-[3px_7px]',
+        props.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         props.disabled
           ? [
-              'text-[var(--text-tertiary)]',
               'bg-[rgba(255,255,255,.5)]',
               'shadow-[0_.5px_2.5px_rgba(0,0,0,.15),0_0_0_.5px_rgba(0,0,0,.03)]',
+              'text-[var(--text-tertiary)]',
             ]
           : props.primary
             ? [
-                'text-white',
                 'bg-[linear-gradient(180deg,rgba(255,255,255,.17)_0,transparent_100%)]',
                 'bg-[var(--accents-blue)]',
                 'shadow-[0_1px_2.5px_rgba(0,122,255,.24),0_0_0_.5px_rgba(0,122,255,.12)]',
+                'text-white',
               ]
             : [
                 'bg-white',
