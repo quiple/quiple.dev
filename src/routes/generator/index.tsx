@@ -771,11 +771,6 @@ export default component$(() => {
           </div>
           <Button
             umami="비트맵 폰트 이미지 만들기"
-            umamiProp={{
-              Test1: '테스트1',
-              Test2: '테스트2',
-              Test3: '테스트3',
-            }}
             disabled={drawButtonDisabled.value}
             loading={drawButtonDisabled.value}
             type="submit"
