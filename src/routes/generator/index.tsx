@@ -201,7 +201,7 @@ export default component$(() => {
   const charsetCurrent = useSignal<string>('set2350')
   const canvas = useSignal<HTMLCanvasElement>()
   const drawButtonDisabled = useSignal<boolean>(false)
-  const copyButton = useSignal<HTMLButtonElement>()
+  const copyButtonDisabled = useSignal<boolean>(true)
   const downloadButton = useSignal<HTMLAnchorElement>()
 
   const drawFontImage = $(
@@ -272,8 +272,8 @@ export default component$(() => {
       }
 
       drawButtonDisabled.value = true
+      copyButtonDisabled.value = true
       canvas.value!.classList.add('hidden')
-      copyButton.value!.classList.add('disabled')
       downloadButton.value!.classList.add('disabled')
 
       const __fontSize = getFontSize(font)
@@ -359,11 +359,11 @@ export default component$(() => {
       }
 
       canvas.value!.classList.remove('hidden')
-      copyButton.value!.classList.remove('disabled')
       downloadButton.value!.classList.remove('disabled')
       downloadButton.value!.href = canvas.value!.toDataURL()
       downloadButton.value!.download = `${font}_${tileWidth}x${tileHeight}`
       drawButtonDisabled.value = false
+      copyButtonDisabled.value = false
     },
   )
 
@@ -770,7 +770,12 @@ export default component$(() => {
             </div>
           </div>
           <Button
-            data-umami-event="비트맵 폰트 이미지 만들기"
+            umami="비트맵 폰트 이미지 만들기"
+            umamiProp={{
+              Test1: '테스트1',
+              Test2: '테스트2',
+              Test3: '테스트3',
+            }}
             disabled={drawButtonDisabled.value}
             loading={drawButtonDisabled.value}
             type="submit"
@@ -779,11 +784,10 @@ export default component$(() => {
             {drawButtonDisabled.value ? '만드는 중…' : '만들기'}
           </Button>
           <div class="flex gap-[10px]">
-            <button
-              data-umami-event="비트맵 폰트 이미지 복사"
-              ref={copyButton}
+            <Button
               type="button"
-              class="button big disabled flex-1"
+              disabled={copyButtonDisabled.value}
+              umami="비트맵 폰트 이미지 복사"
               onClick$={(event, target) =>
                 canvas.value!.toBlob((blob) => {
                   navigator.clipboard
@@ -800,9 +804,10 @@ export default component$(() => {
                       },
                     )
                 })
-              }>
+              }
+              big>
               복사하기
-            </button>
+            </Button>
             <a
               data-umami-event="비트맵 폰트 이미지 다운로드"
               ref={downloadButton}

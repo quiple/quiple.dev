@@ -7,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   big?: boolean
   loading?: boolean
   primary?: boolean
-  'data-umami-event'?: string
+  umami?: string
 }
 
 export default component$<ButtonProps>((props) => {
@@ -15,6 +15,8 @@ export default component$<ButtonProps>((props) => {
     <button
       type={props.type}
       disabled={props.disabled}
+      onClick$={props.onClick$}
+      data-umami-event={props.umami}
       class={[
         'cursor-pointer',
         'flex',
@@ -43,8 +45,7 @@ export default component$<ButtonProps>((props) => {
                 'bg-white',
                 'shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)]',
               ],
-      ]}
-      data-umami-event={props['data-umami-event']}>
+      ]}>
       {props.loading && <Spinner height="1em" class="stroke-current" />}
       <Slot />
     </button>
