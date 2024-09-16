@@ -5,6 +5,7 @@ import Spinner from '@/media/spinner.svg?jsx'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   big?: boolean
+  flex1?: boolean
   loading?: boolean
   primary?: boolean
   umami?: string
@@ -26,6 +27,7 @@ export default component$<ButtonProps>((props) => {
         'justify-center',
         'rounded-[5px]',
         'transition',
+        props.flex1 && 'flex-1',
         props.big ? 'p-[6px_7px]' : 'p-[3px_7px]',
         props.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         props.disabled

@@ -800,6 +800,7 @@ export default component$(() => {
                     )
                 })
               }
+              flex1
               big>
               복사하기
             </Button>
