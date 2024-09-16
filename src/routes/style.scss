@@ -77,6 +77,10 @@
   --tw-prose-links: #06c;
 }
 
+::selection {
+  background-color: rgba(0, 122, 255, 0.3);
+}
+
 html {
   @apply font-normal not-italic;
   font-size: 13px;
@@ -146,6 +150,19 @@ abbr {
   }
 }
 
+input[type='text'],
+input[type='number'],
+textarea {
+  @apply focus:outline focus:outline-offset-0 focus:outline-[3px] focus:outline-[rgba(0,122,255,0.5)];
+  color: var(--text-primary);
+  padding: 4px 6px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow:
+    0px 0.5px 2.5px rgba(0, 0, 0, 0.3),
+    0px 0px 0px 0.5px rgba(0, 0, 0, 0.05);
+}
+
 .form {
   @apply flex flex-col items-stretch;
   padding: 0px 10px;
@@ -180,13 +197,21 @@ abbr {
       gap: 8px 10px;
 
       > div {
-        @apply flex;
-        gap: 2px;
+        @apply flex items-center;
+        gap: 6px;
+        color: var(--text-secondary);
       }
 
       input[type='text'],
       input[type='number'] {
         width: 80px;
+        height: 24px;
+      }
+
+      input[type='text'],
+      input[type='number'],
+      textarea {
+        @apply bg-transparent shadow-none;
       }
     }
   }
