@@ -559,7 +559,7 @@ export default component$(() => {
                   <input
                     id="x-offset"
                     name="x-offset"
-                    class="tabular-nums"
+                    class="tabular-nums text-right"
                     type="number"
                     value="0"
                     onKeyDown$={overrideNumberMinus}
@@ -574,7 +574,7 @@ export default component$(() => {
                   <input
                     id="y-offset"
                     name="y-offset"
-                    class="tabular-nums"
+                    class="tabular-nums text-right"
                     type="number"
                     value="0"
                     onKeyDown$={overrideNumberMinus}
@@ -596,7 +596,7 @@ export default component$(() => {
                   <input
                     id="tile-width"
                     name="tile-width"
-                    class="tabular-nums"
+                    class="tabular-nums text-right"
                     type="number"
                     value="16"
                     min="1"
@@ -612,7 +612,7 @@ export default component$(() => {
                   <input
                     id="tile-height"
                     name="tile-height"
-                    class="tabular-nums"
+                    class="tabular-nums text-right"
                     type="number"
                     value="16"
                     min="1"
@@ -633,7 +633,7 @@ export default component$(() => {
                 <input
                   id="tile-column"
                   name="tile-column"
-                  class="tabular-nums"
+                  class="tabular-nums text-right"
                   type="number"
                   value="64"
                   min="1"
