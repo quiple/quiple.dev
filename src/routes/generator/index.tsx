@@ -555,7 +555,7 @@ export default component$(() => {
               </label>
               <div class="right !flex-col">
                 <div>
-                  x:&nbsp;
+                  x:
                   <input
                     id="x-offset"
                     name="x-offset"
@@ -570,7 +570,7 @@ export default component$(() => {
                   px
                 </div>
                 <div>
-                  y:&nbsp;
+                  y:
                   <input
                     id="y-offset"
                     name="y-offset"
@@ -592,7 +592,7 @@ export default component$(() => {
               </label>
               <div class="right !flex-col">
                 <div>
-                  너비:&nbsp;
+                  너비:
                   <input
                     id="tile-width"
                     name="tile-width"
@@ -608,7 +608,7 @@ export default component$(() => {
                   px
                 </div>
                 <div>
-                  높이:&nbsp;
+                  높이:
                   <input
                     id="tile-height"
                     name="tile-height"
