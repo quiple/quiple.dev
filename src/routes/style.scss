@@ -1,5 +1,7 @@
 @charset 'utf-8';
 
+$handle: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 7L8 9.5L5.5 7" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+
 :root {
   --accents-red-dark: rgb(255, 69, 58);
   --accents-orange: rgb(255, 149, 0);
@@ -153,14 +155,22 @@ abbr {
 input[type='text'],
 input[type='number'],
 textarea {
-  @apply focus:outline focus:outline-offset-0 focus:outline-[3px] focus:outline-[rgba(0,122,255,0.5)];
+  @apply bg-white focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
   color: var(--text-primary);
   padding: 4px 6px;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow:
     0px 0.5px 2.5px rgba(0, 0, 0, 0.3),
     0px 0px 0px 0.5px rgba(0, 0, 0, 0.05);
+}
+
+select {
+  @apply appearance-none bg-contain bg-no-repeat bg-white shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:outline-none;
+  color: var(--text-primary);
+  padding: 3px 19px 3px 7px;
+  border-radius: 5px;
+  background-image: $handle;
+  background-position: 100% center;
 }
 
 .form {
@@ -210,8 +220,10 @@ textarea {
 
       input[type='text'],
       input[type='number'],
-      textarea {
-        @apply bg-transparent shadow-none;
+      textarea,
+      select {
+        @apply bg-transparent shadow-none hover:bg-white hover:shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:bg-white focus:shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] hover:border-transparent focus:border-transparent;
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
       }
     }
   }
