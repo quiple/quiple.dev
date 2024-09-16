@@ -155,7 +155,7 @@ abbr {
 input[type='text'],
 input[type='number'],
 textarea {
-  @apply bg-white focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
+  @apply transition bg-white focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
   color: var(--text-primary);
   padding: 4px 6px;
   border-radius: 5px;
@@ -165,7 +165,7 @@ textarea {
 }
 
 select {
-  @apply appearance-none bg-contain bg-no-repeat bg-white shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:outline-none;
+  @apply transition appearance-none bg-contain bg-no-repeat bg-white shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:outline-none;
   color: var(--text-primary);
   padding: 3px 19px 3px 7px;
   border-radius: 5px;
