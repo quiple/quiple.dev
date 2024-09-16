@@ -44,7 +44,7 @@
     "autosize": "^6.0.1",
     "bdfparser": "github:quiple/bdfparser-js",
     "blurhash": "^2.0.5",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-qwik": "^1.8.0",
