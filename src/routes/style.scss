@@ -100,16 +100,11 @@ abbr {
 
 [disabled],
 .disabled {
-  pointer-events: none;
+  @apply pointer-events-none;
 }
 
 .button {
-  @apply flex cursor-pointer flex-wrap items-center justify-center gap-2 bg-white transition;
-  padding: 3px 7px;
-  box-shadow:
-    0px 0.5px 2.5px rgba(0, 0, 0, 0.3),
-    0px 0px 0px 0.5px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
+  @apply flex cursor-pointer flex-wrap items-center justify-center gap-2 rounded-[5px] bg-white p-[3px_7px] shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] transition;
 
   &:active {
     filter: brightness(0.94);
@@ -117,37 +112,29 @@ abbr {
 
   &[disabled],
   &.disabled {
+    @apply shadow-[0_.5px_2.5px_rgba(0,0,0,.15),0_0_0_.5px_rgba(0,0,0,.03)];
     color: var(--text-tertiary);
     background: rgba(255, 255, 255, 0.5);
-    box-shadow:
-      0px 0.5px 2.5px rgba(0, 0, 0, 0.15),
-      0px 0px 0px 0.5px rgba(0, 0, 0, 0.03);
   }
 
   &.big {
-    @apply self-stretch;
-    padding: 6px 7px;
+    @apply self-stretch p-[6px_7px];
   }
 
   &.primary {
-    @apply text-white;
+    @apply text-white shadow-[0_1px_2.5px_rgba(0,122,255,.24),0_0_0_.5px_rgba(0,122,255,.12)];
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.17) 0%,
         transparent 100%
       ),
       var(--accents-blue);
-    box-shadow:
-      0px 1px 2.5px rgba(0, 122, 255, 0.24),
-      0px 0px 0px 0.5px rgba(0, 122, 255, 0.12);
 
     &[disabled],
     &.disabled {
+      @apply shadow-[0_.5px_2.5px_rgba(0,0,0,.15),0_0_0_.5px_rgba(0,0,0,.03)];
       color: var(--text-tertiary);
       background: rgba(255, 255, 255, 0.5);
-      box-shadow:
-        0px 0.5px 2.5px rgba(0, 0, 0, 0.15),
-        0px 0px 0px 0.5px rgba(0, 0, 0, 0.03);
     }
   }
 }
@@ -156,40 +143,31 @@ select,
 input[type='text'],
 input[type='number'],
 textarea {
-  @apply bg-white shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] transition focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
-  color: var(--text-primary);
-  padding: 4px 6px;
-  border-radius: 5px;
+  @apply rounded-[5px] bg-white p-[4px_6px] text-[var(--text-primary)] shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] transition focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
+  @apply m-0 appearance-none;
 }
 
 select {
-  @apply appearance-none bg-contain bg-no-repeat focus:outline-none;
-  padding: 3px 19px 3px 7px;
+  @apply appearance-none bg-contain bg-no-repeat p-[3px_19px_3px_7px] focus:outline-none;
   background-image: $handle;
   background-position: 100% center;
 }
 
 .form {
-  @apply flex flex-col items-stretch;
-  padding: 0px 10px;
+  @apply flex flex-col items-stretch rounded-[6px] p-[0_10px];
   background: rgba(0, 0, 0, 0.015);
   border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 6px;
 
   .form-row {
-    @apply flex flex-row flex-wrap items-center justify-between;
-    padding: 0px;
-    /* column-gap: 56px; */
+    @apply flex flex-row flex-wrap items-center justify-between p-0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
     &:last-of-type {
-      border-bottom: none;
+      @apply border-b-0;
     }
 
     &.col {
@@ -199,25 +177,20 @@ select {
     }
 
     .left {
-      @apply flex flex-col items-start justify-center;
-      padding: 10px 10px 10px 0px;
+      @apply flex flex-col items-start justify-center p-[10px_10px_10px_0];
     }
 
     .right {
-      @apply flex flex-row items-start justify-end;
-      padding: 8px 0px 8px 9px;
-      gap: 8px 10px;
+      @apply flex flex-row items-start justify-end gap-[8px_10px] p-[8px_0_8px_9px];
 
       > div {
-        @apply flex items-center;
-        gap: 6px;
+        @apply flex items-center gap-[6px];
         color: var(--text-secondary);
       }
 
       input[type='text'],
       input[type='number'] {
-        width: 80px;
-        height: 24px;
+        @apply h-[24px] w-[80px];
       }
 
       input[type='text'],
