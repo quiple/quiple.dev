@@ -156,10 +156,16 @@ select,
 input[type='text'],
 input[type='number'],
 textarea {
-  @apply transition bg-white shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
+  @apply bg-white shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] transition focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-[rgba(0,122,255,0.5)];
   color: var(--text-primary);
   padding: 4px 6px;
   border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 select {
@@ -218,7 +224,7 @@ select {
       input[type='number'],
       textarea,
       select {
-        @apply bg-transparent shadow-none hover:bg-white hover:shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:bg-white focus:shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] hover:border-transparent focus:border-transparent;
+        @apply bg-transparent shadow-none hover:border-transparent hover:bg-white hover:shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)] focus:border-transparent focus:bg-white focus:shadow-[0_.5px_2.5px_rgba(0,0,0,.3),0_0_0_.5px_rgba(0,0,0,.05)];
         border: 0.5px solid rgba(0, 0, 0, 0.1);
       }
     }
