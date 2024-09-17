@@ -18,6 +18,7 @@ import Img240118 from './showcase/240118.jpg?jsx'
 import Img240202 from './showcase/240202.png?jsx'
 import Img240218 from './showcase/240218.png?jsx'
 import Img240710 from './showcase/240710.jpg?jsx'
+import Img240905 from './showcase/240905.jpg?jsx'
 import ImgNotYet from './showcase/not-yet.png?jsx'
 
 export interface font {
@@ -80,6 +81,16 @@ export const showcase: Array<game> = [
     blurWidth: 5,
     blurHeight: 3,
     file: <ImgNotYet alt="Keylocker" />,
+  },
+  {
+    title: '소년기의 끝',
+    author: 'buriki clock',
+    link: '2403290',
+    type: 'steam',
+    hash: 'L69@q*tl00ja_LM{RRt7KMRQxubX',
+    blurWidth: 4,
+    blurHeight: 3,
+    file: <Img240905 alt="소년기의 끝" />,
   },
   {
     title: 'Time Treker',
