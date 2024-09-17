@@ -508,7 +508,9 @@ export default component$(() => {
             </div>
             {charsetCurrent.value !== 'custom' && (
               <div class="form-row col">
-                <label class="left">문자 집합 미리보기</label>
+                <label class="left" for="charset-preview">
+                  문자 집합 미리보기
+                </label>
                 <div class="right">
                   <textarea
                     id="charset-preview"
