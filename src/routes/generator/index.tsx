@@ -130,52 +130,6 @@ const fontUrl: fontUrl = {
 const getFontUrl = (font: string): string =>
   `https://cdn.jsdelivr.net/${fontUrl[font]}` || ''
 
-/*
-const escapeRegExp = (s: string): string =>
-  s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
-
-async function* fileToAsyncIterable(file: File): AsyncIterableIterator<string> {
-  const reader = file.stream().getReader()
-  const delimiter = /\r?\n/g
-
-  let { value: chunk, done: readerDone } = await reader.read()
-  const decoder = new TextDecoder('utf-8')
-  let chunkStr = chunk ? decoder.decode(chunk) : ''
-
-  let re: RegExp
-  if (typeof delimiter === 'string') {
-    if (delimiter === '') {
-      throw new Error('delimiter cannot be empty string!')
-    }
-    re = new RegExp(escapeRegExp(delimiter), 'g')
-  } else if (/g/.test(delimiter.flags) === false) {
-    re = new RegExp(delimiter.source, delimiter.flags + 'g')
-  } else {
-    re = delimiter
-  }
-
-  let startIndex = 0
-
-  while (true) {
-    const result = re.exec(chunkStr)
-    if (result === null) {
-      if (readerDone === true) {
-        break
-      }
-      const remainder = chunkStr.substring(startIndex)
-      ;({ value: chunk, done: readerDone } = await reader.read())
-      chunkStr = remainder + (chunkStr ? decoder.decode(chunk) : '')
-      startIndex = 0
-      continue
-    }
-    yield chunkStr.substring(startIndex, result.index)
-    startIndex = re.lastIndex
-  }
-
-  yield chunkStr.substring(startIndex)
-}
-*/
-
 export const drawFont = worker$(
   async (
     fontName: string,
