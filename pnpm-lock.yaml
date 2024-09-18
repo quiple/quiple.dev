@@ -22,10 +22,10 @@ importers:
         version: 0.0.1(@builder.io/qwik@1.9.0(@types/node@22.5.5)(sass@1.79.1))
       '@splidejs/splide':
         specifier: github:quiple/splide
-        version: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20
+        version: git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20
       '@tailwindcss/typography':
         specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))
+        version: 0.5.15(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^4.3.0
         version: 4.3.0(prettier@3.3.3)
@@ -55,7 +55,7 @@ importers:
         version: 6.0.1
       bdfparser:
         specifier: github:quiple/bdfparser-js
-        version: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60
+        version: git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60
       blurhash:
         specifier: ^2.0.5
         version: 2.0.5
@@ -114,8 +114,8 @@ importers:
         specifier: ^1.79.1
         version: 1.79.1
       tailwindcss:
-        specifier: 3.4.10
-        version: 3.4.10(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
+        specifier: 3.4.12
+        version: 3.4.12(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -672,8 +672,8 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20':
-    resolution: {tarball: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20':
+    resolution: {commit: 0219865baafe7210a43b3e007639ff3ba057dc20, repo: git@github.com:quiple/splide.git, type: git}
     version: 4.1.4
 
   '@tailwindcss/typography@0.5.15':
@@ -1021,8 +1021,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60:
-    resolution: {tarball: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60:
+    resolution: {commit: 403b488ff568c6f3af52ea123467e79635098e60, repo: git@github.com:quiple/bdfparser-js.git, type: git}
     version: 2.2.5
     engines: {node: '>= 12.0'}
 
@@ -3006,8 +3006,8 @@ packages:
     resolution: {integrity: sha512-7gr8p9TQP6RAHusBOSLs46F4564ZrjV8xFmw5zCmgmhGUcw2hxsShhJ6CEiHQMgPDwAQ1fWHPM0ypc4RMAig4A==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  tailwindcss@3.4.10:
-    resolution: {integrity: sha512-KWZkVPm7yJRhdu4SRSl9d4AK2wM3a50UsvgHZO7xY77NQr2V+fIrEuoDGQcbvswWvFGbS2f6e+jC/6WJm1Dl0w==}
+  tailwindcss@3.4.12:
+    resolution: {integrity: sha512-Htf/gHj2+soPb9UayUNci/Ja3d8pTmu9ONTfh4QY8r3MATTZOzmv6UYWF7ZwikEIC8okpfqmGqrmDehua8mF8w==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3857,15 +3857,15 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20': {}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20': {}
 
-  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))':
+  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.12(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.10(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
+      tailwindcss: 3.4.12(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4))
 
   '@tootallnate/once@2.0.0': {}
 
@@ -4321,7 +4321,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60: {}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60: {}
 
   binary-extensions@2.3.0: {}
 
@@ -6558,7 +6558,7 @@ snapshots:
       '@pkgr/core': 0.1.1
       tslib: 2.7.0
 
-  tailwindcss@3.4.10(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)):
+  tailwindcss@3.4.12(ts-node@10.9.2(@types/node@22.5.5)(typescript@5.5.4)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
