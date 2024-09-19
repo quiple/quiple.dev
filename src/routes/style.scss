@@ -83,6 +83,10 @@ $handle: url('data:image/svg+xml,<svg viewBox="0 0 16 16" fill="none" xmlns="htt
   background-color: rgba(0, 122, 255, 0.3);
 }
 
+::placeholder {
+  color: var(--text-tertiary);
+}
+
 html {
   @apply font-normal not-italic;
   font-size: 13px;
