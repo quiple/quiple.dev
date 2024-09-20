@@ -61,7 +61,7 @@
     "qr-code-styling": "1.6.0-rc.1",
     "qwik-blurhash": "^0.0.4",
     "refractor": "^4.8.1",
-    "sass": "^1.79.1",
+    "sass": "^1.79.2",
     "tailwindcss": "3.4.12",
     "typescript": "5.6.2",
     "undici": "^6.19.8",
