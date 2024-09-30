@@ -19,7 +19,7 @@ import Img240202 from './showcase/240202.png?jsx'
 import Img240218 from './showcase/240218.png?jsx'
 import Img240710 from './showcase/240710.jpg?jsx'
 import Img240905 from './showcase/240905.jpg?jsx'
-import ImgNotYet from './showcase/not-yet.png?jsx'
+import Img240919 from './showcase/240919.png?jsx'
 
 export interface font {
   name: string
@@ -80,7 +80,7 @@ export const showcase: Array<game> = [
     hash: 'M59Zj6KD:{EI?0-YIn$,NXaM${S1b-%4I,',
     blurWidth: 5,
     blurHeight: 3,
-    file: <ImgNotYet alt="Keylocker" />,
+    file: <Img240919 alt="Keylocker" />,
   },
   {
     title: '소년기의 끝',
