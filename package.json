@@ -47,7 +47,7 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-qwik": "^1.9.0",
+    "eslint-plugin-qwik": "^1.9.1",
     "fetchline": "^1.0.1",
     "galmuri": "^2.39.4",
     "hast-util-to-html": "^9.0.3",

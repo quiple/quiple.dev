@@ -22,7 +22,7 @@ importers:
         version: 0.0.1(@builder.io/qwik@1.9.0(@types/node@22.7.4)(sass@1.79.4))
       '@splidejs/splide':
         specifier: github:quiple/splide
-        version: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20
+        version: git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.13(ts-node@10.9.2(@types/node@22.7.4)(typescript@5.6.2)))
@@ -55,7 +55,7 @@ importers:
         version: 6.0.1
       bdfparser:
         specifier: github:quiple/bdfparser-js
-        version: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60
+        version: git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60
       blurhash:
         specifier: ^2.0.5
         version: 2.0.5
@@ -69,8 +69,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.3.3)
       eslint-plugin-qwik:
-        specifier: ^1.9.0
-        version: 1.9.0(eslint@8.57.1)
+        specifier: ^1.9.1
+        version: 1.9.1(eslint@8.57.1)
       fetchline:
         specifier: ^1.0.1
         version: 1.0.1
@@ -672,8 +672,8 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20':
-    resolution: {tarball: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20':
+    resolution: {commit: 0219865baafe7210a43b3e007639ff3ba057dc20, repo: git@github.com:quiple/splide.git, type: git}
     version: 4.1.4
 
   '@tailwindcss/typography@0.5.15':
@@ -1021,8 +1021,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60:
-    resolution: {tarball: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60:
+    resolution: {commit: 403b488ff568c6f3af52ea123467e79635098e60, repo: git@github.com:quiple/bdfparser-js.git, type: git}
     version: 2.2.5
     engines: {node: '>= 12.0'}
 
@@ -1544,8 +1544,8 @@ packages:
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-qwik@1.9.0:
-    resolution: {integrity: sha512-9EsvIVwtpANSj/ICKMoR5aeabDPgPVcW58bxY8N7R/9oQs6piCm7XbFErxAeaGxmhuvpMZsc+7AN5DizDfDdrw==}
+  eslint-plugin-qwik@1.9.1:
+    resolution: {integrity: sha512-H8WKYfFsubQh4rcAGYuZh6gX1pReHZGBwCi3l4bJ+7Oa1XqqBr6E8O70+Jv9RoXg9dH99zfWSdWjap9/N/4Pqw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     peerDependencies:
       eslint: ^8.57.0
@@ -1561,6 +1561,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -3857,7 +3858,7 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20': {}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20': {}
 
   '@tailwindcss/typography@0.5.15(tailwindcss@3.4.13(ts-node@10.9.2(@types/node@22.7.4)(typescript@5.6.2)))':
     dependencies:
@@ -4321,7 +4322,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60: {}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60: {}
 
   binary-extensions@2.3.0: {}
 
@@ -4843,7 +4844,7 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 9.1.0(eslint@8.57.1)
 
-  eslint-plugin-qwik@1.9.0(eslint@8.57.1):
+  eslint-plugin-qwik@1.9.1(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
       jsx-ast-utils: 3.3.5
