@@ -15,14 +15,14 @@ importers:
         specifier: ^1.9.0
         version: 1.9.0(@types/node@22.7.4)(sass@1.79.4)
       '@builder.io/qwik-city':
-        specifier: ^1.9.0
-        version: 1.9.0(@types/node@22.7.4)(rollup@4.22.5)(sass@1.79.4)(typescript@5.6.2)
+        specifier: ^1.9.1
+        version: 1.9.1(@types/node@22.7.4)(rollup@4.22.5)(sass@1.79.4)(typescript@5.6.2)
       '@builder.io/qwik-worker':
         specifier: ^0.0.1
         version: 0.0.1(@builder.io/qwik@1.9.0(@types/node@22.7.4)(sass@1.79.4))
       '@splidejs/splide':
         specifier: github:quiple/splide
-        version: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20
+        version: git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.13(ts-node@10.9.2(@types/node@22.7.4)(typescript@5.6.2)))
@@ -55,7 +55,7 @@ importers:
         version: 6.0.1
       bdfparser:
         specifier: github:quiple/bdfparser-js
-        version: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60
+        version: git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60
       blurhash:
         specifier: ^2.0.5
         version: 2.0.5
@@ -204,8 +204,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  '@builder.io/qwik-city@1.9.0':
-    resolution: {integrity: sha512-N+TARxsrVMNpIQQ+cnTN+c/gCdI5PlUGPFaRnWT4dw3ug+bizoaldksFvdATarWVYUMkoK7tTpop3cORKN9tAg==}
+  '@builder.io/qwik-city@1.9.1':
+    resolution: {integrity: sha512-GEM4Ybjg9edSWzAtp38mAyb2lIeuQYlcpyrDJ9W/KhXPoIQ7CAjhE2w1XaYXrtfg4iJOgCkiCXjL3JxobxNLxw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
 
   '@builder.io/qwik-worker@0.0.1':
@@ -672,8 +672,8 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20':
-    resolution: {tarball: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20':
+    resolution: {commit: 0219865baafe7210a43b3e007639ff3ba057dc20, repo: git@github.com:quiple/splide.git, type: git}
     version: 4.1.4
 
   '@tailwindcss/typography@0.5.15':
@@ -1021,8 +1021,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60:
-    resolution: {tarball: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60:
+    resolution: {commit: 403b488ff568c6f3af52ea123467e79635098e60, repo: git@github.com:quiple/bdfparser-js.git, type: git}
     version: 2.2.5
     engines: {node: '>= 12.0'}
 
@@ -1561,6 +1561,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -3458,7 +3459,7 @@ snapshots:
 
   '@builder.io/partytown@0.10.2': {}
 
-  '@builder.io/qwik-city@1.9.0(@types/node@22.7.4)(rollup@4.22.5)(sass@1.79.4)(typescript@5.6.2)':
+  '@builder.io/qwik-city@1.9.1(@types/node@22.7.4)(rollup@4.22.5)(sass@1.79.4)(typescript@5.6.2)':
     dependencies:
       '@mdx-js/mdx': 3.0.1
       '@types/mdx': 2.0.13
@@ -3773,7 +3774,7 @@ snapshots:
       unist-util-position-from-estree: 2.0.0
       unist-util-stringify-position: 4.0.0
       unist-util-visit: 5.0.0
-      vfile: 6.0.1
+      vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -3857,7 +3858,7 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20': {}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20': {}
 
   '@tailwindcss/typography@0.5.15(tailwindcss@3.4.13(ts-node@10.9.2(@types/node@22.7.4)(typescript@5.6.2)))':
     dependencies:
@@ -4321,7 +4322,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60: {}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60: {}
 
   binary-extensions@2.3.0: {}
 
@@ -6268,7 +6269,7 @@ snapshots:
       '@types/mdast': 4.0.4
       mdast-util-to-hast: 13.2.0
       unified: 11.0.5
-      vfile: 6.0.1
+      vfile: 6.0.3
 
   require-from-string@2.0.2: {}
 
@@ -6757,7 +6758,7 @@ snapshots:
       extend: 3.0.2
       is-plain-obj: 4.1.0
       trough: 2.2.0
-      vfile: 6.0.1
+      vfile: 6.0.3
 
   unist-util-is@6.0.0:
     dependencies:

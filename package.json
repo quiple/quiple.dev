@@ -29,7 +29,7 @@
   "devDependencies": {
     "@builder.io/partytown": "^0.10.2",
     "@builder.io/qwik": "^1.9.0",
-    "@builder.io/qwik-city": "^1.9.0",
+    "@builder.io/qwik-city": "^1.9.1",
     "@builder.io/qwik-worker": "^0.0.1",
     "@splidejs/splide": "github:quiple/splide",
     "@tailwindcss/typography": "^0.5.15",
