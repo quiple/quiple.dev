@@ -79,7 +79,7 @@ export default [
       sourceType: 'module',
 
       parserOptions: {
-        tsconfigRootDir: 'C:\\Users\\User\\Documents\\GitHub\\quiple.dev-new',
+        tsconfigRootDir: './',
         project: ['./tsconfig.json'],
 
         ecmaFeatures: {
