@@ -11,7 +11,14 @@
     }
   },
   "fmt": {
-    "include": ["src/", "astro.config.mjs", "tailwind.config.mjs"],
+    "include": [
+      "src/",
+      "astro.config.mjs",
+      "tailwind.config.mjs",
+      "components.json",
+      "deno.json",
+      "tsconfig.json"
+    ],
     "useTabs": false,
     "lineWidth": 80,
     "indentWidth": 2,
