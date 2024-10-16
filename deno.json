@@ -11,13 +11,13 @@
     }
   },
   "fmt": {
+    "include": ["src/", "astro.config.mjs", "tailwind.config.mjs"],
     "useTabs": false,
     "lineWidth": 80,
     "indentWidth": 2,
     "semiColons": false,
     "singleQuote": true,
-    "proseWrap": "preserve",
-    "include": ["src/"]
+    "proseWrap": "preserve"
   },
   "unstable": ["fmt-component"]
 }
