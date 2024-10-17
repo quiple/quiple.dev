@@ -1,11 +1,17 @@
 ---
+import { getEntry, render } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
+import { Content as GalmuriContent } from '@/contents/galmuri.mdx'
+
+const product = await getEntry('products', 'shirt')
+const { Content } = await render()
 ---
 
 <Layout
   title="Galmuri"
   description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트."
 >
+  <Content />
 </Layout>
 
 <style lang="sass"></style>
