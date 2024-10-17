@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "quiple.dev",
+  "short_name": "quiple",
+  "start_url": "https://quiple.dev",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "A website of quiple.",
+  "icons": [
+    {
+      "src": "images/q.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "images/q.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
