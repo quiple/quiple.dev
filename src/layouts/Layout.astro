@@ -7,7 +7,7 @@ interface Props {
 const { title, description } = Astro.props
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
@@ -20,6 +20,16 @@ const { title, description } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/images/galmuri.svg" />
     <link rel="apple-touch-icon" type="image/png" href="/images/galmuri.png" />
     <link rel="manifest" href="/manifest.json" />
+    {
+      import.meta.env.PROD && (
+        <script
+          is:inline
+          defer
+          src="https://umami.quiple.dev/script.js"
+          data-website-id="c11336e5-f347-4ae5-a289-3f7c9edbe5cd"
+        />
+      )
+    }
   </head>
   <body>
     <slot />
