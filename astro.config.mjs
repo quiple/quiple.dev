@@ -11,4 +11,13 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          api: 'modern-compiler',
+        },
+      },
+    },
+  },
 })
