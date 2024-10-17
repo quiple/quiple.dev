@@ -1,9 +1,4 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "lib": ["deno.window"],
-    "strict": true
-  },
   "lint": {
     "include": ["src/"],
     "rules": {
