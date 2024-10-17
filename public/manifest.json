@@ -8,12 +8,12 @@
   "description": "A website of quiple.",
   "icons": [
     {
-      "src": "images/q.png",
+      "src": "images/q-maskable.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "images/q.svg",
+      "src": "images/q-maskable.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
