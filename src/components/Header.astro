@@ -1,4 +1,6 @@
 ---
+import { ModeToggle } from '@/components/ModeToggle'
+
 interface Props {
   path?: string
 }
@@ -8,8 +10,10 @@ const { path } = Astro.props
 
 <header>
   quiple
+  <ModeToggle client:load />
 </header>
+
 <style lang="sass">
   header
-    @apply top-0
+    @apply sticky top-0
 </style>
