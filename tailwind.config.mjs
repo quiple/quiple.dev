@@ -10,6 +10,10 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        galmuri: {
+          DEFAULT: 'hsl(var(--galmuri))',
+          fixed: 'hsl(var(--galmuri-fixed))',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

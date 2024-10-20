@@ -123,7 +123,11 @@ import Content from '@/contents/galmuri.mdx'
   main
     @include g(g9, 2)
     @apply container mx-auto
+    a
+      @apply text-galmuri
     h2
       @include g(g11, 2)
-      @apply font-bold
+      @apply font-bold scroll-m-20 mt-[1em] first:mt-0
+    p
+      @apply [&:not(:first-child)]:mt-[.5em]
 </style>
