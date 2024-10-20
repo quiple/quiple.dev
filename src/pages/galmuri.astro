@@ -123,7 +123,9 @@ import Layout from '@/layouts/Layout.astro'
         stretch: normal
       size: calc(#{$font-size}px * $size)
     *
-      text-decoration-thickness: calc(1em / $font-size)
+      text-decoration:
+        skip-ink: none
+        thickness: calc(1em / $font-size)
       text-underline-offset: calc(1em / $font-size)
       &:hover
         text-decoration-thickness: calc(1em / $font-size * 2)
@@ -132,7 +134,6 @@ import Layout from '@/layouts/Layout.astro'
     @apply container mx-auto
     a
       @apply text-galmuri underline transition-all active:text-galmuri-invert
-      text-decoration-skip-ink: none
     h2
       @include g(g11, 2)
       @apply font-bold scroll-m-[.5em] mt-[1em] first:mt-0
