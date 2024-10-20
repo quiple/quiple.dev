@@ -9,11 +9,15 @@ const { path } = Astro.props
 ---
 
 <header>
-  quiple
-  <ModeToggle client:load />
+  <nav>
+    quiple
+    <ModeToggle client:load />
+  </nav>
 </header>
 
 <style lang="sass">
   header
-    @apply sticky top-0
+    @apply sticky top-0 border-b
+  nav
+    @apply container mx-auto flex justify-between items-center
 </style>
