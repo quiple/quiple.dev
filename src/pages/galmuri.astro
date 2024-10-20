@@ -7,26 +7,102 @@ import Content from '@/contents/galmuri.mdx'
   title="Galmuri"
   description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트."
 >
-  <main><Content /></main>
+  <main>
+    <Content />
+  </main>
 </Layout>
 
 <style lang="sass" is:global>
+  $display: fallback
+  $path: '/fonts/'
+  @font-face
+    font:
+      family: Galmuri14-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'Galmuri14.woff2') format('woff2')
+  @font-face
+    font:
+      family: Galmuri11-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'Galmuri11.woff2') format('woff2')
+  @font-face
+    font:
+      family: Galmuri11-web
+      style: normal
+      stretch: normal
+    weight: 700
+    display: $display
+    src: url($path + 'Galmuri11-Bold.woff2') format('woff2')
+  @font-face
+    font:
+      family: Galmuri11-web
+      style: normal
+      stretch: condensed
+    weight: 400
+    display: $display
+    src: url($path + 'Galmuri11-Condensed.woff2') format('woff2')
+  @font-face
+    font:
+      family: Galmuri9-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'Galmuri9.woff2') format('woff2')
+  @font-face
+    font:
+      family: Galmuri7-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'Galmuri7.woff2') format('woff2')
+  @font-face
+    font:
+      family: GalmuriMono11-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'GalmuriMono11.woff2') format('woff2')
+  @font-face
+    font:
+      family: GalmuriMono9-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'GalmuriMono9.woff2') format('woff2')
+  @font-face
+    font:
+      family: GalmuriMono7-web
+      style: normal
+      stretch: normal
+    weight: 400
+    display: $display
+    src: url($path + 'GalmuriMono7.woff2') format('woff2')
   @mixin g($font, $size: 1)
     font:
       @if ($font == 'g14')
-        family: Galmuri14, sans-serif
+        family: Galmuri14-web, sans-serif
       @else if ($font == 'g11' or $font == 'g11b' or $font == 'g11c')
-        family: Galmuri11, sans-serif
+        family: Galmuri11-web, sans-serif
       @else if ($font == 'g9')
-        family: Galmuri9, sans-serif
+        family: Galmuri9-web, sans-serif
       @else if ($font == 'g7')
-        family: Galmuri7, sans-serif
+        family: Galmuri7-web, sans-serif
       @else if ($font == 'gm11')
-        family: GalmuriMono11, sans-serif
+        family: GalmuriMono11-web, sans-serif
       @else if ($font == 'gm9')
-        family: GalmuriMono9, sans-serif
+        family: GalmuriMono9-web, sans-serif
       @else if ($font == 'gm7')
-        family: GalmuriMono7, sans-serif
+        family: GalmuriMono7-web, sans-serif
       @if ($font == 'g14')
         size: $size * 15px
       @else if ($font == 'g11' or $font == 'g11b' or $font == 'g11c' or $font == 'gm11')
@@ -46,4 +122,8 @@ import Content from '@/contents/galmuri.mdx'
         stretch: normal
   main
     @include g(g9, 2)
+    @apply container mx-auto
+    h2
+      @include g(g11, 2)
+      @apply font-bold
 </style>
