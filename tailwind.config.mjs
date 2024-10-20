@@ -12,7 +12,7 @@ export default {
       colors: {
         galmuri: {
           DEFAULT: 'hsl(var(--galmuri))',
-          fixed: 'hsl(var(--galmuri-fixed))',
+          invert: 'hsl(var(--galmuri-invert))',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
