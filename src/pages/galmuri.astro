@@ -7,10 +7,43 @@ import Content from '@/contents/galmuri.mdx'
   title="Galmuri"
   description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트."
 >
-  <Content />
+  <main><Content /></main>
 </Layout>
 
 <style lang="sass" is:global>
-p
-  display: none
+  @mixin g($font, $size: 1)
+    font:
+      @if ($font == 'g14')
+        family: Galmuri14, sans-serif
+      @else if ($font == 'g11' or $font == 'g11b' or $font == 'g11c')
+        family: Galmuri11, sans-serif
+      @else if ($font == 'g9')
+        family: Galmuri9, sans-serif
+      @else if ($font == 'g7')
+        family: Galmuri7, sans-serif
+      @else if ($font == 'gm11')
+        family: GalmuriMono11, sans-serif
+      @else if ($font == 'gm9')
+        family: GalmuriMono9, sans-serif
+      @else if ($font == 'gm7')
+        family: GalmuriMono7, sans-serif
+      @if ($font == 'g14')
+        size: $size * 15px
+      @else if ($font == 'g11' or $font == 'g11b' or $font == 'g11c' or $font == 'gm11')
+        size: $size * 12px
+      @else if ($font == 'g9' or $font == 'gm9')
+        size: $size * 10px
+      @else if ($font == 'g7' or $font == 'gm7')
+        size: $size * 8px
+      @if ($font == 'g11b')
+        weight: 700
+        stretch: normal
+      @else if ($font == 'g11c')
+        weight: 400
+        stretch: condensed
+      @else
+        weight: 400
+        stretch: normal
+  main
+    @include g(g9, 2)
 </style>
