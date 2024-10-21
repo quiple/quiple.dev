@@ -79,12 +79,9 @@ import Layout from '@/layouts/Layout.astro'
     @include g(g9, 2)
     @apply container mx-auto
     a
-      @include g(g9, 2)
       @apply text-galmuri underline transition-all active:text-galmuri-invert
       &[target=_blank]::after
-        @include g(g9, 2)
-        @apply bg-current inline-block w-[1em] h-[1em]
-        content: ''
+        @apply bg-current inline-block w-[1em] h-[1em] content-['']
         mask:
           image: $new-tab
           repeat: no-repeat
@@ -94,4 +91,18 @@ import Layout from '@/layouts/Layout.astro'
       @apply font-bold scroll-m-[.5em] mt-[1em] first:mt-0
     p
       @apply [&:not(:first-child)]:mt-[.5em]
+      a
+        @include g(g9, 2)
+        &[target=_blank]::after
+          @include g(g9, 2)
+    ul
+      @include g(g7, 2)
+      @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
+      li
+        &::before
+          @apply absolute left-[.25em] content-['\2022']
+        a
+          @include g(g7, 2)
+          &[target=_blank]::after
+            @include g(g7, 2)
 </style>
