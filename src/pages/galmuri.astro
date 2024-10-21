@@ -90,7 +90,7 @@ import Layout from '@/layouts/Layout.astro'
       @include g(g11, 2)
       @apply font-bold scroll-m-[.5em] mt-[1em] first:mt-0
     h3
-      @apply scroll-m-[.5em] mt-[1em] first:mt-0
+      @apply scroll-m-[.5em] mt-[.5em] first:mt-0
     p
       @apply [&:not(:first-child)]:mt-[.5em]
       a
@@ -107,4 +107,7 @@ import Layout from '@/layouts/Layout.astro'
           @include g(g7, 2)
           &[target=_blank]::after
             @include g(g7, 2)
+            @apply mx-[.125em]
+    code, kbd, samp, pre
+      @include g(gm7, 2)
 </style>
