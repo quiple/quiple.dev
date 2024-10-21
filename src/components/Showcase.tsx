@@ -28,135 +28,156 @@ import sc240710 from '@/assets/showcase/240710.jpg'
 import sc240905 from '@/assets/showcase/240905.jpg'
 import sc240919 from '@/assets/showcase/240919.png'
 
+interface game {
+  title: string
+  author: string
+  link: string
+  type: 'steam' | 'appstore' | 'patch',
+  image: ImageMetadata,
+}
+
 const games: game[] = [
   {
     title: 'Keylocker',
     author: 'Moonana',
     link: '1325040',
     type: 'steam',
+    image: sc240919,
   },
   {
     title: '소년기의 끝',
     author: 'buriki clock',
     link: '2403290',
     type: 'steam',
+    image: sc240905,
   },
   {
     title: 'Time Treker',
     author: 'Fuse Game',
     link: '2776500',
     type: 'steam',
+    image: sc240710,
   },
   {
     title: 'ZeroRanger',
     author: 'Robeureu',
     link: 'blog.naver.com/robeureu/223357336308',
     type: 'patch',
+    image: sc240218,
   },
   {
     title: 'STONKS-9800',
     author: 'TERNOX',
     link: '1539140',
     type: 'steam',
+    image: sc240202,
   },
   {
     title: '미제사건은 끝내야 하니까',
     author: 'Somi',
     link: '2676840',
     type: 'steam',
+    image: sc240118,
   },
   {
     title: 'VVVVVV',
     author: 'Terry Cavanagh',
     link: '70300',
     type: 'steam',
+    image: sc240111_2,
   },
   {
     title: 'Momodora: Moonlit Farewell',
     author: 'Bombservice',
     link: '1747760',
     type: 'steam',
+    image: sc240111,
   },
   {
     title: 'Coffee Talk Episode 2: Hibiscus & Butterfly',
     author: 'Toge Productions',
     link: '1663220',
     type: 'steam',
+    image: sc230420,
   },
   {
     title: 'Papers, Please',
     author: 'Lucas Pope',
     link: '239030',
     type: 'steam',
+    image: sc221127,
   },
   {
     title: 'Dungeon Squad',
     author: 'GameCoaster',
     link: '1642733080',
     type: 'appstore',
+    image: sc221006,
   },
   {
     title: 'Shotgun King: The Final Checkmate',
     author: 'PUNKCAKE Delicieux',
     link: '1972440',
     type: 'steam',
+    image: sc220621,
   },
   {
     title: 'Monster Sanctuary',
     author: '솔라리어스',
     link: 'blog.naver.com/ansewo/222702695752',
     type: 'patch',
+    image: sc220507,
   },
   {
     title: 'NEEDY GIRL OVERDOSE',
     author: '코스믹딜루즈 & quiple',
     link: 'cosmicdeluge.tistory.com/5',
     type: 'patch',
+    image: sc220220,
   },
   {
     title: 'Teamfight Manager',
     author: 'Team Samoyed',
     link: '1372810',
     type: 'steam',
+    image: sc210302,
   },
   {
     title: 'BLUE REVOLVER',
     author: 'Sepheille',
     link: 'steamcommunity.com/sharedfiles/filedetails/?id=2405396574',
     type: 'patch',
+    image: sc210223,
   },
   {
     title: 'Duke Dashington Remastered',
     author: '바람 번역단',
     link: 'blog.naver.com/bleach1491/222196942354',
     type: 'patch',
+    image: sc210105,
   },
   {
     title: 'Rev',
     author: '바람 번역단',
     link: 'blog.naver.com/bleach1491/222180900832',
     type: 'patch',
+    image: sc201221,
   },
   {
     title: 'Alwa’s Legacy',
     author: '바람 번역단',
     link: 'blog.naver.com/bleach1491/222008221688',
     type: 'patch',
+    image: sc200622,
   },
   {
     title: 'Westerado: Double Barreled',
     author: '바람 번역단',
     link: 'blog.naver.com/bleach1491/221820971383',
     type: 'patch',
+    image: sc200223,
   },
 ]
-
-interface game {
-  title: string
-  author: string
-  link: string
-  type: 'steam' | 'appstore' | 'patch'
-}
 
 export function Showcase() {
   return (
@@ -174,7 +195,7 @@ export function Showcase() {
         {games.map((game) => {
           return (
             <CarouselItem key={game.title}>
-              <Image src={sc220507} alt={game.title} />
+              <img src={game.image.src} alt={game.title} />
               {game.title} &copy; {game.author}
             </CarouselItem>
           )
