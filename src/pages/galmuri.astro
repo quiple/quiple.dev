@@ -87,6 +87,7 @@ import Layout from '@/layouts/Layout.astro'
       weight: 400
       display: $display
     src: url($path + 'GalmuriMono7.woff2') format('woff2')
+
   @mixin g($font, $size: 1)
     $font-size: 12 !default
     @if ($font == 'g14')
@@ -98,27 +99,18 @@ import Layout from '@/layouts/Layout.astro'
     font:
       @if ($font == 'g14')
         family: Galmuri14-web, sans-serif
-      @else if ($font == 'g11' or $font == 'g11b' or $font == 'g11c')
+      @else if ($font == 'g11')
         family: Galmuri11-web, sans-serif
       @else if ($font == 'g9')
         family: Galmuri9-web, sans-serif
       @else if ($font == 'g7')
         family: Galmuri7-web, sans-serif
       @else if ($font == 'gm11')
-        family: GalmuriMono11-web, sans-serif
+        family: GalmuriMono11-web, monospace
       @else if ($font == 'gm9')
-        family: GalmuriMono9-web, sans-serif
+        family: GalmuriMono9-web, monospace
       @else if ($font == 'gm7')
-        family: GalmuriMono7-web, sans-serif
-      @if ($font == 'g11b')
-        weight: 700
-        stretch: normal
-      @else if ($font == 'g11c')
-        weight: 400
-        stretch: condensed
-      @else
-        weight: 400
-        stretch: normal
+        family: GalmuriMono7-web, monospace
       size: calc(#{$font-size}px * $size)
     *
       text-decoration:
