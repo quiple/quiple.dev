@@ -19,10 +19,10 @@ import Layout from '@/layouts/Layout.astro'
       font:
         family: Galmuri#{$family}-web
         style: normal
-        @if $file == 11-Bold
-          stretch: normal
-        @else
+        @if $file == 11-Condensed
           stretch: condensed
+        @else
+          stretch: normal
         @if $file == 11-Bold
           weight: 700
         @else
