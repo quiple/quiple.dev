@@ -1,4 +1,3 @@
-import { Image } from 'astro:assets'
 import {
   Carousel,
   CarouselContent,
@@ -182,21 +181,17 @@ const games: game[] = [
 export function Showcase() {
   return (
     <Carousel
-      opts={{
-        loop: true,
-      }}
-      plugins={[
-        Autoplay({
-          delay: 3000,
-        }),
-      ]}
+      opts={{ loop: true }}
+      plugins={[Autoplay({ delay: 3000 })]}
     >
       <CarouselContent>
         {games.map((game) => {
           return (
-            <CarouselItem key={game.title}>
-              <img src={game.image.src} alt={game.title} />
-              {game.title} &copy; {game.author}
+            <CarouselItem key={game.title} className="basis-auto">
+              <figure>
+                <img className='h-96' src={game.image.src} alt={game.title} />
+                <figcaption>{game.title} &copy; {game.author}</figcaption>
+              </figure>
             </CarouselItem>
           )
         })}
