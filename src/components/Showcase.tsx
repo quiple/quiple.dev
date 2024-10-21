@@ -186,14 +186,14 @@ export function Showcase() {
   }
 
   return (
-    <Carousel opts={{ align: 'start', loop: true }}>
+    <Carousel className='mt-[.5em]' opts={{ align: 'start', loop: true }}>
       <CarouselContent className="-ml-[1em]">
         {games.map((game) => {
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
                 <img className="h-80" src={game.image.src} alt={game.title} />
-                <figcaption>
+                <figcaption className='mt-[.5em]'>
                   <a
                     href={linkPrefix[game.type] + game.link}
                     target="_blank"
