@@ -13,103 +13,45 @@ import Layout from '@/layouts/Layout.astro'
 </Layout>
 
 <style lang="sass" is:global>
-  $display: block
-  $path: '/fonts/'
-  @font-face
-    font:
-      family: Galmuri14-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'Galmuri14.woff2') format('woff2')
-  @font-face
-    font:
-      family: Galmuri11-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'Galmuri11.woff2') format('woff2')
-  @font-face
-    font:
-      family: Galmuri11-web
-      style: normal
-      stretch: normal
-      weight: 700
-      display: $display
-    src: url($path + 'Galmuri11-Bold.woff2') format('woff2')
-  @font-face
-    font:
-      family: Galmuri11-web
-      style: normal
-      stretch: condensed
-      weight: 400
-      display: $display
-    src: url($path + 'Galmuri11-Condensed.woff2') format('woff2')
-  @font-face
-    font:
-      family: Galmuri9-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'Galmuri9.woff2') format('woff2')
-  @font-face
-    font:
-      family: Galmuri7-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'Galmuri7.woff2') format('woff2')
-  @font-face
-    font:
-      family: GalmuriMono11-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'GalmuriMono11.woff2') format('woff2')
-  @font-face
-    font:
-      family: GalmuriMono9-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'GalmuriMono9.woff2') format('woff2')
-  @font-face
-    font:
-      family: GalmuriMono7-web
-      style: normal
-      stretch: normal
-      weight: 400
-      display: $display
-    src: url($path + 'GalmuriMono7.woff2') format('woff2')
+  $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono9 Mono9, Mono7 Mono7
+  @each $family, $file in $fonts
+    @font-face
+      font:
+        family: Galmuri#{$family}-web
+        style: normal
+        @if $file == 11-Bold
+          stretch: normal
+        @else
+          stretch: condensed
+        @if $file == 11-Bold
+          weight: 700
+        @else
+          weight: 400
+        display: block
+      src: url('/fonts/Galmuri#{$file}.woff2') format('woff2')
 
   @mixin g($font, $size: 1)
     $font-size: 12 !default
-    @if ($font == 'g14')
+    @if $font == g14
       $font-size: 15
-    @else if ($font == 'g9' or $font == 'gm9')
+    @else if $font == g9 or $font == gm9
       $font-size: 10
-    @else if ($font == 'g7' or $font == 'gm7')
+    @else if $font == g7 or $font == gm7
       $font-size: 8
     font:
-      @if ($font == 'g14')
+      @if $font == g14
         family: Galmuri14-web, sans-serif
-      @else if ($font == 'g11')
+      @else if $font == g11
         family: Galmuri11-web, sans-serif
-      @else if ($font == 'g9')
+      @else if $font == g9
         family: Galmuri9-web, sans-serif
-      @else if ($font == 'g7')
+      @else if $font == g7
         family: Galmuri7-web, sans-serif
-      @else if ($font == 'gm11')
+      @else if $font == gm11
         family: GalmuriMono11-web, monospace
-      @else if ($font == 'gm9')
+      @else if $font == gm9
         family: GalmuriMono9-web, monospace
-      @else if ($font == 'gm7')
+      @else if $font == gm7
         family: GalmuriMono7-web, monospace
       size: calc(#{$font-size}px * $size)
     *
