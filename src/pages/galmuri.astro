@@ -77,7 +77,7 @@ import Layout from '@/layouts/Layout.astro'
 
   main
     @include g(g9, 2)
-    @apply container mx-auto
+    @apply container mx-auto break-keep
     a
       @apply text-galmuri underline transition-all active:text-galmuri-invert
       &[target=_blank]::after
@@ -110,4 +110,6 @@ import Layout from '@/layouts/Layout.astro'
             @apply mx-[.125em]
     code, kbd, samp, pre
       @include g(gm7, 2)
+    :not(div, pre)
+      @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
 </style>
