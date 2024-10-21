@@ -31,8 +31,8 @@ interface game {
   title: string
   author: string
   link: string
-  type: 'steam' | 'appstore' | 'patch',
-  image: ImageMetadata,
+  type: 'steam' | 'appstore' | 'patch'
+  image: ImageMetadata
 }
 
 const games: game[] = [
@@ -179,18 +179,30 @@ const games: game[] = [
 ]
 
 export function Showcase() {
+  const linkPrefix = {
+    steam: 'https://store.steampowered.com/app/',
+    appstore: 'https://apps.apple.com/app/',
+    patch: 'https://',
+  }
+
   return (
-    <Carousel
-      opts={{ align: 'start', loop: true }}
-      plugins={[Autoplay({ delay: 3000 })]}
-    >
+    <Carousel opts={{ align: 'start', loop: true }} plugins={[Autoplay({ delay: 3000 })]}>
       <CarouselContent className="-ml-[1em]">
         {games.map((game) => {
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
-                <img className='h-96' src={game.image.src} alt={game.title} />
-                <figcaption>{game.title} &copy; {game.author}</figcaption>
+                <img className="h-96" src={game.image.src} alt={game.title} />
+                <figcaption>
+                  <a
+                    href={linkPrefix[game.type] + game.link}
+                    target="_blank"
+                    rel="nofollow noreferrer noopener"
+                  >
+                    {game.title}
+                  </a>{' '}
+                  &copy; {game.author}
+                </figcaption>
               </figure>
             </CarouselItem>
           )
