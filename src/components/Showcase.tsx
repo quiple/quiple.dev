@@ -192,7 +192,7 @@ export function Showcase() {
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
-                <img className="h-96" src={game.image.src} alt={game.title} />
+                <img className="h-72" src={game.image.src} alt={game.title} />
                 <figcaption>
                   <a
                     href={linkPrefix[game.type] + game.link}
@@ -201,7 +201,8 @@ export function Showcase() {
                   >
                     {game.title}
                   </a>{' '}
-                  &copy; {game.author}
+                  {game.type === 'patch' ? 'by' : '©'} {game.author}{' '}
+                  {game.type === 'patch' && '(사용자 패치)'}
                 </figcaption>
               </figure>
             </CarouselItem>
