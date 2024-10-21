@@ -181,13 +181,13 @@ const games: game[] = [
 export function Showcase() {
   return (
     <Carousel
-      opts={{ loop: true }}
+      opts={{ align: 'start', loop: true }}
       plugins={[Autoplay({ delay: 3000 })]}
     >
-      <CarouselContent>
+      <CarouselContent className="-ml-[1em]">
         {games.map((game) => {
           return (
-            <CarouselItem key={game.title} className="basis-auto">
+            <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
                 <img className='h-96' src={game.image.src} alt={game.title} />
                 <figcaption>{game.title} &copy; {game.author}</figcaption>
