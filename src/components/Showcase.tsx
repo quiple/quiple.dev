@@ -1,3 +1,4 @@
+import type { Image } from 'astro:assets'
 import {
   Carousel,
   CarouselContent,
@@ -7,7 +8,15 @@ import {
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 
-export function Showcase() {
+interface game {
+  title: string
+  author: string
+  link: string
+  type: 'steam' | 'appstore' | 'patch'
+  image: typeof Image
+}
+
+export function Showcase(items: game[]) {
   return (
     <Carousel
       opts={{
@@ -20,9 +29,9 @@ export function Showcase() {
       ]}
     >
       <CarouselContent>
-        <CarouselItem>...</CarouselItem>
-        <CarouselItem>...</CarouselItem>
-        <CarouselItem>...</CarouselItem>
+        {items.map((game) => {
+          return <CarouselItem key={game.title}>{game.title}</CarouselItem>
+        })}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
