@@ -108,7 +108,6 @@ import Layout from '@/layouts/Layout.astro'
         a
           @include g(g7, 2)
           &[target=_blank]::after
-            @include g(g7, 2)
             @apply mx-[.125em]
     code, kbd, samp, pre
       @include g(gm7, 2)
@@ -116,4 +115,8 @@ import Layout from '@/layouts/Layout.astro'
       @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
     [aria-roledescription=carousel]
       @include g(g7, 2)
+      a
+        @include g(g7, 2)
+        &[target=_blank]::after
+          @apply mx-[.125em]
 </style>
