@@ -1,11 +1,3 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
-import Autoplay from 'embla-carousel-autoplay'
 import sc200223 from '@/assets/showcase/200223.png'
 import sc200622 from '@/assets/showcase/200622.png'
 import sc201221 from '@/assets/showcase/201221.png'
@@ -18,14 +10,22 @@ import sc220621 from '@/assets/showcase/220621.jpg'
 import sc221006 from '@/assets/showcase/221006.webp'
 import sc221127 from '@/assets/showcase/221127.png'
 import sc230420 from '@/assets/showcase/230420.png'
-import sc240111 from '@/assets/showcase/240111.png'
 import sc240111_2 from '@/assets/showcase/240111-2.png'
+import sc240111 from '@/assets/showcase/240111.png'
 import sc240118 from '@/assets/showcase/240118.jpg'
 import sc240202 from '@/assets/showcase/240202.png'
 import sc240218 from '@/assets/showcase/240218.png'
 import sc240710 from '@/assets/showcase/240710.jpg'
 import sc240905 from '@/assets/showcase/240905.jpg'
 import sc240919 from '@/assets/showcase/240919.png'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
 interface game {
   title: string
