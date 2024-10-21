@@ -54,18 +54,41 @@ import Layout from '@/layouts/Layout.astro'
       @else if $font == gm7
         family: GalmuriMono7-web, monospace
       size: calc(#{$font-size}px * $size)
-    *
-      text-decoration:
-        skip-ink: none
-        thickness: calc(1em / $font-size)
-      text-underline-offset: calc(1em / $font-size)
-      &:hover
-        text-decoration-thickness: calc(1em / $font-size * 2)
+    @if $font-size == 10
+      mask-size: calc(100% - .25em)
+    @else
+      mask-size: 100%
+    text-decoration:
+      skip-ink: none
+      thickness: calc(1em / $font-size)
+    text-underline-offset: calc(1em / $font-size)
+    &:hover
+      text-decoration-thickness: calc(1em / $font-size * 2)
+
+  $new-tab: url('data:image/svg+xml,\
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">\
+      <polygon points="6,5 6,7 1,7 1,2 3,2 3,1 1,1 0,1 0,2 0,7 0,8 1,8 6,8 7,8 7,7 7,5"/>\
+      <polygon points="6,1 5,1 4,1 4,2 5,2 5,3 6,3 6,4 7,4 7,3 7,2 7,1"/>\
+      <rect x="4" y="3" width="1" height="1"/>\
+      <rect x="3" y="4" width="1" height="1"/>\
+      <rect x="2" y="5" width="1" height="1"/>\
+    </svg>\
+  ')
+
   main
     @include g(g9, 2)
     @apply container mx-auto
     a
+      @include g(g9, 2)
       @apply text-galmuri underline transition-all active:text-galmuri-invert
+      &[target=_blank]::after
+        @include g(g9, 2)
+        @apply bg-current inline-block w-[1em] h-[1em]
+        content: ''
+        mask:
+          image: $new-tab
+          repeat: no-repeat
+          position: center
     h2
       @include g(g11, 2)
       @apply font-bold scroll-m-[.5em] mt-[1em] first:mt-0
