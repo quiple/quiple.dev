@@ -78,6 +78,8 @@ import Layout from '@/layouts/Layout.astro'
   main
     @include g(g9, 2)
     @apply container mx-auto break-keep
+    img
+      image-rendering: pixelated
     a
       @apply text-galmuri underline transition-all active:text-galmuri-invert
       &[target=_blank]::after
