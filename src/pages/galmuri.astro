@@ -71,10 +71,9 @@ import Layout from '@/layouts/Layout.astro'
       <path d="M4 1V2H5V3H4V4H3V5H2V6H3V5H4V4H5V3H6V4H7V1H4Z" />\
     </svg>\
   ')
-
   $download: url('data:image/svg+xml,\
     <svg viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">\
-      <path d="M3 1H4V5H5V6H4V7H6V6H7V8H0V6H1V7H3V6H2V5H3V1Z" />\
+      <path d="M3 1H4V5H5V6H4V7H7V8H0V7H3V6H2V5H3V1Z" />\
       <path d="M2 5H1V4H2V5Z" />\
       <path d="M5 5V4H6V5H5Z" />\
     </svg>\
@@ -124,4 +123,14 @@ import Layout from '@/layouts/Layout.astro'
         @include g(g7, 2)
         &[target=_blank]::after
           @apply mx-[.125em]
+    [download]
+      @include g(g7, 2)
+      &::before
+        @include g(g7, 2)
+        @apply bg-current inline-block w-[1em] h-[1em] content-['']
+        mask:
+          image: $download
+          repeat: no-repeat
+          position: center
+
 </style>
