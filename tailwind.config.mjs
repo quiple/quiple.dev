@@ -3,6 +3,10 @@ export default {
   darkMode: ['class'],
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
+    fontFamily: {
+      'sans': ['Geist', 'sans-serif'],
+      'mono': ['Geist\\ Mono', 'monospace'],
+    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',
