@@ -26,8 +26,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Skeleton } from '@/components/ui/skeleton'
 import type { GetImageResult } from 'astro'
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
+
 const format = 'avif'
 
 interface game {
@@ -199,7 +201,20 @@ export function Showcase() {
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
-                <img src={game.image.src} alt={game.title} />
+                <Skeleton
+                  style={{
+                    aspectRatio: `${game.image.attributes.width / game.image.attributes.height} / 1`,
+                  }}
+                  className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
+                />
+                <img
+                  style={{
+                    aspectRatio: `${game.image.attributes.width / game.image.attributes.height} / 1`,
+                  }}
+                  src={game.image.src}
+                  srcSet={game.image.srcSet.attribute}
+                  alt={game.title}
+                />
                 <figcaption>
                   <a
                     href={linkPrefix[game.type] + game.link}
