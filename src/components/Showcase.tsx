@@ -178,13 +178,13 @@ const games: game[] = [
   },
 ]
 
-export function Showcase() {
-  const linkPrefix = {
-    steam: 'https://store.steampowered.com/app/',
-    appstore: 'https://apps.apple.com/app/',
-    patch: 'https://',
-  }
+const linkPrefix = {
+  steam: 'https://store.steampowered.com/app/',
+  appstore: 'https://apps.apple.com/app/',
+  patch: 'https://',
+}
 
+export function Showcase() {
   return (
     <Carousel
       className="mt-[.5em]"
