@@ -195,13 +195,13 @@ export function Showcase() {
         {games.map((game) => {
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
-              <figure>
+              <figure className="table">
                 <img
                   className="h-40 sm:h-50 md:h-60 lg:h-70 xl:h-80"
                   src={game.image.src}
                   alt={game.title}
                 />
-                <figcaption className="mt-[.5em]">
+                <figcaption className="table-caption caption-bottom mt-[.5em]">
                   <a
                     href={linkPrefix[game.type] + game.link}
                     target="_blank"
