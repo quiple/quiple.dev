@@ -119,10 +119,16 @@ import Layout from '@/layouts/Layout.astro'
       @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
     [aria-roledescription=carousel]
       @include g(g7, 2)
-      a
-        @include g(g7, 2)
-        &[target=_blank]::after
-          @apply mx-[.125em]
+      figure
+        @apply table
+        img
+          @apply h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80
+        figcaption
+          @apply table-caption caption-bottom mt-[.5em]
+          a
+            @include g(g7, 2)
+            &[target=_blank]::after
+              @apply mx-[.125em]
     [download]
       @include g(g7, 2)
       &::before
