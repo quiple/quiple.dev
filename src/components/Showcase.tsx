@@ -25,6 +25,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 
 interface game {
   title: string
@@ -185,7 +186,11 @@ export function Showcase() {
   }
 
   return (
-    <Carousel className="mt-[.5em]" opts={{ align: 'start', loop: true }}>
+    <Carousel
+      className="mt-[.5em]"
+      opts={{ align: 'start', loop: true }}
+      plugins={[WheelGesturesPlugin()]}
+    >
       <CarouselContent className="-ml-[1em]">
         {games.map((game) => {
           return (
