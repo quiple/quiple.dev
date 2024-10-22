@@ -5,7 +5,7 @@ export function Downloads() {
     <div>
       {fonts.map((font) => {
         return (
-          <a key={font} href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font}.ttf`}>
+          <a key={font} href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font}.ttf`} download>
             Galmuri{font}
           </a>
         )
