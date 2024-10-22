@@ -204,7 +204,8 @@ export function Showcase() {
                   >
                     {game.title}
                   </a>{' '}
-                  {game.type === 'patch' ? 'by' : '©'} {game.author}{game.type === 'patch' && ' (사용자 패치)'}
+                  {game.type === 'patch' ? 'by' : '©'} {game.author}
+                  {game.type === 'patch' && ' (사용자 패치)'}
                 </figcaption>
               </figure>
             </CarouselItem>
