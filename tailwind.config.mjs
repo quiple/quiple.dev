@@ -4,8 +4,8 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      'sans': ['Geist', 'Noto Sans KR', 'sans-serif'],
-      'mono': ['Geist\\ Mono', 'Noto Sans KR', 'monospace'],
+      sans: ['Geist', 'Noto Sans KR', 'sans-serif'],
+      mono: ['Geist\\ Mono', 'Noto Sans KR', 'monospace'],
     },
     extend: {
       borderRadius: {
