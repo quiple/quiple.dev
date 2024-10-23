@@ -1,4 +1,4 @@
-import { fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
+import { bigFamily, type font, fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
 import { Button } from '@/components/ui/button'
 import {
   Select,
@@ -12,6 +12,11 @@ import { useState } from 'react'
 
 export function Tester() {
   const [exampleText, setExampleText] = useState('')
+  const [testerFont, setTesterFont] = useState<font | undefined>({
+    family: `${bigFamily}11`,
+    name: `${bigFamily}11`,
+    slug: 'g11',
+  })
 
   function shuffle() {
     let randIndexEn = 0
@@ -34,15 +39,18 @@ export function Tester() {
   return (
     <section className="flex flex-col gap-2">
       <div className="flex gap-2">
-        <Select defaultValue="g11">
+        <Select
+          defaultValue="g11"
+          onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
+        >
           <SelectTrigger className="w-auto">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
             {fonts.map((font) => {
               return (
-                <SelectItem key={font} value={`g${font.replaceAll(' ', '-')}`}>
-                  {`Galmuri${font}`}
+                <SelectItem key={font.slug} value={font.slug}>
+                  {font.name}
                 </SelectItem>
               )
             })}
@@ -50,7 +58,15 @@ export function Tester() {
         </Select>
         <Button onClick={shuffle}>예문 섞기</Button>
       </div>
-      <Textarea value={exampleText} onChange={(e) => setExampleText(e.target.value)} />
+      <Textarea
+        style={{
+          fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
+          fontWeight: testerFont?.slug === 'g11b' ? 700 : 400,
+          fontStretch: testerFont?.slug === 'g11c' ? 'condensed' : 'normal'
+        }}
+        value={exampleText}
+        onChange={(e) => setExampleText(e.target.value)}
+      />
     </section>
   )
 }

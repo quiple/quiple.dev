@@ -1,4 +1,4 @@
-const bigFamily = 'Galmuri'
+export const bigFamily = 'Galmuri'
 
 export interface font {
   family: string
