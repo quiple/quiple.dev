@@ -1,0 +1,20 @@
+---
+interface Props {
+  path?: string
+}
+
+const { path } = Astro.props
+---
+
+<footer>
+  <section>
+    quiple
+  </section>
+</footer>
+
+<style lang="sass">
+  footer
+    @apply sticky top-0 border-b bg-background z-50
+  section
+    @apply container mx-auto px-16 flex justify-between items-center
+</style>

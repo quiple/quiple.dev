@@ -48,7 +48,7 @@ export function Tester() {
           defaultValue="g11"
           onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
         >
-          <SelectTrigger>
+          <SelectTrigger className="tester-select">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -61,7 +61,15 @@ export function Tester() {
             })}
           </SelectContent>
         </Select>
-        <Slider value={[fontSize]} onValueChange={(e) => setFontSize(e[0])} max={120} step={1} />
+        <Slider
+          className="tester-slider"
+          value={[fontSize]}
+          onValueChange={(e) => setFontSize(e[0])}
+          min={8}
+          max={120}
+          step={1}
+        />
+        <div className="tester-font-size">{`${fontSize}px`}</div>
         <Button onClick={shuffle}>예문 섞기</Button>
       </div>
       <Textarea
@@ -74,6 +82,7 @@ export function Tester() {
         }}
         value={exampleText}
         onChange={(e) => setExampleText(e.target.value)}
+        spellCheck={false}
       />
     </section>
   )

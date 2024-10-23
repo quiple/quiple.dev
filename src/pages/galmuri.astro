@@ -1,5 +1,6 @@
 ---
 import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
 import Content from '@/contents/galmuri.mdx'
 import Layout from '@/layouts/Layout.astro'
 ---
@@ -12,6 +13,7 @@ import Layout from '@/layouts/Layout.astro'
   <main>
     <Content />
   </main>
+  <Footer />
 </Layout>
 
 <style lang="sass" is:global>
@@ -121,13 +123,20 @@ import Layout from '@/layouts/Layout.astro'
     & > :is(h2, h3, p, ul)
       @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
     .tester
-      @apply flex flex-col gap-2 mt-[1em]
+      @apply flex flex-col gap-[.5em] mt-[1em]
       .control
-        @apply flex gap-2
+        @apply flex gap-[1em] items-center
         button
           @apply rounded-none
+        .tester-select
+          @apply basis-80
+        .tester-slider
+          @apply basis-80
+        .tester-font-size
+          @include g(g7, 2)
+          @apply tabular-nums
       textarea
-        @apply rounded-none px-[.5em] py-[.25em] leading-normal resize-none
+        @apply rounded-none px-[.5em] py-[.25em] leading-normal resize-none border-none bg-zinc-100 dark:bg-zinc-900 overflow-hidden
     [aria-roledescription=carousel]
       @include g(g7, 2)
       figure
