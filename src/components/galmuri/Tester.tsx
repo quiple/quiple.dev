@@ -1,3 +1,5 @@
+import React from 'react'
+import { useState } from 'react'
 import {
   Select,
   SelectContent,
@@ -6,9 +8,30 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { fonts } from './data'
+import { Button } from '@/components/ui/button'
+import { fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
 
 export function Tester() {
+  const [exampleText, setExampleText] = useState('')
+
+  function shuffle() {
+    let randIndexEn = 0
+    let lastIndexEn = 0
+    let randIndexKo = 0
+    let lastIndexKo = 0
+
+    do {
+      randIndexEn = Math.floor(Math.random() * pangramEn.length)
+    } while (randIndexEn === lastIndexEn)
+    do {
+      randIndexKo = Math.floor(Math.random() * pangramKo.length)
+    } while (randIndexKo === lastIndexKo)
+
+    setExampleText(`${pangramKo[randIndexKo]}\n${pangramEn[randIndexEn]}`)
+    lastIndexEn = randIndexEn
+    lastIndexKo = randIndexKo
+  }
+
   return (
     <>
       <Select defaultValue="g11">
@@ -25,7 +48,8 @@ export function Tester() {
           })}
         </SelectContent>
       </Select>
-      <Textarea />
+      <Button onClick={shuffle}>예문 섞기</Button>
+      <Textarea value={exampleText} />
     </>
   )
 }

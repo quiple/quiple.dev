@@ -1,4 +1,4 @@
-import { fonts } from './data'
+import { fonts } from '@/components/galmuri/data'
 
 export function Downloads() {
   return (
