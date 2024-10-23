@@ -1,4 +1,4 @@
-import { fonts } from '@/lib/utils'
+import { fonts } from './data'
 
 export function Downloads() {
   return (

@@ -6,12 +6,12 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { fonts } from '@/lib/utils'
+import { fonts } from './data'
 
 export function Tester() {
   return (
     <>
-      <Select>
+      <Select defaultValue="g11">
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
