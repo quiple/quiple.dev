@@ -9,8 +9,10 @@ import {
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { useEffect, useState } from 'react'
+import { Slider } from '@/components/ui/slider'
 
 export function Tester() {
+  const [fontSize, setFontSize] = useState(36)
   const [exampleText, setExampleText] = useState('')
   const [testerFont, setTesterFont] = useState<font | undefined>({
     family: `${bigFamily}11`,
@@ -58,6 +60,7 @@ export function Tester() {
             })}
           </SelectContent>
         </Select>
+        <Slider value={[fontSize]} onValueChange={(e) => setFontSize(e[0])} max={120} step={1} />
         <Button onClick={shuffle}>예문 섞기</Button>
       </div>
       <Textarea
@@ -65,6 +68,7 @@ export function Tester() {
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
           fontWeight: testerFont?.slug === 'g11b' ? 700 : 400,
           fontStretch: testerFont?.slug === 'g11c' ? 'condensed' : 'normal',
+          fontSize: fontSize,
         }}
         value={exampleText}
         onChange={(e) => setExampleText(e.target.value)}
