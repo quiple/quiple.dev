@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function Tester() {
   const [exampleText, setExampleText] = useState('')
@@ -36,6 +36,8 @@ export function Tester() {
     lastIndexKo = randIndexKo
   }
 
+  useEffect(shuffle, [])
+
   return (
     <section className="flex flex-col gap-2">
       <div className="flex gap-2">
@@ -62,7 +64,7 @@ export function Tester() {
         style={{
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
           fontWeight: testerFont?.slug === 'g11b' ? 700 : 400,
-          fontStretch: testerFont?.slug === 'g11c' ? 'condensed' : 'normal'
+          fontStretch: testerFont?.slug === 'g11c' ? 'condensed' : 'normal',
         }}
         value={exampleText}
         onChange={(e) => setExampleText(e.target.value)}
