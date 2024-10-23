@@ -44,33 +44,37 @@ export function Tester() {
   return (
     <section className="tester">
       <div className="control">
-        <Select
-          defaultValue="g11"
-          onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
-        >
-          <SelectTrigger className="tester-select">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {fonts.map((font) => {
-              return (
-                <SelectItem key={font.slug} value={font.slug}>
-                  {font.name}
-                </SelectItem>
-              )
-            })}
-          </SelectContent>
-        </Select>
-        <Slider
-          className="tester-slider"
-          value={[fontSize]}
-          onValueChange={(e) => setFontSize(e[0])}
-          min={8}
-          max={120}
-          step={1}
-        />
-        <div className="tester-font-size">{`${fontSize}px`}</div>
-        <Button onClick={shuffle}>예문 섞기</Button>
+        <div className="left">
+          <Select
+            defaultValue="g11"
+            onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
+          >
+            <SelectTrigger className="tester-select">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {fonts.map((font) => {
+                return (
+                  <SelectItem key={font.slug} value={font.slug}>
+                    {font.name}
+                  </SelectItem>
+                )
+              })}
+            </SelectContent>
+          </Select>
+          <Slider
+            className="tester-slider"
+            value={[fontSize]}
+            onValueChange={(e) => setFontSize(e[0])}
+            min={8}
+            max={120}
+            step={1}
+          />
+          <div className="tester-font-size">{`${fontSize}px`}</div>
+        </div>
+        <Button className="shuffle" onClick={shuffle}>
+          예문 섞기
+        </Button>
       </div>
       <Textarea
         autosize
