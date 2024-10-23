@@ -51,7 +51,7 @@ export function Tester() {
         </Select>
         <Button onClick={shuffle}>예문 섞기</Button>
       </div>
-      <Textarea value={exampleText} />
+      <Textarea defaultValue={exampleText} />
     </section>
   )
 }
