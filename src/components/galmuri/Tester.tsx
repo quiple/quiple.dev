@@ -7,9 +7,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { Slider } from '@/components/ui/slider'
 import { Textarea } from '@/components/ui/textarea'
 import { useEffect, useState } from 'react'
-import { Slider } from '@/components/ui/slider'
 
 export function Tester() {
   const [fontSize, setFontSize] = useState(36)
