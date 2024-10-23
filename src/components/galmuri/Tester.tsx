@@ -33,23 +33,25 @@ export function Tester() {
   }
 
   return (
-    <>
-      <Select defaultValue="g11">
-        <SelectTrigger>
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {fonts.map((font) => {
-            return (
-              <SelectItem key={font} value={`g${font.replaceAll(' ', '-')}`}>
-                {`Galmuri${font}`}
-              </SelectItem>
-            )
-          })}
-        </SelectContent>
-      </Select>
-      <Button onClick={shuffle}>예문 섞기</Button>
+    <section className='flex flex-col gap-2'>
+      <div className='flex gap-2'>
+        <Select defaultValue="g11">
+          <SelectTrigger className='w-auto'>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {fonts.map((font) => {
+              return (
+                <SelectItem key={font} value={`g${font.replaceAll(' ', '-')}`}>
+                  {`Galmuri${font}`}
+                </SelectItem>
+              )
+            })}
+          </SelectContent>
+        </Select>
+        <Button onClick={shuffle}>예문 섞기</Button>
+      </div>
       <Textarea value={exampleText} />
-    </>
+    </section>
   )
 }
