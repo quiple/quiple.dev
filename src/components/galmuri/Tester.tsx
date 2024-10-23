@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { bigFamily, type font, fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
 import { Button } from '@/components/ui/button'
 import {
@@ -9,7 +11,6 @@ import {
 } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
 import { Textarea } from '@/components/ui/textarea'
-import { useEffect, useState } from 'react'
 
 export function Tester() {
   const [fontSize, setFontSize] = useState(36)
@@ -64,6 +65,7 @@ export function Tester() {
         <Button onClick={shuffle}>예문 섞기</Button>
       </div>
       <Textarea
+        autosize
         style={{
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
           fontWeight: testerFont?.slug === 'g11b' ? 700 : 400,
