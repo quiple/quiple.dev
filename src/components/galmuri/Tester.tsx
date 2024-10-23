@@ -39,13 +39,13 @@ export function Tester() {
   useEffect(shuffle, [])
 
   return (
-    <section className="flex flex-col gap-2">
-      <div className="flex gap-2">
+    <section className="tester">
+      <div className="control">
         <Select
           defaultValue="g11"
           onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
         >
-          <SelectTrigger className="w-auto">
+          <SelectTrigger>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>

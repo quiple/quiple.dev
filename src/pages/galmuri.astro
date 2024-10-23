@@ -120,6 +120,14 @@ import Layout from '@/layouts/Layout.astro'
       @include g(gm7, 2)
     & > :is(h2, h3, p, ul)
       @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
+    .tester
+      @apply flex flex-col gap-2 mt-[1em]
+      .control
+        @apply flex gap-2
+        button
+          @apply rounded-none
+      textarea
+        @apply rounded-none
     [aria-roledescription=carousel]
       @include g(g7, 2)
       figure
