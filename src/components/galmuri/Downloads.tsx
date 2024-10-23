@@ -10,7 +10,7 @@ export function Downloads() {
             href={`https://cdn.jsdelivr.net/npm/galmuri/dist/Galmuri${font.replaceAll(' ', '-')}.ttf`}
             download
           >
-            Galmuri{font}
+            {`Galmuri${font}`}
           </a>
         )
       })}

@@ -19,7 +19,7 @@ export function Tester() {
           {fonts.map((font) => {
             return (
               <SelectItem key={font} value={`g${font.replaceAll(' ', '-')}`}>
-                Galmuri{font}
+                {`Galmuri${font}`}
               </SelectItem>
             )
           })}
