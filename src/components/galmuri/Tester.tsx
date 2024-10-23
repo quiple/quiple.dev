@@ -6,18 +6,23 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import { fonts } from '@/lib/utils'
 
 export function Tester() {
   return (
     <>
       <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Theme" />
+        <SelectTrigger>
+          <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="light">Light</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
+          {fonts.map((font) => {
+            return (
+              <SelectItem key={font} value={`g${font.replaceAll(' ', '-')}`}>
+                Galmuri{font}
+              </SelectItem>
+            )
+          })}
         </SelectContent>
       </Select>
       <Textarea />

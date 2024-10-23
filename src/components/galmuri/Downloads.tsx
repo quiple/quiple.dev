@@ -6,8 +6,8 @@ export function Downloads() {
       {fonts.map((font) => {
         return (
           <a
-            key={font}
-            href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.replaceAll(' ', '-')}.ttf`}
+            key={`g${font.replaceAll(' ', '-')}`}
+            href={`https://cdn.jsdelivr.net/npm/galmuri/dist/Galmuri${font.replaceAll(' ', '-')}.ttf`}
             download
           >
             Galmuri{font}
