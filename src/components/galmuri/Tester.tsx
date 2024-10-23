@@ -1,5 +1,5 @@
-import React from 'react'
-import { useState } from 'react'
+import { fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
+import { Button } from '@/components/ui/button'
 import {
   Select,
   SelectContent,
@@ -8,8 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { Button } from '@/components/ui/button'
-import { fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
+import { useState } from 'react'
 
 export function Tester() {
   const [exampleText, setExampleText] = useState('')
@@ -33,10 +32,10 @@ export function Tester() {
   }
 
   return (
-    <section className='flex flex-col gap-2'>
-      <div className='flex gap-2'>
+    <section className="flex flex-col gap-2">
+      <div className="flex gap-2">
         <Select defaultValue="g11">
-          <SelectTrigger className='w-auto'>
+          <SelectTrigger className="w-auto">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -51,7 +50,7 @@ export function Tester() {
         </Select>
         <Button onClick={shuffle}>예문 섞기</Button>
       </div>
-      <Textarea defaultValue={exampleText} />
+      <Textarea value={exampleText} onChange={(e) => setExampleText(e.target.value)} />
     </section>
   )
 }
