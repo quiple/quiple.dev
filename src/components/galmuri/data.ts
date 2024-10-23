@@ -1,4 +1,22 @@
-export const fonts = ['14', '11', '11 Bold', '11 Condensed', '9', '7', 'Mono11', 'Mono9', 'Mono7']
+const bigFamily = 'Galmuri'
+
+export interface font {
+  family: string
+  name: string
+  slug: string
+}
+
+export const fonts: font[] = [
+  { family: `${bigFamily}14`, name: `${bigFamily}14`, slug: 'g14' },
+  { family: `${bigFamily}11`, name: `${bigFamily}11`, slug: 'g11' },
+  { family: `${bigFamily}11`, name: `${bigFamily}11 Bold`, slug: 'g11b' },
+  { family: `${bigFamily}11`, name: `${bigFamily}11 Condensed`, slug: 'g11c' },
+  { family: `${bigFamily}9`, name: `${bigFamily}9`, slug: 'g9' },
+  { family: `${bigFamily}7`, name: `${bigFamily}7`, slug: 'g7' },
+  { family: `${bigFamily}Mono11`, name: `${bigFamily}Mono11`, slug: 'gm11' },
+  { family: `${bigFamily}Mono9`, name: `${bigFamily}Mono9`, slug: 'gm9' },
+  { family: `${bigFamily}Mono7`, name: `${bigFamily}Mono7`, slug: 'gm7' },
+]
 
 export const pangramEn = [
   // English pangrams
