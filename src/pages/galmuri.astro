@@ -63,12 +63,14 @@ import Layout from '@/layouts/Layout.astro'
     @else
       mask-size: 100%
     line-height: calc(#{$font-size}px * $size * 1.5 + 2px)
-    text-decoration:
-      skip-ink: none
-      thickness: calc(1em / $font-size)
-    text-underline-offset: calc(1em / $font-size)
-    &:hover
-      text-decoration-thickness: calc(1em / $font-size * 2)
+    --px: calc(1em / #{$font-size})
+    @if $font-size == 10
+      [target=_blank]::after
+        mask-size: calc(100% - var(--px) * 2)
+    @else if $font-size == 8
+      [target=_blank]::after
+        @apply mx-[var(--px)]
+        mask-size: 100%
 
   $new-tab: url('data:image/svg+xml,\
     <svg viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">\
@@ -91,6 +93,12 @@ import Layout from '@/layouts/Layout.astro'
       image-rendering: pixelated
     a
       @apply text-galmuri underline transition-all active:text-galmuri-invert
+      text-decoration:
+        skip-ink: none
+        thickness: var(--px)
+      text-underline-offset: var(--px)
+      &:hover
+        text-decoration-thickness: calc(var(--px) * 2)
       &[target=_blank]::after
         @apply bg-current inline-block w-[1em] h-[1em] content-['']
         mask:
@@ -104,20 +112,12 @@ import Layout from '@/layouts/Layout.astro'
       @apply scroll-m-[.5em] mt-[1em] first:mt-0
     p
       @apply [&:not(:first-child)]:mt-[.5em]
-      a
-        @include g(g9, 2)
-        &[target=_blank]::after
-          @include g(g9, 2)
     ul
       @include g(g7, 2)
       @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
       li
         &::before
           @apply absolute left-[.25em] content-['\2022']
-        a
-          @include g(g7, 2)
-          &[target=_blank]::after
-            @apply mx-[.125em]
     code, kbd, samp, pre
       @include g(gm7, 2)
     & > :is(h2, h3, p, ul)
@@ -147,14 +147,9 @@ import Layout from '@/layouts/Layout.astro'
           @apply h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80
         figcaption
           @apply table-caption caption-bottom mt-[2px]
-          a
-            @include g(g7, 2)
-            &[target=_blank]::after
-              @apply mx-[.125em]
     [download]
       @include g(g7, 2)
       &::before
-        @include g(g7, 2)
         @apply bg-current inline-block w-[1em] h-[1em] content-['']
         mask:
           image: $download
