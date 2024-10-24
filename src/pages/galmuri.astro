@@ -105,6 +105,8 @@ import Layout from '@/layouts/Layout.astro'
           image: $new-tab
           repeat: no-repeat
           position: center
+    button
+      @apply p-[.5em_calc(.75em_-_var(--px))_.5em_.75em] h-10 flex items-center border
     h2
       @include g(g11, 2)
       @apply font-bold scroll-m-[.5em] mt-[2em] first:mt-0
@@ -126,11 +128,11 @@ import Layout from '@/layouts/Layout.astro'
       .control
         @apply flex justify-between
         button
-          @apply rounded-none
+          @include g(g7, 2)
         .left
           @apply flex flex-1 gap-[1em] items-center
           .tester-select
-            @apply basis-64
+            @apply basis-64 rounded-none
           .tester-slider
             @apply basis-64
           .tester-font-size
