@@ -21,51 +21,53 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
 main
   @include g(g9, 2)
   @apply container mx-auto px-16 break-keep
-  img
-    image-rendering: pixelated
-  a
-    @apply text-galmuri underline transition-all active:text-galmuri-invert
-    text-decoration:
-      skip-ink: none
-      thickness: var(--px)
-    text-underline-offset: var(--px)
-    &:hover
-      text-decoration-thickness: calc(var(--px) * 2)
-    &[target=_blank]::after
-      @apply bg-current inline-block w-[1em] h-[1em] content-['']
-      mask:
-        image: $new-tab
-        repeat: no-repeat
-        position: center
-  .button
-    @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] pl-3 pr-[calc(.75rem_-_var(--px)_/_2)]
-    &.border
-      @apply border-[length:--px]
-  [role=combobox]
-    @apply rounded-none focus:ring-[length:--px] focus:ring-galmuri focus:ring-offset-[length:--px] border-[length:--px]
-  .textarea
-    @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
-    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
-  h2
-    @include g(g11, 2)
-    @apply font-bold scroll-m-[.5em] mt-[2em] first:mt-0
-  h3
-    @apply scroll-m-[.5em] mt-[1em] first:mt-0
-  p
-    @apply [&:not(:first-child)]:mt-[.5em]
-  ul
-    @include g(g7, 2)
-    @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
-    li::before
-      @apply absolute left-[.25em] content-['\2022']
-  pre
-    @apply mt-[.5em] first:mt-0 px-[.75em] py-[.25em] shadow-inner dark:shadow
-    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
-  code, kbd, samp, pre
-    @include g(gm7, 2)
-    background-color: #f3f4f6 !important
-    --shiki-dark-bg: #18181b !important
   & > :is(h2, h3, p, ul)
     @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
+img
+  image-rendering: pixelated
+a
+  @apply text-galmuri underline transition-all active:text-galmuri-invert
+  text-decoration:
+    skip-ink: none
+    thickness: var(--px)
+  text-underline-offset: var(--px)
+  &:hover
+    text-decoration-thickness: calc(var(--px) * 2)
+  &[target=_blank]::after
+    @apply bg-current inline-block w-[1em] h-[1em] content-['']
+    mask:
+      image: $new-tab
+      repeat: no-repeat
+      position: center
+.button
+  @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px]
+  &:not(.icon-button)
+    @apply pl-3 pr-[calc(.75rem_-_var(--px)_/_2)]
+  &.outline-button
+    @apply border-[length:--px]
+[role=combobox]
+  @apply rounded-none focus:ring-[length:--px] focus:ring-galmuri focus:ring-offset-[length:--px] border-[length:--px]
+.textarea
+  @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
+  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
+h2
+  @include g(g11, 2)
+  @apply font-bold scroll-m-[.5em] mt-[2em] first:mt-0
+h3
+  @apply scroll-m-[.5em] mt-[1em] first:mt-0
+p
+  @apply [&:not(:first-child)]:mt-[.5em]
+ul
+  @include g(g7, 2)
+  @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
+  li::before
+    @apply absolute left-[.25em] content-['\2022']
+pre
+  @apply mt-[.5em] first:mt-0 px-[.75em] py-[.25em] shadow-inner dark:shadow
+  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
+code, kbd, samp, pre
+  @include g(gm7, 2)
+  background-color: #f3f4f6 !important
+  --shiki-dark-bg: #18181b !important
 [data-radix-popper-content-wrapper]
   @apply rounded-none

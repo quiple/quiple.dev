@@ -72,7 +72,7 @@ export function Tester() {
           />
           <div className="tester-font-size">{`${fontSize}px`}</div>
         </div>
-        <Button variant="outline" className="shuffle button" onClick={shuffle}>
+        <Button variant="outline" className="shuffle button outline-button" onClick={shuffle}>
           예문 섞기
         </Button>
       </div>
