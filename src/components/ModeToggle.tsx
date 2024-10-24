@@ -34,9 +34,9 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setThemeState('theme-light')}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState('dark')}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState('system')}>System</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('theme-light')}>밝음</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('dark')}>어두움</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('system')}>시스템</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
