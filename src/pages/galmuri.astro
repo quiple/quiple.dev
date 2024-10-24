@@ -121,6 +121,8 @@ import Layout from '@/layouts/Layout.astro'
         @apply absolute left-[.25em] content-['\2022']
     code, kbd, samp, pre
       @include g(gm7, 2)
+      background-color: #f3f4f6 !important
+      --shiki-dark-bg: #18181b !important
     & > :is(h2, h3, p, ul)
       @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
     .tester
