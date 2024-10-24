@@ -20,6 +20,10 @@ export default defineConfig({
       preprocessorOptions: {
         sass: {
           api: 'modern-compiler',
+          additionalData: `
+            @import '@/styles/variables.sass'
+            @import '@/styles/mixins.sass'
+          `,
         },
       },
     },

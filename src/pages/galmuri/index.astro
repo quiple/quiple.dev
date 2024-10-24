@@ -1,0 +1,59 @@
+---
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import Content from '@/contents/galmuri.mdx'
+import Layout from '@/layouts/Layout.astro'
+import '@/styles/galmuri.sass'
+---
+
+<Layout
+  title="Galmuri"
+  description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트."
+>
+  <Header />
+  <main>
+    <Content />
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="sass" is:global>
+  main
+    .tester
+      @apply flex flex-col gap-[.5em] mt-[1em]
+      .control
+        @apply flex justify-between
+        button
+          @include g(g7, 2)
+        .left
+          @apply flex flex-1 gap-[1em] items-center
+          .tester-select
+            @apply basis-64 rounded-none
+          .tester-slider
+            @apply basis-64
+          .tester-font-size
+            @include g(g7, 2)
+            @apply tabular-nums
+      textarea
+        @apply rounded-none px-[.5em] py-[.25em] leading-normal resize-none border-none bg-zinc-100 dark:bg-zinc-900 overflow-hidden
+    [aria-roledescription=carousel]
+      @include g(g7, 2)
+      figure
+        @apply table
+        img
+          @apply h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80
+        figcaption
+          @apply table-caption caption-bottom mt-[2px]
+    [download]
+      @include g(g7, 2)
+      &::before
+        @apply bg-current inline-block w-[1em] h-[1em] content-['']
+        mask:
+          image: $download
+          repeat: no-repeat
+          position: center
+    .sponsor
+      @apply mt-[.5em] flex gap-[1em]
+      svg
+        @apply w-40 h-40
+</style>
