@@ -72,11 +72,12 @@ export function Tester() {
           />
           <div className="tester-font-size">{`${fontSize}px`}</div>
         </div>
-        <Button variant="galmuri" className="shuffle" onClick={shuffle}>
+        <Button variant="outline" className="shuffle button" onClick={shuffle}>
           예문 섞기
         </Button>
       </div>
       <Textarea
+        className="textarea"
         autosize
         style={{
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,

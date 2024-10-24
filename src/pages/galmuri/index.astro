@@ -27,15 +27,13 @@ import '@/styles/galmuri.sass'
           @include g(g7, 2)
         .left
           @apply flex flex-1 gap-[1em] items-center
-          .tester-select
-            @apply basis-64 rounded-none
-          .tester-slider
+          .tester-select, .tester-slider
             @apply basis-64
           .tester-font-size
             @include g(g7, 2)
             @apply tabular-nums
       textarea
-        @apply rounded-none px-[.5em] py-[.25em] leading-normal resize-none border-none bg-zinc-100 dark:bg-zinc-900 overflow-hidden
+        @apply px-[.5em] py-[.25em] leading-normal resize-none overflow-hidden
     [aria-roledescription=carousel]
       @include g(g7, 2)
       figure

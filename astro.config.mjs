@@ -21,8 +21,8 @@ export default defineConfig({
         sass: {
           api: 'modern-compiler',
           additionalData: `
-            @import '@/styles/variables.sass'
-            @import '@/styles/mixins.sass'
+            @use '@/styles/variables.sass' as *
+            @use '@/styles/mixins.sass' as *
           `,
         },
       },
