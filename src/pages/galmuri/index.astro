@@ -25,6 +25,13 @@ import '@/styles/galmuri.sass'
         @apply flex justify-between
         button
           @include g(g7, 2)
+        .shuffle::before
+          @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-[--px]
+          mask:
+            image: $shuffle
+            repeat: no-repeat
+            position: center
+            size: calc(100% - var(--px))
         .left
           @apply flex flex-1 gap-[1em] items-center
           .tester-select, .tester-slider

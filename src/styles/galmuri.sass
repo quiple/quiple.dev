@@ -38,7 +38,7 @@ main
         repeat: no-repeat
         position: center
   .button
-    @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] pl-3 pr-[calc(.75rem_-_var(--px))]
+    @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] pl-3 pr-[calc(.75rem_-_var(--px)_/_2)]
     &.border
       @apply border-[length:--px]
   [role=combobox]
@@ -67,3 +67,5 @@ main
     --shiki-dark-bg: #18181b !important
   & > :is(h2, h3, p, ul)
     @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
+[data-radix-popper-content-wrapper]
+  @apply rounded-none
