@@ -83,3 +83,7 @@
   font-weight: 100 900;
   src: url("/fonts/GeistMono.woff2") format("woff2");
 }
+.dark :is(.astro-code, .astro-code span) {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
