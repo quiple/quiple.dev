@@ -42,7 +42,8 @@ main
   [role=combobox]
     @apply rounded-none focus:ring-[length:--px] focus:ring-galmuri focus:ring-offset-[length:--px] border-[length:--px]
   .textarea
-    @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none
+    @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
+    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.025)
   h2
     @include g(g11, 2)
     @apply font-bold scroll-m-[.5em] mt-[2em] first:mt-0
@@ -55,6 +56,9 @@ main
     @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
     li::before
       @apply absolute left-[.25em] content-['\2022']
+  pre
+    @apply mt-[.5em] first:mt-0 px-[.75em] py-[.25em] shadow-inner dark:shadow
+    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.025)
   code, kbd, samp, pre
     @include g(gm7, 2)
     background-color: #f3f4f6 !important
