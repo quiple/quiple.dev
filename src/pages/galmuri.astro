@@ -115,9 +115,8 @@ import Layout from '@/layouts/Layout.astro'
     ul
       @include g(g7, 2)
       @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
-      li
-        &::before
-          @apply absolute left-[.25em] content-['\2022']
+      li::before
+        @apply absolute left-[.25em] content-['\2022']
     code, kbd, samp, pre
       @include g(gm7, 2)
     & > :is(h2, h3, p, ul)
