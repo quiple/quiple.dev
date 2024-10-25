@@ -26,7 +26,7 @@ header
 main
   @include g(g9, 2)
   @apply container mx-auto px-16 break-keep
-  & > :is(h2, h3, p, ul)
+  > :is(h2, h3, p, ul)
     @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
 img
   image-rendering: pixelated
@@ -75,4 +75,10 @@ code, kbd, samp, pre
   background-color: #f3f4f6 !important
   --shiki-dark-bg: #18181b !important
 [data-radix-popper-content-wrapper]
-  @apply rounded-none
+  @include g(g7, 2)
+  [role=menu], [role=listbox]
+    @apply border-[length:--px] rounded-none
+    [data-radix-select-viewport]
+      @apply min-w-[calc(var(--radix-select-trigger-width)_-_var(--px)_*_2)]
+    [role=menuitem], [role=option]
+      @apply rounded-none
