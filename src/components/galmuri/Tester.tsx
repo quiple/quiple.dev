@@ -63,7 +63,7 @@ export function Tester() {
             </SelectContent>
           </Select>
           <Slider
-            className="tester-slider"
+            className="tester-slider slider"
             value={[fontSize]}
             onValueChange={(e) => setFontSize(e[0])}
             min={8}
