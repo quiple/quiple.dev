@@ -70,7 +70,9 @@ a
     span
       @apply bg-galmuri
   [role=slider]
-    @apply border-[length:--px]
+    @apply border-[length:--px] w-4 h-4 flex justify-center focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] py-[--px]
+    &::after
+      @apply content-[''] border-border border-l-[length:--px] border-r-[length:--px] w-[calc(var(--px)_*_3)]
 .textarea
   @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
   --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
