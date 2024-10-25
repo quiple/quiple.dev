@@ -7,7 +7,7 @@ export function Downloads() {
         return (
           <a
             key={font.slug}
-            href={`https://cdn.jsdelivr.net/npm/galmuri/dist/Galmuri${font.name.replaceAll(' ', '-')}.ttf`}
+            href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.ttf`}
             download
           >
             {font.name}
