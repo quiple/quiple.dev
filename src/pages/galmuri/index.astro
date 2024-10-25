@@ -19,6 +19,11 @@ import '@/styles/galmuri.sass'
 
 <style lang="sass" is:global>
   main
+    h1
+      @include g(g7, 20)
+      @apply text-background pl-[--px]
+      &::before
+        @apply content-['Galmuri'] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] absolute -z-10
     .tester
       @apply flex flex-col gap-[.5em] mt-[1em]
       .control
