@@ -115,3 +115,17 @@ code, kbd, samp, pre
           size: 100%
 [aria-roledescription=carousel] button
   @apply rounded-none border-[length:--px] text-[1em]
+  svg
+    @apply hidden
+  &::after
+    @apply bg-current inline-block w-[1em] h-[1em]
+    mask:
+      repeat: no-repeat
+      position: center
+      size: 100%
+  &:first-of-type::after
+    @apply content-['']
+    mask-image: $chevron-left
+  &:last-of-type::after
+    @apply content-['']
+    mask-image: $chevron-right
