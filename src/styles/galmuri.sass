@@ -28,22 +28,22 @@ main
   @apply container mx-auto px-16 break-keep
   > :is(h2, h3, p, ul)
     @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
+  a
+    @apply text-galmuri underline transition-all active:text-galmuri-invert
+    text-decoration:
+      skip-ink: none
+      thickness: var(--px)
+    text-underline-offset: var(--px)
+    &:hover
+      text-decoration-thickness: calc(var(--px) * 2)
+    &[target=_blank]::after
+      @apply bg-current inline-block w-[1em] h-[1em] content-['']
+      mask:
+        image: $new-tab
+        repeat: no-repeat
+        position: center
 img
   image-rendering: pixelated
-a
-  @apply text-galmuri underline transition-all active:text-galmuri-invert
-  text-decoration:
-    skip-ink: none
-    thickness: var(--px)
-  text-underline-offset: var(--px)
-  &:hover
-    text-decoration-thickness: calc(var(--px) * 2)
-  &[target=_blank]::after
-    @apply bg-current inline-block w-[1em] h-[1em] content-['']
-    mask:
-      image: $new-tab
-      repeat: no-repeat
-      position: center
 .button
   @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px]
   &:not(.icon-button)

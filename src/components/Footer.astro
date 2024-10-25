@@ -1,13 +1,19 @@
 ---
 import { siBluesky } from 'simple-icons'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 ---
 
 <footer>
   <section>
     © 2019–2024 Lee Minseo
     <div class="sns">
-      <Button className="button icon-button w-8 h-8" size="icon" variant="ghost" set:html={siBluesky.svg} />
+      <a
+        class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button`}
+        href="https://bsky.app/profile/quiple.dev"
+        set:html={siBluesky.svg}
+        target="_blank"
+        rel="nofollow noreferrer noopener"
+      />
     </div>
   </section>
 </footer>
@@ -15,6 +21,10 @@ import { Button } from '@/components/ui/button'
 <style lang="sass">
   footer
     @apply sticky top-0 bg-background z-50 py-8
-  section
-    @apply container mx-auto px-16 flex justify-between items-center
+    section
+      @apply container mx-auto px-16 flex justify-between items-center
+      .sns
+        @apply flex items-center
+        a
+          @apply w-8 h-8
 </style>
