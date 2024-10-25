@@ -81,4 +81,14 @@ code, kbd, samp, pre
     [data-radix-select-viewport]
       @apply min-w-[calc(var(--radix-select-trigger-width)_-_var(--px)_*_2)]
     [role=menuitem], [role=option]
-      @apply rounded-none
+      @apply rounded-none text-[1em]
+    [role=option]
+      svg
+        @apply hidden
+      &[data-state=checked]::before
+        @apply absolute left-4 -translate-x-1/2 bg-current inline-block w-[1em] h-[1em] content-[''] mr-[--px]
+        mask:
+          image: $check
+          repeat: no-repeat
+          position: center
+          size: calc(100% - var(--px))

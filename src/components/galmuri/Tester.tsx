@@ -45,7 +45,7 @@ export function Tester() {
     <section className="tester">
       <div className="control">
         <div className="left">
-          <Select
+          <Select open
             defaultValue="g11"
             onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
           >
