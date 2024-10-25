@@ -22,7 +22,7 @@ import '@/styles/galmuri.sass'
     .tester
       @apply flex flex-col gap-[.5em] mt-[1em]
       .control
-        @apply flex justify-between
+        @apply flex justify-between gap-[1em]
         button
           @include g(g7, 2)
         .shuffle::before
@@ -31,7 +31,7 @@ import '@/styles/galmuri.sass'
             image: $shuffle
             repeat: no-repeat
             position: center
-            size: calc(100% - var(--px))
+            size: 100%
         .left
           @apply flex flex-1 gap-[1em] items-center
           .tester-select, .tester-slider
