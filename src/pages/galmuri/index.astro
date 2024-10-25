@@ -12,6 +12,15 @@ import '@/styles/galmuri.sass'
 >
   <Header />
   <main>
+    <h1>
+      <span class="g">G</span>
+      <span class="a">a</span>
+      <span class="l">l</span>
+      <span class="m">m</span>
+      <span class="u">u</span>
+      <span class="r">r</span>
+      <span class="i">i</span>
+    </h1>
     <Content />
   </main>
   <Footer />
@@ -21,9 +30,23 @@ import '@/styles/galmuri.sass'
   main
     h1
       @include g(g7, 20)
-      @apply text-white pl-[--px]
-      &::before
-        @apply content-['Galmuri'] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10
+      @apply flex text-white pl-[--px] h-[calc(100vh_-_50px)]
+      span::before
+        @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10
+      .g
+        @apply before:content-['G']
+      .a
+        @apply before:content-['a']
+      .l
+        @apply before:content-['l']
+      .m
+        @apply before:content-['m']
+      .u
+        @apply before:content-['u']
+      .r
+        @apply before:content-['r']
+      .i
+        @apply before:content-['i']
     .tester
       @apply flex flex-col gap-[.5em] mt-[1em]
       .control
