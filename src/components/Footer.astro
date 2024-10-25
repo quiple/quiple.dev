@@ -1,20 +1,20 @@
 ---
-interface Props {
-  path?: string
-}
-
-const { path } = Astro.props
+import { siBluesky } from 'simple-icons'
+import { Button } from '@/components/ui/button'
 ---
 
 <footer>
   <section>
-    quiple
+    © 2019–2024 Lee Minseo
+    <div class="sns">
+      <Button className="button icon-button" size="icon" variant="ghost" set:html={siBluesky.svg} />
+    </div>
   </section>
 </footer>
 
 <style lang="sass">
   footer
-    @apply sticky top-0 bg-background z-50
+    @apply sticky top-0 bg-background z-50 py-8
   section
     @apply container mx-auto px-16 flex justify-between items-center
 </style>
