@@ -27,34 +27,10 @@ import '@/styles/galmuri.sass'
 </Layout>
 
 <style lang="sass" is:global>
-  @keyframes title
-    80%
-      @apply translate-x-[calc(var(--px)_*_9)] translate-y-[calc(var(--px)_*_9)]
-    82%
-      @apply translate-x-[calc(var(--px)_*_8)] translate-y-[calc(var(--px)_*_8)]
-    84%
-      @apply translate-x-[calc(var(--px)_*_7)] translate-y-[calc(var(--px)_*_7)]
-    86%
-      @apply translate-x-[calc(var(--px)_*_6)] translate-y-[calc(var(--px)_*_6)]
-    88%
-      @apply translate-x-[calc(var(--px)_*_5)] translate-y-[calc(var(--px)_*_5)]
-    90%
-      @apply translate-x-[calc(var(--px)_*_4)] translate-y-[calc(var(--px)_*_4)]
-    92%
-      @apply translate-x-[calc(var(--px)_*_3)] translate-y-[calc(var(--px)_*_3)]
-    94%
-      @apply translate-x-[calc(var(--px)_*_3)] translate-y-[calc(var(--px)_*_3)]
-    96%
-      @apply translate-x-[calc(var(--px)_*_2)] translate-y-[calc(var(--px)_*_2)]
-    98%
-      @apply translate-x-[--px] translate-y-[--px]
-    100%
-      @apply transform-none
   main
     h1
       @include g(g7, 20)
-      @apply flex text-white pl-[--px] h-[calc(100vh_-_100px)] items-center mb-[50px]
-      animation: title 1s step-end forwards
+      @apply flex text-white pl-[--px] items-center
       span::before
         @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10
       .g
