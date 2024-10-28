@@ -12,57 +12,53 @@ import '@/styles/galmuri.sass'
 >
   <Header />
   <main>
-    <h1>
-      <span class="g">G</span>
-      <span class="a">a</span>
-      <span class="l">l</span>
-      <span class="m">m</span>
-      <span class="u">u</span>
-      <span class="r">r</span>
-      <span class="i">i</span>
-    </h1>
+    <div class="title">
+      <h1>
+        <span class="g">G</span>
+        <span class="a">a</span>
+        <span class="l">l</span>
+        <span class="m">m</span>
+        <span class="u">u</span>
+        <span class="r">r</span>
+        <span class="i">i</span>
+      </h1>
+      <p>작은 크기에서도 가독성 좋고 균형 있는<br />한글 비트맵 폰트</p>
+    </div>
     <Content />
   </main>
   <Footer />
 </Layout>
 
 <style lang="sass" is:global>
-  $duration: .3s
-  $delay: .15s
-  @keyframes title
-    to
-      @apply opacity-100 transform-none
   main
-    h1
-      @include g(g7, 20)
-      @apply flex text-white pl-[--px] items-center h-[calc(100vh_-_100px)] mb-[50px]
-      span
-        @apply opacity-0 translate-y-40
-        &::before, &::after
-          @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0
-        &::before
-          @apply translate-y-[--px]
-      .g
-        @apply before:content-['G'] after:content-['G']
-        animation: $duration $ease-out $delay forwards title
-      .a
-        @apply before:content-['a'] after:content-['a']
-        animation: $duration $ease-out calc($delay * 2) forwards title
-      .l
-        @apply before:content-['l'] after:content-['l']
-        animation: $duration $ease-out calc($delay * 3) forwards title
-      .m
-        @apply before:content-['m'] after:content-['m']
-        animation: $duration $ease-out calc($delay * 4) forwards title
-      .u
-        @apply before:content-['u'] after:content-['u']
-        animation: $duration $ease-out calc($delay * 5) forwards title
-      .r
-        @apply before:content-['r'] after:content-['r']
-        animation: $duration $ease-out calc($delay * 6) forwards title
-      .i
-        @apply before:content-['i'] after:content-['i']
-        animation: $duration $ease-out calc($delay * 7) forwards title
+    .title
+      @include g(g9, 4)
+      @apply flex flex-col justify-center gap-8 my-16
+      h1
+        @include g(g7, 16)
+        @apply flex text-white pl-[--px] items-center leading-none mt-[calc(var(--px)_/_2)]
+        span
+          @apply relative before:translate-y-[--px] active:translate-y-[--px] active:before:transform-none
+          &::before, &::after
+            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0
+        .g
+          @apply before:content-['G'] after:content-['G']
+        .a
+          @apply before:content-['a'] after:content-['a']
+        .l
+          @apply before:content-['l'] after:content-['l']
+        .m
+          @apply before:content-['m'] after:content-['m']
+        .u
+          @apply before:content-['u'] after:content-['u']
+        .r
+          @apply before:content-['r'] after:content-['r']
+        .i
+          @apply before:content-['i'] after:content-['i']
+      p
+        @apply [text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow)),0_var(--px)_0_hsl(var(--shadow)),var(--px)_0_0_hsl(var(--shadow))] dark:[text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow-dark)),0_var(--px)_0_hsl(var(--shadow-dark)),var(--px)_0_0_hsl(var(--shadow-dark))]
+        --shadow: 240 10% 80%
+        --shadow-dark: 240 10% 40%
     .tester
       @apply flex flex-col gap-[.5em] mt-[1em]
       .control
