@@ -14,6 +14,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        shadow: 'hsl(var(--shadow))',
         galmuri: {
           DEFAULT: 'hsl(var(--galmuri))',
           invert: 'hsl(var(--galmuri-invert))',

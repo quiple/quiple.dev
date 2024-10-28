@@ -4,6 +4,7 @@
 @tailwind utilities;
 @layer base {
   :root {
+    --shadow: 240 10% 80%;
     --galmuri: 233 78% 65%;
     --galmuri-invert: 233 78% 85%;
     --background: 0 0% 100%;
@@ -33,6 +34,7 @@
     --radius: 0.5rem;
   }
   .dark {
+    --shadow: 240 10% 40%;
     --galmuri: 233 78% 85%;
     --galmuri-invert: 233 78% 65%;
     --background: 240 10% 3.9%;
