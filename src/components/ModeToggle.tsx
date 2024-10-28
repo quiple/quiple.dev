@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import * as m from '@/paraglide/messages.js'
 
 export function ModeToggle() {
   const [theme, setThemeState] = React.useState<'theme-light' | 'dark' | 'system'>('theme-light')
@@ -36,7 +37,7 @@ export function ModeToggle() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setThemeState('theme-light')}>밝음</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState('dark')}>어두움</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState('system')}>시스템</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('system')}>{m.system()}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

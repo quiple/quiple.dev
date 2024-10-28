@@ -4,18 +4,20 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "biome format --write",
     "lint": "biome lint --write",
-    "check": "biome check --write"
+    "check": "biome check --write",
+    "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.8",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.2",
+    "@inlang/paraglide-astro": "^0.2.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-scroll-area": "^1.2.0",
     "@radix-ui/react-select": "^2.1.2",
@@ -42,6 +44,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "1.9.4",
+    "@inlang/paraglide-js": "1.11.3"
   }
 }
