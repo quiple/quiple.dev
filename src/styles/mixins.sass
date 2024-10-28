@@ -29,9 +29,9 @@
   line-height: calc(#{$font-size}px * $size * 1.5 + var(--px))
   --px: calc(1em / #{$font-size})
   @if $font-size == 10
-    [target=_blank]::after
+    [target=_blank]:not(.button)::after
       mask-size: calc(100% - var(--px) * 2)
   @else if $font-size == 8
-    [target=_blank]::after
+    [target=_blank]:not(.button)::after
       @apply ml-[--px]
       mask-size: 100%
