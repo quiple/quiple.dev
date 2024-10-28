@@ -2,7 +2,7 @@ import { fonts } from '@/components/galmuri/data'
 
 export function Downloads() {
   return (
-    <div>
+    <div className="download">
       {fonts.map((font) => {
         return (
           <a

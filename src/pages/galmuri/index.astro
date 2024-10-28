@@ -95,4 +95,14 @@ import '@/styles/galmuri.sass'
       @apply mt-[.5em] flex gap-[1em]
       svg
         @apply w-40 h-40
+    .download
+      @apply mt-[.5em]
+      [download]
+        @include g(g7, 2)
+        &::before
+          @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-[--px]
+          mask:
+            image: $download
+            repeat: no-repeat
+            position: center
 </style>
