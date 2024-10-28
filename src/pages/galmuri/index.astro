@@ -27,6 +27,8 @@ import '@/styles/galmuri.sass'
 </Layout>
 
 <style lang="sass" is:global>
+  $duration: .25s
+  $delay: .125s
   @keyframes title
     to
       @apply opacity-100 transform-none
@@ -42,25 +44,25 @@ import '@/styles/galmuri.sass'
           @apply translate-y-[--px]
       .g
         @apply before:content-['G'] after:content-['G']
-        animation: .25s $ease-out .125s forwards title
+        animation: $duration $ease-out $delay forwards title
       .a
         @apply before:content-['a'] after:content-['a']
-        animation: .25s $ease-out .25s forwards title
+        animation: $duration $ease-out calc($delay * 2) forwards title
       .l
         @apply before:content-['l'] after:content-['l']
-        animation: .25s $ease-out .325s forwards title
+        animation: $duration $ease-out calc($delay * 3) forwards title
       .m
         @apply before:content-['m'] after:content-['m']
-        animation: .25s $ease-out .5s forwards title
+        animation: $duration $ease-out calc($delay * 4) forwards title
       .u
         @apply before:content-['u'] after:content-['u']
-        animation: .25s $ease-out .625s forwards title
+        animation: $duration $ease-out calc($delay * 5) forwards title
       .r
         @apply before:content-['r'] after:content-['r']
-        animation: .25s $ease-out .75s forwards title
+        animation: $duration $ease-out calc($delay * 6) forwards title
       .i
         @apply before:content-['i'] after:content-['i']
-        animation: .25s $ease-out .825s forwards title
+        animation: $duration $ease-out calc($delay * 7) forwards title
     .tester
       @apply flex flex-col gap-[.5em] mt-[1em]
       .control
