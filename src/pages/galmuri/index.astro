@@ -30,7 +30,7 @@ import '@/styles/galmuri.sass'
   main
     h1
       @include g(g7, 20)
-      @apply flex text-white pl-[--px] items-center
+      @apply flex text-white pl-[--px] items-center h-[calc(100vh_-_100px)] mb-[50px]
       span::before
         @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10
       .g
