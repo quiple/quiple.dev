@@ -20,8 +20,6 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   @apply bg-galmuri text-background
 header
   @include g(g7, 2)
-  button
-    font-size: 1em !important
   border-bottom-width: var(--px) !important
 main
   @include g(g9, 2)
@@ -140,3 +138,33 @@ footer
         position: center
         size: calc(100% - var(--px))
         image: $bluesky
+.toggle-theme
+  @apply text-[1em]
+  svg
+    @apply hidden
+  &::after
+    @apply bg-current inline-block w-[1em] h-[1em] content-[''] [mask-image:--sun] dark:[mask-image:--moon]
+    mask:
+      repeat: no-repeat
+      position: center
+      size: calc(100% - var(--px))
+    --sun: url('data:image/svg+xml,\
+      <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
+        <path d="M4 0H3V1H4V0Z"/>\
+        <path d="M1 3H0V4H1V3Z"/>\
+        <path d="M6 3H7V4H6V3Z"/>\
+        <path d="M4 6H3V7H4V6Z"/>\
+        <path d="M1 5H2V6H1V5Z"/>\
+        <path d="M6 5H5V6H6V5Z"/>\
+        <path d="M5 1H6V2H5V1Z"/>\
+        <path d="M2 1H1V2H2V1Z"/>\
+        <path d="M3 2H4V3H3V2Z"/>\
+        <path d="M3 4H2V3H3V4Z"/>\
+        <path d="M3 4V5H4V4H5V3H4V4H3Z"/>\
+      </svg>\
+    ')
+    --moon: url('data:image/svg+xml,\
+      <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
+        <path d="M2 0V1H1V2H0V5H1V6H2V7H5V6H6V5H7V3H6V4H3V1H4V0H2ZM3 4V5H5V6H2V5H1V2H2V4H3Z"/>\
+      </svg>\
+    ')
