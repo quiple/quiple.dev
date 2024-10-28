@@ -27,26 +27,40 @@ import '@/styles/galmuri.sass'
 </Layout>
 
 <style lang="sass" is:global>
+  @keyframes title
+    to
+      @apply opacity-100 transform-none
   main
     h1
       @include g(g7, 20)
       @apply flex text-white pl-[--px] items-center h-[calc(100vh_-_100px)] mb-[50px]
-      span::before
-        @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10
+      span
+        @apply opacity-0 translate-y-40
+        &::before, &::after
+          @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0
+        &::before
+          @apply translate-y-[--px]
       .g
-        @apply before:content-['G']
+        @apply before:content-['G'] after:content-['G']
+        animation: .25s $ease-out .125s forwards title
       .a
-        @apply before:content-['a']
+        @apply before:content-['a'] after:content-['a']
+        animation: .25s $ease-out .25s forwards title
       .l
-        @apply before:content-['l']
+        @apply before:content-['l'] after:content-['l']
+        animation: .25s $ease-out .325s forwards title
       .m
-        @apply before:content-['m']
+        @apply before:content-['m'] after:content-['m']
+        animation: .25s $ease-out .5s forwards title
       .u
-        @apply before:content-['u']
+        @apply before:content-['u'] after:content-['u']
+        animation: .25s $ease-out .625s forwards title
       .r
-        @apply before:content-['r']
+        @apply before:content-['r'] after:content-['r']
+        animation: .25s $ease-out .75s forwards title
       .i
-        @apply before:content-['i']
+        @apply before:content-['i'] after:content-['i']
+        animation: .25s $ease-out .825s forwards title
     .tester
       @apply flex flex-col gap-[.5em] mt-[1em]
       .control
