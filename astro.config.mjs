@@ -21,7 +21,7 @@ export default defineConfig({
     }),
   ],
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'ko',
     locales: ['en', 'ja', 'ko'],
   },
   vite: {
