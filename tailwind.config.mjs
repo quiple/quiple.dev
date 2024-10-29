@@ -5,7 +5,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['Geist', 'Noto Sans KR', 'sans-serif'],
-      mono: ['Geist\\ Mono', 'Noto Sans KR', 'monospace'],
+      mono: ['Geist Mono', 'Noto Sans KR', 'monospace'],
     },
     extend: {
       borderRadius: {
