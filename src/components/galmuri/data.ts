@@ -7,6 +7,8 @@ export interface font {
   slug: string
 }
 
+export const formats = ['ttf', 'bdf', 'woff2']
+
 export const fonts: font[] = [
   { family: `${bigFamily}14`, name: `${bigFamily}14`, style: undefined, slug: 'g14' },
   { family: `${bigFamily}11`, name: `${bigFamily}11`, style: undefined, slug: 'g11' },
