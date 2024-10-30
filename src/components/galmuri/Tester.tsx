@@ -81,8 +81,8 @@ export function Tester() {
         autosize
         style={{
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
-          fontWeight: testerFont?.slug === 'g11b' ? 700 : 400,
-          fontStretch: testerFont?.slug === 'g11c' ? 'condensed' : 'normal',
+          fontWeight: testerFont?.style === 'Bold' ? 700 : 400,
+          fontStretch: testerFont?.style === 'Condensed' ? 'condensed' : 'normal',
           fontSize: fontSize,
         }}
         value={exampleText}
