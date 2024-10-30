@@ -21,6 +21,10 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
 header
   @include g(g7, 2)
   border-bottom-width: var(--px) !important
+  .quiple
+    gap: var(--px) !important
+    &::before
+      mask-image: $q-pixel !important
 main
   @include g(g9, 2)
   @apply container mx-auto px-16 break-keep
