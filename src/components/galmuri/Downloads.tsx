@@ -14,25 +14,27 @@ export function Downloads() {
               <CardTitle>{familyName}</CardTitle>
             </CardHeader>
             <CardContent>
-              {fonts
-                .filter((font) => font.family === familyName)
-                .map((font) => {
-                  return formats.map((format) => {
-                    return (
-                      <a
-                        key={font.slug}
-                        className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
-                        href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.${format}`}
-                        download
-                        data-umami-event="Galmuri 다운로드"
-                        data-umami-event-font={font.name}
-                        data-umami-event-format={format}
-                      >
-                        {font.style} {format}
-                      </a>
-                    )
-                  })
-                })}
+              <div className="buttons">
+                {fonts
+                  .filter((font) => font.family === familyName)
+                  .map((font) => {
+                    return formats.map((format) => {
+                      return (
+                        <a
+                          key={font.slug}
+                          className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
+                          href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.${format}`}
+                          download
+                          data-umami-event="Galmuri 다운로드"
+                          data-umami-event-font={font.name}
+                          data-umami-event-format={format}
+                        >
+                          {font.style} {format}
+                        </a>
+                      )
+                    })
+                  })}
+              </div>
             </CardContent>
           </Card>
         )
