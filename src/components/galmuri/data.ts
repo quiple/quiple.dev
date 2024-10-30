@@ -10,8 +10,8 @@ export interface font {
 export const fonts: font[] = [
   { family: `${bigFamily}14`, name: `${bigFamily}14`, style: undefined, slug: 'g14' },
   { family: `${bigFamily}11`, name: `${bigFamily}11`, style: undefined, slug: 'g11' },
-  { family: `${bigFamily}11`, name: `${bigFamily}11 Bold`, style: 'Bold', slug: 'g11b' },
-  { family: `${bigFamily}11`, name: `${bigFamily}11 Condensed`, style: 'Condensed', slug: 'g11c' },
+  { family: `${bigFamily}11`, name: `${bigFamily}11 Bold`, style: 'bold', slug: 'g11b' },
+  { family: `${bigFamily}11`, name: `${bigFamily}11 Condensed`, style: 'condensed', slug: 'g11c' },
   { family: `${bigFamily}9`, name: `${bigFamily}9`, style: undefined, slug: 'g9' },
   { family: `${bigFamily}7`, name: `${bigFamily}7`, style: undefined, slug: 'g7' },
   { family: `${bigFamily}Mono11`, name: `${bigFamily}Mono11`, style: undefined, slug: 'gm11' },
