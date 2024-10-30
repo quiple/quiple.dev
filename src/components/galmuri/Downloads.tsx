@@ -29,7 +29,9 @@ export function Downloads() {
                           data-umami-event-font={font.name}
                           data-umami-event-format={format}
                         >
-                          {font.style} {format}
+                          {font.style &&
+                            `${font.style.charAt(0).toUpperCase()}${font.style.slice(1)}`}{' '}
+                          {format.toUpperCase()}
                         </a>
                       )
                     })
