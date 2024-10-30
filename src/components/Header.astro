@@ -4,7 +4,7 @@ import { ModeToggle } from '@/components/ModeToggle'
 
 <header>
   <nav>
-    <a href="/">quiple</a>
+    <a class="quiple" href="/">quiple</a>
     <ModeToggle client:load />
   </nav>
 </header>
@@ -14,4 +14,13 @@ import { ModeToggle } from '@/components/ModeToggle'
     @apply sticky top-0 border-b bg-background z-50 py-2
     nav
       @apply container mx-auto px-16 flex justify-between items-center
+      .quiple
+        @apply flex justify-center items-center gap-[.25em]
+        &::before
+          @apply bg-current inline-block w-[1em] h-[1em] content-['']
+          mask:
+            image: $q
+            repeat: no-repeat
+            position: center
+            size: 100%
 </style>
