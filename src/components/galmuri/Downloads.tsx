@@ -24,10 +24,10 @@ export function Downloads() {
       {families.map((family) => {
         return (
           <Card key={family.name} className="card">
-            <CardHeader>
+            <CardHeader className="p-[1em] py-[calc(1em_-_7px)]">
               <CardTitle>{family.name}</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">
               <div className="buttons">
                 {fonts
                   .filter((font) => font.family === family.name)
@@ -52,10 +52,22 @@ export function Downloads() {
                   })}
               </div>
             </CardContent>
-            <CardFooter>{`${family.size}px`}</CardFooter>
+            <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">{`${family.size}px`}</CardFooter>
           </Card>
         )
       })}
+      <Card className="card">
+        <CardContent className="p-[1em]">
+          <div className="buttons">
+            <a
+              className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
+              href="https://github.com/quiple/galmuri/releases/latest"
+            >
+              GitHub 릴리스에서 다운로드
+            </a>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
