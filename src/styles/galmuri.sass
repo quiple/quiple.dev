@@ -141,6 +141,10 @@ footer
         position: center
         size: calc(100% - var(--px))
         image: $bluesky
+    &.github::after
+      mask-image: $octicon
+    &.bluesky::after
+      mask-image: $bluesky
 .toggle-theme
   @apply text-[1em]
   svg
