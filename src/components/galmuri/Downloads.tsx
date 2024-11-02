@@ -62,6 +62,8 @@ export function Downloads() {
             <a
               className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
               href="https://github.com/quiple/galmuri/releases/latest"
+              target="_blank"
+              rel="nofollow noreferrer noopener"
             >
               GitHub 릴리스에서 다운로드
             </a>
