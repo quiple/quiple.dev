@@ -23,11 +23,11 @@ export function Downloads() {
     <div className="download">
       {families.map((family) => {
         return (
-          <Card key={family.name} className="card">
+          <Card key={family.name} className="card flex flex-col">
             <CardHeader className="p-[1em] py-[calc(1em_-_7px)]">
               <CardTitle>{family.name}</CardTitle>
             </CardHeader>
-            <CardContent className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">
+            <CardContent className="p-[1em] pt-0 pb-[calc(1em_-_6px)] flex-1">
               <div className="buttons">
                 {fonts
                   .filter((font) => font.family === family.name)
