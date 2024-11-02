@@ -96,15 +96,23 @@ import '@/styles/galmuri.sass'
       svg
         @apply w-40 h-40
     .download
-      @apply mt-[.5em]
-      [download]
+      @apply grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[1em] mb-[1em] mt-[.5em]
+      .card
         @include g(g7, 2)
-        @apply text-foreground no-underline
-        &::before
-          @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-[--px]
-          mask:
-            image: $download
-            repeat: no-repeat
-            position: center
-            size: 100%
+        @apply border-[length:--px] rounded-none
+        h3
+          @include g(g9, 2)
+          @apply font-normal
+        .buttons
+          @apply flex flex-wrap gap-[.5em]
+          a
+            @include g(g7, 2)
+            @apply text-foreground no-underline
+            &[download]::before
+              @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-[--px]
+              mask:
+                image: $download
+                repeat: no-repeat
+                position: center
+                size: 100%
 </style>
