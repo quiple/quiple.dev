@@ -44,6 +44,8 @@ main
         image: $new-tab
         repeat: no-repeat
         position: center
+    &.button[target=_blank]::after
+      mask-image: $new-tab-btn
 img
   image-rendering: pixelated
 .button
@@ -62,7 +64,6 @@ img
       image: $chevron-down
       repeat: no-repeat
       position: center
-      size: 100%
 .slider
   @include g(g7, 2)
   span
@@ -114,7 +115,6 @@ code, kbd, samp, pre
           image: $check
           repeat: no-repeat
           position: center
-          size: 100%
 [aria-roledescription=carousel] button
   @apply rounded-none border-[length:--px] text-[1em]
   svg
@@ -124,7 +124,6 @@ code, kbd, samp, pre
     mask:
       repeat: no-repeat
       position: center
-      size: 100%
   &:first-of-type::after
     mask-image: $chevron-left
   &:last-of-type::after
