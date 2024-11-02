@@ -177,6 +177,8 @@ footer
   .card
     @include g(g7, 2)
     @apply border-[length:--px] rounded-none
+    > *
+      @apply p-[1em] pt-0 pb-[calc(1em_-_6px)]
     > :first-child
       @apply p-[1em] py-[calc(1em_-_6px)]
     > :last-child
