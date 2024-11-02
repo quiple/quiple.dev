@@ -1,22 +1,36 @@
 import { fonts, formats } from '@/components/galmuri/data'
 import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardFooter, CardTitle } from '@/components/ui/card'
 
-const families = Array.from(new Set(fonts.map((font) => font.family)))
+interface family {
+  name: string
+  size: number
+}
+
+const families = fonts
+  .map((font) => {
+    return { name: font.family, size: font.size }
+  })
+  .reduce((prev: family[], now) => {
+    if (!prev.some((obj: family) => obj.name === now.name && obj.size === now.size)) {
+      prev.push(now)
+    }
+    return prev
+  }, [])
 
 export function Downloads() {
   return (
     <div className="download">
-      {families.map((familyName) => {
+      {families.map((family) => {
         return (
-          <Card key={familyName} className="card">
+          <Card key={family.name} className="card">
             <CardHeader>
-              <CardTitle>{familyName}</CardTitle>
+              <CardTitle>{family.name}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="buttons">
                 {fonts
-                  .filter((font) => font.family === familyName)
+                  .filter((font) => font.family === family.name)
                   .map((font) => {
                     return formats.map((format) => {
                       return (
@@ -38,6 +52,7 @@ export function Downloads() {
                   })}
               </div>
             </CardContent>
+            <CardFooter>{`${family.size}px`}</CardFooter>
           </Card>
         )
       })}
