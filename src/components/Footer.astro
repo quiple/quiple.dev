@@ -1,6 +1,7 @@
 ---
 import { buttonVariants } from '@/components/ui/button'
 import { siBluesky } from 'simple-icons'
+import { siGithub } from 'simple-icons'
 ---
 
 <footer>
@@ -8,7 +9,14 @@ import { siBluesky } from 'simple-icons'
     © 2019–2024 Lee Minseo
     <div class="sns">
       <a
-        class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button`}
+        class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button github`}
+        href="https://github.com/quiple"
+        set:html={siGithub.svg}
+        target="_blank"
+        rel="nofollow noreferrer noopener"
+      />
+      <a
+        class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button bluesky`}
         href="https://bsky.app/profile/quiple.dev"
         set:html={siBluesky.svg}
         target="_blank"
