@@ -13,16 +13,16 @@ importers:
         version: 0.10.2
       '@builder.io/qwik':
         specifier: ^1.9.1
-        version: 1.9.1(@types/node@22.7.5)(sass@1.79.5)
+        version: 1.9.1(@types/node@22.7.5)(sass@1.80.7)
       '@builder.io/qwik-city':
         specifier: ^1.9.1
-        version: 1.9.1(@types/node@22.7.5)(rollup@4.24.0)(sass@1.79.5)(typescript@5.6.3)
+        version: 1.9.1(@types/node@22.7.5)(rollup@4.24.0)(sass@1.80.7)(typescript@5.6.3)
       '@builder.io/qwik-worker':
         specifier: ^0.0.1
-        version: 0.0.1(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.79.5))
+        version: 0.0.1(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.80.7))
       '@splidejs/splide':
         specifier: github:quiple/splide
-        version: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20
+        version: git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.6.3)))
@@ -46,7 +46,7 @@ importers:
         version: 8.9.0(eslint@8.57.1)(typescript@5.6.3)
       '@vitejs/plugin-basic-ssl':
         specifier: ^1.1.0
-        version: 1.1.0(vite@5.4.9(@types/node@22.7.5)(sass@1.79.5))
+        version: 1.1.0(vite@5.4.9(@types/node@22.7.5)(sass@1.80.7))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
@@ -55,7 +55,7 @@ importers:
         version: 6.0.1
       bdfparser:
         specifier: github:quiple/bdfparser-js
-        version: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60
+        version: git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60
       blurhash:
         specifier: ^2.0.5
         version: 2.0.5
@@ -106,13 +106,13 @@ importers:
         version: 1.7.2
       qwik-blurhash:
         specifier: ^0.0.4
-        version: 0.0.4(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.79.5))(blurhash@2.0.5)
+        version: 0.0.4(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.80.7))(blurhash@2.0.5)
       refractor:
         specifier: ^4.8.1
         version: 4.8.1
       sass:
-        specifier: ^1.79.5
-        version: 1.79.5
+        specifier: ^1.80.7
+        version: 1.80.7
       tailwindcss:
         specifier: 3.4.14
         version: 3.4.14(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.6.3))
@@ -127,10 +127,10 @@ importers:
         version: 37.8.0
       vite:
         specifier: ^5.4.9
-        version: 5.4.9(@types/node@22.7.5)(sass@1.79.5)
+        version: 5.4.9(@types/node@22.7.5)(sass@1.80.7)
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(sass@1.79.5))
+        version: 5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(sass@1.80.7))
 
 packages:
 
@@ -748,8 +748,8 @@ packages:
   '@sinclair/typebox@0.25.24':
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20':
-    resolution: {tarball: https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20':
+    resolution: {commit: 0219865baafe7210a43b3e007639ff3ba057dc20, repo: git@github.com:quiple/splide.git, type: git}
     version: 4.1.4
 
   '@tailwindcss/typography@0.5.15':
@@ -1097,8 +1097,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60:
-    resolution: {tarball: https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60:
+    resolution: {commit: 403b488ff568c6f3af52ea123467e79635098e60, repo: git@github.com:quiple/bdfparser-js.git, type: git}
     version: 2.2.5
     engines: {node: '>= 12.0'}
 
@@ -1967,8 +1967,8 @@ packages:
     resolution: {integrity: sha512-XDUx3Ac1VrZ4XF5eAJNYdHbFXRPNyebHFrwJsZ4WHb7X2MitOVW23cFphSDByT3MH5rdWdxKr4edSW2agChvDg==}
     engines: {node: '>=18.0.0'}
 
-  immutable@4.3.7:
-    resolution: {integrity: sha512-1hqclzwYwjRDFLjcFxOM5AYkkG0rpFPpr1RLPMEuGczoS7YA8gLhy8SWXYRAA/XwfEHpfo3cw5JGioS32fnMRw==}
+  immutable@5.0.2:
+    resolution: {integrity: sha512-1NU7hWZDkV7hJ4PJ9dur9gTNQ4ePNPN4k9/0YhwjzykTi/+3Q5pF93YU5QoVj8BuOnhLgaY8gs0U2pj4kSYVcw==}
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -2904,8 +2904,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.79.5:
-    resolution: {integrity: sha512-W1h5kp6bdhqFh2tk3DsI771MoEJjvrSY/2ihJRJS4pjIyfJCw0nTsxqhnrUzaLMOJjFchj8rOvraI/YUVjtx5g==}
+  sass@1.80.7:
+    resolution: {integrity: sha512-MVWvN0u5meytrSjsU7AWsbhoXi1sc58zADXFllfZzbsBT1GHjjar6JwBINYPRrkx/zqnQ6uqbQuHgE95O+C+eQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3545,7 +3545,7 @@ snapshots:
 
   '@builder.io/partytown@0.10.2': {}
 
-  '@builder.io/qwik-city@1.9.1(@types/node@22.7.5)(rollup@4.24.0)(sass@1.79.5)(typescript@5.6.3)':
+  '@builder.io/qwik-city@1.9.1(@types/node@22.7.5)(rollup@4.24.0)(sass@1.80.7)(typescript@5.6.3)':
     dependencies:
       '@mdx-js/mdx': 3.0.1
       '@types/mdx': 2.0.13
@@ -3554,7 +3554,7 @@ snapshots:
       undici: 6.20.1
       valibot: 0.42.1(typescript@5.6.3)
       vfile: 6.0.1
-      vite: 5.4.9(@types/node@22.7.5)(sass@1.79.5)
+      vite: 5.4.9(@types/node@22.7.5)(sass@1.80.7)
       vite-imagetools: 7.0.4(rollup@4.24.0)
       zod: 3.22.4
     transitivePeerDependencies:
@@ -3570,14 +3570,14 @@ snapshots:
       - terser
       - typescript
 
-  '@builder.io/qwik-worker@0.0.1(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.79.5))':
+  '@builder.io/qwik-worker@0.0.1(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.80.7))':
     dependencies:
-      '@builder.io/qwik': 1.9.1(@types/node@22.7.5)(sass@1.79.5)
+      '@builder.io/qwik': 1.9.1(@types/node@22.7.5)(sass@1.80.7)
 
-  '@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.79.5)':
+  '@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.80.7)':
     dependencies:
       csstype: 3.1.3
-      vite: 5.4.9(@types/node@22.7.5)(sass@1.79.5)
+      vite: 5.4.9(@types/node@22.7.5)(sass@1.80.7)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3931,6 +3931,7 @@ snapshots:
       '@parcel/watcher-win32-arm64': 2.4.1
       '@parcel/watcher-win32-ia32': 2.4.1
       '@parcel/watcher-win32-x64': 2.4.1
+    optional: true
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -4000,7 +4001,7 @@ snapshots:
 
   '@sinclair/typebox@0.25.24': {}
 
-  '@splidejs/splide@https://codeload.github.com/quiple/splide/tar.gz/0219865baafe7210a43b3e007639ff3ba057dc20': {}
+  '@splidejs/splide@git+https://git@github.com:quiple/splide.git#0219865baafe7210a43b3e007639ff3ba057dc20': {}
 
   '@tailwindcss/typography@0.5.15(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.7.5)(typescript@5.6.3)))':
     dependencies:
@@ -4322,9 +4323,9 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitejs/plugin-basic-ssl@1.1.0(vite@5.4.9(@types/node@22.7.5)(sass@1.79.5))':
+  '@vitejs/plugin-basic-ssl@1.1.0(vite@5.4.9(@types/node@22.7.5)(sass@1.80.7))':
     dependencies:
-      vite: 5.4.9(@types/node@22.7.5)(sass@1.79.5)
+      vite: 5.4.9(@types/node@22.7.5)(sass@1.80.7)
 
   abbrev@1.1.1: {}
 
@@ -4464,7 +4465,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  bdfparser@https://codeload.github.com/quiple/bdfparser-js/tar.gz/403b488ff568c6f3af52ea123467e79635098e60: {}
+  bdfparser@git+https://git@github.com:quiple/bdfparser-js.git#403b488ff568c6f3af52ea123467e79635098e60: {}
 
   binary-extensions@2.3.0: {}
 
@@ -4712,7 +4713,8 @@ snapshots:
 
   dequal@2.0.3: {}
 
-  detect-libc@1.0.3: {}
+  detect-libc@1.0.3:
+    optional: true
 
   detect-libc@2.0.3: {}
 
@@ -5439,7 +5441,7 @@ snapshots:
 
   imagetools-core@7.0.1: {}
 
-  immutable@4.3.7: {}
+  immutable@5.0.2: {}
 
   import-fresh@3.3.0:
     dependencies:
@@ -6089,7 +6091,8 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-addon-api@7.1.1: {}
+  node-addon-api@7.1.1:
+    optional: true
 
   node-fetch@2.6.7:
     dependencies:
@@ -6345,9 +6348,9 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  qwik-blurhash@0.0.4(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.79.5))(blurhash@2.0.5):
+  qwik-blurhash@0.0.4(@builder.io/qwik@1.9.1(@types/node@22.7.5)(sass@1.80.7))(blurhash@2.0.5):
     dependencies:
-      '@builder.io/qwik': 1.9.1(@types/node@22.7.5)(sass@1.79.5)
+      '@builder.io/qwik': 1.9.1(@types/node@22.7.5)(sass@1.80.7)
       blurhash: 2.0.5
 
   raw-body@2.4.1:
@@ -6483,12 +6486,13 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.79.5:
+  sass@1.80.7:
     dependencies:
-      '@parcel/watcher': 2.4.1
       chokidar: 4.0.1
-      immutable: 4.3.7
+      immutable: 5.0.2
       source-map-js: 1.2.1
+    optionalDependencies:
+      '@parcel/watcher': 2.4.1
 
   semver@6.3.1: {}
 
@@ -7002,18 +7006,18 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(sass@1.79.5)):
+  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.9(@types/node@22.7.5)(sass@1.80.7)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.4(typescript@5.6.3)
     optionalDependencies:
-      vite: 5.4.9(@types/node@22.7.5)(sass@1.79.5)
+      vite: 5.4.9(@types/node@22.7.5)(sass@1.80.7)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.4.9(@types/node@22.7.5)(sass@1.79.5):
+  vite@5.4.9(@types/node@22.7.5)(sass@1.80.7):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
@@ -7021,7 +7025,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.7.5
       fsevents: 2.3.3
-      sass: 1.79.5
+      sass: 1.80.7
 
   web-vitals@0.2.4: {}
 
