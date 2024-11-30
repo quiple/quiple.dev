@@ -100,5 +100,5 @@
   background-color: var(--shiki-dark-bg) !important;
 }
 .prose {
-  @apply prose-zinc dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400
+  @apply prose-zinc dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400;
 }
