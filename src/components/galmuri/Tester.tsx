@@ -18,6 +18,7 @@ export function Tester() {
   const [testerFont, setTesterFont] = useState<font | undefined>({
     family: `${bigFamily}11`,
     name: `${bigFamily}11`,
+    size: 12,
     slug: 'g11',
   })
 
