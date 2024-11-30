@@ -41,9 +41,11 @@ const { title, description } = Astro.props
     )}
     <link rel="canonical" href={Astro.url} />
     {Astro.url.pathname === '/galmuri' ? (
+      <link rel="icon" type="image/png" sizes="32x32" href="/galmuri-32.png" />
       <link rel="icon" type="image/svg+xml" href="/images/galmuri.svg" />
       <link rel="apple-touch-icon" type="image/png" href="/images/galmuri.png" />
     ) : (
+      <link rel="icon" type="image/png" sizes="32x32" href="/q-32.png" />
       <link rel="icon" type="image/svg+xml" href="/images/q.svg" />
       <link rel="apple-touch-icon" type="image/png" href="/images/q.png" />
     )}
