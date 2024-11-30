@@ -8,7 +8,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import * as m from '@/paraglide/messages.js'
 
 export function ModeToggle() {
   const [theme, setThemeState] = React.useState<'theme-light' | 'dark' | 'system'>('theme-light')
