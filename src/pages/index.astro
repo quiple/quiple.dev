@@ -1,18 +1,19 @@
 ---
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import Content from '@/contents/index.mdx'
 import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Welcome">
   <Header />
-  <main>
-    안녕하세요. <a href="/galmuri">Galmuri</a>
+  <main class="prose">
+    <Content />
   </main>
   <Footer />
 </Layout>
 
 <style lang="sass" is:global>
   main
-    @apply container mx-auto px-16
+    @apply mx-auto px-16 pt-8 container #{!important}
 </style>
