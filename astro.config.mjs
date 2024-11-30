@@ -2,7 +2,6 @@
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
-import paraglide from '@inlang/paraglide-astro'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 
@@ -15,15 +14,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     mdx(),
-    paraglide({
-      project: './project.inlang',
-      outdir: './src/paraglide',
-    }),
   ],
-  i18n: {
-    defaultLocale: 'ko',
-    locales: ['en', 'ja', 'ko'],
-  },
   vite: {
     css: {
       preprocessorOptions: {
