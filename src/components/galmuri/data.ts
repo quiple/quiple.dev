@@ -14,12 +14,36 @@ export const fonts: font[] = [
   { family: `${bigFamily}14`, name: `${bigFamily}14`, style: undefined, size: 15, slug: 'g14' },
   { family: `${bigFamily}11`, name: `${bigFamily}11`, style: undefined, size: 12, slug: 'g11' },
   { family: `${bigFamily}11`, name: `${bigFamily}11 Bold`, style: 'bold', size: 12, slug: 'g11b' },
-  { family: `${bigFamily}11`, name: `${bigFamily}11 Condensed`, style: 'condensed', size: 12, slug: 'g11c' },
+  {
+    family: `${bigFamily}11`,
+    name: `${bigFamily}11 Condensed`,
+    style: 'condensed',
+    size: 12,
+    slug: 'g11c',
+  },
   { family: `${bigFamily}9`, name: `${bigFamily}9`, style: undefined, size: 10, slug: 'g9' },
   { family: `${bigFamily}7`, name: `${bigFamily}7`, style: undefined, size: 8, slug: 'g7' },
-  { family: `${bigFamily}Mono11`, name: `${bigFamily}Mono11`, style: undefined, size: 12, slug: 'gm11' },
-  { family: `${bigFamily}Mono9`, name: `${bigFamily}Mono9`, style: undefined, size: 10, slug: 'gm9' },
-  { family: `${bigFamily}Mono7`, name: `${bigFamily}Mono7`, style: undefined, size: 8, slug: 'gm7' },
+  {
+    family: `${bigFamily}Mono11`,
+    name: `${bigFamily}Mono11`,
+    style: undefined,
+    size: 12,
+    slug: 'gm11',
+  },
+  {
+    family: `${bigFamily}Mono9`,
+    name: `${bigFamily}Mono9`,
+    style: undefined,
+    size: 10,
+    slug: 'gm9',
+  },
+  {
+    family: `${bigFamily}Mono7`,
+    name: `${bigFamily}Mono7`,
+    style: undefined,
+    size: 8,
+    slug: 'gm7',
+  },
 ]
 
 export const pangramEn = [

@@ -1,6 +1,6 @@
 import { fonts, formats } from '@/components/galmuri/data'
 import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardFooter, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface family {
   name: string
