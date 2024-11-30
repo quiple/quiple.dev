@@ -40,8 +40,13 @@ const { title, description } = Astro.props
       <meta property="og:description" content={description} />
     )}
     <link rel="canonical" href={Astro.url} />
-    <link rel="icon" type="image/svg+xml" href="/images/galmuri.svg" />
-    <link rel="apple-touch-icon" type="image/png" href="/images/galmuri.png" />
+    {Astro.url.pathname === '/galmuri' ? (
+      <link rel="icon" type="image/svg+xml" href="/images/galmuri.svg" />
+      <link rel="apple-touch-icon" type="image/png" href="/images/galmuri.png" />
+    ) : (
+      <link rel="icon" type="image/svg+xml" href="/images/q.svg" />
+      <link rel="apple-touch-icon" type="image/png" href="/images/q.png" />
+    )}
     <link rel="manifest" href="/manifest.json" />
     {import.meta.env.PROD && (
       <script
