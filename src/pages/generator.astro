@@ -2,17 +2,19 @@
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
+import { FontGenerator } from '@/components/generator/index'
 ---
 
-<Layout title="Welcome">
+<Layout
+  title="Galmuri"
+  description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트."
+>
   <Header />
   <main>
-    안녕하세요. <a href="/galmuri">Galmuri</a> <a href="/generator">Generator</a>
+    <FontGenerator />
   </main>
   <Footer />
 </Layout>
 
 <style lang="sass" is:global>
-  main
-    @apply container mx-auto px-16
 </style>

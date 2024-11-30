@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind'
 import paraglide from '@inlang/paraglide-astro'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
+import qwikdev from '@qwikdev/astro'
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,7 @@ export default defineConfig({
       project: './project.inlang',
       outdir: './src/paraglide',
     }),
+    qwikdev(),
   ],
   i18n: {
     defaultLocale: 'ko',
