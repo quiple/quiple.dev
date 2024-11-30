@@ -2,6 +2,7 @@
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
+import vercel from '@astrojs/vercel/serverless'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 
@@ -45,4 +46,6 @@ export default defineConfig({
       ],
     ],
   },
+  output: 'server',
+  adapter: vercel({ imageService: true }),
 })
