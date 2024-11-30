@@ -30,17 +30,13 @@ export function ModeToggle() {
         <Button variant="ghost" size="icon" className="button icon-button w-8 h-8">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">{m.theme_toggle()}</span>
+          <span className="sr-only">테마 변경</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setThemeState('theme-light')}>
-          {m.theme_light()}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState('dark')}>{m.theme_dark()}</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setThemeState('system')}>
-          {m.theme_system()}
-        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('theme-light')}>밝음</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('dark')}>어두움</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setThemeState('system')}>시스템</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
