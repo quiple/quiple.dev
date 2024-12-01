@@ -67,9 +67,6 @@
   * {
     @apply border-border;
   }
-  [lang='ko'] {
-    @apply break-keep;
-  }
   body {
     @apply bg-background text-foreground;
   }

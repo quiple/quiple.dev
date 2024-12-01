@@ -28,7 +28,7 @@ header
       mask-image: $q-pixel !important
 main
   @include g(g9, 2)
-  @apply container mx-auto px-16
+  @apply container mx-auto px-8 md:px-16
   > :is(h2, h3, p, ul)
     @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
   a
@@ -117,7 +117,7 @@ code, kbd, samp, pre
           repeat: no-repeat
           position: center
 [aria-roledescription=carousel] button
-  @apply rounded-none border-[length:--px] text-[1em]
+  @apply rounded-none border-[length:--px] text-[1em] hidden md:flex
   svg
     @apply hidden
   &::after
