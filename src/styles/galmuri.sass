@@ -16,123 +16,109 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
       display: block
     src: url('/fonts/Galmuri#{$file}.woff2') format('woff2')
 
-::selection
-  @apply bg-galmuri text-background
-header
-  @include g(g7, 2)
-  border-bottom-width: var(--px) !important
-  .quiple
-    font-size: 1em !important
-    gap: var(--px) !important
-    &::before
-      mask-image: $q-pixel !important
-main
-  @include g(g9, 2)
-  @apply container mx-auto px-8 md:px-16
-  > :is(h2, h3, p, ul)
-    @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
-  a
-    @apply text-galmuri underline transition-all active:text-galmuri-invert
-    text-decoration:
-      skip-ink: none
-      thickness: var(--px)
-    text-underline-offset: var(--px)
-    &:hover
-      text-decoration-thickness: calc(var(--px) * 2)
-    &[target=_blank]::after
-      @apply bg-current inline-block w-[1em] h-[1em] content-['']
-      mask:
-        image: $new-tab
-        repeat: no-repeat
-        position: center
-    &.button[target=_blank]::after
-      mask-image: $new-tab-btn
-img
-  image-rendering: pixelated
-.button
-  @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px]
-  &:not(.icon-button)
-    @apply h-[42px] pl-[12px] pr-[calc(12px_-_var(--px))]
-  &.outline-button
-    @apply border-[length:--px]
-[role=combobox]
-  @apply h-[42px] rounded-none focus:ring-[length:--px] focus:ring-galmuri focus:ring-offset-[length:--px] border-[length:--px] relative pr-[calc(1em_+_(12px_-_var(--px))_*_2)]
-  svg
-    @apply hidden
-  &::after
-    @apply absolute right-[calc(12px_-_var(--px))] bg-current inline-block w-[1em] h-[1em] content-['']
-    mask:
-      image: $chevron-down
-      repeat: no-repeat
-      position: center
-.slider
-  @include g(g7, 2)
-  span
-    @apply rounded-none
-  .grow
-    @apply h-[calc(var(--px)_*_2)]
-    span
-      @apply bg-galmuri
-  [role=slider]
-    @apply border-[length:--px] w-3.5 h-4 flex justify-center focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] py-[--px]
-    &::after
-      @apply content-[''] border-shadow border-l-[length:--px] border-r-[length:--px] w-[calc(var(--px)_*_3)]
-.textarea
-  @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
-  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
-h2
-  @include g(g11, 2)
-  @apply font-bold scroll-m-[.5em] mt-[2em] first:mt-0
-h3
-  @apply scroll-m-[.5em] mt-[1em] first:mt-0
-p
-  @apply [&:not(:first-child)]:mt-[.5em]
-ul
-  @include g(g7, 2)
-  @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
-  li::before
-    @apply absolute left-[.25em] content-['\2022']
-pre
-  @apply mt-[.5em] first:mt-0 px-[12px] py-[4px] shadow-inner dark:shadow
-  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
-code, kbd, samp, pre
-  @include g(gm7, 2)
-  background-color: #f3f4f6 !important
-  --shiki-dark-bg: #18181b !important
-[data-radix-popper-content-wrapper]
-  @include g(g7, 2)
-  [role=menu], [role=listbox]
-    @apply border-[length:--px] rounded-none
-    [data-radix-select-viewport]
-      @apply min-w-[calc(var(--radix-select-trigger-width)_-_var(--px)_*_2)]
-    [role=menuitem], [role=option]
-      @apply rounded-none text-[1em]
-    [role=option]
-      svg
-        @apply hidden
-      &[data-state=checked]::before
-        @apply absolute left-4 -translate-x-1/2 bg-current inline-block w-[1em] h-[1em] content-['']
+[data-path="/galmuri"]
+  ::selection
+    @apply bg-galmuri text-background
+  header
+    @include g(g7, 2)
+    border-bottom-width: var(--px) !important
+    .quiple
+      font-size: 1em !important
+      gap: var(--px) !important
+      &::before
+        mask-image: $q-pixel !important
+  main
+    @include g(g9, 2)
+    @apply container mx-auto px-8 md:px-16
+    > :is(h2, h3, p, ul)
+      @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg
+    a
+      @apply text-galmuri underline transition-all active:text-galmuri-invert
+      text-decoration:
+        skip-ink: none
+        thickness: var(--px)
+      text-underline-offset: var(--px)
+      &:hover
+        text-decoration-thickness: calc(var(--px) * 2)
+      &[target=_blank]::after
+        @apply bg-current inline-block w-[1em] h-[1em] content-['']
         mask:
-          image: $check
+          image: $new-tab
           repeat: no-repeat
           position: center
-[aria-roledescription=carousel] button
-  @apply rounded-none border-[length:--px] text-[1em] hidden md:flex
-  svg
-    @apply hidden
-  &::after
-    @apply bg-current inline-block w-[1em] h-[1em] content-['']
-    mask:
-      repeat: no-repeat
-      position: center
-  &:first-of-type::after
-    mask-image: $chevron-left
-  &:last-of-type::after
-    mask-image: $chevron-right
-footer
-  @include g(g7, 2)
-  .sns a
-    @apply text-[1em]
+      &.button[target=_blank]::after
+        mask-image: $new-tab-btn
+  img
+    image-rendering: pixelated
+  .button
+    @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px]
+    &:not(.icon-button)
+      @apply h-[42px] pl-[12px] pr-[calc(12px_-_var(--px))]
+    &.outline-button
+      @apply border-[length:--px]
+  [role=combobox]
+    @apply h-[42px] rounded-none focus:ring-[length:--px] focus:ring-galmuri focus:ring-offset-[length:--px] border-[length:--px] relative pr-[calc(1em_+_(12px_-_var(--px))_*_2)]
+    svg
+      @apply hidden
+    &::after
+      @apply absolute right-[calc(12px_-_var(--px))] bg-current inline-block w-[1em] h-[1em] content-['']
+      mask:
+        image: $chevron-down
+        repeat: no-repeat
+        position: center
+  .slider
+    @include g(g7, 2)
+    span
+      @apply rounded-none
+    .grow
+      @apply h-[calc(var(--px)_*_2)]
+      span
+        @apply bg-galmuri
+    [role=slider]
+      @apply border-[length:--px] w-3.5 h-4 flex justify-center focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] py-[--px]
+      &::after
+        @apply content-[''] border-shadow border-l-[length:--px] border-r-[length:--px] w-[calc(var(--px)_*_3)]
+  .textarea
+    @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
+    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
+  h2
+    @include g(g11, 2)
+    @apply font-bold scroll-m-[.5em] mt-[2em] first:mt-0
+  h3
+    @apply scroll-m-[.5em] mt-[1em] first:mt-0
+  p
+    @apply [&:not(:first-child)]:mt-[.5em]
+  ul
+    @include g(g7, 2)
+    @apply relative my-[.5em] pl-[1em] [&>li]:mt-[.5em]
+    li::before
+      @apply absolute left-[.25em] content-['\2022']
+  pre
+    @apply mt-[.5em] first:mt-0 px-[12px] py-[4px] shadow-inner dark:shadow
+    --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
+  code, kbd, samp, pre
+    @include g(gm7, 2)
+    background-color: #f3f4f6 !important
+    --shiki-dark-bg: #18181b !important
+  [data-radix-popper-content-wrapper]
+    @include g(g7, 2)
+    [role=menu], [role=listbox]
+      @apply border-[length:--px] rounded-none
+      [data-radix-select-viewport]
+        @apply min-w-[calc(var(--radix-select-trigger-width)_-_var(--px)_*_2)]
+      [role=menuitem], [role=option]
+        @apply rounded-none text-[1em]
+      [role=option]
+        svg
+          @apply hidden
+        &[data-state=checked]::before
+          @apply absolute left-4 -translate-x-1/2 bg-current inline-block w-[1em] h-[1em] content-['']
+          mask:
+            image: $check
+            repeat: no-repeat
+            position: center
+  [aria-roledescription=carousel] button
+    @apply rounded-none border-[length:--px] text-[1em] hidden md:flex
     svg
       @apply hidden
     &::after
@@ -140,39 +126,54 @@ footer
       mask:
         repeat: no-repeat
         position: center
+    &:first-of-type::after
+      mask-image: $chevron-left
+    &:last-of-type::after
+      mask-image: $chevron-right
+  footer
+    @include g(g7, 2)
+    .sns a
+      @apply text-[1em]
+      svg
+        @apply hidden
+      &::after
+        @apply bg-current inline-block w-[1em] h-[1em] content-['']
+        mask:
+          repeat: no-repeat
+          position: center
+          size: calc(100% - var(--px))
+          image: $bluesky
+      &.github::after
+        mask-image: $octicon
+      &.bluesky::after
+        mask-image: $bluesky
+  .toggle-theme
+    @apply text-[1em]
+    svg
+      @apply hidden
+    &::after
+      @apply bg-current inline-block w-[1em] h-[1em] content-[''] [mask-image:--sun] dark:[mask-image:--moon]
+      mask:
+        repeat: no-repeat
+        position: center
         size: calc(100% - var(--px))
-        image: $bluesky
-    &.github::after
-      mask-image: $octicon
-    &.bluesky::after
-      mask-image: $bluesky
-.toggle-theme
-  @apply text-[1em]
-  svg
-    @apply hidden
-  &::after
-    @apply bg-current inline-block w-[1em] h-[1em] content-[''] [mask-image:--sun] dark:[mask-image:--moon]
-    mask:
-      repeat: no-repeat
-      position: center
-      size: calc(100% - var(--px))
-    --sun: url('data:image/svg+xml,\
-      <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
-        <path d="M4 0H3V1H4V0Z"/>\
-        <path d="M1 3H0V4H1V3Z"/>\
-        <path d="M6 3H7V4H6V3Z"/>\
-        <path d="M4 6H3V7H4V6Z"/>\
-        <path d="M1 5H2V6H1V5Z"/>\
-        <path d="M6 5H5V6H6V5Z"/>\
-        <path d="M5 1H6V2H5V1Z"/>\
-        <path d="M2 1H1V2H2V1Z"/>\
-        <path d="M3 2H4V3H3V2Z"/>\
-        <path d="M3 4H2V3H3V4Z"/>\
-        <path d="M3 4V5H4V4H5V3H4V4H3Z"/>\
-      </svg>\
-    ')
-    --moon: url('data:image/svg+xml,\
-      <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
-        <path d="M2 0V1H1V2H0V5H1V6H2V7H5V6H6V5H7V3H6V4H3V1H4V0H2ZM3 4V5H5V6H2V5H1V2H2V4H3Z"/>\
-      </svg>\
-    ')
+      --sun: url('data:image/svg+xml,\
+        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
+          <path d="M4 0H3V1H4V0Z"/>\
+          <path d="M1 3H0V4H1V3Z"/>\
+          <path d="M6 3H7V4H6V3Z"/>\
+          <path d="M4 6H3V7H4V6Z"/>\
+          <path d="M1 5H2V6H1V5Z"/>\
+          <path d="M6 5H5V6H6V5Z"/>\
+          <path d="M5 1H6V2H5V1Z"/>\
+          <path d="M2 1H1V2H2V1Z"/>\
+          <path d="M3 2H4V3H3V2Z"/>\
+          <path d="M3 4H2V3H3V4Z"/>\
+          <path d="M3 4V5H4V4H5V3H4V4H3Z"/>\
+        </svg>\
+      ')
+      --moon: url('data:image/svg+xml,\
+        <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
+          <path d="M2 0V1H1V2H0V5H1V6H2V7H5V6H6V5H7V3H6V4H3V1H4V0H2ZM3 4V5H5V6H2V5H1V2H2V4H3Z"/>\
+        </svg>\
+      ')
