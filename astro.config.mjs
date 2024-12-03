@@ -46,7 +46,7 @@ export default defineConfig({
       ],
     ],
   },
-  output: 'server',
+  output: 'hybrid',
   adapter: vercel({
     imageService: true,
     webAnalytics: {
