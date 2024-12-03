@@ -1,5 +1,6 @@
 // @ts-check
 import mdx from '@astrojs/mdx'
+import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel/serverless'
@@ -47,10 +48,12 @@ export default defineConfig({
     ],
   },
   output: 'server',
-  adapter: vercel({
-    imageService: true,
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  adapter: process.argv[3] === '--node'
+    ? node({ mode: 'standalone' })
+    : vercel({
+        imageService: true,
+        webAnalytics: {
+          enabled: true,
+        },
+      }),
 })
