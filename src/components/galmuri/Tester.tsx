@@ -79,7 +79,7 @@ export function Tester() {
       </div>
       <Textarea
         className="textarea"
-        autosize
+        autosize="true"
         style={{
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
           fontWeight: testerFont?.style === 'bold' ? 700 : 400,

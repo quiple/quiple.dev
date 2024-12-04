@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import TextareaAutosize from 'react-textarea-autosize'
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  autosize?: boolean
+  autosize?: boolean | string
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
