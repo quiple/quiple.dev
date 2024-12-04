@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 
