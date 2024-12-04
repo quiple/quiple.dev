@@ -47,7 +47,7 @@ import "galmuri/dist/galmuri.css";
 
 ## 쇼케이스
 
-<Showcase client:visible />
+<Showcase client:load />
 
 ### Galmuri를 포함하여 파생된 폰트
 
@@ -67,6 +67,6 @@ import "galmuri/dist/galmuri.css";
 ## 후원
 
 <section className="sponsor">
-  <QRCodeSVG client:visible level="H" size={57 * 41} bgColor="transparent" fgColor="currentColor" imageSettings={{ excavate: true, width: 15 * 41, height: 15 * 41, src: '/images/toss.svg' }} value="supertoss://send?amount=0&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100036350780&origin=qr" />
-  <QRCodeSVG client:visible level="H" size={57 * 41} bgColor="transparent" fgColor="currentColor" imageSettings={{ excavate: true, width: 11 * 57, height: 11 * 57, src: '/images/kakao.svg' }} value="https://qr.kakaopay.com/281006011000033397832181" />
+  <QRCodeSVG level="H" size={57 * 41} bgColor="transparent" fgColor="currentColor" imageSettings={{ excavate: true, width: 15 * 41, height: 15 * 41, src: '/images/toss.svg' }} value="supertoss://send?amount=0&bank=%ED%86%A0%EC%8A%A4%EB%B1%85%ED%81%AC&accountNo=100036350780&origin=qr" />
+  <QRCodeSVG level="H" size={57 * 41} bgColor="transparent" fgColor="currentColor" imageSettings={{ excavate: true, width: 11 * 57, height: 11 * 57, src: '/images/kakao.svg' }} value="https://qr.kakaopay.com/281006011000033397832181" />
 </section>
