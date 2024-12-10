@@ -75,9 +75,6 @@
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
   }
-  .prose {
-    @apply prose-zinc dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400;
-  }
 }
 @font-face {
   font-family: InterVariable;
@@ -99,4 +96,7 @@
   font-stretch: normal;
   font-weight: 100 900;
   src: url('/fonts/GeistMono.woff2') format('woff2');
+}
+.prose {
+  @apply prose-zinc dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400;
 }
