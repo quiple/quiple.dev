@@ -215,6 +215,7 @@ export function Showcase() {
                   srcSet={game.image.srcSet.attribute}
                   alt={game.title}
                 />
+                <span className="overlay" />
                 <figcaption>
                   <a
                     href={linkPrefix[game.type] + game.link}

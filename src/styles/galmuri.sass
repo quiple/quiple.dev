@@ -117,19 +117,29 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
             image: $check
             repeat: no-repeat
             position: center
-  [aria-roledescription=carousel] button
-    @apply rounded-none border-[length:--px] text-[1em] hidden md:flex
-    svg
-      @apply hidden
-    &::after
-      @apply bg-current inline-block w-[1em] h-[1em] content-['']
-      mask:
-        repeat: no-repeat
-        position: center
-    &:first-of-type::after
-      mask-image: $chevron-left
-    &:last-of-type::after
-      mask-image: $chevron-right
+  [aria-roledescription=carousel]
+    @include g(g7, 2)
+    button
+      @apply top-20 sm:top-[calc(13rem_/_2)] md:top-[calc(15rem_/_2)] lg:top-36 xl:top-40 rounded-none border-[length:--px] text-[1em] hidden md:flex
+      svg
+        @apply hidden
+      &::after
+        @apply bg-current inline-block w-[1em] h-[1em] content-['']
+        mask:
+          repeat: no-repeat
+          position: center
+      &:first-of-type::after
+        mask-image: $chevron-left
+      &:last-of-type::after
+        mask-image: $chevron-right
+    figure
+      @apply table relative
+      img, .overlay
+        @apply h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80
+      .overlay
+        @apply absolute top-0 left-0 w-full border-2 border-foreground/10
+      figcaption
+        @apply table-caption caption-bottom mt-[--px]
   footer
     @include g(g7, 2)
     .sns a
