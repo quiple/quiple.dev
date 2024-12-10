@@ -62,8 +62,6 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
-@layer base {
   * {
     @apply border-border;
     font-feature-settings: 'cv01' 1, 'cv10' 1, 'ss07' 1, 'ss08' 1;
@@ -74,6 +72,11 @@
   .dark :is(.astro-code, .astro-code span) {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
+  }
+}
+@layer components {
+  .prose {
+    @apply prose-zinc dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400;
   }
 }
 @font-face {
@@ -96,7 +99,4 @@
   font-stretch: normal;
   font-weight: 100 900;
   src: url('/fonts/GeistMono.woff2') format('woff2');
-}
-.prose {
-  @apply prose-zinc dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400;
 }
