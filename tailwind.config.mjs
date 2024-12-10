@@ -5,8 +5,8 @@ export default {
   theme: {
     fontFamily: {
       sans: [
-        '-apple-system',
-        'BlinkMacSystemFont',
+        // '-apple-system',
+        // 'BlinkMacSystemFont',
         'InterVariable',
         'Inter',
         'Helvetica Neue',
