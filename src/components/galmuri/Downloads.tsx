@@ -56,8 +56,8 @@ export function Downloads() {
           </Card>
         )
       })}
-      <Card className="card">
-        <CardContent className="p-[1em]">
+      <Card className="card flex flex-col">
+        <CardContent className="p-[1em] pb-[calc(1em_-_6px)] flex-1">
           <div className="buttons">
             <a
               className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
@@ -69,6 +69,7 @@ export function Downloads() {
             </a>
           </div>
         </CardContent>
+        <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">비트맵 스트라이크를 포함한 TrueType 폰트 및 TrueType 컬렉션 포함</CardFooter>
       </Card>
     </div>
   )
