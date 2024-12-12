@@ -40,7 +40,7 @@ import '@/styles/galmuri.sass'
         span
           @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] -translate-y-[--px] active:transform-none active:before:transform-none
           &::before
-            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0 translate-y-[--px]
+            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0 translate-y-[--px] text-galmuri dark:text-galmuri-invert
         .g
           @apply before:content-['G']
         .a
