@@ -38,23 +38,23 @@ import '@/styles/galmuri.sass'
         @include g(g7, 9)
         @apply flex text-white pl-[--px] items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
         span
-          @apply relative before:translate-y-[--px] active:translate-y-[--px] active:before:transform-none
-          &::before, &::after
-            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0
+          @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] -translate-y-[--px] active:transform-none active:before:transform-none
+          &::before
+            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0 translate-y-[--px]
         .g
-          @apply before:content-['G'] after:content-['G']
+          @apply before:content-['G']
         .a
-          @apply before:content-['a'] after:content-['a']
+          @apply before:content-['a']
         .l
-          @apply before:content-['l'] after:content-['l']
+          @apply before:content-['l']
         .m
-          @apply before:content-['m'] after:content-['m']
+          @apply before:content-['m']
         .u
-          @apply before:content-['u'] after:content-['u']
+          @apply before:content-['u']
         .r
-          @apply before:content-['r'] after:content-['r']
+          @apply before:content-['r']
         .i
-          @apply before:content-['i'] after:content-['i']
+          @apply before:content-['i']
       p
         @apply [text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow)),0_var(--px)_0_hsl(var(--shadow)),var(--px)_0_0_hsl(var(--shadow))] dark:[text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow-dark)),0_var(--px)_0_hsl(var(--shadow-dark)),var(--px)_0_0_hsl(var(--shadow-dark))]
         --shadow: 240 10% 80%
