@@ -48,12 +48,13 @@ export default defineConfig({
     ],
   },
   output: 'server',
-  adapter: process.argv[3] === '--node'
-    ? node({ mode: 'standalone' })
-    : vercel({
-        imageService: true,
-        webAnalytics: {
-          enabled: true,
-        },
-      }),
+  adapter:
+    process.argv[3] === '--node'
+      ? node({ mode: 'standalone' })
+      : vercel({
+          imageService: true,
+          webAnalytics: {
+            enabled: true,
+          },
+        }),
 })

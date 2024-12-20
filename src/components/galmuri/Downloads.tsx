@@ -69,7 +69,9 @@ export function Downloads() {
             </a>
           </div>
         </CardContent>
-        <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">비트맵 스트라이크를 포함한 TrueType 폰트 및 TrueType 컬렉션 포함</CardFooter>
+        <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">
+          비트맵 스트라이크를 포함한 TrueType 폰트 및 TrueType 컬렉션 포함
+        </CardFooter>
       </Card>
     </div>
   )
