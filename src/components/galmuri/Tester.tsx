@@ -22,12 +22,12 @@ export function Tester() {
     slug: 'g11',
   })
 
-  function shuffle() {
-    let randIndexEn = 0
-    let lastIndexEn = 0
-    let randIndexKo = 0
-    let lastIndexKo = 0
+  let randIndexEn = 0
+  let lastIndexEn = 0
+  let randIndexKo = 0
+  let lastIndexKo = 0
 
+  function shuffle() {
     do {
       randIndexEn = Math.floor(Math.random() * pangramEn.length)
     } while (randIndexEn === lastIndexEn)
