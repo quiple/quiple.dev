@@ -51,10 +51,13 @@ export default defineConfig({
   adapter:
     process.argv[3] === '--node'
       ? node({ mode: 'standalone' })
-      : vercel({
+      : import.meta.env.PROD ? 
+      vercel({
           imageService: true,
           webAnalytics: {
             enabled: true,
           },
-        }),
+        }) : vercel({
+          imageService: true
+        })
 })
