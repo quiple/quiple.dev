@@ -54,8 +54,8 @@ const { title, description } = Astro.props
       <link rel="icon" type="image/svg+xml" sizes="any" href="/images/q.svg" />
       <link rel="apple-touch-icon" type="image/png" href="/images/q.png" />
     )}
-    <link rel="manifest" href="/manifest.json" />
     {import.meta.env.PROD && (
+      <link rel="manifest" href="/manifest.json" />
       <SpeedInsights />
       <script
         is:inline
