@@ -1,6 +1,6 @@
-import { fonts, formats } from '@/components/galmuri/data'
-import { buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import {fonts, formats} from '@/components/galmuri/data'
+import {buttonVariants} from '@/components/ui/button'
+import {Card, CardContent, CardFooter, CardHeader, CardTitle} from '@/components/ui/card'
 
 interface family {
   name: string
@@ -9,7 +9,7 @@ interface family {
 
 const families = fonts
   .map((font) => {
-    return { name: font.family, size: font.size }
+    return {name: font.family, size: font.size}
   })
   .reduce((prev: family[], now) => {
     if (!prev.some((obj: family) => obj.name === now.name && obj.size === now.size)) {
@@ -36,7 +36,7 @@ export function Downloads() {
                       return (
                         <a
                           key={font.slug}
-                          className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
+                          className={`${buttonVariants({variant: 'outline'})} button outline-button`}
                           href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.${format}`}
                           download
                           data-umami-event="Galmuri 다운로드"
@@ -60,7 +60,7 @@ export function Downloads() {
         <CardContent className="p-[1em] pb-[calc(1em_-_6px)] flex-1">
           <div className="buttons">
             <a
-              className={`${buttonVariants({ variant: 'outline' })} button outline-button`}
+              className={`${buttonVariants({variant: 'outline'})} button outline-button`}
               href="https://github.com/quiple/galmuri/releases/latest"
               target="_blank"
               rel="nofollow noreferrer noopener"

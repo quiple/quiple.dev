@@ -1,16 +1,10 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 
-import { bigFamily, type font, fonts, pangramEn, pangramKo } from '@/components/galmuri/data'
-import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Slider } from '@/components/ui/slider'
-import { Textarea } from '@/components/ui/textarea'
+import {bigFamily, type font, fonts, pangramEn, pangramKo} from '@/components/galmuri/data'
+import {Button} from '@/components/ui/button'
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/ui/select'
+import {Slider} from '@/components/ui/slider'
+import {Textarea} from '@/components/ui/textarea'
 
 export function Tester() {
   const [fontSize, setFontSize] = useState(36)
