@@ -67,7 +67,12 @@ export function Tester() {
           />
           <div className="tester-font-size">{`${fontSize}px`}</div>
         </div>
-        <Button aria-label="예문 섞기" variant="outline" className="shuffle button outline-button" onClick={shuffle}>
+        <Button
+          aria-label="예문 섞기"
+          variant="outline"
+          className="shuffle button outline-button"
+          onClick={shuffle}
+        >
           예문 섞기
         </Button>
       </div>
