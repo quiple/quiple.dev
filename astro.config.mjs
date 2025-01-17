@@ -23,6 +23,9 @@ export default defineConfig({
         'react-dom/server': 'react-dom/server.edge',
       },
     },
+    build: {
+      minify: false,
+    },
     css: {
       preprocessorOptions: {
         sass: {
@@ -53,5 +56,7 @@ export default defineConfig({
     ],
   },
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'cloudflare',
+  }),
 })
