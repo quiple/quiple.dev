@@ -44,7 +44,7 @@ export function Tester() {
             defaultValue="g11"
             onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
           >
-            <SelectTrigger className="tester-select">
+            <SelectTrigger aria-label="폰트 선택" className="tester-select">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -67,7 +67,7 @@ export function Tester() {
           />
           <div className="tester-font-size">{`${fontSize}px`}</div>
         </div>
-        <Button variant="outline" className="shuffle button outline-button" onClick={shuffle}>
+        <Button aria-label="예문 섞기" variant="outline" className="shuffle button outline-button" onClick={shuffle}>
           예문 섞기
         </Button>
       </div>
