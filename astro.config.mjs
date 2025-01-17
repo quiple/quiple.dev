@@ -17,6 +17,9 @@ export default defineConfig({
     mdx(),
   ],
   vite: {
+    ssr: {
+      external: ['node:buffer'],
+    },
     css: {
       preprocessorOptions: {
         sass: {
