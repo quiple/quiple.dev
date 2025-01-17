@@ -1,9 +1,8 @@
 // @ts-check
+import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
-import node from '@astrojs/node'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel'
 import {defineConfig} from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 
@@ -48,17 +47,5 @@ export default defineConfig({
     ],
   },
   output: 'server',
-  adapter:
-    process.argv[3] === '--node'
-      ? node({mode: 'standalone'})
-      : import.meta.env.PROD
-        ? vercel({
-            imageService: true,
-            webAnalytics: {
-              enabled: true,
-            },
-          })
-        : vercel({
-            imageService: true,
-          }),
+  adapter: cloudflare(),
 })

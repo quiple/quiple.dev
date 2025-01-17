@@ -1,6 +1,4 @@
 ---
-import Analytics from '@vercel/analytics/astro'
-import SpeedInsights from '@vercel/speed-insights/astro'
 import '@/styles/globals.css'
 
 interface Props {
@@ -58,8 +56,6 @@ const {title, description} = Astro.props
     )}
     {import.meta.env.PROD && (
       <link rel="manifest" href="/manifest.json" />
-      <Analytics />
-      <SpeedInsights />
       <script
         is:inline
         defer
