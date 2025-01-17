@@ -2,10 +2,10 @@
 import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import {defineConfig} from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
-import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
