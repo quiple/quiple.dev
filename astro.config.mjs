@@ -5,6 +5,7 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import {defineConfig} from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
+import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
