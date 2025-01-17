@@ -10,11 +10,12 @@ import rehypeExternalLinks from 'rehype-external-links'
 export default defineConfig({
   site: 'https://quiple.dev',
   integrations: [
+    mdx(),
     react(),
     tailwind({
       applyBaseStyles: false,
     }),
-    mdx(),
+    sitemap(),
   ],
   vite: {
     resolve: {
