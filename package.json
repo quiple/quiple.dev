@@ -42,11 +42,11 @@
     "simple-icons": "^14.3.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
-    "tailwindcss-animate": "^1.0.7",
-    "wrangler": "^3.103.2"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "wrangler": "^3.103.2"
   }
 }
