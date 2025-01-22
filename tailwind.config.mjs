@@ -5,10 +5,10 @@ export default {
   theme: {
     fontFamily: {
       sans: [
-        // '-apple-system',
-        // 'BlinkMacSystemFont',
         'InterVariable',
         'Inter',
+        '-apple-system',
+        'BlinkMacSystemFont',
         'Helvetica Neue',
         'Helvetica',
         'Arial',
@@ -17,9 +17,8 @@ export default {
         'Meiryo',
         'Apple SD Gothic Neo',
         'Noto Sans KR',
-        'sans-serif',
+        ...defaultTheme.fontFamily.sans,
       ],
-      mono: ['Geist Mono', 'Noto Sans KR', 'monospace'],
     },
     extend: {
       borderRadius: {
