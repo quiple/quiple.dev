@@ -199,19 +199,17 @@ export function Showcase() {
     >
       <CarouselContent className="-ml-[1em]">
         {games.map((game) => {
+          const aspectRatio = game.image.attributes.width / game.image.attributes.height
+
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
                 <Skeleton
-                  style={{
-                    aspectRatio: `${game.image.attributes.width / game.image.attributes.height} / 1`,
-                  }}
+                  style={{aspectRatio: aspectRatio}}
                   className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
                 />
                 <img
-                  style={{
-                    aspectRatio: `${game.image.attributes.width / game.image.attributes.height} / 1`,
-                  }}
+                  style={{aspectRatio: aspectRatio}}
                   src={game.image.src}
                   srcSet={game.image.srcSet.attribute}
                   alt={game.title}
