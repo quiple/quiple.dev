@@ -49,7 +49,6 @@ const linkPrefix = {
 }
 
 export function Showcase() {
-  const [loading, setLoading] = useState(true)
   const [games, setGames] = useState<game[]>([])
 
   useEffect(() => {
@@ -197,15 +196,10 @@ export function Showcase() {
         },
       ]
       setGames(games)
-      setLoading(false)
     }
 
     fetchData()
   }, [])
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
 
   return (
     <Carousel
