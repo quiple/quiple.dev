@@ -34,8 +34,8 @@ const {title, description} = Astro.props
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{title} – quiple</title>
-    <meta property="og:title" content={title} />
+    <title>{title ? `${title} – quiple` : 'quiple'}</title>
+    <meta property="og:title" content={title ? `${title} – quiple` : 'quiple'} />
     {description && (
       <meta name="description" content={description} />
       <meta property="og:description" content={description} />
