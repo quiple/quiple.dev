@@ -17,6 +17,7 @@ import sc240118 from '@/assets/showcase/240118.jpg'
 import sc240202 from '@/assets/showcase/240202.png'
 import sc240218 from '@/assets/showcase/240218.png'
 import sc240710 from '@/assets/showcase/240710.jpg'
+import sc240830 from '@/assets/showcase/240830.png'
 import sc240905 from '@/assets/showcase/240905.jpg'
 import sc240919 from '@/assets/showcase/240919.png'
 import {
@@ -67,6 +68,13 @@ export function Showcase() {
           link: '2403290',
           type: 'steam',
           image: await getImage({src: sc240905, format: format, height: height}),
+        },
+        {
+          title: 'Megaloot',
+          author: 'axilirate',
+          link: '2440380',
+          type: 'steam',
+          image: await getImage({src: sc240830, format: format, height: height}),
         },
         {
           title: 'Time Treker',
