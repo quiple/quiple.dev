@@ -19,15 +19,6 @@ export default defineConfig({
     sitemap(),
   ],
   vite: {
-    resolve: {
-      // @ts-ignore
-      alias: import.meta.env.PROD && {
-        'react-dom/server': 'react-dom/server.edge',
-      },
-    },
-    build: {
-      minify: false,
-    },
     css: {
       preprocessorOptions: {
         sass: {
