@@ -20,9 +20,11 @@ export default defineConfig({
   ],
   vite: {
     resolve: {
-      alias: import.meta.env.PROD ? {
-        'react-dom/server': 'react-dom/server.edge',
-      } : undefined,
+      alias: import.meta.env.PROD
+        ? {
+            'react-dom/server': 'react-dom/server.edge',
+          }
+        : undefined,
     },
     css: {
       preprocessorOptions: {
