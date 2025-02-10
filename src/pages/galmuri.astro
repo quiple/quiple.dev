@@ -3,7 +3,6 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Content from '@/contents/galmuri.mdx'
 import Layout from '@/layouts/Layout.astro'
-import '@/styles/galmuri.sass'
 ---
 
 <Layout
@@ -29,17 +28,20 @@ import '@/styles/galmuri.sass'
 </Layout>
 
 <style lang="sass" is:global>
+  @reference '@/styles/global.css'
+  @import url('@/styles/galmuri.sass')
+
   main
     .title
       @include g(g9, 3)
       @apply flex flex-col justify-center gap-6 my-16
       h1
         @include g(g7, 9)
-        @apply flex text-white pl-[--px] items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
+        @apply flex text-white pl-(--px) items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
         span
-          @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] -translate-y-[--px] active:transform-none active:before:transform-none
+          @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] -translate-y-(--px) active:translate-none active:before:translate-none
           &::before
-            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0 translate-y-[--px] text-galmuri dark:text-galmuri-invert
+            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0 translate-y-(--px) text-galmuri dark:text-galmuri-invert
         .g
           @apply before:content-['G']
         .a
@@ -65,7 +67,7 @@ import '@/styles/galmuri.sass'
         button
           @include g(g7, 2)
         .shuffle::before
-          @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-[--px]
+          @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-(--px)
           mask:
             image: $shuffle
             repeat: no-repeat
@@ -87,7 +89,7 @@ import '@/styles/galmuri.sass'
       @apply grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[1em] mb-[1em] mt-[.5em]
       .card
         @include g(g7, 2)
-        @apply border-[length:--px] rounded-none
+        @apply border-(length:--px) rounded-none
         .card-title
           @include g(g9, 2)
           @apply font-normal
@@ -97,7 +99,7 @@ import '@/styles/galmuri.sass'
             @include g(g7, 2)
             @apply text-foreground no-underline
             &[download]::before
-              @apply bg-current inline-block w-[1em] h-[1em] content-[''] -mr-[--px]
+              @apply bg-current inline-block w-[1em] h-[1em] content-[''] -mr-(--px)
               mask:
                 image: $download
                 repeat: no-repeat

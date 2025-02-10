@@ -1,3 +1,5 @@
+@reference '@/styles/global.css'
+
 $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono9 Mono9, Mono7 Mono7
 
 @each $family, $file in $fonts
@@ -51,13 +53,13 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   img
     image-rendering: pixelated
   .button
-    @apply rounded-none focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px]
+    @apply rounded-none focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px)
     &:not(.icon-button)
       @apply h-[42px] pl-[12px] pr-[calc(12px_-_var(--px))]
     &.outline-button
-      @apply border-[length:--px]
+      @apply border-(length:--px)
   [role=combobox]
-    @apply h-[42px] rounded-none focus:ring-[length:--px] focus:ring-galmuri focus:ring-offset-[length:--px] border-[length:--px] relative pr-[calc(1em_+_(12px_-_var(--px))_*_2)]
+    @apply h-[42px] rounded-none focus:ring-(length:--px) focus:ring-galmuri focus:ring-offset-(length:--px) border-(length:--px) relative pr-[calc(1em_+_(12px_-_var(--px))_*_2)]
     svg
       @apply hidden
     &::after
@@ -75,11 +77,11 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
       span
         @apply bg-galmuri
     [role=slider]
-      @apply border-[length:--px] w-3.5 h-4 flex justify-center focus-visible:ring-[length:--px] focus-visible:ring-galmuri focus-visible:ring-offset-[length:--px] py-[--px]
+      @apply border-(length:--px) w-3.5 h-4 flex justify-center focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) py-(--px)
       &::after
-        @apply content-[''] border-shadow border-l-[length:--px] border-r-[length:--px] w-[calc(var(--px)_*_3)]
+        @apply content-[''] border-shadow border-l-(length:--px) border-r-(length:--px) w-[calc(var(--px)_*_3)]
   .textarea
-    @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow
+    @apply rounded-none focus-visible:ring-galmuri bg-zinc-100 dark:bg-zinc-900 border-none shadow-inner dark:shadow-sm
     --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
   h2
     @include g(g11, 2)
@@ -94,7 +96,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
     li::before
       @apply absolute left-[.25em] content-['\2022']
   pre
-    @apply mt-[.5em] first:mt-0 px-[12px] py-[4px] shadow-inner dark:shadow
+    @apply mt-[.5em] first:mt-0 px-[12px] py-[4px] shadow-inner dark:shadow-sm
     --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .025)
   code, kbd, samp, pre
     @include g(gm7, 2)
@@ -103,7 +105,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   [data-radix-popper-content-wrapper]
     @include g(g7, 2)
     [role=menu], [role=listbox]
-      @apply border-[length:--px] rounded-none
+      @apply border-(length:--px) rounded-none
       [data-radix-select-viewport]
         @apply min-w-[calc(var(--radix-select-trigger-width)_-_var(--px)_*_2)]
       [role=menuitem], [role=option]
@@ -120,7 +122,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   [aria-roledescription=carousel]
     @include g(g7, 2)
     button
-      @apply top-20 sm:top-[calc(13rem_/_2)] md:top-[calc(15rem_/_2)] lg:top-36 xl:top-40 rounded-none border-[length:--px] text-[1em] hidden md:flex
+      @apply top-20 sm:top-[calc(13rem_/_2)] md:top-[calc(15rem_/_2)] lg:top-36 xl:top-40 rounded-none border-(length:--px) text-[1em] hidden md:flex
       svg
         @apply hidden
       &::after
@@ -139,7 +141,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
       .overlay
         @apply absolute top-0 left-0 w-full border-2 border-foreground/10
       figcaption
-        @apply table-caption caption-bottom mt-[--px]
+        @apply table-caption caption-bottom mt-(--px)
   footer
     @include g(g7, 2)
     .sns a
@@ -162,7 +164,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
     svg
       @apply hidden
     &::after
-      @apply bg-current inline-block w-[1em] h-[1em] content-[''] [mask-image:--sun] dark:[mask-image:--moon]
+      @apply bg-current inline-block w-[1em] h-[1em] content-[''] [mask-image:var(--sun)] dark:[mask-image:var(--moon)]
       mask:
         repeat: no-repeat
         position: center
