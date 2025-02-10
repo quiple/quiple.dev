@@ -76,8 +76,6 @@
     background-color: var(--shiki-dark-bg) !important;
   }
 }
-@layer components {
-  .prose {
-    @apply prose-zinc dark:prose-invert prose-a:text-blue-500 dark:prose-a:text-blue-400;
-  }
+.prose {
+  @apply prose-zinc dark:prose-invert prose-a:text-blue-500 dark:prose-a:text-blue-400;
 }
