@@ -2,6 +2,7 @@
 
 type ENV = {
   CHZZK_CLIENTID: string
+  CHZZK_CLIENTSECRET: string
   CHZZK_REDIRECTURI: string
   CHZZK_STATE: string
 }
