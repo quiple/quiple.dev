@@ -1,0 +1,21 @@
+---
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import {buttonVariants} from '@/components/ui/button'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout description="개인 웹사이트">
+  <Header />
+  <main>
+    <a class={buttonVariants()} href="https://chzzk.naver.com/account-interlock?clientId=f9bd31b8-3b11-4f86-9dc4-f959300d5740&redirectUri=http://localhost:4321/chzzk&state=quiple">로그인</a>
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="sass" is:global>
+  @reference '@/styles/global.css'
+
+  main
+    @apply mx-auto px-16 pt-8 container flex items-center justify-center
+</style>
