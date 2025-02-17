@@ -4,10 +4,12 @@ import Header from '@/components/Header.astro'
 import {buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
 
+const {env} = Astro.locals.runtime
+
 const interlockParams = new URLSearchParams({
-  clientId: 'f9bd31b8-3b11-4f86-9dc4-f959300d5740',
-  redirectUri: 'http://localhost:4321/chzzk',
-  state: 'quiple',
+  clientId: env.chzzk.clientId,
+  redirectUri: env.chzzk.redirectUri,
+  state: env.chzzk.state,
 })
 ---
 
