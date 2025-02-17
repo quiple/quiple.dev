@@ -1,11 +1,9 @@
 /// <reference types="astro/client" />
 
 type ENV = {
-  chzzk: {
-    clientId: string
-    redirectUri: string
-    state: string
-  }
+  CHZZK_CLIENTID: string
+  CHZZK_REDIRECTURI: string
+  CHZZK_STATE: string
 }
 
 type Runtime = import('@astrojs/cloudflare').Runtime<ENV>

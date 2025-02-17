@@ -7,9 +7,9 @@ import Layout from '@/layouts/Layout.astro'
 const {env} = Astro.locals.runtime
 
 const interlockParams = new URLSearchParams({
-  clientId: env.chzzk.clientId,
-  redirectUri: env.chzzk.redirectUri,
-  state: env.chzzk.state,
+  clientId: env.CHZZK_CLIENTID,
+  redirectUri: env.CHZZK_REDIRECTURI,
+  state: env.CHZZK_STATE,
 })
 ---
 
