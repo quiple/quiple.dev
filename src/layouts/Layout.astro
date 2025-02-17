@@ -34,7 +34,7 @@ const {title, description} = Astro.props
   const header = document.getElementsByTagName('header')[0]
   const footer = document.getElementsByTagName('footer')[0]
   if (main && header && footer) {
-    main.style.minHeight = `calc(100vh - ${header.clientHeight}px - ${footer.clientHeight}px - 1px)`
+    main.style.minHeight = `calc(100vh - ${header.clientHeight + footer.clientHeight + 1}px)`
   }
 </script>
 
