@@ -1,0 +1,31 @@
+---
+const {env} = Astro.locals.runtime
+
+await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
+  method: 'post',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    clientId: env.CHZZK_CLIENTID,
+    clientSecret: env.CHZZK_CLIENTSECRET,
+    token: Astro.cookies.get('refreshToken'),
+    tokenTypeHint: 'refresh_token',
+  }),
+})
+
+Astro.cookies.delete('refreshToken')
+
+await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
+  method: 'post',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    clientId: env.CHZZK_CLIENTID,
+    clientSecret: env.CHZZK_CLIENTSECRET,
+    token: localStorage.getItem('accessToken'),
+    tokenTypeHint: 'access_token',
+  }),
+})
+
+localStorage.removeItem('accessToken')
+
+return Astro.redirect('/chzzk')
+---
