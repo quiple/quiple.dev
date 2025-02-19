@@ -1,27 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
   darkMode: ['class'],
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,svg,ts,tsx,vue}'],
   theme: {
-    fontFamily: {
-      sans: [
-        'InterVariable',
-        'Inter',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        'Helvetica Neue',
-        'Helvetica',
-        'Arial',
-        'Hiragino Kaku Gothic ProN',
-        'Hiragino Sans',
-        'Meiryo',
-        'Apple SD Gothic Neo',
-        'Noto Sans KR',
-        ...defaultTheme.fontFamily.sans,
-      ],
-    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',
