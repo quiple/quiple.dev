@@ -12,16 +12,20 @@ const interlockParams = new URLSearchParams({
   state: env.CHZZK_STATE,
 })
 
+let channelId = ''
+
 const checkSignedIn = async () => {
   if (Astro.cookies.has('accessToken')) {
     const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${Astro.cookies.get('accessToken')}`,
+        Authorization: `Bearer ${Astro.cookies.get('accessToken')?.value}`,
       },
     })
     const data = await response.json()
+    console.log(data)
+    channelId = data.content.channelId
     if (data.code === 200) {
       return true
     }
@@ -36,7 +40,7 @@ const isSignedIn = await checkSignedIn()
 <Layout>
   <Header />
   {isSignedIn ? (
-    <main>로그인 상태입니다.</main>
+    <main>로그인 상태입니다. 채널 ID: {channelId}</main>
   ) : (
     <main>
       <a

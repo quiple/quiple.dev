@@ -13,6 +13,7 @@ const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
   }),
 })
 const data = await response.json()
+console.log(data)
 
 Astro.cookies.set('refreshToken', data.content.refreshToken, {
   httpOnly: true,

@@ -7,7 +7,7 @@ await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
   body: JSON.stringify({
     clientId: env.CHZZK_CLIENTID,
     clientSecret: env.CHZZK_CLIENTSECRET,
-    token: Astro.cookies.get('refreshToken'),
+    token: Astro.cookies.get('refreshToken')?.value,
     tokenTypeHint: 'refresh_token',
   }),
 })
@@ -18,7 +18,7 @@ await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
   body: JSON.stringify({
     clientId: env.CHZZK_CLIENTID,
     clientSecret: env.CHZZK_CLIENTSECRET,
-    token: localStorage.getItem('accessToken'),
+    token: Astro.cookies.get('accessToken')?.value,
     tokenTypeHint: 'access_token',
   }),
 })
