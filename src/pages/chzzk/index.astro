@@ -14,20 +14,65 @@ const interlockParams = new URLSearchParams({
 
 let channelId = ''
 
+const getUser = async () => {
+  const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${Astro.cookies.get('accessToken')?.value}`,
+    },
+  })
+  return await response.json()
+}
+
+const refreshAccessToken = async () => {
+  const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      grantType: 'refresh_token',
+      clientId: env.CHZZK_CLIENTID,
+      clientSecret: env.CHZZK_CLIENTSECRET,
+      refreshToken: Astro.cookies.get('refreshToken')?.value,
+    }),
+  })
+  const data = await response.json()
+
+  if (data.code === 200) {
+    console.log(data)
+    Astro.cookies.set('accessToken', data.content.accessToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'lax',
+    })
+    return true
+  }
+  return false
+}
+
 const checkSignedIn = async () => {
   if (Astro.cookies.has('accessToken')) {
-    const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
-      method: 'get',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${Astro.cookies.get('accessToken')?.value}`,
-      },
-    })
-    const data = await response.json()
-    console.log(data)
-    channelId = data.content.channelId
-    if (data.code === 200) {
+    const user = await getUser()
+
+    if (user.code === 200) {
+      console.log(user)
+      channelId = user.content.channelId
       return true
+    }
+
+    if (user.code === 401 && Astro.cookies.has('refreshToken')) {
+      const refresh = await refreshAccessToken()
+
+      if (refresh) {
+        const user = await getUser()
+
+        if (user.code === 200) {
+          console.log(user)
+          channelId = user.content.channelId
+          return true
+        }
+      }
+      return false
     }
     return false
   }
