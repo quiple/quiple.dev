@@ -13,16 +13,16 @@ export const getUser = async (cookies: AstroCookies) => {
 
 export const getChannel = async (channelIds: string[], locals: App.Locals) => {
   const {env} = locals.runtime
-  const response = await fetch('https://openapi.chzzk.naver.com/open/v1/channels', {
-    method: 'get',
+  const params = new URLSearchParams({
+    channelIds: channelIds,
+  })
+  const response = await fetch(`https://openapi.chzzk.naver.com/open/v1/channels${params}`, {
+    method: 'post',
     headers: {
       'Content-Type': 'application/json',
       'Client-Id': env.CHZZK_CLIENTID,
       'Client-Secret': env.CHZZK_CLIENTSECRET,
     },
-    body: JSON.stringify({
-      channelIds: channelIds,
-    }),
   })
   return await response.json()
 }
