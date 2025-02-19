@@ -14,7 +14,7 @@ export const getUser = async (cookies: AstroCookies) => {
 export const getChannel = async (channelIds: string[], locals: App.Locals) => {
   const {env} = locals.runtime
   const params = new URLSearchParams({
-    channelIds: channelIds,
+    channelIds: channelIds.join(','),
   })
   const response = await fetch(`https://openapi.chzzk.naver.com/open/v1/channels${params}`, {
     method: 'post',
