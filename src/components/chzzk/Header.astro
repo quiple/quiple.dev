@@ -7,7 +7,7 @@ const channel = await getChannel([user.content.channelId], Astro.locals)
 ---
 
 <section>
-  <ChzzkAvatar client:load />
+  <ChzzkAvatar channel={channel} client:load />
 </section>
 
 <style lang="sass">
