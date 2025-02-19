@@ -14,8 +14,6 @@ const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
 })
 const data = await response.json()
 
-console.log(data)
-
 Astro.cookies.set('refreshToken', data.content.refreshToken, {
   httpOnly: true,
   secure: true,
@@ -28,5 +26,5 @@ Astro.cookies.set('accessToken', data.content.accessToken, {
   sameSite: 'lax',
 })
 
-// return Astro.redirect('/chzzk')
+return Astro.redirect('/chzzk')
 ---
