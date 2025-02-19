@@ -16,12 +16,12 @@ const data = await response.json()
 
 console.log(data)
 
-Astro.cookies.set('refreshToken', data.refreshToken, {
+Astro.cookies.set('refreshToken', data.content.refreshToken, {
   httpOnly: true,
   secure: true,
 })
 
-localStorage.setItem('accessToken', data.accessToken)
+localStorage.setItem('accessToken', data.content.accessToken)
 
 // return Astro.redirect('/chzzk')
 ---
