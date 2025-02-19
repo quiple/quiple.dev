@@ -1,0 +1,25 @@
+---
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import Layout from '@/layouts/Layout.astro'
+import {isSignedIn} from '@/pages/chzzk/index.astro'
+
+if (!isSignedIn) {
+  return Astro.redirect('/chzzk')
+}
+---
+
+<Layout>
+  <Header />
+    <main>
+      안녕하세요.
+    </main>
+  <Footer />
+</Layout>
+
+<style lang="sass">
+  @reference '@/styles/global.css'
+
+  main
+    @apply mx-auto px-16 pt-8 container flex items-center justify-center
+</style>
