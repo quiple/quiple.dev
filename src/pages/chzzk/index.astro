@@ -3,7 +3,7 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
-import type { AstroCookies } from 'astro'
+import type {AstroCookies} from 'astro'
 
 const {env} = Astro.locals.runtime
 
@@ -12,8 +12,6 @@ const interlockParams = new URLSearchParams({
   redirectUri: env.CHZZK_REDIRECTURI,
   state: env.CHZZK_STATE,
 })
-
-let channelId = ''
 
 export const getUser = async (cookies: AstroCookies) => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
