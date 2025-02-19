@@ -1,6 +1,7 @@
 ---
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import ChzzkHeader from '@/components/chzzk/Header.astro'
 import {buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
 import type {AstroCookies} from 'astro'
@@ -24,7 +25,8 @@ export const getUser = async (cookies: AstroCookies) => {
   return await response.json()
 }
 
-export const refreshAccessToken = async (cookies: AstroCookies) => {
+export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Locals) => {
+  const {env} = locals.runtime
   const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
@@ -49,7 +51,7 @@ export const refreshAccessToken = async (cookies: AstroCookies) => {
   return false
 }
 
-export const checkSignedIn = async (cookies: AstroCookies) => {
+export const checkSignedIn = async (cookies: AstroCookies, locals: App.Locals) => {
   if (cookies.has('accessToken')) {
     const user = await getUser(cookies)
 
@@ -59,7 +61,7 @@ export const checkSignedIn = async (cookies: AstroCookies) => {
     }
 
     if (user.code === 401 && cookies.has('refreshToken')) {
-      const refresh = await refreshAccessToken(cookies)
+      const refresh = await refreshAccessToken(cookies, locals)
 
       if (refresh) {
         const user = await getUser(cookies)
@@ -76,19 +78,20 @@ export const checkSignedIn = async (cookies: AstroCookies) => {
   return false
 }
 
-const isSignedIn = await checkSignedIn(Astro.cookies)
+const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
 const user = await getUser(Astro.cookies)
 ---
 
 <Layout>
   <Header />
   {isSignedIn ? (
-    <main>
+    <main class="flex flex-col">
+      <ChzzkHeader />
       <p>로그인 상태입니다. 채널 ID: {user.content.channelId}</p>
       <a class={buttonVariants()} href="/chzzk/logout">로그아웃</a>
     </main>
   ) : (
-    <main>
+    <main class="flex items-center justify-center">
       <a
         class={buttonVariants()}
         rel="nofollow noreferrer noopener"
@@ -104,5 +107,5 @@ const user = await getUser(Astro.cookies)
   @reference '@/styles/global.css'
 
   main
-    @apply mx-auto px-16 pt-8 container flex items-center justify-center
+    @apply mx-auto px-16 pt-8 container
 </style>

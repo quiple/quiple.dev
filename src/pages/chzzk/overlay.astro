@@ -4,7 +4,7 @@ import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
 import {checkSignedIn} from '@/pages/chzzk/index.astro'
 
-const isSignedIn = await checkSignedIn(Astro.cookies)
+const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
 
 if (!isSignedIn) {
   return Astro.redirect('/chzzk')
