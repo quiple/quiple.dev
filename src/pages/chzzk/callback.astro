@@ -22,7 +22,11 @@ Astro.cookies.set('refreshToken', data.content.refreshToken, {
   sameSite: 'lax',
 })
 
-localStorage.setItem('accessToken', data.content.accessToken)
+Astro.cookies.set('accessToken', data.content.accessToken, {
+  httpOnly: true,
+  secure: true,
+  sameSite: 'lax',
+})
 
 // return Astro.redirect('/chzzk')
 ---
