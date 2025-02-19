@@ -12,8 +12,6 @@ await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
   }),
 })
 
-Astro.cookies.delete('refreshToken')
-
 await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
   method: 'post',
   headers: {'Content-Type': 'application/json'},
@@ -25,6 +23,7 @@ await fetch('https://openapi.chzzk.naver.com/auth/v1/token/revoke', {
   }),
 })
 
+Astro.cookies.delete('refreshToken')
 Astro.cookies.delete('accessToken')
 
 return Astro.redirect('/chzzk')
