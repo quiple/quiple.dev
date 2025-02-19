@@ -85,7 +85,10 @@ const isSignedIn = await checkSignedIn()
 <Layout>
   <Header />
   {isSignedIn ? (
-    <main>로그인 상태입니다. 채널 ID: {channelId}</main>
+    <main>
+      <p>로그인 상태입니다. 채널 ID: {channelId}</p>
+      <a class={buttonVariants()} href="/chzzk/signout">로그아웃</a>
+    </main>
   ) : (
     <main>
       <a
