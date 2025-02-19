@@ -85,7 +85,7 @@ const user = await getUser(Astro.cookies)
   {isSignedIn ? (
     <main>
       <p>로그인 상태입니다. 채널 ID: {user.content.channelId}</p>
-      <a class={buttonVariants()} href="/chzzk/signout">로그아웃</a>
+      <a class={buttonVariants()} href="/chzzk/logout">로그아웃</a>
     </main>
   ) : (
     <main>
