@@ -19,6 +19,7 @@ console.log(data)
 Astro.cookies.set('refreshToken', data.content.refreshToken, {
   httpOnly: true,
   secure: true,
+  sameSite: 'lax',
 })
 
 localStorage.setItem('accessToken', data.content.accessToken)
