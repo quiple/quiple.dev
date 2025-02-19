@@ -16,8 +16,8 @@ export const getChannel = async (channelIds: string[], locals: App.Locals) => {
   const params = new URLSearchParams({
     channelIds: channelIds.join(','),
   })
-  const response = await fetch(`https://openapi.chzzk.naver.com/open/v1/channels${params}`, {
-    method: 'post',
+  const response = await fetch(`https://openapi.chzzk.naver.com/open/v1/channels?${params}`, {
+    method: 'get',
     headers: {
       'Content-Type': 'application/json',
       'Client-Id': env.CHZZK_CLIENTID,
