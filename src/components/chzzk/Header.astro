@@ -1,5 +1,9 @@
 ---
 import {ChzzkAvatar} from '@/components/chzzk/avatar'
+import {getChannel, getUser} from '@/lib/chzzk'
+
+const user = await getUser(Astro.cookies)
+const channel = await getChannel([user.content.channelId], Astro.locals)
 ---
 
 <section>
