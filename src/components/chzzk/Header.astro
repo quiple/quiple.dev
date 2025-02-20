@@ -1,15 +1,15 @@
 ---
-import {ChzzkAvatar} from '@/components/chzzk/avatar'
+import {ChzzkProfile} from '@/components/chzzk/profile'
 import {getChannel, getUser} from '@/lib/chzzk'
 
 const user = await getUser(Astro.cookies)
 console.log(user)
 const channel = await getChannel([user.content.channelId], Astro.locals)
-console.log(channel)
+console.log(channel.content.data[0])
 ---
 
 <section>
-  <ChzzkAvatar channel={channel} client:load />
+  <ChzzkProfile channel={channel} client:load />
 </section>
 
 <style lang="sass">

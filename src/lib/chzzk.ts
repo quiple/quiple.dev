@@ -1,5 +1,18 @@
 import type {AstroCookies} from 'astro'
 
+export interface ChzzkChannel {
+  content: {
+    data: [
+      {
+        channelId: string
+        channelName: string
+        channelImageUrl: string
+        followerCount: number
+      },
+    ]
+  }
+}
+
 export const getUser = async (cookies: AstroCookies) => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
     method: 'get',

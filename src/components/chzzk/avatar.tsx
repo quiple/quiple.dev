@@ -1,15 +1,5 @@
 import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar'
-
-interface ChzzkChannel {
-  content: {
-    data: [
-      {
-        channelImageUrl: string
-        channelName: string
-      },
-    ]
-  }
-}
+import type {ChzzkChannel} from '@/lib/chzzk'
 
 export function ChzzkAvatar({channel}: {channel: ChzzkChannel}) {
   return (
