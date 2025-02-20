@@ -82,6 +82,10 @@
   }
 }
 
+@utility container-x {
+  @apply mx-auto w-full px-6 sm:px-8 md:px-12 lg:px-16;
+}
+
 .prose {
-  @apply prose-zinc dark:prose-invert prose-a:text-blue-500 dark:prose-a:text-blue-400;
+  @apply max-w-full prose-zinc dark:prose-invert prose-a:text-blue-500 dark:prose-a:text-blue-400;
 }

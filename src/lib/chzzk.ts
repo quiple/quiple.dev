@@ -1,7 +1,12 @@
 import type {AstroCookies} from 'astro'
 
-export interface ChzzkChannel {
-  content: {
+export interface ChzzkCommon {
+  code: number
+  message: string | null
+}
+
+export interface ChzzkChannel extends ChzzkCommon {
+  content?: {
     data: [
       {
         channelId: string

@@ -18,15 +18,15 @@ const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
 const user = await getUser(Astro.cookies)
 ---
 
-<Layout>
+<Layout title='치지직 도구'>
   <Header />
   {isSignedIn ? (
-    <main class="flex flex-col">
+    <main class="container-x flex flex-col">
       <ChzzkHeader />
       <p>로그인 상태입니다. 채널 ID: {user.content.channelId}</p>
     </main>
   ) : (
-    <main class="flex items-center justify-center">
+    <main class="container-x flex items-center justify-center">
       <a
         class={buttonVariants()}
         rel="nofollow noreferrer noopener"
@@ -37,10 +37,3 @@ const user = await getUser(Astro.cookies)
   )}
   <Footer />
 </Layout>
-
-<style lang="sass">
-  @reference '@/styles/global.css'
-
-  main
-    @apply mx-auto px-16 pt-8 container
-</style>

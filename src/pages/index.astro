@@ -7,15 +7,8 @@ import Layout from '@/layouts/Layout.astro'
 
 <Layout description="개인 웹사이트">
   <Header />
-  <main class="prose">
+  <main class="container-x py-4 prose">
     <Content />
   </main>
   <Footer />
 </Layout>
-
-<style lang="sass">
-  @reference '@/styles/global.css'
-
-  main
-    @apply mx-auto px-16 pt-8 container
-</style>

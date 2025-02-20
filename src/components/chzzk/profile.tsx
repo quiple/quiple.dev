@@ -13,8 +13,8 @@ export function ChzzkProfile({channel}: {channel: ChzzkChannel}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="h-8">
-          <ChzzkAvatar channel={channel} />
+        <Button variant="outline" size="sm" className="pl-2">
+          <ChzzkAvatar channel={channel} /> {channel.content?.data[0].channelName}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center">
