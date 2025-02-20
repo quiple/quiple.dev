@@ -4,7 +4,7 @@ import Header from '@/components/Header.astro'
 import ChzzkHeader from '@/components/chzzk/Header.astro'
 import {buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
-import {checkSignedIn, getUser} from '@/lib/chzzk'
+import {checkSignedIn} from '@/lib/chzzk'
 
 const {env} = Astro.locals.runtime
 
@@ -15,7 +15,6 @@ const interlockParams = new URLSearchParams({
 })
 
 const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
-const user = await getUser(Astro.cookies)
 ---
 
 <Layout title='치지직 도구'>
