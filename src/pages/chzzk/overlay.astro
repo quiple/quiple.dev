@@ -6,22 +6,22 @@ import {checkSignedIn, createSession} from '@/lib/chzzk'
 import {io} from 'socket.io-client'
 
 const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
-const accessToken = Astro.cookies.get('accessToken')
 
 if (!isSignedIn) {
   return Astro.redirect('/chzzk')
 }
 
-if (accessToken) {
-  const session = await createSession(accessToken.value)
-  const socketOption = {
-    reconnection: false,
-    'force new connection': true,
-    'connect timeout': 3000,
-    transports: ['websocket'],
-  }
-  const socket = io.connect(session.content.url, socketOption)
+const session = await createSession(Astro.cookies.get('accessToken')?.value)
+const socketOption = {
+  reconnection: false,
+  forceNew: true,
+  timeout: 3000,
+  transports: ['websocket'],
 }
+const socket = io(session.content.url, socketOption)
+socket.on('system', (data) => {
+  console.log(data)
+})
 ---
 
 <Layout>

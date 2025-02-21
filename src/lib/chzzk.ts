@@ -18,12 +18,12 @@ export interface ChzzkChannel extends ChzzkCommon {
   }
 }
 
-export const getUser = async (cookies: AstroCookies) => {
+export const getUser = async (accessToken: string | undefined) => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
     method: 'get',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${cookies.get('accessToken')?.value}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   })
   return await response.json()
@@ -45,7 +45,7 @@ export const getChannel = async (channelIds: string[], locals: App.Locals) => {
   return await response.json()
 }
 
-export const createSession = async (accessToken: string) => {
+export const createSession = async (accessToken: string | undefined) => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/sessions/auth', {
     method: 'get',
     headers: {
@@ -99,7 +99,7 @@ export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Loca
 
 export const checkSignedIn = async (cookies: AstroCookies, locals: App.Locals) => {
   if (cookies.has('accessToken')) {
-    const user = await getUser(cookies)
+    const user = await getUser(cookies.get('accessToken')?.value)
 
     if (user.code === 200) {
       console.log(user)
@@ -110,7 +110,7 @@ export const checkSignedIn = async (cookies: AstroCookies, locals: App.Locals) =
       const refresh = await refreshAccessToken(cookies, locals)
 
       if (refresh) {
-        const user = await getUser(cookies)
+        const user = await getUser(cookies.get('accessToken')?.value)
 
         if (user.code === 200) {
           console.log(user)
