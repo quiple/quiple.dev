@@ -105,6 +105,26 @@ export const getSession = async (accessToken: string | undefined) => {
   return await response.json()
 }
 
+export const subscribeChat = async (sessionKey: string) => {
+  const response = await fetch('https://openapi.chzzk.naver.com/open/v1/sessions/events/subscribe/chat', {
+    method: 'post',
+    body: JSON.stringify({
+      sessionKey: sessionKey,
+    }),
+  })
+  return await response.json()
+}
+
+export const subscribeDonation = async (sessionKey: string) => {
+  const response = await fetch('https://openapi.chzzk.naver.com/open/v1/sessions/events/subscribe/donation', {
+    method: 'post',
+    body: JSON.stringify({
+      sessionKey: sessionKey,
+    }),
+  })
+  return await response.json()
+}
+
 export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Locals) => {
   const {env} = locals.runtime
   const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
