@@ -105,27 +105,35 @@ export const getSession = async (accessToken: string | undefined) => {
   return await response.json()
 }
 
-export const subscribeChat = async (sessionKey: string) => {
+export const subscribeChat = async (accessToken: string | undefined, sessionKey: string) => {
+  const params = new URLSearchParams({
+    sessionKey: sessionKey,
+  })
   const response = await fetch(
-    'https://openapi.chzzk.naver.com/open/v1/sessions/events/subscribe/chat',
+    `https://openapi.chzzk.naver.com/open/v1/sessions/events/subscribe/chat?${params}`,
     {
       method: 'post',
-      body: JSON.stringify({
-        sessionKey: sessionKey,
-      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
     },
   )
   return await response.json()
 }
 
-export const subscribeDonation = async (sessionKey: string) => {
+export const subscribeDonation = async (accessToken: string | undefined, sessionKey: string) => {
+  const params = new URLSearchParams({
+    sessionKey: sessionKey,
+  })
   const response = await fetch(
-    'https://openapi.chzzk.naver.com/open/v1/sessions/events/subscribe/donation',
+    `https://openapi.chzzk.naver.com/open/v1/sessions/events/subscribe/donation?${params}`,
     {
       method: 'post',
-      body: JSON.stringify({
-        sessionKey: sessionKey,
-      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
     },
   )
   return await response.json()
