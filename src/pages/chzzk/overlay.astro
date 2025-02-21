@@ -2,7 +2,13 @@
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
-import {checkSignedIn, createSession, getSession, type ChzzkSessionChat, type ChzzkSessionSystem} from '@/lib/chzzk'
+import {
+  type ChzzkSessionChat,
+  type ChzzkSessionSystem,
+  checkSignedIn,
+  createSession,
+  getSession,
+} from '@/lib/chzzk'
 import io from 'socket.io-client'
 
 const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
