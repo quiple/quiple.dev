@@ -8,6 +8,8 @@ import {
   checkSignedIn,
   createSession,
   getSession,
+  subscribeChat,
+  subscribeDonation,
 } from '@/lib/chzzk'
 import io from 'socket.io-client'
 
@@ -17,16 +19,23 @@ if (!isSignedIn) {
   return Astro.redirect('/chzzk')
 }
 
-const session = await createSession(Astro.cookies.get('accessToken')?.value)
+const accessToken = Astro.cookies.get('accessToken')?.value
 
-console.log(session)
-const socket = io(session.content.url, {
+const sessionCreate = await createSession(accessToken)
+console.log(sessionCreate)
+const session = await getSession(accessToken)
+console.log(session.content.data)
+const sessionKey = session.content.data[0].sessionKey
+subscribeChat(sessionKey)
+subscribeDonation(sessionKey)
+
+const socket = io(sessionCreate.content.url, {
   reconnection: false,
   forceNew: true,
   timeout: 3000,
   transports: ['websocket'],
 })
-console.log(socket)
+// console.log(socket)
 socket.on('SYSTEM', (message: ChzzkSessionSystem) => {
   console.log('시스템: ', message)
 })
