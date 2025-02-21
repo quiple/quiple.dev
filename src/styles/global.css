@@ -83,7 +83,7 @@
 }
 
 @utility container-x {
-  @apply mx-auto w-full px-6 sm:px-8 md:px-12 lg:px-16;
+  @apply container mx-auto w-full px-6 sm:px-8 md:px-12 lg:px-16;
 }
 
 .prose {
