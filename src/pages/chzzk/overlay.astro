@@ -26,8 +26,8 @@ console.log(sessionCreate)
 const session = await getSession(accessToken)
 console.log(session.content.data)
 const sessionKey = session.content.data[0].sessionKey
-subscribeChat(accessToken, sessionKey)
-subscribeDonation(accessToken, sessionKey)
+const chat = subscribeChat(accessToken, sessionKey)
+const donation = subscribeDonation(accessToken, sessionKey)
 
 const socket = io(sessionCreate.content.url, {
   reconnection: false,
