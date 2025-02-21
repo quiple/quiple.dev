@@ -43,7 +43,7 @@
     "rehype-external-links": "^3.0.0",
     "sass": "^1.85.0",
     "simple-icons": "^14.7.0",
-    "socket.io-client": "^4.8.1",
+    "socket.io-client": "^2.5.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss": "^4.0.7",
     "tailwindcss-animate": "^1.0.7",

@@ -2,8 +2,8 @@
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
-import {checkSignedIn, createSession} from '@/lib/chzzk'
-import {io} from 'socket.io-client'
+import {checkSignedIn, createSession, getSession, type ChzzkSessionChat, type ChzzkSessionSystem} from '@/lib/chzzk'
+import io from 'socket.io-client'
 
 const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
 
@@ -12,15 +12,32 @@ if (!isSignedIn) {
 }
 
 const session = await createSession(Astro.cookies.get('accessToken')?.value)
-const socketOption = {
+
+console.log(session)
+const socket = io(session.content.url, {
   reconnection: false,
   forceNew: true,
   timeout: 3000,
   transports: ['websocket'],
-}
-const socket = io(session.content.url, socketOption)
-socket.on('system', (data) => {
-  console.log(data)
+})
+console.log(socket)
+socket.on('SYSTEM', (message: ChzzkSessionSystem) => {
+  console.log('시스템: ', message)
+})
+socket.on('CHAT', (message: ChzzkSessionChat) => {
+  console.log('채팅: ', message)
+})
+socket.on('DONATION', (message: ChzzkSessionChat) => {
+  console.log('후원: ', message)
+})
+socket.on('connect', () => {
+  console.log('연결됨')
+})
+socket.on('disconnect', (reason: string) => {
+  console.log('연결 끊김: ', reason)
+})
+socket.on('connect_error', (error: string) => {
+  console.log('연결 오류: ', error)
 })
 ---
 

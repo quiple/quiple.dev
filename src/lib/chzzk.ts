@@ -18,6 +18,40 @@ export interface ChzzkChannel extends ChzzkCommon {
   }
 }
 
+export interface ChzzkSessionSystem {
+  type: string
+  data: object
+}
+
+export interface ChzzkSessionChat {
+  channelId: string
+  senderChannelId: string
+  profile: {
+    nickname: string
+    badges: object
+    verifiedMark: boolean
+  }
+  content: string
+  emojis: {
+    key: string
+    value: string
+  }
+  messageTime: string
+}
+
+export interface ChzzkSessionDonation {
+  donationType: string
+  channelId: string
+  donatorChannelId: string
+  donatorNickname: string
+  payAmount: string
+  donationText: string
+  emojis: {
+    key: string
+    value: string
+  }
+}
+
 export const getUser = async (accessToken: string | undefined) => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
     method: 'get',
@@ -56,7 +90,7 @@ export const createSession = async (accessToken: string | undefined) => {
   return await response.json()
 }
 
-export const getSession = async (accessToken: string) => {
+export const getSession = async (accessToken: string | undefined) => {
   const params = new URLSearchParams({
     size: '5',
     page: '0',
