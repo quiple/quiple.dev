@@ -45,6 +45,32 @@ export const getChannel = async (channelIds: string[], locals: App.Locals) => {
   return await response.json()
 }
 
+export const createSession = async (accessToken: string) => {
+  const response = await fetch('https://openapi.chzzk.naver.com/open/v1/sessions/auth', {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+  return await response.json()
+}
+
+export const getSession = async (accessToken: string) => {
+  const params = new URLSearchParams({
+    size: '5',
+    page: '0',
+  })
+  const response = await fetch(`https://openapi.chzzk.naver.com/open/v1/sessions?${params}`, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+  return await response.json()
+}
+
 export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Locals) => {
   const {env} = locals.runtime
   const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
