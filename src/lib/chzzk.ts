@@ -154,7 +154,7 @@ export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Loca
   const data = await response.json()
 
   if (data.code === 200) {
-    console.log(data)
+    console.log('Refresh Access Token:', data)
     cookies.set('accessToken', data.content.accessToken, {
       httpOnly: true,
       secure: true,
@@ -170,7 +170,7 @@ export const checkSignedIn = async (cookies: AstroCookies, locals: App.Locals) =
     const user = await getUser(cookies.get('accessToken')?.value)
 
     if (user.code === 200) {
-      console.log(user)
+      console.log('User:', user)
       return true
     }
 
@@ -181,7 +181,7 @@ export const checkSignedIn = async (cookies: AstroCookies, locals: App.Locals) =
         const user = await getUser(cookies.get('accessToken')?.value)
 
         if (user.code === 200) {
-          console.log(user)
+          console.log('User:', user)
           return true
         }
       }
