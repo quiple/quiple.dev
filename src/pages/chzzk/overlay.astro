@@ -43,24 +43,12 @@ const socket = io(sessionCreate.content.url, {
   transports: ['websocket'],
 })
 
-socket.on('SYSTEM', (message: ChzzkSessionSystem) => {
-  console.log('시스템:', message)
-})
-socket.on('CHAT', (message: ChzzkSessionChat) => {
-  console.log('채팅:', message)
-})
-socket.on('DONATION', (message: ChzzkSessionChat) => {
-  console.log('후원:', message)
-})
-socket.on('connect', () => {
-  console.log('연결됨')
-})
-socket.on('disconnect', (reason: string) => {
-  console.log('연결 끊김:', reason)
-})
-socket.on('connect_error', (error: string) => {
-  console.log('연결 오류:', error)
-})
+socket.on('SYSTEM', (message: ChzzkSessionSystem) =>  console.log('시스템:', message))
+socket.on('CHAT', (message: ChzzkSessionChat) => console.log('채팅:', message))
+socket.on('DONATION', (message: ChzzkSessionChat) => console.log('후원:', message))
+socket.on('connect', () => console.log('연결됨'))
+socket.on('disconnect', (reason: string) => console.log('연결 끊김:', reason))
+socket.on('connect_error', (error: string) => console.log('연결 오류:', error))
 ---
 
 <Layout>
