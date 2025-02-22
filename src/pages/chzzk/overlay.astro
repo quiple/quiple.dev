@@ -42,7 +42,6 @@ const socket = io(sessionCreate.content.url, {
   timeout: 3000,
   transports: ['websocket'],
 })
-
 socket.on('SYSTEM', (message: ChzzkSessionSystem) => console.log('시스템:', message))
 socket.on('CHAT', (message: ChzzkSessionChat) => console.log('채팅:', message))
 socket.on('DONATION', (message: ChzzkSessionChat) => console.log('후원:', message))
