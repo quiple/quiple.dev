@@ -22,7 +22,7 @@ const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
   {isSignedIn ? (
     <main class="container-x flex flex-col">
       <ChzzkHeader />
-      <p>이곳에는 아직 아무것도 없습니다...</p>
+      <a class={buttonVariants()} href="/chzzk/overlay">오버레이</a>
     </main>
   ) : (
     <main class="container-x flex items-center justify-center">
