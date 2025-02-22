@@ -20,15 +20,18 @@ if (!isSignedIn) {
 }
 
 const accessToken = Astro.cookies.get('accessToken')?.value
-
 const sessionCreate = await createSession(accessToken)
+
 if (sessionCreate.code !== 200) {
   console.log('세션 생성 실패:', sessionCreate.message)
   return Astro.redirect('/chzzk')
 }
+
 console.log('Create Session:', sessionCreate)
+
 const session = await getSession(accessToken)
 console.log('Session List:', session.content.data)
+
 const sessionKey = session.content.data[0].sessionKey
 const chat = subscribeChat(accessToken, sessionKey)
 const donation = subscribeDonation(accessToken, sessionKey)
@@ -39,7 +42,7 @@ const socket = io(sessionCreate.content.url, {
   timeout: 3000,
   transports: ['websocket'],
 })
-// console.log(socket)
+
 socket.on('SYSTEM', (message: ChzzkSessionSystem) => {
   console.log('시스템:', message)
 })
