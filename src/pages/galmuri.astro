@@ -39,9 +39,9 @@ import Layout from '@/layouts/Layout.astro'
         @include g(g7, 9)
         @apply flex text-white pl-(--px) items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
         span
-          @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] -translate-y-(--px) active:translate-none active:before:translate-none
+          @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] -translate-y-(--px) active:translate-none active:before:translate-none
           &::before
-            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri))] dark:[-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-invert))] absolute -z-10 left-0 translate-y-(--px) text-galmuri dark:text-galmuri-invert
+            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] absolute -z-10 left-0 translate-y-(--px) text-galmuri dark:text-galmuri-invert
         .g
           @apply before:content-['G']
         .a

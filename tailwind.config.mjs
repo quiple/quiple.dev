@@ -15,6 +15,7 @@ export default {
         galmuri: {
           DEFAULT: 'hsl(var(--galmuri))',
           invert: 'hsl(var(--galmuri-invert))',
+          fixed: 'hsl(var(--galmuri-fixed))',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
