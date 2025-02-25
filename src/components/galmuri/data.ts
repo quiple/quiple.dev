@@ -72,9 +72,15 @@ export const pangramEn = [
   'A quick movement of the enemy will jeopardize six gunboats',
   'Jaded zombies acted quaintly but kept driving their oxen forward',
   // lyrics
+  'Tie my tongue or love instead?', // jamie paige
+  'My heart beats a rhythm just for you', // jamie paige
+  'I wish that I could fall a little bit harder', // jamie paige
+  'So let the Anthropocene watch me going fucking crazy', // jamie paige
   'Thank you sex', // wasureranneyo
   'But the moon’s not burning through my skin tonight', // dom fera
   'I wanna be an ordinary man, not just an ego caught inside a trend', // monkey majik
+  'For I just threw out the love of my dreams', // weezer
+  'This way is a waterslide away from me that takes her further every day', // weezer
 ]
 
 export const pangramKo = [
@@ -111,12 +117,17 @@ export const pangramKo = [
   '옥상 끝에서 난간을 잡고 하늘을 올려다봐\n아래를 내려다보면 빨려들어가 내딛고 싶어지니까', // pop never dies
   '하늘을 올려다봐도 하늘밖에 없다', // wasureranneyo
   '여태껏 우리의 음악을 깔봐온 그 자식을 음악의 힘으로 뛰어넘고 싶어', // wasureranneyo
-  '그러니 우리 우연히라도 그때의 맘 그날의 밤 떠오르게 만들지는 마요', // busker busker
   '신께서는 이 세상을 엿새만에 만드시고 이레째에 마술을 했다고 한다', // suichu sorewa kurushii
   '너희처럼 살고 싶지 않다며 소설가를 믿은 채 열여덟살의 사상을 모두 꽃으로 만들었네', // seesooany
   '한 번 눈을 감고 점점 낙담해간 내가 저 앞에서는 웃고 있어', // kuhakugokko
   '흔해빠진 말로도 다정함이 오고가서 절묘한 곳으로 만들어 주네', // another infinity
   '승리를 위하여 이글스여 함성을 외쳐라',
+  // k-pops
+  '언젠가 그가 너를 맘 아프게 해 너 혼자 울고 있는 걸 봤어',
+  '사랑도 명예도 이름도 남김없이 한평생 나가자던 뜨거운 맹세',
+  '내 조그만 공간 속에 추억만 쌓이고 까닭 모를 눈물만이 아른거리네',
+  '그러니 우리 우연히라도 그때의 맘 그날의 밤 떠오르게 만들지는 마요',
+  '오 때론 난 망가져 갈지도 모르지 허나 젊음엔 그건 중요한 게 아니야',
   // memes
   '뭉탱이로 있다가 유링게숭 아니 그냥',
   '맛스타 해외승인 직불출금 십이만천육백팔십칠원',
