@@ -76,7 +76,9 @@ export function Tester() {
           예문 섞기
         </Button>
       </div>
-      <label hidden htmlFor="story">Galmuri 폰트 테스트</label>
+      <label hidden htmlFor="story">
+        Galmuri 폰트 테스트
+      </label>
       <Textarea
         id="tester"
         className="textarea"
