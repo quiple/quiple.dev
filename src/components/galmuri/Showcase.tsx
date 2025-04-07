@@ -20,6 +20,7 @@ import sc240710 from '@/assets/showcase/240710.jpg'
 import sc240830 from '@/assets/showcase/240830.png'
 import sc240905 from '@/assets/showcase/240905.jpg'
 import sc240919 from '@/assets/showcase/240919.png'
+import sc250403 from '@/assets/showcase/250403.png'
 import {
   Carousel,
   CarouselContent,
@@ -55,6 +56,13 @@ export function Showcase() {
   useEffect(() => {
     const fetchData = async () => {
       const games: game[] = [
+        {
+          title: '세피리아',
+          author: 'Team Horay',
+          link: '2436940',
+          type: 'steam',
+          image: await getImage({src: sc250403, format: format, height: height}),
+        },
         {
           title: 'Keylocker',
           author: 'Moonana',
