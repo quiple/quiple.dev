@@ -7,13 +7,13 @@ export default {
       name: 'title',
       title: '제목',
       type: 'string',
-      validation: rule => rule.required(),
+      validation: (rule) => rule.required(),
     },
     {
       name: 'author',
       title: '저작권자 또는 제작자',
       type: 'string',
-      validation: rule => rule.required(),
+      validation: (rule) => rule.required(),
     },
     {
       name: 'type',
@@ -37,7 +37,7 @@ export default {
       name: 'screenshot',
       title: '스크린샷',
       type: 'image',
-      validation: rule => rule.required(),
+      validation: (rule) => rule.required(),
     },
   ],
 }
