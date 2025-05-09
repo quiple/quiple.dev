@@ -6,13 +6,13 @@ import Layout from '@/layouts/Layout.astro'
 import {loadQuery} from '@/lib/sanity'
 import type {SanityDocument} from '@sanity/client'
 
-const {data: galmuri} = await loadQuery<SanityDocument[]>({
-  query: `*[_type == "galmuri"]`,
+const {data: galmuri} = await loadQuery<SanityDocument>({
+  query: `*[_type == "galmuri"][0]`,
 })
 ---
 
 <Layout
-  title={galmuri[0].title}
+  title={galmuri.title}
   description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트.">
   <Header />
   <main>
