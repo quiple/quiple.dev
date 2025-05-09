@@ -1,4 +1,5 @@
 /// <reference types="astro/client" />
+/// <reference types="@sanity/astro/module" />
 
 type ENV = {
   CHZZK_CLIENTID: string

@@ -3,6 +3,7 @@ import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
+import sanity from '@sanity/astro'
 import tailwindcss from '@tailwindcss/vite'
 import {defineConfig} from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -10,7 +11,17 @@ import rehypeExternalLinks from 'rehype-external-links'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://quiple.dev',
-  integrations: [mdx(), react(), sitemap()],
+  integrations: [
+    mdx(),
+    react(),
+    sitemap(),
+    sanity({
+      projectId: 'hxo1wurv',
+      dataset: 'production',
+      useCdn: true,
+      studioBasePath: '/admin',
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
