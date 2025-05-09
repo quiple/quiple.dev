@@ -36,10 +36,7 @@ export function Showcase() {
           if (game.screenshot?.asset && game.type) {
             const size = game.screenshot.asset._ref.split('-')[2]
             const aspectRatio = Number(size.split('x')[0]) / Number(size.split('x')[1])
-            const image = urlForImage(game.screenshot.asset)
-              .height(640)
-              .fit('max')
-              .auto('format')
+            const image = urlForImage(game.screenshot.asset).height(640).fit('max').auto('format')
 
             return (
               <CarouselItem key={game.title} className="basis-auto pl-[1em]">

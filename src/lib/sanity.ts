@@ -1,7 +1,7 @@
 import {sanityClient} from 'sanity:client'
+import imageUrlBuilder from '@sanity/image-url'
+import type {SanityAsset} from '@sanity/image-url/lib/types/types'
 import type {QueryParams} from 'sanity'
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityAsset } from '@sanity/image-url/lib/types/types';
 
 export async function loadQuery<QueryResponse>({
   query,
