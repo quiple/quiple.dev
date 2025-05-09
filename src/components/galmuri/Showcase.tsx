@@ -48,11 +48,7 @@ export function Showcase() {
                   style={{aspectRatio: aspectRatio}}
                   className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
                 />
-                <img
-                  style={{aspectRatio: aspectRatio}}
-                  src={image.url()}
-                  alt={game.title}
-                />
+                <img style={{aspectRatio: aspectRatio}} src={image.url()} alt={game.title} />
                 <span className="overlay" />
                 <figcaption>
                   <a
