@@ -14,19 +14,19 @@
 
 // Source: schema.json
 export type AllSanitySchemaTypes =
-| SanityImagePaletteSwatch
-| SanityImagePalette
-| SanityImageDimensions
-| SanityFileAsset
-| Geopoint
-| Slug
-| Game
-| Galmuri
-| SanityImageCrop
-| SanityImageHotspot
-| SanityImageAsset
-| SanityAssetSourceData
-| SanityImageMetadata
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityFileAsset
+  | Geopoint
+  | Slug
+  | Game
+  | Galmuri
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImageAsset
+  | SanityAssetSourceData
+  | SanityImageMetadata
 export declare const internalGroqTypeReferenceTo: unique symbol
 
 export type SanityImagePaletteSwatch = {
