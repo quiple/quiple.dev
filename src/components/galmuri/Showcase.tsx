@@ -1,3 +1,4 @@
+import {sanityClient} from 'sanity:client'
 import {
   Carousel,
   CarouselContent,
@@ -7,14 +8,11 @@ import {
 } from '@/components/ui/carousel'
 import {Skeleton} from '@/components/ui/skeleton'
 import {urlForImage} from '@/lib/sanity'
-import groq from "groq";
-import { sanityClient } from "sanity:client";
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
+import groq from 'groq'
 import type {Game} from 'sanity.types'
 
-const galmuri = await sanityClient.fetch(
-  groq`*[_type == "galmuri"][0]`
-)
+const galmuri = await sanityClient.fetch(groq`*[_type == "galmuri"][0]`)
 
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',
