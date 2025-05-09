@@ -1,4 +1,3 @@
-import {sanityClient} from 'sanity:client'
 import {
   Carousel,
   CarouselContent,
@@ -7,17 +6,14 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import {Skeleton} from '@/components/ui/skeleton'
-import {loadQuery} from '@/lib/sanity'
+import {loadQuery, urlForImage} from '@/lib/sanity'
 import type {SanityDocument} from '@sanity/client'
-import imageUrlBuilder from '@sanity/image-url'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import type {Game} from 'sanity.types'
 
 const {data: galmuri} = await loadQuery<SanityDocument>({
   query: `*[_type == "galmuri"][0]`,
 })
-
-const builder = imageUrlBuilder(sanityClient)
 
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',
@@ -40,8 +36,7 @@ export function Showcase() {
           if (game.screenshot?.asset && game.type) {
             const size = game.screenshot.asset._ref.split('-')[2]
             const aspectRatio = Number(size.split('x')[0]) / Number(size.split('x')[1])
-            const image = builder
-              .image(game.screenshot.asset._ref)
+            const image = urlForImage(game.screenshot.asset)
               .height(640)
               .fit('max')
               .auto('format')

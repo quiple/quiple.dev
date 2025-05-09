@@ -1,5 +1,7 @@
 import {sanityClient} from 'sanity:client'
 import type {QueryParams} from 'sanity'
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityAsset } from '@sanity/image-url/lib/types/types';
 
 export async function loadQuery<QueryResponse>({
   query,
@@ -15,4 +17,10 @@ export async function loadQuery<QueryResponse>({
   return {
     data: result,
   }
+}
+
+export const imageBuilder = imageUrlBuilder(sanityClient)
+
+export function urlForImage(source: SanityAsset) {
+  return imageBuilder.image(source)
 }
