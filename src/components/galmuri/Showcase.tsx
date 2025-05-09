@@ -25,6 +25,9 @@ const linkPrefix = {
   patch: 'https://',
 }
 
+let showcase = galmuri[0].showcase
+showcase.reverse()
+
 export function Showcase() {
   return (
     <Carousel
@@ -33,7 +36,7 @@ export function Showcase() {
       plugins={[WheelGesturesPlugin()]}
     >
       <CarouselContent className="-ml-[1em]">
-        {galmuri[0].showcase.reverse().map((game: Game) => {
+        {showcase.map((game: Game) => {
           if (game.screenshot?.asset && game.type) {
             const size = game.screenshot.asset._ref.split('-')[2]
             const aspectRatio = Number(size.split('x')[0]) / Number(size.split('x')[1])
