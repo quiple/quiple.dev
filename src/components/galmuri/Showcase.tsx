@@ -33,25 +33,24 @@ export function Showcase() {
     >
       <CarouselContent className="-ml-[1em]">
         {galmuri[0].showcase.map((game) => {
-          // const aspectRatio = game.image.attributes.width / game.image.attributes.height
-
+          const size = game.screenshot.asset._ref.split('-')[2]
+          const aspectRatio = size.split('x')[0] / size.split('x')[1]
           const image = builder
             .image(game.screenshot.asset._ref)
             .height(640)
             .fit('max')
             .auto('format')
-          // console.log(game.screenshot)
+          console.log(game.screenshot.asset._ref.split('-')[2])
           return (
             <CarouselItem key={game.title} className="basis-auto pl-[1em]">
               <figure>
                 <Skeleton
-                  // style={{aspectRatio: aspectRatio}}
+                  style={{aspectRatio: aspectRatio}}
                   className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
                 />
                 <img
-                  // style={{aspectRatio: aspectRatio}}
+                  style={{aspectRatio: aspectRatio}}
                   src={image.url()}
-                  // srcSet={game.image.srcSet.attribute}
                   alt={game.title}
                 />
                 <span className="overlay" />
