@@ -25,7 +25,7 @@ const linkPrefix = {
   patch: 'https://',
 }
 
-let showcase = galmuri[0].showcase
+const showcase = galmuri[0].showcase
 showcase.reverse()
 
 export function Showcase() {
