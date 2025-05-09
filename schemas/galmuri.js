@@ -13,6 +13,6 @@ export default {
       title: '쇼케이스',
       type: 'array',
       of: [{type: 'game'}],
-    }
-  ]
+    },
+  ],
 }

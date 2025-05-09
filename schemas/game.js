@@ -24,7 +24,7 @@ export default {
           {title: '사용자 패치', value: 'patch'},
         ],
         layout: 'radio',
-      }
+      },
     },
     {
       name: 'url',
@@ -36,5 +36,5 @@ export default {
       title: '스크린샷',
       type: 'image',
     },
-  ]
+  ],
 }

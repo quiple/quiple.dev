@@ -1,7 +1,7 @@
+import {koKRLocale} from '@sanity/locale-ko-kr'
 // sanity.config.ts
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-import {koKRLocale} from '@sanity/locale-ko-kr'
 import {schemaTypes} from './schemas'
 
 export default defineConfig({
