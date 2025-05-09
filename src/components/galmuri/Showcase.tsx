@@ -13,8 +13,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import type {Game} from 'sanity.types'
 
-const {data: galmuri} = await loadQuery<SanityDocument[]>({
-  query: `*[_type == "galmuri"]`,
+const {data: galmuri} = await loadQuery<SanityDocument>({
+  query: `*[_type == "galmuri"][0]`,
 })
 
 const builder = imageUrlBuilder(sanityClient)
@@ -25,7 +25,7 @@ const linkPrefix = {
   patch: 'https://',
 }
 
-const showcase = galmuri[0].showcase
+const showcase = galmuri.showcase
 showcase.reverse()
 
 export function Showcase() {
