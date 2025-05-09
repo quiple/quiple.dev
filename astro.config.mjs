@@ -18,7 +18,7 @@ export default defineConfig({
     sanity({
       projectId: 'hxo1wurv',
       dataset: 'production',
-      useCdn: false,
+      useCdn: true,
       studioBasePath: '/admin',
     }),
   ],
