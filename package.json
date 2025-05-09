@@ -10,7 +10,9 @@
     "format": "biome format --write",
     "lint": "biome lint --write",
     "check": "biome check --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "sanity:ext": "sanity schema extract",
+    "sanity:gen": "sanity typegen generate"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
