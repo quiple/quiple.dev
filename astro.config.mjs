@@ -1,5 +1,6 @@
 // @ts-check
 import cloudflare from '@astrojs/cloudflare'
+import markdoc from '@astrojs/markdoc'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
@@ -10,7 +11,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://quiple.dev',
-  integrations: [mdx(), react(), sitemap()],
+  integrations: [mdx(), react(), sitemap(), markdoc()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
