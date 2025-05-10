@@ -16,6 +16,7 @@ export default config({
     }),
     galmuri: singleton({
       label: 'Galmuri',
+      path: 'src/contents/galmuri/',
       schema: {
         title: fields.text({label: '제목', validation: {isRequired: true}}),
         description: fields.text({label: '설명'}),
@@ -23,7 +24,14 @@ export default config({
           fields.object({
             title: fields.text({label: '제목', validation: {isRequired: true}}),
             author: fields.text({label: '저작권자 또는 제작자', validation: {isRequired: true}}),
-            type: fields.text({label: '유형'}),
+            type: fields.select({label: '유형',
+              options: [
+                { label: 'Steam', value: 'steam' },
+                { label: 'App Store', value: 'appstore' },
+                { label: '사용자 패치', value: 'patch' },
+              ],
+              defaultValue: 'steam'
+            }),
             link: fields.text({label: '링크'}),
             screenshot: fields.image({label: '스크린샷', validation: {isRequired: true}}),
           }),

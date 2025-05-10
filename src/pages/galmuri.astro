@@ -3,9 +3,9 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Content from '@/contents/galmuri.mdx'
 import Layout from '@/layouts/Layout.astro'
-import {keystaticReader} from '@/lib/keystatic'
+import { getEntry } from 'astro:content'
 
-const galmuri = await keystaticReader(Astro.locals).singletons.galmuri.read()
+const galmuri = await getEntry('galmuri')
 ---
 
 <Layout
