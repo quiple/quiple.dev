@@ -21,7 +21,7 @@ export default config({
         description: fields.text({label: '설명'}),
         showcase: fields.array(
           fields.object({
-            title: fields.text({label: '제목'}),
+            title: fields.text({label: '제목', validation: {isRequired: true}}),
             author: fields.text({label: '저작권자 또는 제작자'}),
             type: fields.text({label: '유형'}),
             link: fields.text({label: '링크'}),
