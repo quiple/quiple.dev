@@ -1,4 +1,4 @@
-import {singleton, config, fields} from '@keystatic/core'
+import {config, fields, singleton} from '@keystatic/core'
 
 export default config({
   storage: {
@@ -8,32 +8,32 @@ export default config({
   singletons: {
     settings: singleton({
       label: '설정',
-      schema: {}
+      schema: {},
     }),
     index: singleton({
       label: '메인 페이지',
-      schema: {}
+      schema: {},
     }),
     galmuri: singleton({
       label: 'Galmuri',
       schema: {
         title: fields.text({label: '제목'}),
-        description: fields.text({label:'설명'}),
+        description: fields.text({label: '설명'}),
         showcase: fields.array(
           fields.object({
-            title: fields.text({ label: '제목' }),
-            author: fields.text({ label: '저작권자 또는 제작자' }),
-            type: fields.text({ label: '유형' }),
-            link: fields.text({ label: '링크' }),
-            screenshot: fields.image({ label: '스크린샷' }),
+            title: fields.text({label: '제목'}),
+            author: fields.text({label: '저작권자 또는 제작자'}),
+            type: fields.text({label: '유형'}),
+            link: fields.text({label: '링크'}),
+            screenshot: fields.image({label: '스크린샷'}),
           }),
           {
             label: '쇼케이스',
             itemLabel: (props) => props.fields.title.value,
-          }
+          },
         ),
         body: fields.mdx({label: '내용'}),
-      }
+      },
     }),
   },
 })
