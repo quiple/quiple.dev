@@ -8,9 +8,9 @@ import {
 } from '@/components/ui/carousel'
 import {Skeleton} from '@/components/ui/skeleton'
 import {urlForImage} from '@/lib/sanity'
+import {getGalmuri} from '@/lib/sanity'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import type {Game} from 'sanity.types'
-import { getGalmuri } from '@/lib/sanity'
 
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',
