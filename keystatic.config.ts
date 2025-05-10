@@ -17,6 +17,7 @@ export default config({
     galmuri: singleton({
       label: 'Galmuri',
       path: 'src/contents/galmuri/',
+      format: { contentField: 'content' },
       schema: {
         title: fields.text({label: '제목', validation: {isRequired: true}}),
         description: fields.text({label: '설명'}),
@@ -41,7 +42,7 @@ export default config({
             itemLabel: (props) => props.fields.title.value,
           },
         ),
-        body: fields.mdx({label: '내용'}),
+        content: fields.mdx({label: '내용'}),
       },
     }),
   },
