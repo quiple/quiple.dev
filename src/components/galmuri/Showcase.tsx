@@ -11,14 +11,13 @@ import {urlForImage} from '@/lib/sanity'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import type {Game} from 'sanity.types'
 
-const galmuri = await sanityClient.fetch(`*[_type == "galmuri"][0]`)
-
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',
   appstore: 'https://apps.apple.com/app/',
   patch: 'https://',
 }
 
+const galmuri = await sanityClient.fetch(`*[_type == "galmuri"][0]`)
 const showcase = galmuri.showcase
 showcase.reverse()
 
