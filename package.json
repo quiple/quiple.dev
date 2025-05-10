@@ -40,7 +40,6 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "embla-carousel-wheel-gestures": "^8.0.2",
-    "groq": "^3.88.2",
     "inter-ui": "^4.1.0",
     "lucide-react": "^0.508.0",
     "qrcode.react": "^4.2.0",
