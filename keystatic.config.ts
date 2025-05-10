@@ -17,7 +17,7 @@ export default config({
     galmuri: singleton({
       label: 'Galmuri',
       path: 'src/contents/galmuri/',
-      format: {contentField: 'content', data: 'json'},
+      format: {data: 'json'},
       schema: {
         title: fields.text({label: '제목', validation: {isRequired: true}}),
         description: fields.text({label: '설명'}),
