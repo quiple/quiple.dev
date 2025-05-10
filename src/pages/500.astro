@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout title="서버 오류">
+  <main>
+    <h1>500</h1>
+    <p>서버 오류입니다.</p>
+  </main>
+</Layout>
+
+<style lang="sass">
+  @reference '@/styles/global.css'
+
+  main
+    @apply container-x h-screen flex justify-center items-center flex-col
+    h1
+      @apply font-semibold text-5xl mb-2 tracking-tight
+</style>
