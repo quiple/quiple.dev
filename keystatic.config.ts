@@ -21,6 +21,7 @@ export default config({
       schema: {
         title: fields.text({label: '제목', validation: {isRequired: true}}),
         description: fields.text({label: '설명'}),
+        tagline: fields.text({label: '태그라인', multiline: true}),
         showcase: fields.array(
           fields.object({
             title: fields.text({label: '제목', validation: {isRequired: true}}),

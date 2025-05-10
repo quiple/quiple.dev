@@ -4,11 +4,13 @@ import Header from '@/components/Header.astro'
 import Content from '@/contents/galmuri.mdx'
 import galmuri from '@/contents/galmuri/index.json'
 import Layout from '@/layouts/Layout.astro'
+
+console.log(galmuri)
 ---
 
 <Layout
-  title="Galmuri"
-  description="작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트.">
+  title={galmuri.title}
+  description={galmuri.description}>
   <Header />
   <main>
     <div class="title">
@@ -21,7 +23,7 @@ import Layout from '@/layouts/Layout.astro'
         <span class="r">r</span>
         <span class="i">i</span>
       </h1>
-      <p>작은 크기에서도 가독성 좋고 균형 있는<br />한글 비트맵 폰트</p>
+      <p set:html={galmuri.tagline.replace('\n', '<br />')} />
     </div>
     <Content />
   </main>
