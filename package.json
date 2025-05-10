@@ -5,6 +5,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "build:dev": "astro check && NODE_ENV=development astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
     "format": "biome format --write",
