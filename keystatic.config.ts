@@ -17,15 +17,15 @@ export default config({
     galmuri: singleton({
       label: 'Galmuri',
       schema: {
-        title: fields.text({label: '제목'}),
+        title: fields.text({label: '제목', validation: {isRequired: true}}),
         description: fields.text({label: '설명'}),
         showcase: fields.array(
           fields.object({
             title: fields.text({label: '제목', validation: {isRequired: true}}),
-            author: fields.text({label: '저작권자 또는 제작자'}),
+            author: fields.text({label: '저작권자 또는 제작자', validation: {isRequired: true}}),
             type: fields.text({label: '유형'}),
             link: fields.text({label: '링크'}),
-            screenshot: fields.image({label: '스크린샷'}),
+            screenshot: fields.image({label: '스크린샷', validation: {isRequired: true}}),
           }),
           {
             label: '쇼케이스',
