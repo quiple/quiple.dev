@@ -1,20 +1,39 @@
-import {collection, config, fields} from '@keystatic/core'
+import {singleton, config, fields} from '@keystatic/core'
 
 export default config({
   storage: {
     kind: 'github',
     repo: 'quiple/quiple.dev',
   },
-  collections: {
-    posts: collection({
-      label: 'Posts',
-      slugField: 'title',
-      path: 'src/content/posts/*',
-      format: {contentField: 'content'},
+  singletons: {
+    settings: singleton({
+      label: '설정',
+      schema: {}
+    }),
+    index: singleton({
+      label: '메인 페이지',
+      schema: {}
+    }),
+    galmuri: singleton({
+      label: 'Galmuri',
       schema: {
-        title: fields.slug({name: {label: 'Title'}}),
-        content: fields.markdoc({label: 'Content'}),
-      },
+        title: fields.text({label: '제목'}),
+        description: fields.text({label:'설명'}),
+        showcase: fields.array(
+          fields.object({
+            title: fields.text({ label: '제목' }),
+            author: fields.text({ label: '저작권자 또는 제작자' }),
+            type: fields.text({ label: '유형' }),
+            link: fields.text({ label: '링크' }),
+            screenshot: fields.image({ label: '스크린샷' }),
+          }),
+          {
+            label: '쇼케이스',
+            itemLabel: (props) => props.fields.title.value,
+          }
+        ),
+        body: fields.mdx({label: '내용'}),
+      }
     }),
   },
 })
