@@ -4,8 +4,9 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Content from '@/contents/galmuri.mdx'
 import Layout from '@/layouts/Layout.astro'
+import { getGalmuri } from '@/lib/sanity'
 
-const galmuri = await sanityClient.fetch(`*[_type == "galmuri"][0]`)
+const galmuri = await getGalmuri()
 ---
 
 <Layout
