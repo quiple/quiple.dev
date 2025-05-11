@@ -4,13 +4,15 @@
       "name": {
         "name": "Bluesky",
         "slug": "bluesky"
-      }
+      },
+      "url": "https://bsky.app/profile/quiple.dev"
     },
     {
       "name": {
         "name": "GitHub",
         "slug": "github"
-      }
+      },
+      "url": "https://github.com/quiple"
     }
   ]
 }
