@@ -27,6 +27,7 @@ export function Showcase() {
       const screenshots: Record<string, {src: string; srcSet: {attribute: string}}> = {}
       await Promise.all(
         galmuri.showcase.map(async (game) => {
+          /* @vite-ignore */
           const screenshot = await import(`../../assets/${game.screenshot}`)
           screenshots[game.title.slug] = await getImage({
             src: screenshot.default,
