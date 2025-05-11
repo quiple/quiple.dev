@@ -5,14 +5,14 @@
         "name": "GitHub",
         "slug": "github"
       },
-      "url": "github.com/quiple"
+      "url": "https://github.com/quiple"
     },
     {
       "name": {
         "name": "Bluesky",
         "slug": "bluesky"
       },
-      "url": "bsky.app/profile/quiple.dev"
+      "url": "https://bsky.app/profile/quiple.dev"
     }
   ]
 }
