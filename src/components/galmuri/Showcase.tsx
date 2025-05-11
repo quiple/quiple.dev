@@ -26,8 +26,7 @@ export function Showcase() {
       const screenshots: Record<string, GetImageResult> = {}
       await Promise.all(
         galmuri.showcase.map(async (game) => {
-          /* @vite-ignore */
-          const screenshot = await import(`../../assets/${game.screenshot}`)
+          const screenshot = await import(/* @vite-ignore */`../../assets/${game.screenshot}`)
           screenshots[game.title.slug] = await getImage({
             src: screenshot.default,
             format: 'avif',
@@ -49,7 +48,6 @@ export function Showcase() {
       <CarouselContent className="-ml-[1em]">
         {galmuri.showcase.map((game) => {
           const screenshot = screenshots[game.title.slug]
-          // const aspectRatio = screenshot.attributes.width / screenshot.attributes.height
 
           return (
             <CarouselItem key={game.title.slug} className="basis-auto pl-[1em]">
@@ -59,11 +57,11 @@ export function Showcase() {
                 ) : (
                   <>
                     <Skeleton
-                      // style={{aspectRatio: aspectRatio}}
+                      style={{aspectRatio: screenshot.attributes.width / screenshot.attributes.height}}
                       className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
                     />
                     <img
-                      // style={{aspectRatio: aspectRatio}}
+                      style={{aspectRatio: screenshot.attributes.width / screenshot.attributes.height}}
                       src={screenshot.src}
                       srcSet={screenshot.srcSet.attribute}
                       alt={game.title.name}
