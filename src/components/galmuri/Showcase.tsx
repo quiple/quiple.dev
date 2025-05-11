@@ -7,8 +7,8 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import {Skeleton} from '@/components/ui/skeleton'
-import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import galmuri from '@/contents/galmuri/index.json'
+import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import {useEffect, useState} from 'react'
 
 const linkPrefix = {
@@ -18,14 +18,20 @@ const linkPrefix = {
 }
 
 export function Showcase() {
-  const [screenshots, setScreenshots] = useState<Record<string, {src: string; srcSet: {attribute: string}}>>({})
+  const [screenshots, setScreenshots] = useState<
+    Record<string, {src: string; srcSet: {attribute: string}}>
+  >({})
 
   useEffect(() => {
     const fetchData = async () => {
       const screenshots: Record<string, {src: string; srcSet: {attribute: string}}> = {}
       galmuri.showcase.map(async (game) => {
         const screenshot = await import(`/src/assets/${game.screenshot}`)
-        screenshots[game.title.slug] = await getImage({src: screenshot.default, format: 'avif', height: 640})
+        screenshots[game.title.slug] = await getImage({
+          src: screenshot.default,
+          format: 'avif',
+          height: 640,
+        })
       })
       setScreenshots(screenshots)
     }
