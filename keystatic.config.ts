@@ -68,6 +68,7 @@ export default config({
           }),
           {
             label: '쇼케이스',
+            slugField: 'title',
             itemLabel: (props) => props.fields.title.value.name,
           },
         ),
