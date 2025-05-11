@@ -1,8 +1,7 @@
 ---
 import {buttonVariants} from '@/components/ui/button'
 import settings from '@/settings.json'
-import {siBluesky} from 'simple-icons'
-import {siGithub} from 'simple-icons'
+import * as icons from 'simple-icons'
 ---
 
 <footer>
@@ -22,7 +21,7 @@ import {siGithub} from 'simple-icons'
           aria-label={sns.name.name}
           class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button ${sns.name.slug}`}
           href={sns.url}
-          set:html={siGithub.svg}
+          set:html={icons[`si${sns.name.slug.charAt(0).toUpperCase()}${sns.name.slug.slice(1)}`].svg}
           target="_blank"
           rel="nofollow noreferrer noopener"
         />
