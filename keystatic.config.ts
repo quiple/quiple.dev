@@ -40,7 +40,10 @@ export default config({
       path: 'src/contents/galmuri/',
       format: {data: 'json'},
       schema: {
-        title: fields.text({label: '제목', validation: {isRequired: true}}),
+        title: fields.slug({
+          name: {label: '제목', validation: {isRequired: true}},
+          slug: {label: '슬러그'},
+        }),
         description: fields.text({label: '설명'}),
         tagline: fields.text({label: '태그라인', multiline: true}),
         showcase: fields.array(
