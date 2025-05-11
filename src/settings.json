@@ -1,0 +1,16 @@
+{
+  "sns": [
+    {
+      "sns": {
+        "name": "Bluesky",
+        "slug": "bluesky"
+      }
+    },
+    {
+      "sns": {
+        "name": "GitHub",
+        "slug": "github"
+      }
+    }
+  ]
+}
