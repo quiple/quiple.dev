@@ -4,7 +4,10 @@
   "tagline": "작은 크기에서도 가독성 좋고 균형 있는\n한글 비트맵 폰트",
   "showcase": [
     {
-      "title": "test",
+      "title": {
+        "name": "test",
+        "slug": "test"
+      },
       "author": "test",
       "type": "steam",
       "link": "test",
