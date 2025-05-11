@@ -59,7 +59,8 @@ export default config({
             link: fields.text({label: '링크'}),
             screenshot: fields.image({
               label: '스크린샷',
-              directory: 'src/assets',
+              // directory: 'src/assets',
+              publicPath: 'src/assets',
               validation: {isRequired: true},
             }),
           }),
