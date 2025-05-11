@@ -28,7 +28,7 @@ export function Showcase() {
     const fetchData = async () => {
       const screenshots: Record<string, GetImageResult> = {}
       const images = import.meta.glob<{default: ImageMetadata}>(
-        '/src/assets/showcase/**/*.{png,jpg,jpeg,webp}',
+        '/src/assets/showcase/*/*',
       )
 
       await Promise.all(
