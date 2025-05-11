@@ -8,9 +8,9 @@ import {
 } from '@/components/ui/carousel'
 import {Skeleton} from '@/components/ui/skeleton'
 import galmuri from '@/contents/galmuri/index.json'
+import type {GetImageResult} from 'astro'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import {useEffect, useState} from 'react'
-import type {GetImageResult} from 'astro'
 
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',
@@ -19,9 +19,7 @@ const linkPrefix = {
 }
 
 export function Showcase() {
-  const [screenshots, setScreenshots] = useState<
-    Record<string, GetImageResult>
-  >({})
+  const [screenshots, setScreenshots] = useState<Record<string, GetImageResult>>({})
 
   useEffect(() => {
     const fetchData = async () => {
