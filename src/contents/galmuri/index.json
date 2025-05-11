@@ -1,0 +1,227 @@
+{
+  "title": "Galmuri",
+  "description": "작은 크기에서도 가독성 좋고 균형 있는 한글 비트맵 폰트.",
+  "tagline": "작은 크기에서도 가독성 좋고 균형 있는\n한글 비트맵 폰트",
+  "showcase": [
+    {
+      "title": {
+        "name": "Westerado: Double Barreled",
+        "slug": "westerado"
+      },
+      "author": "바람 번역단",
+      "type": "patch",
+      "link": "blog.naver.com/bleach1491/221820971383",
+      "screenshot": "showcase/westerado/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Alwa's Legacy",
+        "slug": "alwas-legacy"
+      },
+      "author": "바람 번역단",
+      "type": "patch",
+      "link": "blog.naver.com/bleach1491/222008221688",
+      "screenshot": "showcase/alwas-legacy/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Rev",
+        "slug": "rev"
+      },
+      "author": "바람 번역단",
+      "type": "patch",
+      "link": "blog.naver.com/bleach1491/222180900832",
+      "screenshot": "showcase/rev/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Duke Dashington Remastered",
+        "slug": "duke-dashington"
+      },
+      "author": "바람 번역단",
+      "type": "patch",
+      "link": "blog.naver.com/bleach1491/222196942354",
+      "screenshot": "showcase/duke-dashington/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "BLUE REVOLVER",
+        "slug": "blue-revolver"
+      },
+      "author": "Sepheille",
+      "type": "patch",
+      "link": "steamcommunity.com/sharedfiles/filedetails/?id=2405396574",
+      "screenshot": "showcase/blue-revolver/screenshot.jpg"
+    },
+    {
+      "title": {
+        "name": "Teamfight Manager",
+        "slug": "teamfight-manager"
+      },
+      "author": "Team Samoyed",
+      "type": "steam",
+      "link": "1372810",
+      "screenshot": "showcase/teamfight-manager/screenshot.jpg"
+    },
+    {
+      "title": {
+        "name": "NEEDY GIRL OVERDOSE",
+        "slug": "needy-girl-overdose"
+      },
+      "author": "코스믹딜루즈 & quiple",
+      "type": "patch",
+      "link": "cosmicdeluge.tistory.com/5",
+      "screenshot": "showcase/needy-girl-overdose/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Monster Sanctuary",
+        "slug": "monster-sanctuary"
+      },
+      "author": "솔라리어스",
+      "type": "patch",
+      "link": "blog.naver.com/ansewo/222702695752",
+      "screenshot": "showcase/monster-sanctuary/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Shotgun King: The Final Checkmate",
+        "slug": "shotgun-king"
+      },
+      "author": "PUNKCAKE Delicieux",
+      "type": "steam",
+      "link": "1972440",
+      "screenshot": "showcase/shotgun-king/screenshot.jpg"
+    },
+    {
+      "title": {
+        "name": "Dungeon Squad",
+        "slug": "dungeon-squad"
+      },
+      "author": "GameCoaster",
+      "type": "appstore",
+      "link": "1642733080",
+      "screenshot": "showcase/dungeon-squad/screenshot.webp"
+    },
+    {
+      "title": {
+        "name": "Papers, Please",
+        "slug": "papers-please"
+      },
+      "author": "Lucas Pope",
+      "type": "steam",
+      "link": "239030",
+      "screenshot": "showcase/papers-please/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Coffee Talk Episode 2: Hibiscus & Butterfly",
+        "slug": "coffee-talk-episode-2"
+      },
+      "author": "Toge Productions",
+      "type": "steam",
+      "link": "1663220",
+      "screenshot": "showcase/coffee-talk-episode-2/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Momodora: Moonlit Farewell",
+        "slug": "momodora"
+      },
+      "author": "Bombservice",
+      "type": "steam",
+      "link": "1747760",
+      "screenshot": "showcase/momodora/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "VVVVVV",
+        "slug": "vvvvvv"
+      },
+      "author": "Terry Cavanagh",
+      "type": "steam",
+      "link": "70300",
+      "screenshot": "showcase/vvvvvv/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "미제사건은 끝내야 하니까",
+        "slug": "no-case-should-remain-unsolved"
+      },
+      "author": "Somi",
+      "type": "steam",
+      "link": "2676840",
+      "screenshot": "showcase/no-case-should-remain-unsolved/screenshot.jpg"
+    },
+    {
+      "title": {
+        "name": "STONKS-9800",
+        "slug": "stonks-9800"
+      },
+      "author": "TERNOX",
+      "type": "steam",
+      "link": "1539140",
+      "screenshot": "showcase/stonks-9800/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "ZeroRanger",
+        "slug": "zeroranger"
+      },
+      "author": "Robeureu",
+      "type": "patch",
+      "link": "blog.naver.com/robeureu/223357336308",
+      "screenshot": "showcase/zeroranger/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Time Treker",
+        "slug": "time-treker"
+      },
+      "author": "Fuse Game",
+      "type": "steam",
+      "link": "2776500",
+      "screenshot": "showcase/time-treker/screenshot.jpg"
+    },
+    {
+      "title": {
+        "name": "Megaloot",
+        "slug": "megaloot"
+      },
+      "author": "axilirate",
+      "type": "steam",
+      "link": "2440380",
+      "screenshot": "showcase/megaloot/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "소년기의 끝",
+        "slug": "boyhoods-end"
+      },
+      "author": "buriki clock",
+      "type": "steam",
+      "link": "2403290",
+      "screenshot": "showcase/boyhoods-end/screenshot.jpg"
+    },
+    {
+      "title": {
+        "name": "Keylocker",
+        "slug": "keylocker"
+      },
+      "author": "Moonana",
+      "type": "steam",
+      "link": "1325040",
+      "screenshot": "showcase/keylocker/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "세피리아",
+        "slug": "sephiria"
+      },
+      "author": "Team Horay",
+      "type": "steam",
+      "link": "2436940",
+      "screenshot": "showcase/sephiria/screenshot.png"
+    }
+  ]
+}

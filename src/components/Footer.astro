@@ -1,7 +1,7 @@
 ---
 import {buttonVariants} from '@/components/ui/button'
-import {siBluesky} from 'simple-icons'
-import {siGithub} from 'simple-icons'
+import settings from '@/settings.json'
+import * as icons from 'simple-icons'
 ---
 
 <footer>
@@ -16,22 +16,16 @@ import {siGithub} from 'simple-icons'
       )}
     </div>
     <div class="sns">
-      <a
-        aria-label="GitHub"
-        class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button github`}
-        href="https://github.com/quiple"
-        set:html={siGithub.svg}
-        target="_blank"
-        rel="nofollow noreferrer noopener"
-      />
-      <a
-        aria-label="Bluesky"
-        class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button bluesky`}
-        href="https://bsky.app/profile/quiple.dev"
-        set:html={siBluesky.svg}
-        target="_blank"
-        rel="nofollow noreferrer noopener"
-      />
+      {settings.sns.map((sns) => {
+        return <a
+          aria-label={sns.name.name}
+          class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button ${sns.name.slug}`}
+          href={sns.url}
+          set:html={(icons as unknown as Record<string, {svg: string}>)[`si${sns.name.slug.charAt(0).toUpperCase()}${sns.name.slug.slice(1)}`].svg}
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        />
+      })}
     </div>
   </section>
 </footer>
