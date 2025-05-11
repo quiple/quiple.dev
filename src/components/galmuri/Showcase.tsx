@@ -27,14 +27,16 @@ export function Showcase() {
   useEffect(() => {
     const fetchData = async () => {
       const screenshots: Record<string, GetImageResult> = {}
-      const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/showcase/**/*.{png,jpg,jpeg,webp}')
-      
+      const images = import.meta.glob<{default: ImageMetadata}>(
+        '/src/assets/showcase/**/*.{png,jpg,jpeg,webp}',
+      )
+
       await Promise.all(
         galmuri.showcase.map(async (game) => {
           const imagePath = `/src/assets/${game.screenshot}`
           const imageModule = images[imagePath]
           if (imageModule) {
-            const { default: screenshot } = await imageModule()
+            const {default: screenshot} = await imageModule()
             screenshots[game.title.slug] = await getImage({
               src: screenshot,
               format: 'avif',
