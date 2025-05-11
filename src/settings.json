@@ -1,13 +1,13 @@
 {
   "sns": [
     {
-      "sns": {
+      "name": {
         "name": "Bluesky",
         "slug": "bluesky"
       }
     },
     {
-      "sns": {
+      "name": {
         "name": "GitHub",
         "slug": "github"
       }

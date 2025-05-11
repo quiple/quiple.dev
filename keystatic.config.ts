@@ -8,11 +8,31 @@ export default config({
   singletons: {
     settings: singleton({
       label: '설정',
-      schema: {},
+      path: 'src/settings',
+      format: {data: 'json'},
+      schema: {
+        sns: fields.array(
+          fields.object({
+            name: fields.slug({
+              name: {label: 'SNS 이름', validation: {isRequired: true}},
+              slug: {label: '슬러그'},
+            }),
+          }),
+          {
+            label: 'SNS 정보',
+            itemLabel: (props) => props.fields.sns.value.name,
+          },
+        ),
+      },
     }),
     index: singleton({
       label: '메인 페이지',
-      schema: {},
+      path: 'src/contents/index',
+      entryLayout: 'content',
+      format: {contentField: 'content'},
+      schema: {
+        content: fields.mdx({label: '내용'}),
+      },
     }),
     galmuri: singleton({
       label: 'Galmuri',

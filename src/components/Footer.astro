@@ -2,6 +2,7 @@
 import {buttonVariants} from '@/components/ui/button'
 import {siBluesky} from 'simple-icons'
 import {siGithub} from 'simple-icons'
+import settings from '@/settings.json'
 ---
 
 <footer>
@@ -16,6 +17,16 @@ import {siGithub} from 'simple-icons'
       )}
     </div>
     <div class="sns">
+      {settings.sns.map((sns) => {
+        <a
+          aria-label={sns.name.name}
+          class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button ${sns.name.slug}`}
+          href="https://github.com/quiple"
+          set:html={siGithub.svg}
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        />
+      })}
       <a
         aria-label="GitHub"
         class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button github`}
