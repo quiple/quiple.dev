@@ -60,7 +60,11 @@ export default config({
               defaultValue: 'steam',
             }),
             link: fields.text({label: '링크'}),
-            screenshot: fields.image({label: '스크린샷', directory: 'src/assets', validation: {isRequired: true}}),
+            screenshot: fields.image({
+              label: '스크린샷',
+              directory: 'src/assets',
+              validation: {isRequired: true},
+            }),
           }),
           {
             label: '쇼케이스',
