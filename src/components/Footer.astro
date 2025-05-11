@@ -21,7 +21,7 @@ import * as icons from 'simple-icons'
           aria-label={sns.name.name}
           class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button ${sns.name.slug}`}
           href={sns.url}
-          set:html={icons[`si${sns.name.slug.charAt(0).toUpperCase()}${sns.name.slug.slice(1)}`].svg}
+          set:html={(icons as unknown as Record<string, { svg: string }>)[`si${sns.name.slug.charAt(0).toUpperCase()}${sns.name.slug.slice(1)}`].svg}
           target="_blank"
           rel="nofollow noreferrer noopener"
         />
