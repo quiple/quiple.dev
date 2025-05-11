@@ -33,7 +33,7 @@ export function Showcase() {
             format: 'avif',
             height: 640,
           })
-        })
+        }),
       )
       setScreenshots(screenshots)
     }
