@@ -63,7 +63,6 @@ export default config({
             screenshot: fields.image({
               label: '스크린샷',
               directory: 'src/assets',
-              publicPath: '@assets/',
               validation: {isRequired: true},
             }),
           }),
