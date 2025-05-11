@@ -64,7 +64,7 @@ export default config({
           }),
           {
             label: '쇼케이스',
-            itemLabel: (props) => props.fields.title.value,
+            itemLabel: (props) => props.fields.title.value.name,
           },
         ),
         content: fields.mdx({label: '내용'}),
