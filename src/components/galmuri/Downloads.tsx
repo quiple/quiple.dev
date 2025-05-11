@@ -22,7 +22,8 @@ export function Downloads() {
   return (
     <div className="download">
       {families.map((family) => {
-        return <Card key={family.name} className="card flex flex-col">
+        return (
+          <Card key={family.name} className="card flex flex-col">
             <CardHeader className="p-[1em] py-[calc(1em_-_7px)]">
               <CardTitle className="card-title">{family.name}</CardTitle>
             </CardHeader>
@@ -53,6 +54,7 @@ export function Downloads() {
             </CardContent>
             <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">{`${family.size}px`}</CardFooter>
           </Card>
+        )
       })}
       <Card className="card flex flex-col">
         <CardContent className="p-[1em] pb-[calc(1em_-_6px)] flex-1">
