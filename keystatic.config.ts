@@ -45,10 +45,7 @@ export default config({
         tagline: fields.text({label: '태그라인', multiline: true}),
         showcase: fields.array(
           fields.object({
-            title: fields.slug({
-              name: {label: '제목', validation: {isRequired: true}},
-              slug: {label: '슬러그'},
-            }),
+            title: fields.text({label: '제목', validation: {isRequired: true}}),
             author: fields.text({label: '저작권자 또는 제작자', validation: {isRequired: true}}),
             type: fields.select({
               label: '유형',
@@ -69,7 +66,7 @@ export default config({
           {
             label: '쇼케이스',
             slugField: 'title',
-            itemLabel: (props) => props.fields.title.value.name,
+            itemLabel: (props) => props.fields.title.value,
           },
         ),
         content: fields.mdx({label: '내용'}),
