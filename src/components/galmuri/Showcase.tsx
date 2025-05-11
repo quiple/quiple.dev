@@ -18,6 +18,9 @@ const linkPrefix = {
   patch: 'https://',
 }
 
+const showcase = galmuri.showcase
+showcase.reverse()
+
 export function Showcase() {
   const [screenshots, setScreenshots] = useState<Record<string, GetImageResult>>({})
 
@@ -46,7 +49,7 @@ export function Showcase() {
       plugins={[WheelGesturesPlugin()]}
     >
       <CarouselContent className="-ml-[1em]">
-        {galmuri.showcase.map((game) => {
+        {showcase.map((game) => {
           const screenshot = screenshots[game.title.slug]
 
           return (
