@@ -17,10 +17,11 @@ export default config({
               name: {label: 'SNS 이름', validation: {isRequired: true}},
               slug: {label: '슬러그'},
             }),
+            url: fields.url({label: 'URL', validation: {isRequired: true}}),
           }),
           {
             label: 'SNS 정보',
-            itemLabel: (props) => props.fields.sns.value.name,
+            itemLabel: (props) => props.fields.name.value.name,
           },
         ),
       },
