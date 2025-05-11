@@ -45,7 +45,10 @@ export default config({
         tagline: fields.text({label: '태그라인', multiline: true}),
         showcase: fields.array(
           fields.object({
-            title: fields.slug({name: {label: '제목', validation: {isRequired: true}}, slug: {label: '슬러그'}}),
+            title: fields.slug({
+              name: {label: '제목', validation: {isRequired: true}},
+              slug: {label: '슬러그'},
+            }),
             author: fields.text({label: '저작권자 또는 제작자', validation: {isRequired: true}}),
             type: fields.select({
               label: '유형',
