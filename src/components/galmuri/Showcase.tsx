@@ -10,6 +10,7 @@ import {Skeleton} from '@/components/ui/skeleton'
 import galmuri from '@/contents/galmuri/index.json'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import {useEffect, useState} from 'react'
+import type {GetImageResult} from 'astro'
 
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',
@@ -19,12 +20,12 @@ const linkPrefix = {
 
 export function Showcase() {
   const [screenshots, setScreenshots] = useState<
-    Record<string, {src: string; srcSet: {attribute: string}}>
+    Record<string, GetImageResult>
   >({})
 
   useEffect(() => {
     const fetchData = async () => {
-      const screenshots: Record<string, {src: string; srcSet: {attribute: string}}> = {}
+      const screenshots: Record<string, GetImageResult> = {}
       await Promise.all(
         galmuri.showcase.map(async (game) => {
           /* @vite-ignore */
