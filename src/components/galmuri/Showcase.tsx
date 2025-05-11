@@ -25,14 +25,16 @@ export function Showcase() {
   useEffect(() => {
     const fetchData = async () => {
       const screenshots: Record<string, {src: string; srcSet: {attribute: string}}> = {}
-      galmuri.showcase.map(async (game) => {
-        const screenshot = await import(`/src/assets/${game.screenshot}`)
-        screenshots[game.title.slug] = await getImage({
-          src: screenshot.default,
-          format: 'avif',
-          height: 640,
+      await Promise.all(
+        galmuri.showcase.map(async (game) => {
+          const screenshot = await import(`../../assets/${game.screenshot}`)
+          screenshots[game.title.slug] = await getImage({
+            src: screenshot.default,
+            format: 'avif',
+            height: 640,
+          })
         })
-      })
+      )
       setScreenshots(screenshots)
     }
     fetchData()
@@ -45,34 +47,41 @@ export function Showcase() {
       plugins={[WheelGesturesPlugin()]}
     >
       <CarouselContent className="-ml-[1em]">
-        {galmuri.showcase.map(async (game) => {
-          // const aspectRatio = game.image.attributes.width / game.image.attributes.height
+        {galmuri.showcase.map((game) => {
+          const screenshot = screenshots[game.title.slug]
+          // const aspectRatio = screenshot.attributes.width / screenshot.attributes.height
 
           return (
             <CarouselItem key={game.title.slug} className="basis-auto pl-[1em]">
               <figure>
-                <Skeleton
-                  // style={{aspectRatio: aspectRatio}}
-                  className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
-                />
-                <img
-                  // style={{aspectRatio: aspectRatio}}
-                  src={screenshots[game.title.slug].src}
-                  srcSet={screenshots[game.title.slug].srcSet.attribute}
-                  alt={game.title.name}
-                />
-                <span className="overlay" />
-                <figcaption>
-                  <a
-                    href={linkPrefix[game.type as keyof typeof linkPrefix] + game.link}
-                    target="_blank"
-                    rel="nofollow noreferrer noopener"
-                  >
-                    {game.title.name}
-                  </a>{' '}
-                  {game.type === 'patch' ? 'by' : '©'} {game.author}
-                  {game.type === 'patch' && ' (사용자 패치)'}
-                </figcaption>
+                {!screenshot ? (
+                  <Skeleton className="rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80" />
+                ) : (
+                  <>
+                    <Skeleton
+                      // style={{aspectRatio: aspectRatio}}
+                      className="absolute -z-10 rounded-none h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80"
+                    />
+                    <img
+                      // style={{aspectRatio: aspectRatio}}
+                      src={screenshot.src}
+                      srcSet={screenshot.srcSet.attribute}
+                      alt={game.title.name}
+                    />
+                    <span className="overlay" />
+                    <figcaption>
+                      <a
+                        href={linkPrefix[game.type as keyof typeof linkPrefix] + game.link}
+                        target="_blank"
+                        rel="nofollow noreferrer noopener"
+                      >
+                        {game.title.name}
+                      </a>{' '}
+                      {game.type === 'patch' ? 'by' : '©'} {game.author}
+                      {game.type === 'patch' && ' (사용자 패치)'}
+                    </figcaption>
+                  </>
+                )}
               </figure>
             </CarouselItem>
           )
