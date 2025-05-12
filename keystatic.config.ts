@@ -73,7 +73,6 @@ export default config({
             itemLabel: (props) => props.fields.title.value.name,
           },
         ),
-        content: fields.mdx({label: '내용'}),
       },
     }),
   },
