@@ -17,7 +17,7 @@ pnpm build
 pnpm preview
 ```
 
-`pnpm prevoew` 실행 후 `/chzzk`에 치지직으로 로그인하여 쿠키를 생성했다면 이후에는 `pnpm dev`로 개발 가능.
+`pnpm preview` 실행 후 `/chzzk`에 치지직으로 로그인하여 쿠키를 생성했다면 이후에는 `pnpm dev`로 개발 가능.
 
 ## 참조
 * [치지직 Developers](https://developers.chzzk.naver.com)
