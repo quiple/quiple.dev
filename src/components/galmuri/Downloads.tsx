@@ -3,8 +3,6 @@ import {buttonVariants} from '@/components/ui/button'
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from '@/components/ui/card'
 import galmuri from '@/lib/galmuri'
 
-console.log(galmuri)
-
 interface family {
   name: string
   size: number

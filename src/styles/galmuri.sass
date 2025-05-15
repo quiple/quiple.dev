@@ -121,6 +121,24 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
             position: center
   [aria-roledescription=carousel]
     @include g(g7, 2)
+    &::after
+      @apply content-[''] block absolute top-0 right-0 w-[1em] h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80 bg-background
+      mask:
+        repeat: repeat-y
+        position: right
+        size: calc(100% - var(--px))
+        image: var(--fade)
+    --fade: url('data:image/svg+xml,\
+      <svg viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">\
+        <rect x="0" width="1" height="8" fill-opacity="0.125"/>\
+        <rect x="1" width="1" height="8" fill-opacity="0.25"/>\
+        <rect x="2" width="1" height="8" fill-opacity="0.375"/>\
+        <rect x="3" width="1" height="8" fill-opacity="0.5"/>\
+        <rect x="4" width="1" height="8" fill-opacity="0.625"/>\
+        <rect x="5" width="1" height="8" fill-opacity="0.75"/>\
+        <rect x="6" width="1" height="8" fill-opacity="0.875"/>\
+      </svg>\
+    ')
     button
       @apply top-20 sm:top-[calc(13rem_/_2)] md:top-[calc(15rem_/_2)] lg:top-36 xl:top-40 rounded-none border-(length:--px) text-[1em] hidden md:flex
       svg
