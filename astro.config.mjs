@@ -39,9 +39,9 @@ export default defineConfig({
         output: {
           assetFileNames: (assetInfo) => {
             if (assetInfo.names[0].startsWith('Galmuri')) {
-              return 'assets/[name][extname]'
+              return '_astro/[name][extname]'
             }
-            return 'assets/[name].[hash][extname]'
+            return '_astro/[name].[hash][extname]'
           },
         },
       },
