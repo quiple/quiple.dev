@@ -40,7 +40,11 @@ export function Downloads() {
                         <a
                           key={font.slug}
                           className={`${buttonVariants({variant: 'outline'})} button outline-button`}
-                          href={`/fonts/${font.name}.${format}`}
+                          href={
+                            (
+                              galmuri[font.slug as keyof typeof galmuri] as Record<string, string>
+                            )?.[format]
+                          }
                           download
                           data-umami-event="Galmuri 다운로드"
                           data-umami-event-font={font.name}
