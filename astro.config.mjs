@@ -34,13 +34,18 @@ export default defineConfig({
         },
       },
     },
-    build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: '[name].[ext]',
-        },
-      },
-    },
+    // build: {
+    //   rollupOptions: {
+    //     output: {
+    //       assetFileNames: (assetInfo) => {
+    //         if (assetInfo.names[0].startsWith('Galmuri')) {
+    //           return '[name][extname]'
+    //         }
+    //         return '[name].[hash][extname]'
+    //       },
+    //     },
+    //   },
+    // },
   },
   markdown: {
     shikiConfig: {
