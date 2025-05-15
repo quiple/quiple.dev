@@ -122,7 +122,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   [aria-roledescription=carousel]
     @include g(g7, 2)
     &::after
-      @apply content-[''] block absolute top-0 right-0 w-[2em] h-40 sm:h-52 md:h-60 lg:h-72 xl:h-80 bg-background
+      @apply content-[''] block absolute top-0 right-0 w-[2em] h-full bg-background
       mask:
         repeat: repeat-y
         position: right
@@ -130,13 +130,13 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
         image: var(--fade)
     --fade: url('data:image/svg+xml,\
       <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">\
-        <rect x="2" width="2" height="18" fill-opacity="0.125"/>\
-        <rect x="4" width="2" height="18" fill-opacity="0.25"/>\
-        <rect x="6" width="2" height="18" fill-opacity="0.375"/>\
-        <rect x="8" width="2" height="18" fill-opacity="0.5"/>\
-        <rect x="10" width="2" height="18" fill-opacity="0.625"/>\
-        <rect x="12" width="2" height="18" fill-opacity="0.75"/>\
-        <rect x="14" width="2" height="18" fill-opacity="0.875"/>\
+        <rect x="2" width="2" height="16" fill-opacity="0.125"/>\
+        <rect x="4" width="2" height="16" fill-opacity="0.25"/>\
+        <rect x="6" width="2" height="16" fill-opacity="0.375"/>\
+        <rect x="8" width="2" height="16" fill-opacity="0.5"/>\
+        <rect x="10" width="2" height="16" fill-opacity="0.625"/>\
+        <rect x="12" width="2" height="16" fill-opacity="0.75"/>\
+        <rect x="14" width="2" height="16" fill-opacity="0.875"/>\
       </svg>\
     ')
     button
