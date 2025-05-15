@@ -66,7 +66,7 @@ importers:
         specifier: ^19.1.5
         version: 19.1.5(@types/react@19.1.4)
       astro:
-        specifier: ^5.7.13
+        specifier: ^5.7.12
         version: 5.7.13(@types/node@22.15.18)(idb-keyval@6.2.2)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.2)(sass@1.88.0)(typescript@5.8.3)(yaml@2.7.1)
       class-variance-authority:
         specifier: ^0.7.1
