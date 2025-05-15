@@ -15,6 +15,7 @@ export default defineConfig({
   integrations: [mdx(), react(), sitemap(), markdoc(), keystatic()],
   vite: {
     plugins: [tailwindcss()],
+    assetsInclude: ['**/*.bdf'],
     resolve: {
       alias: import.meta.env.PROD
         ? {

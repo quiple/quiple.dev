@@ -1,6 +1,9 @@
 import {fonts, formats} from '@/components/galmuri/data'
 import {buttonVariants} from '@/components/ui/button'
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from '@/components/ui/card'
+import galmuri from '@/lib/galmuri'
+
+console.log(galmuri)
 
 interface family {
   name: string
@@ -37,7 +40,7 @@ export function Downloads() {
                         <a
                           key={font.slug}
                           className={`${buttonVariants({variant: 'outline'})} button outline-button`}
-                          href={`https://cdn.jsdelivr.net/npm/galmuri/dist/${font.name.replaceAll(' ', '-')}.${format}`}
+                          href={(galmuri[font.slug as keyof typeof galmuri] as Record<string, string>)?.[format]}
                           download
                           data-umami-event="Galmuri 다운로드"
                           data-umami-event-font={font.name}
