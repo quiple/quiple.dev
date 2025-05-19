@@ -28,8 +28,8 @@
     "@radix-ui/react-slider": "^1.3.4",
     "@radix-ui/react-slot": "^1.2.2",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.6",
-    "@types/node": "^22.15.18",
+    "@tailwindcss/vite": "^4.1.7",
+    "@types/node": "^22.15.19",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "astro": "^5.7.13",
@@ -39,23 +39,23 @@
     "embla-carousel-wheel-gestures": "^8.0.2",
     "galmuri": "^2.39.9",
     "inter-ui": "^4.1.0",
-    "lucide-react": "^0.510.0",
+    "lucide-react": "^0.511.0",
     "qrcode.react": "^4.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-textarea-autosize": "^8.5.9",
     "rehype-external-links": "^3.0.0",
-    "sass": "^1.88.0",
-    "simple-icons": "^14.13.0",
+    "sass": "^1.89.0",
+    "simple-icons": "^14.14.0",
     "socket.io-client": "^2.5.0",
     "tailwind-merge": "^3.3.0",
-    "tailwindcss": "^4.1.6",
+    "tailwindcss": "^4.1.7",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0-beta.4",
     "husky": "^9.1.7",
-    "wrangler": "^4.15.1"
+    "wrangler": "^4.15.2"
   }
 }
