@@ -1,4 +1,7 @@
 import {getImage} from 'astro:assets'
+import type {GetImageResult} from 'astro'
+import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
+import {useEffect, useState} from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +11,6 @@ import {
 } from '@/components/ui/carousel'
 import {Skeleton} from '@/components/ui/skeleton'
 import galmuri from '@/contents/galmuri/index.json'
-import type {GetImageResult} from 'astro'
-import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
-import {useEffect, useState} from 'react'
 
 const linkPrefix = {
   steam: 'https://store.steampowered.com/app/',

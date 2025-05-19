@@ -1,3 +1,4 @@
+import {LogOut} from 'lucide-react'
 import {ChzzkAvatar} from '@/components/chzzk/avatar'
 import {Button} from '@/components/ui/button'
 import {
@@ -7,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import type {ChzzkChannel} from '@/lib/chzzk'
-import {LogOut} from 'lucide-react'
 
 export function ChzzkProfile({channel}: {channel: ChzzkChannel}) {
   return (

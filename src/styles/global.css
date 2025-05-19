@@ -70,7 +70,11 @@
   }
   * {
     @apply border-border;
-    font-feature-settings: 'cv01' 1, 'cv10' 1, 'ss07' 1, 'ss08' 1;
+    font-feature-settings:
+      'cv01' 1,
+      'cv10' 1,
+      'ss07' 1,
+      'ss08' 1;
   }
   body {
     @apply bg-background text-foreground;

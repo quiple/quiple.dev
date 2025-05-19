@@ -1,4 +1,6 @@
 ---
+// @ts-ignore
+import io from 'socket.io-client'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
@@ -11,8 +13,6 @@ import {
   subscribeChat,
   subscribeDonation,
 } from '@/lib/chzzk'
-// @ts-ignore
-import io from 'socket.io-client'
 
 const isSignedIn = await checkSignedIn(Astro.cookies, Astro.locals)
 
