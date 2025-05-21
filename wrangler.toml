@@ -1,2 +1,5 @@
 name = "quiple-dev"
 compatibility_date = "2025-05-19"
+
+[assets]
+directory = "./dist/"
