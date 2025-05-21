@@ -9,3 +9,11 @@ binding = "ASSETS"
 
 [observability]
 enabled = true
+
+[vars]
+KEYSTATIC_GITHUB_CLIENT_ID = "Iv23linT22YZnRWliZUm"
+PUBLIC_KEYSTATIC_GITHUB_APP_SLUG = "quiple-keystatic"
+
+CHZZK_CLIENTID = "f9bd31b8-3b11-4f86-9dc4-f959300d5740"
+CHZZK_REDIRECTURI = "https://quiple.dev/chzzk/callback"
+CHZZK_STATE = "quiple"
