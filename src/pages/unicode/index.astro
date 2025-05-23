@@ -2,17 +2,16 @@
 import {getCollection} from 'astro:content'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import {BlocksTable} from '@/components/unicode/blocks'
 import Layout from '@/layouts/Layout.astro'
 
-// const unicodeData = await getCollection('unicodeData')
+const unicodeBlocks = await getCollection('unicodeBlocks')
 ---
 
 <Layout title="유니코드">
   <Header />
   <main class="container-x py-4">
-    <!-- {unicodeData.map(char => {
-      return <>{char.data.name}<br /></>
-    })} -->
+    <BlocksTable unicodeBlocks={unicodeBlocks} />
   </main>
   <Footer />
 </Layout>
