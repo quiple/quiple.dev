@@ -4,8 +4,8 @@ id;last;name;nameKo
 0100;017F;Latin Extended-A;라틴 문자 확장-A
 0180;024F;Latin Extended-B;라틴 문자 확장-B
 0250;02AF;IPA Extensions;IPA 확장
-02B0;02FF;Spacing Modifier Letters;
-0300;036F;Combining Diacritical Marks;
+02B0;02FF;Spacing Modifier Letters;수식 문자
+0300;036F;Combining Diacritical Marks;조합용 분음 부호
 0370;03FF;Greek and Coptic;그리스 문자 및 콥트 문자
 0400;04FF;Cyrillic;키릴 문자
 0500;052F;Cyrillic Supplement;키릴 문자 보충
@@ -40,7 +40,7 @@ id;last;name;nameKo
 1200;137F;Ethiopic;그으즈 문자
 1380;139F;Ethiopic Supplement;그으즈 문자 보충
 13A0;13FF;Cherokee;체로키 문자
-1400;167F;Unified Canadian Aboriginal Syllabics;
+1400;167F;Unified Canadian Aboriginal Syllabics;통합 캐나다 원주민 음절문자
 1680;169F;Ogham;오검
 16A0;16FF;Runic;룬 문자
 1700;171F;Tagalog;바이바이인
@@ -49,63 +49,63 @@ id;last;name;nameKo
 1760;177F;Tagbanwa;타그반와 문자
 1780;17FF;Khmer;크메르 문자
 1800;18AF;Mongolian;몽골 문자
-18B0;18FF;Unified Canadian Aboriginal Syllabics Extended;
+18B0;18FF;Unified Canadian Aboriginal Syllabics Extended;통합 캐나다 원주민 음절문자 확장
 1900;194F;Limbu;림부 문자
 1950;197F;Tai Le;타이느아 문자
 1980;19DF;New Tai Lue;타이르 문자
 19E0;19FF;Khmer Symbols;크메르 문자 기호
 1A00;1A1F;Buginese;론타라 문자
 1A20;1AAF;Tai Tham;타이탐
-1AB0;1AFF;Combining Diacritical Marks Extended;
+1AB0;1AFF;Combining Diacritical Marks Extended;조합용 분음 부호 확장
 1B00;1B7F;Balinese;발리 문자
 1B80;1BBF;Sundanese;순다 문자
 1BC0;1BFF;Batak;바탁 문자
 1C00;1C4F;Lepcha;렙차 문자
-1C50;1C7F;Ol Chiki;
+1C50;1C7F;Ol Chiki;올치키 문자
 1C80;1C8F;Cyrillic Extended-C;키릴 문자 확장-C
 1C90;1CBF;Georgian Extended;조지아 문자 확장
 1CC0;1CCF;Sundanese Supplement;순다 문자 보충
 1CD0;1CFF;Vedic Extensions;베다 문자 확장
-1D00;1D7F;Phonetic Extensions;
-1D80;1DBF;Phonetic Extensions Supplement;
-1DC0;1DFF;Combining Diacritical Marks Supplement;
+1D00;1D7F;Phonetic Extensions;음성 확장
+1D80;1DBF;Phonetic Extensions Supplement;음성 확장 보충
+1DC0;1DFF;Combining Diacritical Marks Supplement;조합용 분음 부호 보충
 1E00;1EFF;Latin Extended Additional;라틴 문자 확장 추가
 1F00;1FFF;Greek Extended;그리스 문자 확장
 2000;206F;General Punctuation;일반 문장 부호
-2070;209F;Superscripts and Subscripts;
+2070;209F;Superscripts and Subscripts;위 첨자 및 아래 첨자
 20A0;20CF;Currency Symbols;통화 기호
-20D0;20FF;Combining Diacritical Marks for Symbols;
-2100;214F;Letterlike Symbols;
+20D0;20FF;Combining Diacritical Marks for Symbols;기호 조합용 분음 부호
+2100;214F;Letterlike Symbols;문자형 기호
 2150;218F;Number Forms;숫자 형식
 2190;21FF;Arrows;화살표
-2200;22FF;Mathematical Operators;
-2300;23FF;Miscellaneous Technical;
-2400;243F;Control Pictures;
+2200;22FF;Mathematical Operators;수학 연산자
+2300;23FF;Miscellaneous Technical;기타 기술용 기호
+2400;243F;Control Pictures;제어용 기호
 2440;245F;Optical Character Recognition;
-2460;24FF;Enclosed Alphanumerics;
+2460;24FF;Enclosed Alphanumerics;괄호 영숫자
 2500;257F;Box Drawing;상자 그리기
 2580;259F;Block Elements;블록 요소
 25A0;25FF;Geometric Shapes;기하학적 도형
 2600;26FF;Miscellaneous Symbols;기타 기호
 2700;27BF;Dingbats;딩뱃
 27C0;27EF;Miscellaneous Mathematical Symbols-A;기타 수학 기호-A
-27F0;27FF;Supplemental Arrows-A;
+27F0;27FF;Supplemental Arrows-A;보충 화살표-A
 2800;28FF;Braille Patterns;점자 무늬
-2900;297F;Supplemental Arrows-B;
+2900;297F;Supplemental Arrows-B;보충 화살표-B
 2980;29FF;Miscellaneous Mathematical Symbols-B;기타 수학 기호-B
-2A00;2AFF;Supplemental Mathematical Operators;
+2A00;2AFF;Supplemental Mathematical Operators;보충 수학 연산자
 2B00;2BFF;Miscellaneous Symbols and Arrows;기타 기호 및 화살표
 2C00;2C5F;Glagolitic;글라골 문자
 2C60;2C7F;Latin Extended-C;라틴 문자 확장-C
 2C80;2CFF;Coptic;콥트 문자
 2D00;2D2F;Georgian Supplement;조지아 문자 보충
-2D30;2D7F;Tifinagh;
+2D30;2D7F;Tifinagh;티피나그
 2D80;2DDF;Ethiopic Extended;그으즈 문자 확장
 2DE0;2DFF;Cyrillic Extended-A;키릴 문자 확장-A
 2E00;2E7F;Supplemental Punctuation;보충 문장 부호
 2E80;2EFF;CJK Radicals Supplement;한중일 부수 보충
-2F00;2FDF;Kangxi Radicals;
-2FF0;2FFF;Ideographic Description Characters;
+2F00;2FDF;Kangxi Radicals;강희자전 부수
+2FF0;2FFF;Ideographic Description Characters;한자 설명 문자
 3000;303F;CJK Symbols and Punctuation;한중일 기호 및 문장 부호
 3040;309F;Hiragana;히라가나
 30A0;30FF;Katakana;가타카나
@@ -115,10 +115,10 @@ id;last;name;nameKo
 31A0;31BF;Bopomofo Extended;주음부호 확장
 31C0;31EF;CJK Strokes;한중일 필획
 31F0;31FF;Katakana Phonetic Extensions;가타카나 음성 확장
-3200;32FF;Enclosed CJK Letters and Months;
+3200;32FF;Enclosed CJK Letters and Months;괄호 한중일 문자 및 월 기호
 3300;33FF;CJK Compatibility;한중일 호환용
 3400;4DBF;CJK Unified Ideographs Extension A;한중일 통합 한자 확장 A
-4DC0;4DFF;Yijing Hexagram Symbols;
+4DC0;4DFF;Yijing Hexagram Symbols;역경 64괘 기호
 4E00;9FFF;CJK Unified Ideographs;한중일 통합 한자
 A000;A48F;Yi Syllables;이 문자 음절
 A490;A4CF;Yi Radicals;이 문자 부수
@@ -126,43 +126,43 @@ A4D0;A4FF;Lisu;프레이저 문자
 A500;A63F;Vai;바이 문자
 A640;A69F;Cyrillic Extended-B;키릴 문자 확장-B
 A6A0;A6FF;Bamum;바뭄 문자
-A700;A71F;Modifier Tone Letters;
+A700;A71F;Modifier Tone Letters;성조 수식 문자
 A720;A7FF;Latin Extended-D;라틴 문자 확장-D
-A800;A82F;Syloti Nagri;
-A830;A83F;Common Indic Number Forms;
-A840;A87F;Phags-pa;
-A880;A8DF;Saurashtra;
+A800;A82F;Syloti Nagri;실헤티 나가리
+A830;A83F;Common Indic Number Forms;일반 인도 숫자 형식
+A840;A87F;Phags-pa;파스파 문자
+A880;A8DF;Saurashtra;사우라슈트라 문자
 A8E0;A8FF;Devanagari Extended;데바나가리 확장
-A900;A92F;Kayah Li;
-A930;A95F;Rejang;
+A900;A92F;Kayah Li;카야리 문자
+A930;A95F;Rejang;레장 문자
 A960;A97F;Hangul Jamo Extended-A;한글 자모 확장-A
 A980;A9DF;Javanese;자바 문자
 A9E0;A9FF;Myanmar Extended-B;미얀마 문자 확장-B
-AA00;AA5F;Cham;
+AA00;AA5F;Cham;참 문자
 AA60;AA7F;Myanmar Extended-A;미얀마 문자 확장-A
 AA80;AADF;Tai Viet;타이비엣 문자
-AAE0;AAFF;Meetei Mayek Extensions;
+AAE0;AAFF;Meetei Mayek Extensions;메이테이 문자 확장
 AB00;AB2F;Ethiopic Extended-A;그으즈 문자 확장-A
 AB30;AB6F;Latin Extended-E;라틴 문자 확장-E
-AB70;ABBF;Cherokee Supplement;
-ABC0;ABFF;Meetei Mayek;
+AB70;ABBF;Cherokee Supplement;체로키 문자 보충
+ABC0;ABFF;Meetei Mayek;메이테이 문자
 AC00;D7AF;Hangul Syllables;한글 음절
 D7B0;D7FF;Hangul Jamo Extended-B;한글 자모 확장-B
-D800;DB7F;High Surrogates;
-DB80;DBFF;High Private Use Surrogates;
-DC00;DFFF;Low Surrogates;
-E000;F8FF;Private Use Area;
+D800;DB7F;High Surrogates;상단 서러게이트
+DB80;DBFF;High Private Use Surrogates;상단 사용자 정의 서러게이트
+DC00;DFFF;Low Surrogates;하단 서러게이트
+E000;F8FF;Private Use Area;사용자 정의 영역
 F900;FAFF;CJK Compatibility Ideographs;한중일 호환용 한자
-FB00;FB4F;Alphabetic Presentation Forms;
-FB50;FDFF;Arabic Presentation Forms-A;
-FE00;FE0F;Variation Selectors;
+FB00;FB4F;Alphabetic Presentation Forms;알파벳 표현 형식
+FB50;FDFF;Arabic Presentation Forms-A;아랍 문자 표현 형식-A
+FE00;FE0F;Variation Selectors;변형 선택자
 FE10;FE1F;Vertical Forms;세로쓰기 형식
-FE20;FE2F;Combining Half Marks;
+FE20;FE2F;Combining Half Marks;조합용 반부호
 FE30;FE4F;CJK Compatibility Forms;한중일 통합 형식
-FE50;FE6F;Small Form Variants;
-FE70;FEFF;Arabic Presentation Forms-B;
+FE50;FE6F;Small Form Variants;소형 형식 변형
+FE70;FEFF;Arabic Presentation Forms-B;아랍 문자 표현 형식-B
 FF00;FFEF;Halfwidth and Fullwidth Forms;반각 및 전각 형식
-FFF0;FFFF;Specials;
+FFF0;FFFF;Specials;특수 문자
 10000;1007F;Linear B Syllabary;
 10080;100FF;Linear B Ideograms;
 10100;1013F;Aegean Numbers;
@@ -242,7 +242,7 @@ FFF0;FFFF;Specials;
 119A0;119FF;Nandinagari;
 11A00;11A4F;Zanabazar Square;
 11A50;11AAF;Soyombo;
-11AB0;11ABF;Unified Canadian Aboriginal Syllabics Extended-A;
+11AB0;11ABF;Unified Canadian Aboriginal Syllabics Extended-A;통합 캐나다 원주민 음절문자 확장-A
 11AC0;11AFF;Pau Cin Hau;
 11B00;11B5F;Devanagari Extended-A;데바나가리 확장-A
 11BC0;11BFF;Sunuwar;
@@ -283,10 +283,10 @@ FFF0;FFFF;Specials;
 1B170;1B2FF;Nushu;
 1BC00;1BC9F;Duployan;
 1BCA0;1BCAF;Shorthand Format Controls;
-1CC00;1CEBF;Symbols for Legacy Computing Supplement;
-1CF00;1CFCF;Znamenny Musical Notation;
-1D000;1D0FF;Byzantine Musical Symbols;
-1D100;1D1FF;Musical Symbols;
+1CC00;1CEBF;Symbols for Legacy Computing Supplement;레거시 컴퓨팅용 기호 보충
+1CF00;1CFCF;Znamenny Musical Notation;즈나메니 기보법
+1D000;1D0FF;Byzantine Musical Symbols;비잔틴 악상 기호
+1D100;1D1FF;Musical Symbols;악상 기호
 1D200;1D24F;Ancient Greek Musical Notation;
 1D2C0;1D2DF;Kaktovik Numerals;
 1D2E0;1D2FF;Mayan Numerals;
@@ -302,28 +302,28 @@ FFF0;FFFF;Specials;
 1E2C0;1E2FF;Wancho;
 1E4D0;1E4FF;Nag Mundari;
 1E5D0;1E5FF;Ol Onal;
-1E7E0;1E7FF;Ethiopic Extended-B;
+1E7E0;1E7FF;Ethiopic Extended-B;그으즈 문자 확장-B
 1E800;1E8DF;Mende Kikakui;
-1E900;1E95F;Adlam;
-1EC70;1ECBF;Indic Siyaq Numbers;
-1ED00;1ED4F;Ottoman Siyaq Numbers;
-1EE00;1EEFF;Arabic Mathematical Alphabetic Symbols;
+1E900;1E95F;Adlam;아들람
+1EC70;1ECBF;Indic Siyaq Numbers;인도 시야크 숫자
+1ED00;1ED4F;Ottoman Siyaq Numbers;오스만 시야크 숫자
+1EE00;1EEFF;Arabic Mathematical Alphabetic Symbols;아랍 수학 알파벳 기호
 1F000;1F02F;Mahjong Tiles;마작패
 1F030;1F09F;Domino Tiles;도미노 타일
 1F0A0;1F0FF;Playing Cards;플레잉 카드
-1F100;1F1FF;Enclosed Alphanumeric Supplement;
-1F200;1F2FF;Enclosed Ideographic Supplement;
-1F300;1F5FF;Miscellaneous Symbols and Pictographs;
+1F100;1F1FF;Enclosed Alphanumeric Supplement;괄호 영숫자 보충
+1F200;1F2FF;Enclosed Ideographic Supplement;괄호 한자 보충
+1F300;1F5FF;Miscellaneous Symbols and Pictographs;기타 기호 및 그림 문자
 1F600;1F64F;Emoticons;이모티콘
 1F650;1F67F;Ornamental Dingbats;장식용 딩뱃
-1F680;1F6FF;Transport and Map Symbols;
-1F700;1F77F;Alchemical Symbols;
+1F680;1F6FF;Transport and Map Symbols;교통 및 지도 기호
+1F700;1F77F;Alchemical Symbols;연금술 기호
 1F780;1F7FF;Geometric Shapes Extended;기하학적 도형 확장
 1F800;1F8FF;Supplemental Arrows-C;보충 화살표-C
-1F900;1F9FF;Supplemental Symbols and Pictographs;
+1F900;1F9FF;Supplemental Symbols and Pictographs;보충 기호 및 그림 문자
 1FA00;1FA6F;Chess Symbols;체스 기호
-1FA70;1FAFF;Symbols and Pictographs Extended-A;
-1FB00;1FBFF;Symbols for Legacy Computing;
+1FA70;1FAFF;Symbols and Pictographs Extended-A;기호 및 그림 문자 확장-A
+1FB00;1FBFF;Symbols for Legacy Computing;레거시 컴퓨팅용 기호
 20000;2A6DF;CJK Unified Ideographs Extension B;한중일 통합 한자 확장 B
 2A700;2B73F;CJK Unified Ideographs Extension C;한중일 통합 한자 확장 C
 2B740;2B81F;CJK Unified Ideographs Extension D;한중일 통합 한자 확장 D
