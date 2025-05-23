@@ -1,0 +1,21 @@
+---
+import {getEntry} from 'astro:content'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import Layout from '@/layouts/Layout.astro'
+
+const {id} = Astro.params
+if (id === undefined) return Astro.redirect('/404')
+if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/${id.toLowerCase()}`)
+const char = await getEntry('unicodeData', id.toUpperCase())
+if (char === undefined) return Astro.redirect('/404')
+---
+
+<Layout title="유니코드">
+  <Header />
+  <main class="container-x py-4">
+    id: {char.data.id}<br/>
+    name: {char.data.name}
+  </main>
+  <Footer />
+</Layout>
