@@ -1,63 +1,63 @@
 id;last;name;nameKo
-0000;007F;Basic Latin;
-0080;00FF;Latin-1 Supplement;
-0100;017F;Latin Extended-A;
-0180;024F;Latin Extended-B;
-0250;02AF;IPA Extensions;
+0000;007F;Basic Latin;기본 라틴 문자
+0080;00FF;Latin-1 Supplement;라틴-1 보충
+0100;017F;Latin Extended-A;라틴 문자 확장-A
+0180;024F;Latin Extended-B;라틴 문자 확장-B
+0250;02AF;IPA Extensions;IPA 확장
 02B0;02FF;Spacing Modifier Letters;
 0300;036F;Combining Diacritical Marks;
-0370;03FF;Greek and Coptic;
-0400;04FF;Cyrillic;
-0500;052F;Cyrillic Supplement;
-0530;058F;Armenian;
-0590;05FF;Hebrew;
-0600;06FF;Arabic;
-0700;074F;Syriac;
-0750;077F;Arabic Supplement;
-0780;07BF;Thaana;
-07C0;07FF;NKo;
-0800;083F;Samaritan;
-0840;085F;Mandaic;
-0860;086F;Syriac Supplement;
-0870;089F;Arabic Extended-B;
-08A0;08FF;Arabic Extended-A;
-0900;097F;Devanagari;
-0980;09FF;Bengali;
-0A00;0A7F;Gurmukhi;
-0A80;0AFF;Gujarati;
-0B00;0B7F;Oriya;
-0B80;0BFF;Tamil;
-0C00;0C7F;Telugu;
-0C80;0CFF;Kannada;
-0D00;0D7F;Malayalam;
-0D80;0DFF;Sinhala;
-0E00;0E7F;Thai;
-0E80;0EFF;Lao;
-0F00;0FFF;Tibetan;
-1000;109F;Myanmar;
-10A0;10FF;Georgian;
-1100;11FF;Hangul Jamo;
-1200;137F;Ethiopic;
-1380;139F;Ethiopic Supplement;
-13A0;13FF;Cherokee;
+0370;03FF;Greek and Coptic;그리스 문자 및 콥트 문자
+0400;04FF;Cyrillic;키릴 문자
+0500;052F;Cyrillic Supplement;키릴 문자 보충
+0530;058F;Armenian;아르메니아 문자
+0590;05FF;Hebrew;히브리 문자
+0600;06FF;Arabic;아랍 문자
+0700;074F;Syriac;시리아 문자
+0750;077F;Arabic Supplement;아랍 문자 보충
+0780;07BF;Thaana;타나
+07C0;07FF;NKo;응코 문자
+0800;083F;Samaritan;사마리아 문자
+0840;085F;Mandaic;만다야 문자
+0860;086F;Syriac Supplement;시리아 문자 보충
+0870;089F;Arabic Extended-B;아랍 문자 확장-A
+08A0;08FF;Arabic Extended-A;아랍 문자 확장-B
+0900;097F;Devanagari;데바나가리
+0980;09FF;Bengali;벵골 문자
+0A00;0A7F;Gurmukhi;구르무키
+0A80;0AFF;Gujarati;구자라트 문자
+0B00;0B7F;Oriya;오리야 문자
+0B80;0BFF;Tamil;타밀 문자
+0C00;0C7F;Telugu;텔루구 문자
+0C80;0CFF;Kannada;칸나다 문자
+0D00;0D7F;Malayalam;말라얄람 문자
+0D80;0DFF;Sinhala;싱할라 문자
+0E00;0E7F;Thai;타이 문자
+0E80;0EFF;Lao;라오 문자
+0F00;0FFF;Tibetan;티베트 문자
+1000;109F;Myanmar;미얀마 문자
+10A0;10FF;Georgian;조지아 문자
+1100;11FF;Hangul Jamo;한글 자모
+1200;137F;Ethiopic;그으즈 문자
+1380;139F;Ethiopic Supplement;그으즈 문자 보충
+13A0;13FF;Cherokee;체로키 문자
 1400;167F;Unified Canadian Aboriginal Syllabics;
-1680;169F;Ogham;
-16A0;16FF;Runic;
-1700;171F;Tagalog;
-1720;173F;Hanunoo;
-1740;175F;Buhid;
-1760;177F;Tagbanwa;
-1780;17FF;Khmer;
-1800;18AF;Mongolian;
+1680;169F;Ogham;오검
+16A0;16FF;Runic;룬
+1700;171F;Tagalog;바이바이인
+1720;173F;Hanunoo;하누누 문자
+1740;175F;Buhid;부히드 문자
+1760;177F;Tagbanwa;타그반와 문자
+1780;17FF;Khmer;크메르 문자
+1800;18AF;Mongolian;몽골 문자
 18B0;18FF;Unified Canadian Aboriginal Syllabics Extended;
-1900;194F;Limbu;
-1950;197F;Tai Le;
-1980;19DF;New Tai Lue;
-19E0;19FF;Khmer Symbols;
-1A00;1A1F;Buginese;
-1A20;1AAF;Tai Tham;
+1900;194F;Limbu;림부 문자
+1950;197F;Tai Le;타이느아 문자
+1980;19DF;New Tai Lue;타이르 문자
+19E0;19FF;Khmer Symbols;크메르 문자 기호
+1A00;1A1F;Buginese;론타라 문자
+1A20;1AAF;Tai Tham;타이탐
 1AB0;1AFF;Combining Diacritical Marks Extended;
-1B00;1B7F;Balinese;
+1B00;1B7F;Balinese;발리 문자
 1B80;1BBF;Sundanese;
 1BC0;1BFF;Batak;
 1C00;1C4F;Lepcha;
@@ -110,7 +110,7 @@ id;last;name;nameKo
 3040;309F;Hiragana;
 30A0;30FF;Katakana;
 3100;312F;Bopomofo;
-3130;318F;Hangul Compatibility Jamo;
+3130;318F;Hangul Compatibility Jamo;한글 호환용 자모
 3190;319F;Kanbun;
 31A0;31BF;Bopomofo Extended;
 31C0;31EF;CJK Strokes;
@@ -333,7 +333,7 @@ FFF0;FFFF;Specials;
 2F800;2FA1F;CJK Compatibility Ideographs Supplement;
 30000;3134F;CJK Unified Ideographs Extension G;
 31350;323AF;CJK Unified Ideographs Extension H;
-E0000;E007F;Tags;
+E0000;E007F;Tags;태그
 E0100;E01EF;Variation Selectors Supplement;
 F0000;FFFFF;Supplementary Private Use Area-A;
 100000;10FFFF;Supplementary Private Use Area-B;
