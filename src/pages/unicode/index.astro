@@ -1,0 +1,18 @@
+---
+import {getCollection} from 'astro:content'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import Layout from '@/layouts/Layout.astro'
+
+const unicodeData = await getCollection('unicodeData')
+---
+
+<Layout title="유니코드">
+  <Header />
+  <main class="container-x py-4">
+    {unicodeData.map(char => {
+      return <>{char.data.name}<br /></>
+    })}
+  </main>
+  <Footer />
+</Layout>
