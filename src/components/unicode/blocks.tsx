@@ -15,7 +15,10 @@ export function BlocksTable({unicodeBlocks}: {unicodeBlocks: any}) {
             <TableCell>
               {block.data.id}~{block.data.last}
             </TableCell>
-            <TableCell>{block.data.nameKo}<small className="block">{block.data.name}</small></TableCell>
+            <TableCell>
+              {block.data.nameKo}
+              <small className="block">{block.data.name}</small>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
