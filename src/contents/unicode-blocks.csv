@@ -232,7 +232,7 @@ FFF0;FFFF;Specials;특수 문자
 11480;114DF;Tirhuta;
 11580;115FF;Siddham;
 11600;1165F;Modi;
-11660;1167F;Mongolian Supplement;
+11660;1167F;Mongolian Supplement;몽골 문자 보충
 11680;116CF;Takri;
 116D0;116FF;Myanmar Extended-C;미얀마 문자 확장-C
 11700;1174F;Ahom;
@@ -252,7 +252,7 @@ FFF0;FFFF;Specials;특수 문자
 11D60;11DAF;Gunjala Gondi;
 11EE0;11EFF;Makasar;
 11F00;11F5F;Kawi;
-11FB0;11FBF;Lisu Supplement;
+11FB0;11FBF;Lisu Supplement;프레이저 문자 보충
 11FC0;11FFF;Tamil Supplement;타밀 문자 보충
 12000;123FF;Cuneiform;설형 문자
 12400;1247F;Cuneiform Numbers and Punctuation;설형 숫자 및 문장 부호
