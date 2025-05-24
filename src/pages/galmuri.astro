@@ -32,77 +32,76 @@ import Layout from '@/layouts/Layout.astro'
   @reference '@/styles/global.css'
   @import url('@/styles/galmuri.sass')
 
-  main
-    .title
-      @include g(g9, 3)
-      @apply flex flex-col justify-center gap-6 my-16
-      h1
-        @include g(g7, 9)
-        @apply flex text-white pl-(--px) items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
-        span
-          @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] -translate-y-(--px) active:translate-none active:before:translate-none
-          &::before
-            @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] absolute -z-10 left-0 translate-y-(--px) text-galmuri dark:text-galmuri-invert
-        .g
-          @apply before:content-['G']
-        .a
-          @apply before:content-['a']
-        .l
-          @apply before:content-['l']
-        .m
-          @apply before:content-['m']
-        .u
-          @apply before:content-['u']
-        .r
-          @apply before:content-['r']
-        .i
-          @apply before:content-['i']
-      p
-        @apply [text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow)),0_var(--px)_0_hsl(var(--shadow)),var(--px)_0_0_hsl(var(--shadow))] dark:[text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow-dark)),0_var(--px)_0_hsl(var(--shadow-dark)),var(--px)_0_0_hsl(var(--shadow-dark))]
-        --shadow: 240 10% 80%
-        --shadow-dark: 240 10% 40%
-    .tester
-      @apply flex flex-col gap-[.5em] mt-[1em]
-      .control
-        @apply flex justify-between gap-x-[.5em] sm:gap-x-[1em] gap-y-[.5em] flex-wrap
-        button
-          @include g(g7, 2)
-        .shuffle::before
-          @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-(--px)
-          mask:
-            image: $shuffle
-            repeat: no-repeat
-            position: center
-        .left
-          @apply flex flex-1 gap-x-[.5em] sm:gap-x-[1em] items-center
-          .tester-select, .tester-slider
-            @apply basis-64 min-w-[4em]
-          .tester-font-size
-            @include g(g7, 2)
-            @apply tabular-nums
-      textarea
-        @apply px-[.5em] py-[.25em] leading-normal resize-none overflow-hidden
-    .sponsor
-      @apply mt-[.5em] flex gap-[1em]
-      svg
-        @apply w-40 h-40
-    .download
-      @apply grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[1em] mb-[1em] mt-[.5em]
-      .card
+  .title
+    @include g(g9, 3)
+    @apply flex flex-col justify-center gap-6 my-16
+    h1
+      @include g(g7, 9)
+      @apply flex text-white pl-(--px) items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
+      span
+        @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] -translate-y-(--px) active:translate-none active:before:translate-none
+        &::before
+          @apply [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] absolute -z-10 left-0 translate-y-(--px) text-galmuri dark:text-galmuri-invert
+      .g
+        @apply before:content-['G']
+      .a
+        @apply before:content-['a']
+      .l
+        @apply before:content-['l']
+      .m
+        @apply before:content-['m']
+      .u
+        @apply before:content-['u']
+      .r
+        @apply before:content-['r']
+      .i
+        @apply before:content-['i']
+    p
+      @apply [text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow)),0_var(--px)_0_hsl(var(--shadow)),var(--px)_0_0_hsl(var(--shadow))] dark:[text-shadow:var(--px)_var(--px)_0_hsl(var(--shadow-dark)),0_var(--px)_0_hsl(var(--shadow-dark)),var(--px)_0_0_hsl(var(--shadow-dark))]
+      --shadow: 240 10% 80%
+      --shadow-dark: 240 10% 40%
+  .tester
+    @apply flex flex-col gap-[.5em] mt-[1em]
+    .control
+      @apply flex justify-between gap-x-[.5em] sm:gap-x-[1em] gap-y-[.5em] flex-wrap
+      button
         @include g(g7, 2)
-        @apply border-(length:--px) rounded-none
-        .card-title
-          @include g(g9, 2)
-          @apply font-normal
-        .buttons
-          @apply flex flex-wrap gap-[.5em]
-          a
-            @include g(g7, 2)
-            @apply text-foreground no-underline
-            &[download]::before
-              @apply bg-current inline-block w-[1em] h-[1em] content-[''] -mr-(--px)
-              mask:
-                image: $download
-                repeat: no-repeat
-                position: center
+      .shuffle::before
+        @apply bg-current inline-block w-[1em] h-[1em] content-[''] mr-(--px)
+        mask:
+          image: $shuffle
+          repeat: no-repeat
+          position: center
+      .left
+        @apply flex flex-1 gap-x-[.5em] sm:gap-x-[1em] items-center
+        .tester-select, .tester-slider
+          @apply basis-64 min-w-[4em]
+        .tester-font-size
+          @include g(g7, 2)
+          @apply tabular-nums
+    textarea
+      @apply px-[.5em] py-[.25em] leading-normal resize-none overflow-hidden
+  .sponsor
+    @apply mt-[.5em] flex gap-[1em]
+    svg
+      @apply w-40 h-40
+  .download
+    @apply grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[1em] mb-[1em] mt-[.5em]
+    .card
+      @include g(g7, 2)
+      @apply border-(length:--px) rounded-none
+      .card-title
+        @include g(g9, 2)
+        @apply font-normal
+      .buttons
+        @apply flex flex-wrap gap-[.5em]
+        a
+          @include g(g7, 2)
+          @apply text-foreground no-underline
+          &[download]::before
+            @apply bg-current inline-block w-[1em] h-[1em] content-[''] -mr-(--px)
+            mask:
+              image: $download
+              repeat: no-repeat
+              position: center
 </style>
