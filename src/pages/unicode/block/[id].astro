@@ -27,9 +27,13 @@ const blockData = await getCollection('unicodeData', ({data}) => {
       이름: {block.data.nameKo}<br />
       이름: {block.data.name}
     </section>
-    <section class="grid grid-cols-16">
+    <section class="grid grid-cols-16 gap-0">
       {blockData.map((item) => {
-        return <a class={buttonVariants({ variant: 'ghost', size: 'icon' })} href={`/unicode/${item.id}`}>{String.fromCodePoint(parseInt(item.id, 16))}</a>
+        return (
+          <a class={buttonVariants({variant: 'ghost'})} href={`/unicode/${item.id}`}>
+            {String.fromCodePoint(parseInt(item.id, 16))}
+          </a>
+        )
       })}
     </section>
   </main>
