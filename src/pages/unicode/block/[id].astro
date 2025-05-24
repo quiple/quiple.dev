@@ -29,19 +29,20 @@ const blockData = await getCollection('unicodeData', ({data}) => {
     </section>
     <section class="block-grid">
       <div class="grid grid-cols-16 gap-2">
-        {Array(16).fill(0).map((v, i) => <div>{i.toString(16).toUpperCase()}</div>)}
+        {Array.from({length: 16}, (e, i) => i).map((v) => <div>{v.toString(16).toUpperCase()}</div>)}
       </div>
       <div class="flex">
         <div class="grid grid-rows-16 gap-2">
         </div>
         <div class="grid grid-cols-16 gap-2">
-          {Array(parseInt(blockData[0].id, 16) - parseInt(block.id, 16)).fill(0).map(() => <div />)}
-          {blockData.map((item) => {
-            return (
-              <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${item.id}`}>
-                {String.fromCodePoint(parseInt(item.id, 16))}
-              </a>
-            )
+          {Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (e, i) => i + parseInt(block.id, 16)).map((e, i) => {
+            return blockData.find((v) => parseInt(v.id, 16) === e)
+              ? (
+                <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${e.toString(16)}`}>
+                  {String.fromCodePoint(e)}
+                </a>
+              )
+              : <div class={`${buttonVariants({variant: 'outline', size: 'lg'})} item pointer-events-none`} />
           })}
         </div>
       </div>
