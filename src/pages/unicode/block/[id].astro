@@ -31,7 +31,7 @@ const blockData = await getCollection('unicodeData', ({data}) => {
       <div class="grid">
         {blockData.map((item) => {
           return (
-            <a class={buttonVariants({variant: 'secondary', size: 'lg'})} href={`/unicode/${item.id}`}>
+            <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${item.id}`}>
               {String.fromCodePoint(parseInt(item.id, 16))}
             </a>
           )
@@ -48,4 +48,6 @@ const blockData = await getCollection('unicodeData', ({data}) => {
   .block-grid
     .grid
       @apply grid-cols-16 gap-2
+      .item
+        @apply text-lg
 </style>
