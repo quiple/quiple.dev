@@ -6,16 +6,17 @@ import Layout from '@/layouts/Layout.astro'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
-if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/${id.toLowerCase()}`)
-const char = await getEntry('unicodeData', id.toUpperCase())
+if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
+const char = await getEntry('unicodeBlocks', id.toUpperCase())
 if (char === undefined) return Astro.redirect('/404')
 ---
 
-<Layout title={`유니코드 문자 “${char.data.name}”`}>
+<Layout title={`유니코드 블록 “${char.data.nameKo}”`}>
   <Header />
   <main class="container-x py-4">
-    id: {char.id}<br />
-    name: {char.data.name}
+    범위: {char.id}~{char.data.last}<br />
+    이름: {char.data.nameKo}<br />
+    이름: {char.data.name}
   </main>
   <Footer />
 </Layout>

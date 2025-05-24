@@ -1,17 +1,16 @@
 ---
-import {getCollection} from 'astro:content'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
-import {BlocksTable} from '@/components/unicode/blocks'
+import Content from '@/contents/unicode.mdx'
 import Layout from '@/layouts/Layout.astro'
-
-const unicodeBlocks = await getCollection('unicodeBlocks')
 ---
 
 <Layout title="유니코드">
   <Header />
   <main class="container-x py-4">
-    <BlocksTable unicodeBlocks={unicodeBlocks} />
+    <div class="prose">
+      <Content />
+    </div>
   </main>
   <Footer />
 </Layout>
