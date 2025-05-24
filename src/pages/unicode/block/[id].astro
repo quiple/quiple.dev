@@ -38,7 +38,7 @@ const blockData = await getCollection('unicodeData', ({data}) => {
           {Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (e, i) => i + parseInt(block.id, 16)).map((e) => {
             return blockData.find((f) => parseInt(f.id, 16) === e)
               ? (
-                <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${e.toString(16)}`}>
+                <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${e.toString(16).padStart(4, '0')}`}>
                   {String.fromCodePoint(e)}
                 </a>
               )
