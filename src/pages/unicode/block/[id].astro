@@ -1,5 +1,5 @@
 ---
-import {getEntry} from 'astro:content'
+import {getCollection, getEntry} from 'astro:content'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
@@ -7,16 +7,34 @@ import Layout from '@/layouts/Layout.astro'
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
-const char = await getEntry('unicodeBlocks', id.toUpperCase())
-if (char === undefined) return Astro.redirect('/404')
+const block = await getEntry('unicodeBlocks', id.toUpperCase())
+if (block === undefined) return Astro.redirect('/404')
+
+const blockData = await getCollection('unicodeData', ({data}) => {
+  return parseInt(data.id, 16) >= parseInt(block.id, 16) && parseInt(data.id, 16) <= parseInt(block.data.last, 16)
+})
 ---
 
-<Layout title={`유니코드 블록 “${char.data.nameKo}”`}>
+<Layout title={`유니코드 블록 “${block.data.nameKo}”`}>
   <Header />
   <main class="container-x py-4">
-    범위: {char.id}~{char.data.last}<br />
-    이름: {char.data.nameKo}<br />
-    이름: {char.data.name}
+    <section>
+      범위: {block.id}~{block.data.last}<br />
+      이름: {block.data.nameKo}<br />
+      이름: {block.data.name}
+    </section>
+    <section class="block-grid">
+      {blockData.map((item) => {
+        return <a href={`/unicode/${item.id}`}>{item.id}</a>
+      })}
+    </section>
   </main>
   <Footer />
 </Layout>
+
+<style lang="sass" is:global>
+  @reference '@/styles/global.css'
+  @import url('@/styles/galmuri.sass')
+
+  .block-grid
+</style>
