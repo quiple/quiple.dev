@@ -19,7 +19,7 @@ import settings from '@/settings.json'
       {settings.sns.map((sns) => {
         return <a
           aria-label={sns.name.name}
-          class={`${buttonVariants({ variant: 'ghost', size: 'icon' })} button icon-button ${sns.name.slug}`}
+          class={`${buttonVariants({variant: 'ghost', size: 'icon'})} button icon-button ${sns.name.slug}`}
           href={sns.url}
           set:html={(icons as unknown as Record<string, {svg: string}>)[`si${sns.name.slug.charAt(0).toUpperCase()}${sns.name.slug.slice(1)}`].svg}
           target="_blank"
