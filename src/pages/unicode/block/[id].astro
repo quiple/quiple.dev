@@ -11,7 +11,10 @@ const block = await getEntry('unicodeBlocks', id.toUpperCase())
 if (block === undefined) return Astro.redirect('/404')
 
 const blockData = await getCollection('unicodeData', ({data}) => {
-  return parseInt(data.id, 16) >= parseInt(block.id, 16) && parseInt(data.id, 16) <= parseInt(block.data.last, 16)
+  return (
+    parseInt(data.id, 16) >= parseInt(block.id, 16) &&
+    parseInt(data.id, 16) <= parseInt(block.data.last, 16)
+  )
 })
 ---
 
