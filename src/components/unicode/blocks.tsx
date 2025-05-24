@@ -15,7 +15,7 @@ export function BlocksTable({unicodeBlocks}: {unicodeBlocks: any}) {
             key={block.id}
             className="cursor-pointer"
             onClick={() => {
-              location.href = `/unicode/block/${block.id}`
+              location.href = `/unicode/block/${block.id.toLowerCase()}`
             }}
           >
             <TableCell>
