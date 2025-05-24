@@ -3,6 +3,7 @@ import {getCollection, getEntry} from 'astro:content'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
+import {buttonVariants} from '@/components/ui/button'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
@@ -26,9 +27,9 @@ const blockData = await getCollection('unicodeData', ({data}) => {
       이름: {block.data.nameKo}<br />
       이름: {block.data.name}
     </section>
-    <section class="block-grid">
+    <section class="grid grid-cols-16">
       {blockData.map((item) => {
-        return <a href={`/unicode/${item.id}`}>{item.id}</a>
+        return <a class={buttonVariants({ variant: 'ghost', size: 'icon' })} href={`/unicode/${item.id}`}>{String.fromCodePoint(parseInt(item.id, 16))}</a>
       })}
     </section>
   </main>
@@ -37,7 +38,4 @@ const blockData = await getCollection('unicodeData', ({data}) => {
 
 <style lang="sass" is:global>
   @reference '@/styles/global.css'
-  @import url('@/styles/galmuri.sass')
-
-  .block-grid
 </style>
