@@ -1,10 +1,10 @@
 ---
 import {getCollection, getEntry} from 'astro:content'
+import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
-import {titleCase} from 'title-case'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
