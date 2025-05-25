@@ -25,7 +25,9 @@ const allCodePoints = Array.from(
   (_e, i) => i + parseInt(block.id, 16),
 )
 const rowLabels = [
-  ...new Set(allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3).toUpperCase())),
+  ...new Set(
+    allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3).toUpperCase()),
+  ),
 ]
 ---
 
