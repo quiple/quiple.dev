@@ -25,7 +25,13 @@ interface UnicodeData {
   filePath?: string
 }
 
-export function BlocksTable({unicodeBlocks, unicodeData}: {unicodeBlocks: UnicodeBlock[]; unicodeData: UnicodeData[]}) {
+export function BlocksTable({
+  unicodeBlocks,
+  unicodeData,
+}: {
+  unicodeBlocks: UnicodeBlock[]
+  unicodeData: UnicodeData[]
+}) {
   return (
     <Table>
       <TableHeader className="pointer-events-none">
