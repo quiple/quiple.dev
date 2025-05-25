@@ -24,7 +24,9 @@ const allCodePoints = Array.from(
   {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
   (_e, i) => i + parseInt(block.id, 16),
 )
-const rowLabels = [...new Set(allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3)))]
+const rowLabels = [
+  ...new Set(allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3))),
+]
 ---
 
 <Layout title={`유니코드 블록 “${block.data.nameKo}”`}>
