@@ -56,7 +56,7 @@ const rowLabels = [
       </div>
       <div class="flex gap-1 xl:gap-2">
         <div class="basis-20 shrink-0 flex flex-col gap-1 xl:gap-2">
-          {rowLabels.map((e) => <div class="grow">U+{e}</div>)}
+          {rowLabels.map((e) => <div class="grow flex items-center justify-end">U+{e}</div>)}
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {allCodePoints.map((e) => {
@@ -85,6 +85,7 @@ const rowLabels = [
   @reference '@/styles/global.css'
 
   .block-grid
+    @apply flex flex-col gap-1 xl:gap-2 leading-none
     button, .item
-      @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 leading-0 h-auto font-normal w-full
+      @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 leading-none h-auto font-normal w-full
 </style>
