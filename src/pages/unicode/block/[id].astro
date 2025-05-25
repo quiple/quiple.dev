@@ -2,8 +2,9 @@
 import {getCollection, getEntry} from 'astro:content'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
-import {buttonVariants} from '@/components/ui/button'
+import {buttonVariants, Button} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
+import { cn } from '@/lib/utils'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
@@ -38,11 +39,11 @@ const blockData = await getCollection('unicodeData', ({data}) => {
           {Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (e, i) => i + parseInt(block.id, 16)).map((e) => {
             return blockData.find((f) => parseInt(f.id, 16) === e)
               ? (
-                <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${e.toString(16).padStart(4, '0')}`}>
+                <a class={`${cn(buttonVariants({variant: 'secondary', size: 'lg'}))} item`} href={`/unicode/${e.toString(16).padStart(4, '0')}`}>
                   {String.fromCodePoint(e)}
                 </a>
               )
-              : <button disabled class={`${buttonVariants({variant: 'outline', size: 'lg'})} item`} />
+              : <Button disabled variant="outline" size="lg" className="item" />
           })}
         </div>
       </div>
@@ -55,5 +56,5 @@ const blockData = await getCollection('unicodeData', ({data}) => {
   @reference '@/styles/global.css'
 
   .item
-    @apply text-4xl
+    @apply text-4xl aspect-square p-0 leading-0 h-auto
 </style>
