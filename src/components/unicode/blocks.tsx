@@ -1,6 +1,20 @@
+import type {RenderedContent} from 'astro:content'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
 
-export function BlocksTable({unicodeBlocks}: {unicodeBlocks: any}) {
+interface UnicodeBlock {
+  id: string
+  body?: string
+  collection: 'unicodeBlocks'
+  data: {
+    last: string
+    nameKo: string
+    name: string
+  }
+  rendered?: RenderedContent
+  filePath?: string
+}
+
+export function BlocksTable({unicodeBlocks}: {unicodeBlocks: UnicodeBlock[]}) {
   return (
     <Table>
       <TableHeader className="pointer-events-none">
@@ -10,7 +24,7 @@ export function BlocksTable({unicodeBlocks}: {unicodeBlocks: any}) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {unicodeBlocks.map((block: any) => (
+        {unicodeBlocks.map((block: UnicodeBlock) => (
           <TableRow
             key={block.id}
             className="cursor-pointer"
