@@ -76,7 +76,9 @@ export function BlocksTable({
                 {block.data.nameKo}
                 <small className="block">{block.data.name}</small>
               </TableCell>
-              <TableCell className="text-right tabular-nums">{Intl.NumberFormat('ko-KR').format(count)}</TableCell>
+              <TableCell className="text-right tabular-nums">
+                {Intl.NumberFormat('ko-KR').format(count)}
+              </TableCell>
             </TableRow>
           )
         })}
