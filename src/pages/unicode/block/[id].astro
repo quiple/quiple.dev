@@ -4,6 +4,7 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
+import {titleCase} from 'title-case'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
@@ -17,7 +18,6 @@ const blockData = await getCollection('unicodeData', ({data}) => {
     parseInt(data.id, 16) <= parseInt(block.data.last, 16)
   )
 })
-
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodePoints = Array.from(
   {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
@@ -31,7 +31,14 @@ const allCodePoints = Array.from(
     <section>
       범위: U+{block.id}~{block.data.last}<br />
       이름: {block.data.nameKo}<br />
-      이름: {block.data.name}
+      이름: {block.data.name}<br />
+      <a
+        href={`https://en.wikipedia.org/wiki/${block.data.name.replace(' ', '_')}_(Unicode_block)`}
+        target="_blank"
+        rel="nofollow noreferrer noopener"
+      >
+        위키백과
+      </a>
     </section>
     <section class="block-grid">
       <div class="flex">
@@ -51,6 +58,7 @@ const allCodePoints = Array.from(
                 <a
                   class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
                   href={`/unicode/${e.toString(16).padStart(4, '0')}`}
+                  title={titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase())}
                 >
                   {String.fromCodePoint(e)}
                 </a>
