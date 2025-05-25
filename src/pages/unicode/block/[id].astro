@@ -45,7 +45,7 @@ const rowLabels = [
       이름: {block.data.nameKo}<br />
       이름: {block.data.name}<br />
       <a
-        href={`https://en.wikipedia.org/wiki/${block.data.name.replace(' ', '_')}_(Unicode_block)`}
+        href={`https://en.wikipedia.org/wiki/${block.data.name.replaceAll(' ', '_')}_(Unicode_block)`}
         target="_blank"
         rel="nofollow noreferrer noopener"
       >
