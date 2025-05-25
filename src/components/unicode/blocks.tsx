@@ -24,23 +24,37 @@ export function BlocksTable({unicodeBlocks}: {unicodeBlocks: UnicodeBlock[]}) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {unicodeBlocks.map((block: UnicodeBlock) => (
-          <TableRow
-            key={block.id}
-            className="cursor-pointer"
-            onClick={() => {
-              location.href = `/unicode/block/${block.id.toLowerCase()}`
-            }}
-          >
-            <TableCell>
-              U+{block.id}~{block.data.last}
-            </TableCell>
-            <TableCell>
-              {block.data.nameKo}
-              <small className="block">{block.data.name}</small>
-            </TableCell>
-          </TableRow>
-        ))}
+        {unicodeBlocks.map((block: UnicodeBlock) => {
+          return ['private', 'surrogate'].some(i => block.data.name.toLowerCase().includes(i))
+            ? (
+              <TableRow key={block.id} className="pointer-events-none">
+                <TableCell>
+                  U+{block.id}~{block.data.last}
+                </TableCell>
+                <TableCell>
+                  {block.data.nameKo}
+                  <small className="block">{block.data.name}</small>
+                </TableCell>
+              </TableRow>
+            )
+            : (
+              <TableRow
+                key={block.id}
+                className="cursor-pointer"
+                onClick={() => {
+                  location.href = `/unicode/block/${block.id.toLowerCase()}`
+                }}
+              >
+                <TableCell>
+                  U+{block.id}~{block.data.last}
+                </TableCell>
+                <TableCell>
+                  {block.data.nameKo}
+                  <small className="block">{block.data.name}</small>
+                </TableCell>
+              </TableRow>
+            )
+        })}
       </TableBody>
     </Table>
   )
