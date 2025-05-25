@@ -1,6 +1,6 @@
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip'
 
-export function TooltipButton({children, tooltip}: {children: any; tooltip: any}) {
+export function TooltipButton({children, tooltip}: {children: React.ReactNode; tooltip: string}) {
   return (
     <TooltipProvider>
       <Tooltip>
