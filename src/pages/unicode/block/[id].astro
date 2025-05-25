@@ -19,7 +19,10 @@ const blockData = await getCollection('unicodeData', ({data}) => {
 })
 
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
-const allChars = Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (_e, i) => i + parseInt(block.id, 16))
+const allChars = Array.from(
+  {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
+  (_e, i) => i + parseInt(block.id, 16),
+)
 ---
 
 <Layout title={`유니코드 블록 “${block.data.nameKo}”`}>
