@@ -12,7 +12,7 @@ const char = await getEntry('unicodeData', id.toUpperCase())
 if (char === undefined) return Astro.redirect('/404')
 ---
 
-<Layout title={`유니코드 문자 “${char.data.name}”`}>
+<Layout title={`유니코드 문자 “${titleCase(char.data.name.toLowerCase())}”`}>
   <Header />
   <main class="container-x py-4">
     id: {char.id}<br />
