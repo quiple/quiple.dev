@@ -19,7 +19,7 @@ const blockData = await getCollection('unicodeData', ({data}) => {
 })
 
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
-const allChars = Array.from(
+const allCodePoints = Array.from(
   {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
   (_e, i) => i + parseInt(block.id, 16),
 )
@@ -37,15 +37,15 @@ const allChars = Array.from(
       <div class="flex">
         <div class="basis-20 shrink-0">
         </div>
-        <div class="grid grid-cols-16 gap-2 grow">
+        <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {zero2F.map((n) => <div>{n}</div>)}
         </div>
       </div>
       <div class="flex">
         <div class="basis-20 shrink-0">
         </div>
-        <div class="grid grid-cols-16 gap-1 xl:gap-2 grow">
-          {allChars.map((e) => {
+        <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
+          {allCodePoints.map((e) => {
             return blockData.find((f) => parseInt(f.id, 16) === e)
               ? (
                 <a
