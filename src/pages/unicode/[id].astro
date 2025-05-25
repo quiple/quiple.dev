@@ -4,6 +4,7 @@ import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import Layout from '@/layouts/Layout.astro'
+import {unicodeTitleCase} from '@/lib/utils'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
@@ -12,11 +13,11 @@ const char = await getEntry('unicodeData', id.toUpperCase())
 if (char === undefined) return Astro.redirect('/404')
 ---
 
-<Layout title={`유니코드 문자 “${titleCase(char.data.name.toLowerCase())}”`}>
+<Layout title={`유니코드 문자 “${unicodeTitleCase(titleCase(char.data.name.toLowerCase()))}”`}>
   <Header />
   <main class="container-x py-4">
     id: {char.id}<br />
-    name: {titleCase(char.data.name.toLowerCase())}
+    name: {unicodeTitleCase(titleCase(char.data.name.toLowerCase()))}
   </main>
   <Footer />
 </Layout>

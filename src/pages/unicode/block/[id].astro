@@ -6,6 +6,7 @@ import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
 import {TooltipButton} from '@/components/unicode/block'
 import Layout from '@/layouts/Layout.astro'
+import {unicodeTitleCase} from '@/lib/utils'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
@@ -68,11 +69,11 @@ const rowLabels = [
           {allCodePoints.map((e) => {
             return blockData.find((f) => parseInt(f.id, 16) === e)
               ? (
-                <TooltipButton client:load tooltip={titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase())}>
+                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase()))}>
                   <a
                     class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
                     href={`/unicode/${e.toString(16).padStart(4, '0')}`}
-                    aria-label={`${titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase())} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
+                    aria-label={`${unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase()))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
                   >
                     {String.fromCodePoint(e)}
                   </a>
