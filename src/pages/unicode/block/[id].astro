@@ -4,7 +4,6 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
-import {cn} from '@/lib/utils'
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
