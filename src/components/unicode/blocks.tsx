@@ -38,7 +38,7 @@ export function BlocksTable({
         <TableRow>
           <TableHead>범위</TableHead>
           <TableHead>이름</TableHead>
-          <TableHead>문자 수</TableHead>
+          <TableHead className="text-right">문자 수</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -59,7 +59,7 @@ export function BlocksTable({
                 {block.data.nameKo}
                 <small className="block">{block.data.name}</small>
               </TableCell>
-              <TableCell>0</TableCell>
+              <TableCell className="text-right tabular-nums">0</TableCell>
             </TableRow>
           ) : (
             <TableRow
@@ -76,7 +76,7 @@ export function BlocksTable({
                 {block.data.nameKo}
                 <small className="block">{block.data.name}</small>
               </TableCell>
-              <TableCell>{count}</TableCell>
+              <TableCell className="text-right tabular-nums">{Intl.NumberFormat('ko-KR').format(count)}</TableCell>
             </TableRow>
           )
         })}
