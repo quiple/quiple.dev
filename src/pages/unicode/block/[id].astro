@@ -26,7 +26,13 @@ const allCodePoints = Array.from(
 )
 const rowLabels = [
   ...new Set(
-    allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, e.toString(16).length - 1).toUpperCase()),
+    allCodePoints.map((e) =>
+      e
+        .toString(16)
+        .padStart(4, '0')
+        .substring(0, e.toString(16).length - 1)
+        .toUpperCase(),
+    ),
   ),
 ]
 ---
