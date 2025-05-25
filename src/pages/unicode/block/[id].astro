@@ -75,9 +75,10 @@ const allCodePoints = Array.from(
   <Footer />
 </Layout>
 
-<style lang="sass">
+<style lang="sass" is:global>
   @reference '@/styles/global.css'
 
-  .item
-    @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 leading-0 h-auto font-normal w-full
+  .block-grid
+    button, .item
+      @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 leading-0 h-auto font-normal w-full
 </style>
