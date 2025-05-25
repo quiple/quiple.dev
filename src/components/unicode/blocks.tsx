@@ -19,7 +19,7 @@ export function BlocksTable({unicodeBlocks}: {unicodeBlocks: any}) {
             }}
           >
             <TableCell>
-              {block.id}~{block.data.last}
+              U+{block.id}~{block.data.last}
             </TableCell>
             <TableCell>
               {block.data.nameKo}

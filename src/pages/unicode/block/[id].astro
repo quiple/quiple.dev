@@ -23,7 +23,7 @@ const blockData = await getCollection('unicodeData', ({data}) => {
   <Header />
   <main class="container-x py-4">
     <section>
-      범위: {block.id}~{block.data.last}<br />
+      범위: U+{block.id}~{block.data.last}<br />
       이름: {block.data.nameKo}<br />
       이름: {block.data.name}
     </section>
@@ -34,7 +34,7 @@ const blockData = await getCollection('unicodeData', ({data}) => {
       <div class="flex">
         <div class="grid grid-rows-16 gap-2">
         </div>
-        <div class="grid grid-cols-16 gap-2">
+        <div class="grid grid-cols-16 gap-2 w-full">
           {Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (e, i) => i + parseInt(block.id, 16)).map((e) => {
             return blockData.find((f) => parseInt(f.id, 16) === e)
               ? (
@@ -42,7 +42,7 @@ const blockData = await getCollection('unicodeData', ({data}) => {
                   {String.fromCodePoint(e)}
                 </a>
               )
-              : <div class={`${buttonVariants({variant: 'outline', size: 'lg'})} item pointer-events-none`} />
+              : <button disabled class={`${buttonVariants({variant: 'outline', size: 'lg'})} item`} />
           })}
         </div>
       </div>
@@ -51,9 +51,9 @@ const blockData = await getCollection('unicodeData', ({data}) => {
   <Footer />
 </Layout>
 
-<style lang="sass" is:global>
+<style lang="sass">
   @reference '@/styles/global.css'
 
   .item
-    @apply text-lg
+    @apply text-4xl
 </style>
