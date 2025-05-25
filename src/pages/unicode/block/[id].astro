@@ -53,14 +53,14 @@ const rowLabels = [
       </a>
     </section>
     <section class="block-grid">
-      <div class="flex gap-1 xl:gap-2">
+      <div class="flex gap-2">
         <div class="basis-17.5 shrink-0">
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center tabular-nums">
           {zero2F.map((n) => <div>{n}</div>)}
         </div>
       </div>
-      <div class="flex gap-1 xl:gap-2">
+      <div class="flex gap-2">
         <div class="basis-17.5 shrink-0 flex flex-col gap-1 xl:gap-2 tabular-nums">
           {rowLabels.map((e) => <div class="grow flex items-center justify-end">U+{e}</div>)}
         </div>
@@ -90,7 +90,7 @@ const rowLabels = [
   @reference '@/styles/global.css'
 
   .block-grid
-    @apply flex flex-col gap-1 xl:gap-2 leading-none
+    @apply flex flex-col gap-2 leading-none
     button, .item
       @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 h-auto font-normal w-full leading-0
 </style>
