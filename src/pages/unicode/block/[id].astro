@@ -25,7 +25,7 @@ const allCodePoints = Array.from(
   (_e, i) => i + parseInt(block.id, 16),
 )
 const rowLabels = [
-  ...new Set(allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3))),
+  ...new Set(allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3).toUpperCase())),
 ]
 ---
 
@@ -45,16 +45,16 @@ const rowLabels = [
       </a>
     </section>
     <section class="block-grid">
-      <div class="flex">
+      <div class="flex gap-1 xl:gap-2">
         <div class="basis-20 shrink-0">
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {zero2F.map((n) => <div>{n}</div>)}
         </div>
       </div>
-      <div class="flex">
-        <div class="basis-20 shrink-0">
-          {rowLabels.map((e) => <div>{e}</div>)}
+      <div class="flex gap-1 xl:gap-2">
+        <div class="basis-20 shrink-0 flex flex-col gap-1 xl:gap-2">
+          {rowLabels.map((e) => <div class="grow">U+{e}</div>)}
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {allCodePoints.map((e) => {
