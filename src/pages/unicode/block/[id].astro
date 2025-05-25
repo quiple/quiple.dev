@@ -17,6 +17,9 @@ const blockData = await getCollection('unicodeData', ({data}) => {
     parseInt(data.id, 16) <= parseInt(block.data.last, 16)
   )
 })
+
+const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
+const allChars = Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (_e, i) => i + parseInt(block.id, 16))
 ---
 
 <Layout title={`유니코드 블록 “${block.data.nameKo}”`}>
@@ -28,17 +31,24 @@ const blockData = await getCollection('unicodeData', ({data}) => {
       이름: {block.data.name}
     </section>
     <section class="block-grid">
-      <div class="grid grid-cols-16 gap-2">
-        {Array.from({length: 16}, (e, i) => i).map((v) => <div>{v.toString(16).toUpperCase()}</div>)}
+      <div class="flex">
+        <div class="basis-20 shrink-0">
+        </div>
+        <div class="grid grid-cols-16 gap-2 grow">
+          {zero2F.map((n) => <div>{n}</div>)}
+        </div>
       </div>
       <div class="flex">
-        <div class="grid grid-rows-16 gap-2">
+        <div class="basis-20 shrink-0">
         </div>
-        <div class="grid grid-cols-16 gap-2 w-full">
-          {Array.from({length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1}, (e, i) => i + parseInt(block.id, 16)).map((e) => {
+        <div class="grid grid-cols-16 gap-1 xl:gap-2 grow">
+          {allChars.map((e) => {
             return blockData.find((f) => parseInt(f.id, 16) === e)
               ? (
-                <a class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`} href={`/unicode/${e.toString(16).padStart(4, '0')}`}>
+                <a
+                  class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
+                  href={`/unicode/${e.toString(16).padStart(4, '0')}`}
+                >
                   {String.fromCodePoint(e)}
                 </a>
               )
@@ -55,5 +65,5 @@ const blockData = await getCollection('unicodeData', ({data}) => {
   @reference '@/styles/global.css'
 
   .item
-    @apply text-4xl aspect-square p-0 leading-0 h-auto
+    @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 leading-0 h-auto font-normal
 </style>
