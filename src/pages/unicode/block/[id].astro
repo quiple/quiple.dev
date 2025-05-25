@@ -24,6 +24,7 @@ const allCodePoints = Array.from(
   {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
   (_e, i) => i + parseInt(block.id, 16),
 )
+const rowLabels = [...new Set(allCodePoints.map((e) => e.toString(16).padStart(4, '0').substring(0, 3)))]
 ---
 
 <Layout title={`유니코드 블록 “${block.data.nameKo}”`}>
@@ -38,7 +39,7 @@ const allCodePoints = Array.from(
         target="_blank"
         rel="nofollow noreferrer noopener"
       >
-        위키백과
+        위키백과 (영어)
       </a>
     </section>
     <section class="block-grid">
@@ -51,6 +52,7 @@ const allCodePoints = Array.from(
       </div>
       <div class="flex">
         <div class="basis-20 shrink-0">
+          {rowLabels.map((e) => <div>{e}</div>)}
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {allCodePoints.map((e) => {
