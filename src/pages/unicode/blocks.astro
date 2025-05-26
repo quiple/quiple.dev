@@ -6,13 +6,14 @@ import {BlocksTable} from '@/components/unicode/blocks'
 import Layout from '@/layouts/Layout.astro'
 
 const unicodeBlocks = await getCollection('unicodeBlocks')
-const unicodeData = await getCollection('unicodeData')
+// const unicodeData = await getCollection('unicodeData')
 ---
 
 <Layout title="유니코드 블록">
   <Header />
   <main class="container-x py-4">
-    <BlocksTable client:load unicodeBlocks={unicodeBlocks} unicodeData={unicodeData} />
+    <!-- <BlocksTable client:load unicodeBlocks={unicodeBlocks} unicodeData={unicodeData} /> -->
+    <BlocksTable client:load unicodeBlocks={unicodeBlocks} />
   </main>
   <Footer />
 </Layout>
