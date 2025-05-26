@@ -1,13 +1,19 @@
 ---
-import * as icons from 'simple-icons'
+import {siX, siBluesky, siGithub} from 'simple-icons'
 import {buttonVariants} from '@/components/ui/button'
 import settings from '@/settings.json'
+
+const icons = {
+  bluesky: siBluesky,
+  github: siGithub,
+  x: siX,
+}
 ---
 
 <footer>
   <section>
     <div class="detail">
-      © 2019~2025 Lee Minseo
+      © 2019–2025 Lee Minseo
       {Astro.url.pathname === '/galmuri' && (
         <small>
           닌텐도 DS는 Nintendo의 상표이며 이 프로젝트는 Nintendo와 어떠한 관련도 없습니다.<br />
@@ -21,7 +27,7 @@ import settings from '@/settings.json'
           aria-label={sns.name.name}
           class={`${buttonVariants({variant: 'ghost', size: 'icon'})} button icon-button ${sns.name.slug}`}
           href={sns.url}
-          set:html={(icons as unknown as Record<string, {svg: string}>)[`si${sns.name.slug.charAt(0).toUpperCase()}${sns.name.slug.slice(1)}`].svg}
+          set:html={icons[sns.name.slug as keyof typeof icons].svg}
           target="_blank"
           rel="nofollow noreferrer noopener"
         />
