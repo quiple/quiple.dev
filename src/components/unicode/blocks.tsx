@@ -69,7 +69,7 @@ export function BlocksTable({
                 location.href = `/unicode/block/${block.id.toLowerCase()}`
               }}
             >
-              <TableCell>
+              <TableCell className="tabular-nums">
                 U+{block.id}~{block.data.last}
               </TableCell>
               <TableCell>
