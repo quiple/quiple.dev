@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "db:pull": "drizzle-kit pull",
     "build": "astro check && astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
