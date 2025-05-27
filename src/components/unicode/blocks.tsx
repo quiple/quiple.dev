@@ -1,6 +1,5 @@
 import type {RenderedContent} from 'astro:content'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
-import {unicodeData} from '@/db/schema'
 
 interface UnicodeBlock {
   id: string
