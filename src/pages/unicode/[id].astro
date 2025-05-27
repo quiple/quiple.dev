@@ -1,5 +1,4 @@
 ---
-import {getEntry} from 'astro:content'
 import {eq} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import {titleCase} from 'title-case'
@@ -9,10 +8,10 @@ import {unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
 
+const {id} = Astro.params
 const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
-const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/${id.toLowerCase()}`)
 const char = await db.select().from(unicodeData).where(eq(unicodeData.code, id.toUpperCase()))
