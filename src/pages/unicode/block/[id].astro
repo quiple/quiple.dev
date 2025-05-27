@@ -23,13 +23,7 @@ if (block === undefined) return Astro.redirect('/404')
 const blockData = await db
   .select()
   .from(unicodeData)
-  .where(between(unicodeData.code, id.toUpperCase()))
-// const blockData = await getCollection('unicodeData', ({data}) => {
-//   return (
-//     parseInt(data.id, 16) >= parseInt(block.id, 16) &&
-//     parseInt(data.id, 16) <= parseInt(block.data.last, 16)
-//   )
-// })
+  .where(between(unicodeData.code, block.id, block.data.last))
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodePoints = Array.from(
   {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
@@ -77,13 +71,13 @@ const rowLabels = [
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {allCodePoints.map((e) => {
-            return blockData.find((f) => parseInt(f.id, 16) === e)
+            return blockData.find((f) => parseInt(f.code, 16) === e)
               ? (
-                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase()))}>
+                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.code, 16) === e)?.name.toLowerCase()!))}>
                   <a
                     class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
                     href={`/unicode/${e.toString(16).padStart(4, '0')}`}
-                    aria-label={`${unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.id, 16) === e)?.data.name.toLowerCase()))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
+                    aria-label={`${unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.code, 16) === e)?.name.toLowerCase()!))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
                   >
                     {String.fromCodePoint(e)}
                   </a>
