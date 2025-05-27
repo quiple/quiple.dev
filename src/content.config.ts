@@ -8,10 +8,4 @@ const unicodeBlocks = defineCollection({
   }),
 })
 
-const unicodeData = defineCollection({
-  loader: file('src/contents/unicode-data.csv', {
-    parser: (text) => parse(text, {delimiter: ';', columns: true, skipEmptyLines: true}),
-  }),
-})
-
-export const collections = {unicodeBlocks, unicodeData}
+export const collections = {unicodeBlocks}

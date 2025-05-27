@@ -1,5 +1,6 @@
 import type {RenderedContent} from 'astro:content'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
+import {unicodeData} from '@/db/schema'
 
 interface UnicodeBlock {
   id: string
@@ -15,22 +16,29 @@ interface UnicodeBlock {
 }
 
 interface UnicodeData {
-  id: string
-  body?: string
-  collection: 'unicodeData'
-  data: {
-    name: string
-  }
-  rendered?: RenderedContent
-  filePath?: string
+  code: string
+  name: string
+  genCat: string
+  combCls: string
+  bidiCat: string
+  decMap: string
+  decDigVal: number
+  digVal: number
+  numVal: number
+  mir: boolean
+  oneName: string
+  cmt: string
+  uc: string
+  lc: string
+  tc: string
 }
 
 export function BlocksTable({
   unicodeBlocks,
-  // unicodeData,
+  unicodeData,
 }: {
   unicodeBlocks: UnicodeBlock[]
-  // unicodeData: UnicodeData[]
+  unicodeData: UnicodeData[]
 }) {
   return (
     <Table>
@@ -38,17 +46,17 @@ export function BlocksTable({
         <TableRow>
           <TableHead>범위</TableHead>
           <TableHead>이름</TableHead>
-          {/* <TableHead className="text-right">문자 수</TableHead> */}
+          <TableHead className="text-right">문자 수</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {unicodeBlocks.map((block: UnicodeBlock) => {
-          // const count = unicodeData.filter((char) => {
-          //   return (
-          //     parseInt(char.id, 16) >= parseInt(block.id, 16) &&
-          //     parseInt(char.id, 16) <= parseInt(block.data.last, 16)
-          //   )
-          // }).length
+          const count = unicodeData.filter((char) => {
+            return (
+              parseInt(char.code, 16) >= parseInt(block.id, 16) &&
+              parseInt(char.code, 16) <= parseInt(block.data.last, 16)
+            )
+          }).length
 
           return ['private', 'surrogate'].some((i) => block.data.name.toLowerCase().includes(i)) ? (
             <TableRow key={block.id} className="pointer-events-none">
@@ -59,7 +67,7 @@ export function BlocksTable({
                 {block.data.nameKo}
                 <small className="block">{block.data.name}</small>
               </TableCell>
-              {/* <TableCell className="text-right tabular-nums">0</TableCell> */}
+              <TableCell className="text-right tabular-nums">0</TableCell>
             </TableRow>
           ) : (
             <TableRow
@@ -76,9 +84,9 @@ export function BlocksTable({
                 {block.data.nameKo}
                 <small className="block">{block.data.name}</small>
               </TableCell>
-              {/* <TableCell className="text-right tabular-nums">
+              <TableCell className="text-right tabular-nums">
                 {Intl.NumberFormat('ko-KR').format(count)}
-              </TableCell> */}
+              </TableCell>
             </TableRow>
           )
         })}

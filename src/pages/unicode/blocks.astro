@@ -1,19 +1,23 @@
 ---
+import {drizzle} from 'drizzle-orm/neon-http'
 import {getCollection} from 'astro:content'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {BlocksTable} from '@/components/unicode/blocks'
 import Layout from '@/layouts/Layout.astro'
+import {unicodeData} from '@/db/schema'
+
+const {env} = Astro.locals.runtime
+const db = drizzle(env.DATABASE_URL)
 
 const unicodeBlocks = await getCollection('unicodeBlocks')
-// const unicodeData = await getCollection('unicodeData')
+const charCount = await db.select({code: unicodeData.code}).from(unicodeData)
 ---
 
 <Layout title="유니코드 블록">
   <Header />
   <main class="container-x py-4">
-    <!-- <BlocksTable client:load unicodeBlocks={unicodeBlocks} unicodeData={unicodeData} /> -->
-    <BlocksTable client:load unicodeBlocks={unicodeBlocks} />
+    <BlocksTable client:load unicodeBlocks={unicodeBlocks} unicodeData={charCount} />
   </main>
   <Footer />
 </Layout>
