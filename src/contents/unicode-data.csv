@@ -1,4 +1,4 @@
-code;name;genCat;canCombCls;bidiCat;charDecMap;decDigVal;digVal;numVal;mir;oneName;iso10646Cmt;ucMap;lcMap;tcMap
+code;name;gen_cat;comb_cls;bidi_cat;dec_map;dec_dig_val;dig_val;num_val;mir;one_name;cmt;uc;lc;tc
 0000;<control>;Cc;0;BN;;;;;N;NULL;;;;
 0001;<control>;Cc;0;BN;;;;;N;START OF HEADING;;;;
 0002;<control>;Cc;0;BN;;;;;N;START OF TEXT;;;;
