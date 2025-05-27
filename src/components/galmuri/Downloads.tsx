@@ -44,9 +44,6 @@ export function Downloads() {
                             )?.[format]
                           }
                           download
-                          data-umami-event="Galmuri 다운로드"
-                          data-umami-event-font={font.name}
-                          data-umami-event-format={format}
                         >
                           {font.style &&
                             `${font.style.charAt(0).toUpperCase()}${font.style.slice(1)}`}{' '}
