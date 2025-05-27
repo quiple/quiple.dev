@@ -16,20 +16,6 @@ interface UnicodeBlock {
 
 interface UnicodeData {
   code: string
-  name: string
-  genCat: string
-  combCls: string
-  bidiCat: string
-  decMap: string
-  decDigVal: number
-  digVal: number
-  numVal: number
-  mir: boolean
-  oneName: string
-  cmt: string
-  uc: string
-  lc: string
-  tc: string
 }
 
 export function BlocksTable({
