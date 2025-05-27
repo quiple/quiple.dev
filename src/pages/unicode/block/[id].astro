@@ -1,25 +1,35 @@
 ---
-import {getCollection, getEntry} from 'astro:content'
+import {getEntry} from 'astro:content'
+import {between} from 'drizzle-orm'
+import {drizzle} from 'drizzle-orm/neon-http'
 import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
 import {TooltipButton} from '@/components/unicode/block'
+import {unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
 
 const {id} = Astro.params
+const {env} = Astro.locals.runtime
+const db = drizzle(env.DATABASE_URL)
+
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
 const block = await getEntry('unicodeBlocks', id.toUpperCase())
 if (block === undefined) return Astro.redirect('/404')
 
-const blockData = await getCollection('unicodeData', ({data}) => {
-  return (
-    parseInt(data.id, 16) >= parseInt(block.id, 16) &&
-    parseInt(data.id, 16) <= parseInt(block.data.last, 16)
-  )
-})
+const blockData = await db
+  .select()
+  .from(unicodeData)
+  .where(between(unicodeData.code, id.toUpperCase()))
+// const blockData = await getCollection('unicodeData', ({data}) => {
+//   return (
+//     parseInt(data.id, 16) >= parseInt(block.id, 16) &&
+//     parseInt(data.id, 16) <= parseInt(block.data.last, 16)
+//   )
+// })
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodePoints = Array.from(
   {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
