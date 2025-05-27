@@ -21,6 +21,7 @@
     "@astrojs/sitemap": "^3.4.0",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.47",
+    "@neondatabase/serverless": "^1.0.0",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-scroll-area": "^1.2.9",
@@ -58,7 +59,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0-beta.4",
+    "dotenv": "^16.5.0",
+    "drizzle-kit": "^0.31.1",
+    "drizzle-orm": "^0.43.1",
     "husky": "^9.1.7",
+    "tsx": "^4.19.4",
     "wrangler": "^4.16.1"
   }
 }
