@@ -39,12 +39,6 @@ const {title, description} = Astro.props
     <link rel="sitemap" href="/sitemap-index.xml" />
     {import.meta.env.PROD && (
       <link rel="manifest" href="/manifest.json" />
-      <script
-        is:inline
-        defer
-        src="https://umami.quiple.dev/script.js"
-        data-website-id="c11336e5-f347-4ae5-a289-3f7c9edbe5cd"
-      />
     )}
   </head>
   <body>
