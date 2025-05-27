@@ -1,16 +1,16 @@
 ---
 import {getEntry} from 'astro:content'
+import {eq} from 'drizzle-orm'
+import {drizzle} from 'drizzle-orm/neon-http'
 import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import {unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
-import { drizzle } from 'drizzle-orm/neon-http';
-import { unicodeData } from '@/db/schema';
-import { eq } from "drizzle-orm";
 
 const {env} = Astro.locals.runtime
-const db = drizzle(env.DATABASE_URL);
+const db = drizzle(env.DATABASE_URL)
 
 const {id} = Astro.params
 if (id === undefined) return Astro.redirect('/404')
