@@ -1,6 +1,7 @@
 /// <reference types="astro/client" />
 
 type ENV = {
+  DATABASE_URL: string
   KEYSTATIC_GITHUB_CLIENT_ID: string
   KEYSTATIC_GITHUB_CLIENT_SECRET: string
   KEYSTATIC_SECRET: string

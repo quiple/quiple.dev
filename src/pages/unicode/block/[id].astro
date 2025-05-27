@@ -1,0 +1,101 @@
+---
+import {getEntry} from 'astro:content'
+import {between} from 'drizzle-orm'
+import {drizzle} from 'drizzle-orm/neon-http'
+import {titleCase} from 'title-case'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import {Button, buttonVariants} from '@/components/ui/button'
+import {TooltipButton} from '@/components/unicode/block'
+import {unicodeData} from '@/db/schema'
+import Layout from '@/layouts/Layout.astro'
+import {unicodeTitleCase} from '@/lib/utils'
+
+const {id} = Astro.params
+const {env} = Astro.locals.runtime
+const db = drizzle(env.DATABASE_URL)
+
+if (id === undefined) return Astro.redirect('/404')
+if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
+const block = await getEntry('unicodeBlocks', id.toUpperCase())
+if (block === undefined) return Astro.redirect('/404')
+
+const blockData = await db
+  .select()
+  .from(unicodeData)
+  .where(between(unicodeData.code, block.id, block.data.last))
+const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
+const allCodePoints = Array.from(
+  {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
+  (_e, i) => i + parseInt(block.id, 16),
+)
+const rowLabels = [
+  ...new Set(
+    allCodePoints.map((e) =>
+      e
+        .toString(16)
+        .padStart(4, '0')
+        .substring(0, e.toString(16).padStart(4, '0').length - 1)
+        .toUpperCase(),
+    ),
+  ),
+]
+---
+
+<Layout title={`유니코드 블록 ‘${block.data.nameKo}’`}>
+  <Header />
+  <main class="container-x py-4">
+    <section>
+      범위: U+{block.id}~{block.data.last}<br />
+      이름: {block.data.nameKo}<br />
+      이름: {block.data.name}<br />
+      <a
+        href={`https://en.wikipedia.org/wiki/${block.data.name.replaceAll(' ', '_')}_(Unicode_block)`}
+        target="_blank"
+        rel="nofollow noreferrer noopener"
+      >
+        위키백과 (영어)
+      </a>
+    </section>
+    <section class="block-grid">
+      <div class="flex gap-2">
+        <div class="basis-17.5 shrink-0">
+        </div>
+        <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center tabular-nums">
+          {zero2F.map((n) => <div>{n}</div>)}
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <div class="basis-17.5 shrink-0 flex flex-col gap-1 xl:gap-2 tabular-nums">
+          {rowLabels.map((e) => <div class="grow flex items-center justify-end">U+{e}</div>)}
+        </div>
+        <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
+          {allCodePoints.map((e) => {
+            return blockData.find((f) => parseInt(f.code, 16) === e)
+              ? (
+                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.code, 16) === e)?.name.toLowerCase()!))}>
+                  <a
+                    class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
+                    href={`/unicode/${e.toString(16).padStart(4, '0')}`}
+                    aria-label={`${unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.code, 16) === e)?.name.toLowerCase()!))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
+                  >
+                    {String.fromCodePoint(e)}
+                  </a>
+                </TooltipButton>
+              ) : <Button disabled variant="outline" size="lg" className="item" />
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style lang="sass" is:global>
+  @reference '@/styles/global.css'
+
+  .block-grid
+    @apply flex flex-col gap-2 leading-none
+    button, .item
+      @apply md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl aspect-square p-0 h-auto font-normal w-full leading-0
+</style>

@@ -1,0 +1,28 @@
+---
+import {eq} from 'drizzle-orm'
+import {drizzle} from 'drizzle-orm/neon-http'
+import {titleCase} from 'title-case'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import {unicodeData} from '@/db/schema'
+import Layout from '@/layouts/Layout.astro'
+import {unicodeTitleCase} from '@/lib/utils'
+
+const {id} = Astro.params
+const {env} = Astro.locals.runtime
+const db = drizzle(env.DATABASE_URL)
+
+if (id === undefined) return Astro.redirect('/404')
+if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/${id.toLowerCase()}`)
+const char = await db.select().from(unicodeData).where(eq(unicodeData.code, id.toUpperCase()))
+if (char === undefined) return Astro.redirect('/404')
+---
+
+<Layout title={`유니코드 문자 ‘${unicodeTitleCase(titleCase(char[0].name.toLowerCase()))}’`}>
+  <Header />
+  <main class="container-x py-4">
+    id: {char[0].code}<br />
+    name: {unicodeTitleCase(titleCase(char[0].name.toLowerCase()))}
+  </main>
+  <Footer />
+</Layout>
