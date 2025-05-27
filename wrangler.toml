@@ -10,9 +10,6 @@ binding = "ASSETS"
 [observability]
 enabled = true
 
-[limits]
-cpu_ms = 300000
-
 [vars]
 KEYSTATIC_GITHUB_CLIENT_ID = "Iv23linT22YZnRWliZUm"
 PUBLIC_KEYSTATIC_GITHUB_APP_SLUG = "quiple-keystatic"
