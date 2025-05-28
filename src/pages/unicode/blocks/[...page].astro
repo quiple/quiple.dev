@@ -1,5 +1,5 @@
 ---
-import {asc} from 'drizzle-orm'
+import {asc, count} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
@@ -18,11 +18,11 @@ const getBlocks = async (page = 1, pageSize = 15) => {
   return await db
     .select()
     .from(unicodeBlocks)
-    .orderBy(asc(unicodeBlocks.first))
     .limit(pageSize)
     .offset((page - 1) * pageSize)
 }
 const blocks = await getBlocks(currentPage)
+if (blocks.length === 0) return Astro.redirect('/404')
 const data = await db.select({code: unicodeData.code}).from(unicodeData)
 ---
 
