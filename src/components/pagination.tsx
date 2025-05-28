@@ -36,7 +36,7 @@ export function Paginate({
             <PaginationLink href={`${url}/2`}>2</PaginationLink>
           </PaginationItem>
         )}
-        {(totalPage === 11 && currentPage > 6 || currentPage === 6) && (
+        {((totalPage === 11 && currentPage > 6) || currentPage === 6) && (
           <PaginationItem>
             <PaginationLink href={`${url}/3`}>3</PaginationLink>
           </PaginationItem>
