@@ -1,14 +1,14 @@
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
 
 interface UnicodeBlock {
-  first: string
-  last: string
+  first: number
+  last: number
   name: string
   nameKo: string | null
 }
 
 interface UnicodeData {
-  code: string
+  code: number
 }
 
 export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: UnicodeData[]}) {
@@ -25,8 +25,8 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
         {blocks.map((block: UnicodeBlock) => {
           const count = data.filter((char) => {
             return (
-              parseInt(char.code, 16) >= parseInt(block.first, 16) &&
-              parseInt(char.code, 16) <= parseInt(block.last, 16)
+              char.code >= block.first &&
+              char.code <= block.last
             )
           }).length
 
@@ -46,7 +46,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
               key={block.first}
               className="cursor-pointer"
               onClick={() => {
-                location.href = `/unicode/block/${block.first.toLowerCase()}`
+                location.href = `/unicode/block/${block.first.toString(16)}`
               }}
             >
               <TableCell className="tabular-nums">

@@ -6,7 +6,6 @@ import Header from '@/components/Header.astro'
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -26,6 +25,7 @@ if (page && Number.isNaN(currentPage)) return Astro.redirect('/404')
 
 const total = (await db.select({count: count()}).from(unicodeBlocks))[0].count
 const totalPage = Math.ceil(total / pageSize)
+
 const getBlocks = async (page = 1, pageSize = 15) => {
   return await db
     .select()
@@ -36,7 +36,6 @@ const getBlocks = async (page = 1, pageSize = 15) => {
 const blocks = await getBlocks(currentPage, pageSize)
 if (blocks.length === 0) return Astro.redirect('/404')
 const data = await db.select({code: unicodeData.code}).from(unicodeData)
-console.log(`${currentPage}/${totalPage}`)
 ---
 
 <Layout title="유니코드 블록">

@@ -1,14 +1,14 @@
-import {bigint, boolean, pgTable, text, varchar} from 'drizzle-orm/pg-core'
+import {bigint, boolean, integer, pgTable, text} from 'drizzle-orm/pg-core'
 
 export const unicodeBlocks = pgTable('unicode_blocks', {
-  first: varchar({length: 6}).primaryKey().notNull(),
-  last: varchar({length: 6}).notNull(),
+  first: integer().primaryKey().notNull(),
+  last: integer().notNull(),
   name: text().notNull(),
   nameKo: text('name_ko'),
 })
 
 export const unicodeData = pgTable('unicode_data', {
-  code: varchar({length: 5}).primaryKey().notNull(),
+  code: integer().primaryKey().notNull(),
   name: text().notNull(),
   genCat: text('gen_cat').notNull(),
   combCls: text('comb_cls').notNull(),
@@ -23,7 +23,7 @@ export const unicodeData = pgTable('unicode_data', {
   mir: boolean(),
   oneName: text('one_name'),
   cmt: text(),
-  uc: varchar({length: 5}),
-  lc: varchar({length: 5}),
-  tc: varchar({length: 5}),
+  uc: integer(),
+  lc: integer(),
+  tc: integer(),
 })
