@@ -160,6 +160,12 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
 <style lang="sass" is:global>
   @reference '@/styles/global.css'
 
+  [aria-label="pagination"]
+    .disabled
+      @apply pointer-events-none opacity-50
+    [data-slot="pagination-item"]
+      [data-active="true"]
+        @apply pointer-events-none
   .block-grid
     @apply flex flex-col gap-2 leading-none
     button, .item
