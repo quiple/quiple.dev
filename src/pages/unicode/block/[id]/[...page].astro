@@ -4,12 +4,12 @@ import {drizzle} from 'drizzle-orm/neon-http'
 import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import {Paginate} from '@/components/pagination'
 import {Button, buttonVariants} from '@/components/ui/button'
 import {TooltipButton} from '@/components/unicode/block'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
-import { Paginate } from '@/components/pagination'
 
 const {id, page} = Astro.params
 const pageSize = 256
