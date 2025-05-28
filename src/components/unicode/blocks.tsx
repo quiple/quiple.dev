@@ -30,7 +30,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
           return ['private', 'surrogate'].some((i) => block.name.toLowerCase().includes(i)) ? (
             <TableRow key={block.first} className="pointer-events-none">
               <TableCell>
-                U+{block.first}~{block.last}
+                U+{block.first.toString(16).padStart(4, '0').toUpperCase()}~{block.last.toString(16).padStart(4, '0').toUpperCase()}
               </TableCell>
               <TableCell>
                 {block.nameKo}
@@ -47,7 +47,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
               }}
             >
               <TableCell className="tabular-nums">
-                U+{block.first}~{block.last}
+                U+{block.first.toString(16).padStart(4, '0').toUpperCase()}~{block.last.toString(16).padStart(4, '0').toUpperCase()}
               </TableCell>
               <TableCell>
                 {block.nameKo}
