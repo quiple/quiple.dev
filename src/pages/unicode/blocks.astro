@@ -1,17 +1,22 @@
 ---
+import {asc} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {BlocksTable} from '@/components/unicode/blocks'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
-import { asc } from 'drizzle-orm';
 
 const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
 const getBlocks = async (page = 1, pageSize = 3) => {
-  return await db.select().from(unicodeBlocks).orderBy(asc(unicodeBlocks.first)).limit(pageSize).offset((page - 1) * pageSize)
+  return await db
+    .select()
+    .from(unicodeBlocks)
+    .orderBy(asc(unicodeBlocks.first))
+    .limit(pageSize)
+    .offset((page - 1) * pageSize)
 }
 const blocks = await getBlocks()
 const data = await db.select({code: unicodeData.code}).from(unicodeData)
