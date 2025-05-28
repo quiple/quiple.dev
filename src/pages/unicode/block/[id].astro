@@ -1,13 +1,12 @@
 ---
-import {getEntry} from 'astro:content'
-import {between} from 'drizzle-orm'
+import {between, eq} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
 import {TooltipButton} from '@/components/unicode/block'
-import {unicodeData} from '@/db/schema'
+import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
 
@@ -17,17 +16,21 @@ const db = drizzle(env.DATABASE_URL)
 
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
-const block = await getEntry('unicodeBlocks', id.toUpperCase())
+const blocks = await db
+  .select()
+  .from(unicodeBlocks)
+  .where(eq(unicodeBlocks.first, id.toUpperCase()))
+const block = blocks[0]
 if (block === undefined) return Astro.redirect('/404')
 
 const blockData = await db
   .select()
   .from(unicodeData)
-  .where(between(unicodeData.code, block.id, block.data.last))
+  .where(between(unicodeData.code, block.first, block.last))
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodePoints = Array.from(
-  {length: parseInt(block.data.last, 16) - parseInt(block.id, 16) + 1},
-  (_e, i) => i + parseInt(block.id, 16),
+  {length: parseInt(block.last, 16) - parseInt(block.first, 16) + 1},
+  (_e, i) => i + parseInt(block.first, 16),
 )
 const rowLabels = [
   ...new Set(
@@ -42,15 +45,15 @@ const rowLabels = [
 ]
 ---
 
-<Layout title={`유니코드 블록 ‘${block.data.nameKo}’`}>
+<Layout title={`유니코드 블록 ‘${block.nameKo}’`}>
   <Header />
   <main class="container-x py-4">
     <section>
-      범위: U+{block.id}~{block.data.last}<br />
-      이름: {block.data.nameKo}<br />
-      이름: {block.data.name}<br />
+      범위: U+{block.first}~{block.last}<br />
+      이름: {block.nameKo}<br />
+      이름: {block.name}<br />
       <a
-        href={`https://en.wikipedia.org/wiki/${block.data.name.replaceAll(' ', '_')}_(Unicode_block)`}
+        href={`https://en.wikipedia.org/wiki/${block.name.replaceAll(' ', '_')}_(Unicode_block)`}
         target="_blank"
         rel="nofollow noreferrer noopener"
       >
