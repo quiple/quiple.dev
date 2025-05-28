@@ -7,10 +7,14 @@ import {BlocksTable} from '@/components/unicode/blocks'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 
+const {page} = Astro.params
 const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
-const getBlocks = async (page = 1, pageSize = 3) => {
+const currentPage = Number(page)
+if (isNaN(currentPage)) return Astro.redirect('/404')
+
+const getBlocks = async (page = 1, pageSize = 15) => {
   return await db
     .select()
     .from(unicodeBlocks)
@@ -18,7 +22,7 @@ const getBlocks = async (page = 1, pageSize = 3) => {
     .limit(pageSize)
     .offset((page - 1) * pageSize)
 }
-const blocks = await getBlocks()
+const blocks = await getBlocks(currentPage)
 const data = await db.select({code: unicodeData.code}).from(unicodeData)
 ---
 
