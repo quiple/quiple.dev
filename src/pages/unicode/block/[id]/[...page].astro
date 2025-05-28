@@ -31,41 +31,31 @@ const block = (
 )[0]
 if (block === undefined) return Astro.redirect('/404')
 
-const total = (
+const pageStartCode = block.first + (currentPage - 1) * pageSize
+const pageEndCode = pageStartCode + pageSize < block.last ? pageStartCode + pageSize : block.last
+const remainSlotCount = block.last - pageStartCode + 1
+const totalCount = (
   await db
     .select({count: count()})
     .from(unicodeData)
     .where(between(unicodeData.code, block.first, block.last))
 )[0].count
-
-const getChars = async (page = 1, pageSize = 15) => {
-  return await db
-    .select({code: unicodeData.code, name: unicodeData.name})
-    .from(unicodeData)
-    .where(between(unicodeData.code, block.first, block.last))
-    .limit(pageSize)
-    .offset((page - 1) * pageSize)
-}
-const chars = await getChars(currentPage, pageSize)
-// if (chars.length === 0) return Astro.redirect('/404')
-
-const remain = 16 * Math.ceil(chars.length / 16)
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
-const allCodePoints = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
-const currentCodePoints = Array.from(
+const allCodes = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
+const currentSlotsCodes = Array.from(
   {
     length:
-      allCodePoints.length < pageSize
-        ? allCodePoints.length
-        : remain < pageSize
-          ? remain
+      allCodes.length < pageSize
+        ? allCodes.length
+        : remainSlotCount < pageSize
+          ? remainSlotCount
           : pageSize,
   },
   (_e, i) => i + block.first + (currentPage - 1) * pageSize,
 )
 const rowLabels = [
   ...new Set(
-    currentCodePoints.map((e) =>
+    currentSlotsCodes.map((e) =>
       e
         .toString(16)
         .padStart(4, '0')
@@ -74,7 +64,11 @@ const rowLabels = [
     ),
   ),
 ]
-const totalPage = Math.ceil(allCodePoints.length / pageSize)
+const totalPage = Math.ceil(allCodes.length / pageSize)
+const chars = await db
+  .select({code: unicodeData.code, name: unicodeData.name})
+  .from(unicodeData)
+  .where(between(unicodeData.code, pageStartCode, pageEndCode))
 ---
 
 <Layout title={`유니코드 블록 ‘${block.nameKo ? block.nameKo : block.name}’`}>
@@ -84,7 +78,7 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
       범위: U+{block.first.toString(16).padStart(4, '0').toUpperCase()}~{block.last.toString(16).padStart(4, '0').toUpperCase()}<br />
       이름: {block.nameKo}<br />
       이름: {block.name}<br />
-      문자 수: {total}<br />
+      문자 수: {Intl.NumberFormat('ko-KR').format(totalCount)}<br />
       <a
         href={`https://en.wikipedia.org/wiki/${block.name.replaceAll(' ', '_')}_(Unicode_block)`}
         target="_blank"
@@ -106,7 +100,7 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
           {rowLabels.map((e) => <div class="grow flex items-center justify-end">U+{e}</div>)}
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
-          {currentCodePoints.map((e) => {
+          {currentSlotsCodes.map((e) => {
             return chars.find((f) => f.code === e)
               ? (
                 <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(chars.find((f) => f.code === e)?.name.toLowerCase()!))}>
