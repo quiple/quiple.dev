@@ -60,7 +60,14 @@ const remain = 16 * Math.ceil(chars.length / 16)
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodePoints = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
 const currentCodePoints = Array.from(
-  {length: allCodePoints.length < pageSize ? allCodePoints.length : remain < pageSize ? remain : pageSize},
+  {
+    length:
+      allCodePoints.length < pageSize
+        ? allCodePoints.length
+        : remain < pageSize
+          ? remain
+          : pageSize,
+  },
   (_e, i) => i + block.first + (currentPage - 1) * pageSize,
 )
 const rowLabels = [
