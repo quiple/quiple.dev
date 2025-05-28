@@ -4,6 +4,7 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
+  PaginationEllipsis,
   PaginationPrevious,
 } from '@/components/ui/pagination'
 
@@ -17,11 +18,9 @@ export function Paginate({
   url: string
 }) {
   return (
-    <section className="pagiantion p-2">
-      <div className="text-muted-foreground mt-4 text-sm">
-        {totalPage}페이지 중 {currentPage}페이지
-      </div>
-      <Pagination>
+    <section className="pagiantion mt-4 px-2 flex">
+      <div className="grow basis-1/3" />
+      <Pagination className="shrink-0 !w-fit">
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
@@ -29,6 +28,21 @@ export function Paginate({
               href={`${url}/${currentPage - 1}`}
             />
           </PaginationItem>
+          {currentPage > 3 && (
+            <PaginationItem>
+              <PaginationLink href={`${url}/1`}>1</PaginationLink>
+            </PaginationItem>
+          )}
+          {currentPage > 4 && (
+            <PaginationItem>
+              <PaginationLink href={`${url}/2`}>2</PaginationLink>
+            </PaginationItem>
+          )}
+          {currentPage > 5 && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
           {currentPage > 2 && (
             <PaginationItem>
               <PaginationLink href={`${url}/${currentPage - 2}`}>{currentPage - 2}</PaginationLink>
@@ -54,6 +68,21 @@ export function Paginate({
               <PaginationLink href={`${url}/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
             </PaginationItem>
           )}
+          {currentPage < totalPage - 4 && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
+          {currentPage < totalPage - 3 && (
+            <PaginationItem>
+              <PaginationLink href={`${url}/${totalPage - 1}`}>{totalPage - 1}</PaginationLink>
+            </PaginationItem>
+          )}
+          {currentPage < totalPage - 2 && (
+            <PaginationItem>
+              <PaginationLink href={`${url}/${totalPage}`}>{totalPage}</PaginationLink>
+            </PaginationItem>
+          )}
           <PaginationItem>
             <PaginationNext
               className={currentPage === totalPage ? 'pointer-events-none opacity-50' : undefined}
@@ -62,6 +91,9 @@ export function Paginate({
           </PaginationItem>
         </PaginationContent>
       </Pagination>
+      <div className="text-muted-foreground text-sm text-right grow basis-1/3 flex justify-end items-center">
+        {totalPage}페이지 중 {currentPage}페이지
+      </div>
     </section>
   )
 }
