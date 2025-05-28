@@ -44,7 +44,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
               key={block.first}
               className="cursor-pointer"
               onClick={() => {
-                location.href = `/unicode/block/${block.first.toString(16)}`
+                location.href = `/unicode/block/${block.first.toString(16).padStart(4, '0')}`
               }}
             >
               <TableCell className="tabular-nums">
