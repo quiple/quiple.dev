@@ -46,27 +46,27 @@ export function Paginate({
             <PaginationEllipsis className="opacity-50" />
           </PaginationItem>
         )}
-        {currentPage > totalPage - 1 && (
+        {totalPage > 10 && currentPage > totalPage - 1 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage - 7}`}>{currentPage - 7}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage > totalPage - 2 && (
+        {totalPage > 10 && currentPage > totalPage - 2 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage - 6}`}>{currentPage - 6}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage > totalPage - 3 && (
+        {totalPage > 10 && currentPage > totalPage - 3 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage - 5}`}>{currentPage - 5}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage > totalPage - 4 && (
+        {totalPage > 10 && currentPage > totalPage - 4 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage - 4}`}>{currentPage - 4}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage > totalPage - 5 && (
+        {totalPage > 10 && currentPage > totalPage - 5 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage - 3}`}>{currentPage - 3}</PaginationLink>
           </PaginationItem>
@@ -96,27 +96,27 @@ export function Paginate({
             <PaginationLink href={`${url}/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage < 6 && (
+        {totalPage > 10 && currentPage < 6 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage + 3}`}>{currentPage + 3}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage < 5 && (
+        {totalPage > 10 && currentPage < 5 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage + 4}`}>{currentPage + 4}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage < 4 && (
+        {totalPage > 10 && currentPage < 4 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage + 5}`}>{currentPage + 5}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage < 3 && (
+        {totalPage > 10 && currentPage < 3 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage + 6}`}>{currentPage + 6}</PaginationLink>
           </PaginationItem>
         )}
-        {currentPage < 2 && (
+        {totalPage > 10 && currentPage < 2 && (
           <PaginationItem>
             <PaginationLink href={`${url}/${currentPage + 7}`}>{currentPage + 7}</PaginationLink>
           </PaginationItem>
