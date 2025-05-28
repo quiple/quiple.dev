@@ -38,7 +38,12 @@ export function Paginate({
               <PaginationLink href={`${url}/2`}>2</PaginationLink>
             </PaginationItem>
           )}
-          {currentPage > 5 && (
+          {currentPage === 6 && (
+            <PaginationItem>
+              <PaginationLink href={`${url}/3`}>3</PaginationLink>
+            </PaginationItem>
+          )}
+          {currentPage > 6 && (
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
@@ -68,9 +73,14 @@ export function Paginate({
               <PaginationLink href={`${url}/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
             </PaginationItem>
           )}
-          {currentPage < totalPage - 4 && (
+          {currentPage < totalPage - 5 && (
             <PaginationItem>
               <PaginationEllipsis />
+            </PaginationItem>
+          )}
+          {currentPage === totalPage - 5 && (
+            <PaginationItem>
+              <PaginationLink href={`${url}/${totalPage - 2}`}>{totalPage - 2}</PaginationLink>
             </PaginationItem>
           )}
           {currentPage < totalPage - 3 && (
