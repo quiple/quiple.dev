@@ -4,7 +4,7 @@ interface UnicodeBlock {
   first: string
   last: string
   name: string
-  nameKo: string
+  nameKo?: string
 }
 
 interface UnicodeData {
