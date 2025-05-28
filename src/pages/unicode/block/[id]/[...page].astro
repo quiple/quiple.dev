@@ -1,35 +1,62 @@
 ---
-import {between, eq} from 'drizzle-orm'
+import {between, count, eq} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination'
 import {TooltipButton} from '@/components/unicode/block'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
 
-const {id} = Astro.params
+const {id, page} = Astro.params
+const pageSize = 25
 const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
+
+const currentPage = page ? Number(page) : 1
+if (page && Number.isNaN(currentPage)) return Astro.redirect('/404')
+
 const block = (
-  await db.select().from(unicodeBlocks).where(eq(unicodeBlocks.first, id.toUpperCase()))
+  await db
+    .select()
+    .from(unicodeBlocks)
+    .where(eq(unicodeBlocks.first, parseInt(id, 16)))
 )[0]
 if (block === undefined) return Astro.redirect('/404')
 
-const blockData = await db
-  .select()
-  .from(unicodeData)
-  .where(between(unicodeData.code, block.first, block.last))
+const total = (
+  await db
+    .select({count: count()})
+    .from(unicodeData)
+    .where(between(unicodeData.code, block.first, block.last))
+)[0].count
+const totalPage = Math.ceil(total / pageSize)
+
+const getChars = async (page = 1, pageSize = 15) => {
+  return await db
+    .select()
+    .from(unicodeData)
+    .where(between(unicodeData.code, block.first, block.last))
+    .limit(pageSize)
+    .offset((page - 1) * pageSize)
+}
+const chars = await getChars(currentPage, pageSize)
+if (chars.length === 0) return Astro.redirect('/404')
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
-const allCodePoints = Array.from(
-  {length: parseInt(block.last, 16) - parseInt(block.first, 16) + 1},
-  (_e, i) => i + parseInt(block.first, 16),
-)
+const allCodePoints = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
 const rowLabels = [
   ...new Set(
     allCodePoints.map((e) =>
@@ -72,13 +99,13 @@ const rowLabels = [
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {allCodePoints.map((e) => {
-            return blockData.find((f) => parseInt(f.code, 16) === e)
+            return chars.find((f) => f.code === e)
               ? (
-                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.code, 16) === e)?.name.toLowerCase()!))}>
+                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(chars.find((f) => f.code === e)?.name.toLowerCase()!))}>
                   <a
                     class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
                     href={`/unicode/${e.toString(16).padStart(4, '0')}`}
-                    aria-label={`${unicodeTitleCase(titleCase(blockData.find((f) => parseInt(f.code, 16) === e)?.name.toLowerCase()!))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
+                    aria-label={`${unicodeTitleCase(titleCase(chars.find((f) => f.code === e)?.name.toLowerCase()!))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
                   >
                     {String.fromCodePoint(e)}
                   </a>
@@ -88,6 +115,38 @@ const rowLabels = [
         </div>
       </div>
     </section>
+    <section class="pagiantion p-2">
+      <div class="text-muted-foreground mt-4 text-sm">{totalPage}페이지 중 {currentPage}페이지</div>
+    </section>
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious className={currentPage === 1 ? 'disabled' : undefined} href={`/unicode/block/${id}/${currentPage - 1}`} />
+        </PaginationItem>
+        {currentPage > 2 &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/block/${id}/${currentPage - 2}`}>{currentPage - 2}</PaginationLink>
+        </PaginationItem>}
+        {currentPage > 1 &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/block/${id}/${currentPage - 1}`}>{currentPage - 1}</PaginationLink>
+        </PaginationItem>}
+        <PaginationItem>
+          <PaginationLink isActive>{currentPage}</PaginationLink>
+        </PaginationItem>
+        {currentPage < totalPage &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/block/${id}/${currentPage + 1}`}>{currentPage + 1}</PaginationLink>
+        </PaginationItem>}
+        {currentPage < totalPage - 1 &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/block/${id}/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
+        </PaginationItem>}
+        <PaginationItem>
+          <PaginationNext className={currentPage === totalPage ? 'disabled' : undefined} href={`/unicode/block/${id}/${currentPage + 1}`} />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   </main>
   <Footer />
 </Layout>
