@@ -18,7 +18,7 @@ export function Paginate({
   url: string
 }) {
   return (
-    <Pagination>
+    <Pagination className="mt-4">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
