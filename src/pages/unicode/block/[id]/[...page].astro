@@ -56,9 +56,13 @@ const chars = await getChars(currentPage, pageSize)
 if (chars.length === 0) return Astro.redirect('/404')
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodePoints = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
+const currentCodePoints = Array.from(
+  {length: pageSize},
+  (_e, i) => i + block.first + (currentPage - 1) * pageSize,
+)
 const rowLabels = [
   ...new Set(
-    allCodePoints.map((e) =>
+    currentCodePoints.map((e) =>
       e
         .toString(16)
         .padStart(4, '0')
@@ -99,7 +103,7 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
           {rowLabels.map((e) => <div class="grow flex items-center justify-end">U+{e}</div>)}
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
-          {allCodePoints.map((e) => {
+          {currentCodePoints.map((e) => {
             return chars.find((f) => f.code === e)
               ? (
                 <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(chars.find((f) => f.code === e)?.name.toLowerCase()!))}>
