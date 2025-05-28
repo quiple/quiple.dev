@@ -1,19 +1,31 @@
 ---
-import {asc, count} from 'drizzle-orm'
+import {count} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination'
 import {BlocksTable} from '@/components/unicode/blocks'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 
 const {page} = Astro.params
+const pageSize = 25
 const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
-const currentPage = Number(page)
-if (page && isNaN(currentPage)) return Astro.redirect('/404')
+const currentPage = page ? Number(page) : 1
+if (page && Number.isNaN(currentPage)) return Astro.redirect('/404')
 
+const total = (await db.select({count: count()}).from(unicodeBlocks))[0].count
+const totalPage = Math.ceil(total / pageSize)
 const getBlocks = async (page = 1, pageSize = 15) => {
   return await db
     .select()
@@ -21,15 +33,59 @@ const getBlocks = async (page = 1, pageSize = 15) => {
     .limit(pageSize)
     .offset((page - 1) * pageSize)
 }
-const blocks = await getBlocks(currentPage)
+const blocks = await getBlocks(currentPage, pageSize)
 if (blocks.length === 0) return Astro.redirect('/404')
 const data = await db.select({code: unicodeData.code}).from(unicodeData)
+console.log(`${currentPage}/${totalPage}`)
 ---
 
 <Layout title="유니코드 블록">
   <Header />
   <main class="container-x py-4">
     <BlocksTable client:load blocks={blocks} data={data} />
+    <section class="pagiantion p-2">
+      <div class="text-muted-foreground mt-4 text-sm">{totalPage}페이지 중 {currentPage}페이지</div>
+    </section>
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious className={currentPage === 1 ? 'disabled' : undefined} href={`/unicode/blocks/${currentPage - 1}`} />
+        </PaginationItem>
+        {currentPage > 2 &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/blocks/${currentPage - 2}`}>{currentPage - 2}</PaginationLink>
+        </PaginationItem>}
+        {currentPage > 1 &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/blocks/${currentPage - 1}`}>{currentPage - 1}</PaginationLink>
+        </PaginationItem>}
+        <PaginationItem>
+          <PaginationLink isActive>{currentPage}</PaginationLink>
+        </PaginationItem>
+        {currentPage < totalPage &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/blocks/${currentPage + 1}`}>{currentPage + 1}</PaginationLink>
+        </PaginationItem>}
+        {currentPage < totalPage - 1 &&
+        <PaginationItem>
+          <PaginationLink href={`/unicode/blocks/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
+        </PaginationItem>}
+        <PaginationItem>
+          <PaginationNext className={currentPage === totalPage ? 'disabled' : undefined} href={`/unicode/blocks/${currentPage + 1}`} />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   </main>
   <Footer />
 </Layout>
+
+<style lang="sass">
+  @reference '@/styles/global.css'
+
+  [aria-label="pagination"]
+    .disabled
+      @apply pointer-events-none opacity-50
+    [data-slot="pagination-item"]
+      [data-active="true"]
+        @apply pointer-events-none
+</style>
