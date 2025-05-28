@@ -5,18 +5,11 @@ import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import {Button, buttonVariants} from '@/components/ui/button'
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination'
 import {TooltipButton} from '@/components/unicode/block'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
 import {unicodeTitleCase} from '@/lib/utils'
+import { Paginate } from '@/components/pagination'
 
 const {id, page} = Astro.params
 const pageSize = 256
@@ -54,7 +47,7 @@ const getChars = async (page = 1, pageSize = 15) => {
     .offset((page - 1) * pageSize)
 }
 const chars = await getChars(currentPage, pageSize)
-if (chars.length === 0) return Astro.redirect('/404')
+// if (chars.length === 0) return Astro.redirect('/404')
 
 const remain = 16 * Math.ceil(chars.length / 16)
 const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
@@ -130,38 +123,7 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
         </div>
       </div>
     </section>
-    <section class="pagiantion p-2">
-      <div class="text-muted-foreground mt-4 text-sm">{totalPage}페이지 중 {currentPage}페이지</div>
-    </section>
-    <Pagination>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious className={currentPage === 1 ? 'disabled' : undefined} href={`/unicode/block/${id}/${currentPage - 1}`} />
-        </PaginationItem>
-        {currentPage > 2 &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/block/${id}/${currentPage - 2}`}>{currentPage - 2}</PaginationLink>
-        </PaginationItem>}
-        {currentPage > 1 &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/block/${id}/${currentPage - 1}`}>{currentPage - 1}</PaginationLink>
-        </PaginationItem>}
-        <PaginationItem>
-          <PaginationLink isActive>{currentPage}</PaginationLink>
-        </PaginationItem>
-        {currentPage < totalPage &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/block/${id}/${currentPage + 1}`}>{currentPage + 1}</PaginationLink>
-        </PaginationItem>}
-        {currentPage < totalPage - 1 &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/block/${id}/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
-        </PaginationItem>}
-        <PaginationItem>
-          <PaginationNext className={currentPage === totalPage ? 'disabled' : undefined} href={`/unicode/block/${id}/${currentPage + 1}`} />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
+    <Paginate currentPage={currentPage} totalPage={totalPage} url={`/unicode/block/${id}`} />
   </main>
   <Footer />
 </Layout>
@@ -169,12 +131,6 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
 <style lang="sass" is:global>
   @reference '@/styles/global.css'
 
-  [aria-label="pagination"]
-    .disabled
-      @apply pointer-events-none opacity-50
-    [data-slot="pagination-item"]
-      [data-active="true"]
-        @apply pointer-events-none
   .block-grid
     @apply flex flex-col gap-2 leading-none
     button, .item

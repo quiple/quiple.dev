@@ -14,6 +14,7 @@ import {
 import {BlocksTable} from '@/components/unicode/blocks'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
+import { Paginate } from '@/components/pagination'
 
 const {page} = Astro.params
 const pageSize = 25
@@ -48,46 +49,7 @@ const data = await db
     <section class="pagiantion p-2">
       <div class="text-muted-foreground mt-4 text-sm">{totalPage}페이지 중 {currentPage}페이지</div>
     </section>
-    <Pagination>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious className={currentPage === 1 ? 'disabled' : undefined} href={`/unicode/blocks/${currentPage - 1}`} />
-        </PaginationItem>
-        {currentPage > 2 &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/blocks/${currentPage - 2}`}>{currentPage - 2}</PaginationLink>
-        </PaginationItem>}
-        {currentPage > 1 &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/blocks/${currentPage - 1}`}>{currentPage - 1}</PaginationLink>
-        </PaginationItem>}
-        <PaginationItem>
-          <PaginationLink isActive>{currentPage}</PaginationLink>
-        </PaginationItem>
-        {currentPage < totalPage &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/blocks/${currentPage + 1}`}>{currentPage + 1}</PaginationLink>
-        </PaginationItem>}
-        {currentPage < totalPage - 1 &&
-        <PaginationItem>
-          <PaginationLink href={`/unicode/blocks/${currentPage + 2}`}>{currentPage + 2}</PaginationLink>
-        </PaginationItem>}
-        <PaginationItem>
-          <PaginationNext className={currentPage === totalPage ? 'disabled' : undefined} href={`/unicode/blocks/${currentPage + 1}`} />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
+    <Paginate currentPage={currentPage} totalPage={totalPage} url="/unicode/blocks" />
   </main>
   <Footer />
 </Layout>
-
-<style lang="sass">
-  @reference '@/styles/global.css'
-
-  [aria-label="pagination"]
-    .disabled
-      @apply pointer-events-none opacity-50
-    [data-slot="pagination-item"]
-      [data-active="true"]
-        @apply pointer-events-none
-</style>
