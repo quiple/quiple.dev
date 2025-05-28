@@ -18,9 +18,7 @@ export function Paginate({
   url: string
 }) {
   return (
-    <section className="pagiantion mt-4 px-2 flex">
-      <div className="grow basis-1/3" />
-      <Pagination className="shrink-0 !w-fit">
+      <Pagination>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
@@ -151,9 +149,5 @@ export function Paginate({
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-      <div className="text-muted-foreground text-sm text-right grow basis-1/3 flex justify-end items-center">
-        {totalPage}페이지 중 {currentPage}페이지
-      </div>
-    </section>
   )
 }
