@@ -14,15 +14,16 @@ const db = drizzle(env.DATABASE_URL)
 
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/${id.toLowerCase()}`)
-const char = await db.select().from(unicodeData).where(eq(unicodeData.code, id.toUpperCase()))
+const chars = await db.select().from(unicodeData).where(eq(unicodeData.code, id.toUpperCase()))
+const char = chars[0]
 if (char === undefined) return Astro.redirect('/404')
 ---
 
-<Layout title={`유니코드 문자 ‘${unicodeTitleCase(titleCase(char[0].name.toLowerCase()))}’`}>
+<Layout title={`유니코드 문자 ‘${unicodeTitleCase(titleCase(char.name.toLowerCase()))}’`}>
   <Header />
   <main class="container-x py-4">
-    id: {char[0].code}<br />
-    name: {unicodeTitleCase(titleCase(char[0].name.toLowerCase()))}
+    id: {char.code}<br />
+    name: {unicodeTitleCase(titleCase(char.name.toLowerCase()))}
   </main>
   <Footer />
 </Layout>
