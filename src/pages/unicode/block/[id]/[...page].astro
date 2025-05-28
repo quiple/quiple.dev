@@ -47,7 +47,7 @@ const totalPage = Math.ceil(total / pageSize)
 
 const getChars = async (page = 1, pageSize = 15) => {
   return await db
-    .select()
+    .select({code: unicodeData.code, name: unicodeData.name})
     .from(unicodeData)
     .where(between(unicodeData.code, block.first, block.last))
     .limit(pageSize)
