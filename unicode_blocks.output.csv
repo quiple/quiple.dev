@@ -1,0 +1,339 @@
+first;last;name;name_ko
+0;127;Basic Latin;기본 라틴 문자
+128;255;Latin-1 Supplement;라틴-1 보충
+256;383;Latin Extended-A;라틴 문자 확장-A
+384;591;Latin Extended-B;라틴 문자 확장-B
+592;687;IPA Extensions;IPA 확장
+688;767;Spacing Modifier Letters;수식 문자
+768;879;Combining Diacritical Marks;조합용 분음 부호
+880;1023;Greek and Coptic;그리스 문자 및 콥트 문자
+1024;1279;Cyrillic;키릴 문자
+1280;1327;Cyrillic Supplement;키릴 문자 보충
+1328;1423;Armenian;아르메니아 문자
+1424;1535;Hebrew;히브리 문자
+1536;1791;Arabic;아랍 문자
+1792;1871;Syriac;시리아 문자
+1872;1919;Arabic Supplement;아랍 문자 보충
+1920;1983;Thaana;타나
+1984;2047;NKo;응코 문자
+2048;2111;Samaritan;사마리아 문자
+2112;2143;Mandaic;만다야 문자
+2144;2159;Syriac Supplement;시리아 문자 보충
+2160;2207;Arabic Extended-B;아랍 문자 확장-A
+2208;2303;Arabic Extended-A;아랍 문자 확장-B
+2304;2431;Devanagari;데바나가리
+2432;2559;Bengali;벵골 문자
+2560;2687;Gurmukhi;구르무키
+2688;2815;Gujarati;구자라트 문자
+2816;2943;Oriya;오리야 문자
+2944;3071;Tamil;타밀 문자
+3072;3199;Telugu;텔루구 문자
+3200;3327;Kannada;칸나다 문자
+3328;3455;Malayalam;말라얄람 문자
+3456;3583;Sinhala;싱할라 문자
+3584;3711;Thai;타이 문자
+3712;3839;Lao;라오 문자
+3840;4095;Tibetan;티베트 문자
+4096;4255;Myanmar;미얀마 문자
+4256;4351;Georgian;조지아 문자
+4352;4607;Hangul Jamo;한글 자모
+4608;4991;Ethiopic;그으즈 문자
+4992;5023;Ethiopic Supplement;그으즈 문자 보충
+5024;5119;Cherokee;체로키 문자
+5120;5759;Unified Canadian Aboriginal Syllabics;통합 캐나다 원주민 음절 문자
+5760;5791;Ogham;오검
+5792;5887;Runic;룬 문자
+5888;5919;Tagalog;바이바이인
+5920;5951;Hanunoo;하누누 문자
+5952;5983;Buhid;부히드 문자
+5984;6015;Tagbanwa;타그반와 문자
+6016;6143;Khmer;크메르 문자
+6144;6319;Mongolian;몽골 문자
+6320;6399;Unified Canadian Aboriginal Syllabics Extended;통합 캐나다 원주민 음절 문자 확장
+6400;6479;Limbu;림부 문자
+6480;6527;Tai Le;타이느아 문자
+6528;6623;New Tai Lue;타이르 문자
+6624;6655;Khmer Symbols;크메르 문자 기호
+6656;6687;Buginese;론타라 문자
+6688;6831;Tai Tham;타이탐
+6832;6911;Combining Diacritical Marks Extended;조합용 분음 부호 확장
+6912;7039;Balinese;발리 문자
+7040;7103;Sundanese;순다 문자
+7104;7167;Batak;바탁 문자
+7168;7247;Lepcha;렙차 문자
+7248;7295;Ol Chiki;올치키 문자
+7296;7311;Cyrillic Extended-C;키릴 문자 확장-C
+7312;7359;Georgian Extended;조지아 문자 확장
+7360;7375;Sundanese Supplement;순다 문자 보충
+7376;7423;Vedic Extensions;베다 문자 확장
+7424;7551;Phonetic Extensions;음성 확장
+7552;7615;Phonetic Extensions Supplement;음성 확장 보충
+7616;7679;Combining Diacritical Marks Supplement;조합용 분음 부호 보충
+7680;7935;Latin Extended Additional;라틴 문자 확장 추가
+7936;8191;Greek Extended;그리스 문자 확장
+8192;8303;General Punctuation;일반 문장 부호
+8304;8351;Superscripts and Subscripts;위 첨자 및 아래 첨자
+8352;8399;Currency Symbols;통화 기호
+8400;8447;Combining Diacritical Marks for Symbols;기호 조합용 분음 부호
+8448;8527;Letterlike Symbols;문자형 기호
+8528;8591;Number Forms;숫자 형식
+8592;8703;Arrows;화살표
+8704;8959;Mathematical Operators;수학 연산자
+8960;9215;Miscellaneous Technical;기타 기술용 기호
+9216;9279;Control Pictures;제어용 기호
+9280;9311;Optical Character Recognition;광학 문자 인식
+9312;9471;Enclosed Alphanumerics;괄호 영숫자
+9472;9599;Box Drawing;상자 그리기
+9600;9631;Block Elements;블록 요소
+9632;9727;Geometric Shapes;기하학적 도형
+9728;9983;Miscellaneous Symbols;기타 기호
+9984;10175;Dingbats;딩뱃
+10176;10223;Miscellaneous Mathematical Symbols-A;기타 수학 기호-A
+10224;10239;Supplemental Arrows-A;보충 화살표-A
+10240;10495;Braille Patterns;점자 무늬
+10496;10623;Supplemental Arrows-B;보충 화살표-B
+10624;10751;Miscellaneous Mathematical Symbols-B;기타 수학 기호-B
+10752;11007;Supplemental Mathematical Operators;보충 수학 연산자
+11008;11263;Miscellaneous Symbols and Arrows;기타 기호 및 화살표
+11264;11359;Glagolitic;글라골 문자
+11360;11391;Latin Extended-C;라틴 문자 확장-C
+11392;11519;Coptic;콥트 문자
+11520;11567;Georgian Supplement;조지아 문자 보충
+11568;11647;Tifinagh;티피나그
+11648;11743;Ethiopic Extended;그으즈 문자 확장
+11744;11775;Cyrillic Extended-A;키릴 문자 확장-A
+11776;11903;Supplemental Punctuation;보충 문장 부호
+11904;12031;CJK Radicals Supplement;한중일 부수 보충
+12032;12255;Kangxi Radicals;강희자전 부수
+12272;12287;Ideographic Description Characters;한자 설명 문자
+12288;12351;CJK Symbols and Punctuation;한중일 기호 및 문장 부호
+12352;12447;Hiragana;히라가나
+12448;12543;Katakana;가타카나
+12544;12591;Bopomofo;주음부호
+12592;12687;Hangul Compatibility Jamo;한글 호환용 자모
+12688;12703;Kanbun;간분
+12704;12735;Bopomofo Extended;주음부호 확장
+12736;12783;CJK Strokes;한중일 필획
+12784;12799;Katakana Phonetic Extensions;가타카나 음성 확장
+12800;13055;Enclosed CJK Letters and Months;괄호 한중일 문자 및 월 문자
+13056;13311;CJK Compatibility;한중일 호환용
+13312;19903;CJK Unified Ideographs Extension A;한중일 통합 한자 확장 A
+19904;19967;Yijing Hexagram Symbols;역경 64괘 기호
+19968;40959;CJK Unified Ideographs;한중일 통합 한자
+40960;42127;Yi Syllables;이 문자 음절
+42128;42191;Yi Radicals;이 문자 부수
+42192;42239;Lisu;프레이저 문자
+42240;42559;Vai;바이 문자
+42560;42655;Cyrillic Extended-B;키릴 문자 확장-B
+42656;42751;Bamum;바뭄 문자
+42752;42783;Modifier Tone Letters;성조 수식 문자
+42784;43007;Latin Extended-D;라틴 문자 확장-D
+43008;43055;Syloti Nagri;실헤티 나가리
+43056;43071;Common Indic Number Forms;일반 인도 숫자 형식
+43072;43135;Phags-pa;파스파 문자
+43136;43231;Saurashtra;사우라슈트라 문자
+43232;43263;Devanagari Extended;데바나가리 확장
+43264;43311;Kayah Li;카야리 문자
+43312;43359;Rejang;레장 문자
+43360;43391;Hangul Jamo Extended-A;한글 자모 확장-A
+43392;43487;Javanese;자바 문자
+43488;43519;Myanmar Extended-B;미얀마 문자 확장-B
+43520;43615;Cham;참 문자
+43616;43647;Myanmar Extended-A;미얀마 문자 확장-A
+43648;43743;Tai Viet;타이비엣 문자
+43744;43775;Meetei Mayek Extensions;메이테이 문자 확장
+43776;43823;Ethiopic Extended-A;그으즈 문자 확장-A
+43824;43887;Latin Extended-E;라틴 문자 확장-E
+43888;43967;Cherokee Supplement;체로키 문자 보충
+43968;44031;Meetei Mayek;메이테이 문자
+44032;55215;Hangul Syllables;한글 음절
+55216;55295;Hangul Jamo Extended-B;한글 자모 확장-B
+55296;56191;High Surrogates;상단 서러게이트
+56192;56319;High Private Use Surrogates;상단 사용자 정의 서러게이트
+56320;57343;Low Surrogates;하단 서러게이트
+57344;63743;Private Use Area;사용자 정의 영역
+63744;64255;CJK Compatibility Ideographs;한중일 호환용 한자
+64256;64335;Alphabetic Presentation Forms;알파벳 표현 형식
+64336;65023;Arabic Presentation Forms-A;아랍 문자 표현 형식-A
+65024;65039;Variation Selectors;변형 선택자
+65040;65055;Vertical Forms;세로쓰기 형식
+65056;65071;Combining Half Marks;조합용 반부호
+65072;65103;CJK Compatibility Forms;한중일 통합 형식
+65104;65135;Small Form Variants;소형 형식 변형
+65136;65279;Arabic Presentation Forms-B;아랍 문자 표현 형식-B
+65280;65519;Halfwidth and Fullwidth Forms;반각 및 전각 형식
+65520;65535;Specials;특수 문자
+65536;65663;Linear B Syllabary;
+65664;65791;Linear B Ideograms;
+65792;65855;Aegean Numbers;
+65856;65935;Ancient Greek Numbers;
+65936;65999;Ancient Symbols;
+66000;66047;Phaistos Disc;
+66176;66207;Lycian;
+66208;66271;Carian;
+66272;66303;Coptic Epact Numbers;
+66304;66351;Old Italic;고대 이탈리아 문자
+66352;66383;Gothic;
+66384;66431;Old Permic;고대 페름 문자
+66432;66463;Ugaritic;
+66464;66527;Old Persian;고대 페르시아 설형 문자
+66560;66639;Deseret;
+66640;66687;Shavian;
+66688;66735;Osmanya;
+66736;66815;Osage;
+66816;66863;Elbasan;
+66864;66927;Caucasian Albanian;
+66928;67007;Vithkuqi;
+67008;67071;Todhri;
+67072;67455;Linear A;
+67456;67519;Latin Extended-F;라틴 문자 확장-F
+67584;67647;Cypriot Syllabary;
+67648;67679;Imperial Aramaic;
+67680;67711;Palmyrene;
+67712;67759;Nabataean;
+67808;67839;Hatran;
+67840;67871;Phoenician;
+67872;67903;Lydian;
+67968;67999;Meroitic Hieroglyphs;
+68000;68095;Meroitic Cursive;
+68096;68191;Kharoshthi;
+68192;68223;Old South Arabian;
+68224;68255;Old North Arabian;
+68288;68351;Manichaean;
+68352;68415;Avestan;
+68416;68447;Inscriptional Parthian;
+68448;68479;Inscriptional Pahlavi;
+68480;68527;Psalter Pahlavi;
+68608;68687;Old Turkic;돌궐 문자
+68736;68863;Old Hungarian;로바시 문자
+68864;68927;Hanifi Rohingya;
+68928;69007;Garay;
+69216;69247;Rumi Numeral Symbols;
+69248;69311;Yezidi;
+69312;69375;Arabic Extended-C;
+69376;69423;Old Sogdian;
+69424;69487;Sogdian;
+69488;69551;Old Uyghur;
+69552;69599;Chorasmian;
+69600;69631;Elymaic;
+69632;69759;Brahmi;
+69760;69839;Kaithi;
+69840;69887;Sora Sompeng;
+69888;69967;Chakma;
+69968;70015;Mahajani;
+70016;70111;Sharada;
+70112;70143;Sinhala Archaic Numbers;
+70144;70223;Khojki;
+70272;70319;Multani;
+70320;70399;Khudawadi;
+70400;70527;Grantha;
+70528;70655;Tulu-Tigalari;
+70656;70783;Newa;
+70784;70879;Tirhuta;
+71040;71167;Siddham;
+71168;71263;Modi;
+71264;71295;Mongolian Supplement;몽골 문자 보충
+71296;71375;Takri;
+71376;71423;Myanmar Extended-C;미얀마 문자 확장-C
+71424;71503;Ahom;
+71680;71759;Dogra;
+71840;71935;Warang Citi;
+71936;72031;Dives Akuru;
+72096;72191;Nandinagari;
+72192;72271;Zanabazar Square;
+72272;72367;Soyombo;
+72368;72383;Unified Canadian Aboriginal Syllabics Extended-A;통합 캐나다 원주민 음절 문자 확장-A
+72384;72447;Pau Cin Hau;
+72448;72543;Devanagari Extended-A;데바나가리 확장-A
+72640;72703;Sunuwar;
+72704;72815;Bhaiksuki;
+72816;72895;Marchen;
+72960;73055;Masaram Gondi;
+73056;73135;Gunjala Gondi;
+73440;73471;Makasar;
+73472;73567;Kawi;
+73648;73663;Lisu Supplement;프레이저 문자 보충
+73664;73727;Tamil Supplement;타밀 문자 보충
+73728;74751;Cuneiform;설형 문자
+74752;74879;Cuneiform Numbers and Punctuation;설형 숫자 및 문장 부호
+74880;75087;Early Dynastic Cuneiform;초기 왕조 설형 문자
+77712;77823;Cypro-Minoan;
+77824;78895;Egyptian Hieroglyphs;이집트 상형 문자
+78896;78943;Egyptian Hieroglyph Format Controls;이집트 상형 문자 형식 제어
+78944;82943;Egyptian Hieroglyphs Extended-A;이집트 상형 문자 확장-A
+82944;83583;Anatolian Hieroglyphs;
+90368;90431;Gurung Khema;
+92160;92735;Bamum Supplement;
+92736;92783;Mro;
+92784;92879;Tangsa;
+92880;92927;Bassa Vah;
+92928;93071;Pahawh Hmong;
+93504;93567;Kirat Rai;
+93760;93855;Medefaidrin;
+93952;94111;Miao;
+94176;94207;Ideographic Symbols and Punctuation;
+94208;100351;Tangut;서하 문자
+100352;101119;Tangut Components;서하 문자 구성 요소
+101120;101631;Khitan Small Script;거란 소자
+101632;101759;Tangut Supplement;서하 문자 보충
+110576;110591;Kana Extended-B;가나 확장-B
+110592;110847;Kana Supplement;가나 보충
+110848;110895;Kana Extended-A;가나 확장-A
+110896;110959;Small Kana Extension;소형 가나 확장
+110960;111359;Nushu;
+113664;113823;Duployan;
+113824;113839;Shorthand Format Controls;
+117760;118463;Symbols for Legacy Computing Supplement;레거시 컴퓨팅용 기호 보충
+118528;118735;Znamenny Musical Notation;즈나메니 기보법
+118784;119039;Byzantine Musical Symbols;비잔틴 악상 기호
+119040;119295;Musical Symbols;악상 기호
+119296;119375;Ancient Greek Musical Notation;
+119488;119519;Kaktovik Numerals;
+119520;119551;Mayan Numerals;
+119552;119647;Tai Xuan Jing Symbols;
+119648;119679;Counting Rod Numerals;
+119808;120831;Mathematical Alphanumeric Symbols;수학 영숫자 기호
+120832;121519;Sutton SignWriting;
+122624;122879;Latin Extended-G;라틴 문자 확장-G
+122880;122927;Glagolitic Supplement;
+122928;123023;Cyrillic Extended-D;키릴 문자 확장-D
+123136;123215;Nyiakeng Puachue Hmong;
+123536;123583;Toto;
+123584;123647;Wancho;
+124112;124159;Nag Mundari;
+124368;124415;Ol Onal;
+124896;124927;Ethiopic Extended-B;그으즈 문자 확장-B
+124928;125151;Mende Kikakui;
+125184;125279;Adlam;아들람
+126064;126143;Indic Siyaq Numbers;인도 시야크 숫자
+126208;126287;Ottoman Siyaq Numbers;오스만 시야크 숫자
+126464;126719;Arabic Mathematical Alphabetic Symbols;아랍 수학 알파벳 기호
+126976;127023;Mahjong Tiles;마작패
+127024;127135;Domino Tiles;도미노 타일
+127136;127231;Playing Cards;플레잉 카드
+127232;127487;Enclosed Alphanumeric Supplement;괄호 영숫자 보충
+127488;127743;Enclosed Ideographic Supplement;괄호 한자 보충
+127744;128511;Miscellaneous Symbols and Pictographs;기타 기호 및 그림 문자
+128512;128591;Emoticons;이모티콘
+128592;128639;Ornamental Dingbats;장식용 딩뱃
+128640;128767;Transport and Map Symbols;교통 및 지도 기호
+128768;128895;Alchemical Symbols;연금술 기호
+128896;129023;Geometric Shapes Extended;기하학적 도형 확장
+129024;129279;Supplemental Arrows-C;보충 화살표-C
+129280;129535;Supplemental Symbols and Pictographs;보충 기호 및 그림 문자
+129536;129647;Chess Symbols;체스 기호
+129648;129791;Symbols and Pictographs Extended-A;기호 및 그림 문자 확장-A
+129792;130047;Symbols for Legacy Computing;레거시 컴퓨팅용 기호
+131072;173791;CJK Unified Ideographs Extension B;한중일 통합 한자 확장 B
+173824;177983;CJK Unified Ideographs Extension C;한중일 통합 한자 확장 C
+177984;178207;CJK Unified Ideographs Extension D;한중일 통합 한자 확장 D
+178208;183983;CJK Unified Ideographs Extension E;한중일 통합 한자 확장 E
+183984;191471;CJK Unified Ideographs Extension F;한중일 통합 한자 확장 F
+191472;192095;CJK Unified Ideographs Extension I;한중일 통합 한자 확장 I
+194560;195103;CJK Compatibility Ideographs Supplement;한중일 호환용 한자 보충
+196608;201551;CJK Unified Ideographs Extension G;한중일 통합 한자 확장 G
+201552;205743;CJK Unified Ideographs Extension H;한중일 통합 한자 확장 H
+917504;917631;Tags;태그
+917760;917999;Variation Selectors Supplement;변형 선택자 보충
+983040;1048575;Supplementary Private Use Area-A;보충 사용자 정의 영역-A
+1048576;1114111;Supplementary Private Use Area-B;보충 사용자 정의 영역-B
