@@ -16,10 +16,9 @@ const db = drizzle(env.DATABASE_URL)
 
 if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id)) return Astro.redirect(`/unicode/block/${id.toLowerCase()}`)
-const block = (await db
-  .select()
-  .from(unicodeBlocks)
-  .where(eq(unicodeBlocks.first, id.toUpperCase())))[0]
+const block = (
+  await db.select().from(unicodeBlocks).where(eq(unicodeBlocks.first, id.toUpperCase()))
+)[0]
 if (block === undefined) return Astro.redirect('/404')
 
 const blockData = await db
