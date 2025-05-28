@@ -2,16 +2,10 @@ import type {RenderedContent} from 'astro:content'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
 
 interface UnicodeBlock {
-  id: string
-  body?: string
-  collection: 'unicodeBlocks'
-  data: {
-    last: string
-    nameKo: string
-    name: string
-  }
-  rendered?: RenderedContent
-  filePath?: string
+  first: string
+  last: string
+  name: string
+  nameKo: string
 }
 
 interface UnicodeData {
@@ -19,11 +13,11 @@ interface UnicodeData {
 }
 
 export function BlocksTable({
-  unicodeBlocks,
-  unicodeData,
+  blocks,
+  data,
 }: {
-  unicodeBlocks: UnicodeBlock[]
-  unicodeData: UnicodeData[]
+  blocks: UnicodeBlock[]
+  data: UnicodeData[]
 }) {
   return (
     <Table>
@@ -35,39 +29,39 @@ export function BlocksTable({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {unicodeBlocks.map((block: UnicodeBlock) => {
-          const count = unicodeData.filter((char) => {
+        {blocks.map((block: UnicodeBlock) => {
+          const count = data.filter((char) => {
             return (
-              parseInt(char.code, 16) >= parseInt(block.id, 16) &&
-              parseInt(char.code, 16) <= parseInt(block.data.last, 16)
+              parseInt(char.code, 16) >= parseInt(block.first, 16) &&
+              parseInt(char.code, 16) <= parseInt(block.last, 16)
             )
           }).length
 
-          return ['private', 'surrogate'].some((i) => block.data.name.toLowerCase().includes(i)) ? (
-            <TableRow key={block.id} className="pointer-events-none">
+          return ['private', 'surrogate'].some((i) => block.name.toLowerCase().includes(i)) ? (
+            <TableRow key={block.first} className="pointer-events-none">
               <TableCell>
-                U+{block.id}~{block.data.last}
+                U+{block.first}~{block.last}
               </TableCell>
               <TableCell>
-                {block.data.nameKo}
-                <small className="block">{block.data.name}</small>
+                {block.nameKo}
+                <small className="block">{block.name}</small>
               </TableCell>
               <TableCell className="text-right tabular-nums">0</TableCell>
             </TableRow>
           ) : (
             <TableRow
-              key={block.id}
+              key={block.first}
               className="cursor-pointer"
               onClick={() => {
-                location.href = `/unicode/block/${block.id.toLowerCase()}`
+                location.href = `/unicode/block/${block.first.toLowerCase()}`
               }}
             >
               <TableCell className="tabular-nums">
-                U+{block.id}~{block.data.last}
+                U+{block.first}~{block.last}
               </TableCell>
               <TableCell>
-                {block.data.nameKo}
-                <small className="block">{block.data.name}</small>
+                {block.nameKo}
+                <small className="block">{block.name}</small>
               </TableCell>
               <TableCell className="text-right tabular-nums">
                 {Intl.NumberFormat('ko-KR').format(count)}
