@@ -1,4 +1,3 @@
-import type {RenderedContent} from 'astro:content'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
 
 interface UnicodeBlock {
@@ -12,13 +11,7 @@ interface UnicodeData {
   code: string
 }
 
-export function BlocksTable({
-  blocks,
-  data,
-}: {
-  blocks: UnicodeBlock[]
-  data: UnicodeData[]
-}) {
+export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: UnicodeData[]}) {
   return (
     <Table>
       <TableHeader className="pointer-events-none">
