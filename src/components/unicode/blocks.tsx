@@ -24,10 +24,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
       <TableBody>
         {blocks.map((block: UnicodeBlock) => {
           const count = data.filter((char) => {
-            return (
-              char.code >= block.first &&
-              char.code <= block.last
-            )
+            return char.code >= block.first && char.code <= block.last
           }).length
 
           return ['private', 'surrogate'].some((i) => block.name.toLowerCase().includes(i)) ? (
