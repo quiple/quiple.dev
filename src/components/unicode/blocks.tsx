@@ -16,7 +16,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
     <Table>
       <TableHeader className="pointer-events-none">
         <TableRow>
-          <TableHead>범위</TableHead>
+          <TableHead className="w-40">범위</TableHead>
           <TableHead>이름</TableHead>
           <TableHead className="text-right">문자 수</TableHead>
         </TableRow>
