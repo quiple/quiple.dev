@@ -1,10 +1,10 @@
 import {
   Pagination,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationEllipsis,
   PaginationPrevious,
 } from '@/components/ui/pagination'
 
