@@ -126,7 +126,7 @@ export function Paginate({
             <PaginationEllipsis className="opacity-50" />
           </PaginationItem>
         )}
-        {(totalPage === 11 && currentPage < 7 || currentPage === totalPage - 5) && (
+        {((totalPage === 11 && currentPage < 7) || currentPage === totalPage - 5) && (
           <PaginationItem>
             <PaginationLink href={`${url}/${totalPage - 2}`}>{totalPage - 2}</PaginationLink>
           </PaginationItem>
