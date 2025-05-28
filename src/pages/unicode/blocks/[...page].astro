@@ -3,6 +3,7 @@ import {between, count} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
+import {Paginate} from '@/components/pagination'
 import {
   Pagination,
   PaginationContent,
@@ -14,7 +15,6 @@ import {
 import {BlocksTable} from '@/components/unicode/blocks'
 import {unicodeBlocks, unicodeData} from '@/db/schema'
 import Layout from '@/layouts/Layout.astro'
-import { Paginate } from '@/components/pagination'
 
 const {page} = Astro.params
 const pageSize = 25
