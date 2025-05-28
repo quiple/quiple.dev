@@ -46,9 +46,6 @@ const data = await db
   <Header />
   <main class="container-x py-4">
     <BlocksTable client:load blocks={blocks} data={data} />
-    <section class="pagiantion p-2">
-      <div class="text-muted-foreground mt-4 text-sm">{totalPage}페이지 중 {currentPage}페이지</div>
-    </section>
     <Paginate currentPage={currentPage} totalPage={totalPage} url="/unicode/blocks" />
   </main>
   <Footer />
