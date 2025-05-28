@@ -12,7 +12,7 @@ const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
 const currentPage = Number(page)
-if (isNaN(currentPage)) return Astro.redirect('/404')
+if (page && isNaN(currentPage)) return Astro.redirect('/404')
 
 const getBlocks = async (page = 1, pageSize = 15) => {
   return await db
