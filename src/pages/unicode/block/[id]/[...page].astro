@@ -24,7 +24,8 @@ const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
 if (id === undefined) return Astro.redirect('/404')
-if (/[A-Z]+/.test(id) || id.length < 4) return Astro.redirect(`/unicode/block/${id.toLowerCase().padStart(4, '0')}`)
+if (/[A-Z]+/.test(id) || id.length < 4)
+  return Astro.redirect(`/unicode/block/${id.toLowerCase().padStart(4, '0')}`)
 
 const currentPage = page ? Number(page) : 1
 if (page && Number.isNaN(currentPage)) return Astro.redirect('/404')
