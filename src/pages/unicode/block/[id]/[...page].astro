@@ -74,7 +74,7 @@ const rowLabels = [
 const totalPage = Math.ceil(allCodePoints.length / pageSize)
 ---
 
-<Layout title={`유니코드 블록 ‘${block.nameKo}’`}>
+<Layout title={`유니코드 블록 ‘${block.nameKo ? block.nameKo : block.name}’`}>
   <Header />
   <main class="container-x py-4">
     <section>
