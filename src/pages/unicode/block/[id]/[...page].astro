@@ -74,7 +74,7 @@ const totalPage = Math.ceil(allCodePoints.length / pageSize)
   <Header />
   <main class="container-x py-4">
     <section>
-      범위: U+{block.first}~{block.last}<br />
+      범위: U+{block.first.toString(16).padStart(4, '0').toUpperCase()}~{block.last.toString(16).padStart(4, '0').toUpperCase()}<br />
       이름: {block.nameKo}<br />
       이름: {block.name}<br />
       문자 수: {total}<br />
