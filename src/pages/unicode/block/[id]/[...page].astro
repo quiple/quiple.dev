@@ -20,59 +20,59 @@ if (id === undefined) return Astro.redirect('/404')
 if (/[A-Z]+/.test(id) || id.length < 4)
   return Astro.redirect(`/unicode/block/${id.toLowerCase().padStart(4, '0')}`)
 
-const currentPage = page ? Number(page) : 1
-if (page && Number.isNaN(currentPage)) return Astro.redirect('/404')
+const pageNumber = page ? Number(page) : 1
+if (page && Number.isNaN(pageNumber)) return Astro.redirect('/404')
 
-const block = (
+const unicodeBlock = (
   await db
     .select()
     .from(unicodeBlocks)
     .where(eq(unicodeBlocks.first, parseInt(id, 16)))
 )[0]
-if (block === undefined) return Astro.redirect('/404')
+if (unicodeBlock === undefined) return Astro.redirect('/404')
 
-const pageStartCode = block.first + (currentPage - 1) * pageSize
-const pageEndCode = pageStartCode + pageSize < block.last ? pageStartCode + pageSize : block.last
-const totalCount = (
+const blockStartCode = unicodeBlock.first + (pageNumber - 1) * pageSize
+const blockEndCode = blockStartCode + pageSize < unicodeBlock.last ? blockStartCode + pageSize : unicodeBlock.last
+const totalCharCount = (
   await db
     .select({count: count()})
     .from(unicodeData)
-    .where(between(unicodeData.code, block.first, block.last))
+    .where(between(unicodeData.code, unicodeBlock.first, unicodeBlock.last))
 )[0].count
-const allCodes = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
-const startIdx = (currentPage - 1) * pageSize
-const endIdx = Math.min(startIdx + pageSize, allCodes.length)
-const currentSlotsCodes = allCodes.slice(startIdx, endIdx)
+const allCodePoints = Array.from({length: unicodeBlock.last - unicodeBlock.first + 1}, (_e, i) => i + unicodeBlock.first)
+const pageStartIdx = (pageNumber - 1) * pageSize
+const pageEndIdx = Math.min(pageStartIdx + pageSize, allCodePoints.length)
+const pageCodePoints = allCodePoints.slice(pageStartIdx, pageEndIdx)
 
-const rowLabels: string[] = []
-let prevLabel = ''
-for (const code of currentSlotsCodes) {
-  const label = code.toString(16).padStart(4, '0').slice(0, -1).toUpperCase()
-  if (label !== prevLabel) {
-    rowLabels.push(label)
-    prevLabel = label
+const rowPrefixes: string[] = []
+let prevPrefix = ''
+for (const codePoint of pageCodePoints) {
+  const prefix = codePoint.toString(16).padStart(4, '0').slice(0, -1).toUpperCase()
+  if (prefix !== prevPrefix) {
+    rowPrefixes.push(prefix)
+    prevPrefix = prefix
   }
 }
 
-const totalPage = Math.ceil(allCodes.length / pageSize)
-const chars = await db
+const totalPages = Math.ceil(allCodePoints.length / pageSize)
+const unicodeChars = await db
   .select({code: unicodeData.code, name: unicodeData.name})
   .from(unicodeData)
-  .where(between(unicodeData.code, pageStartCode, pageEndCode))
+  .where(between(unicodeData.code, blockStartCode, blockEndCode))
 
-const charsMap = new Map(chars.map((c) => [c.code, c]))
+const unicodeCharMap = new Map(unicodeChars.map((c) => [c.code, c]))
 ---
 
-<Layout title={`유니코드 블록 ‘${block.nameKo ? block.nameKo : block.name}’`}>
+<Layout title={`유니코드 블록 ‘${unicodeBlock.nameKo ? unicodeBlock.nameKo : unicodeBlock.name}’`}>
   <Header />
   <main class="container-x py-4">
     <section>
-      범위: U+{block.first.toString(16).padStart(4, '0').toUpperCase()}~{block.last.toString(16).padStart(4, '0').toUpperCase()}<br />
-      이름: {block.nameKo}<br />
-      이름: {block.name}<br />
-      문자 수: {Intl.NumberFormat('ko-KR').format(totalCount)}<br />
+      범위: U+{unicodeBlock.first.toString(16).padStart(4, '0').toUpperCase()}~{unicodeBlock.last.toString(16).padStart(4, '0').toUpperCase()}<br />
+      이름: {unicodeBlock.nameKo}<br />
+      이름: {unicodeBlock.name}<br />
+      문자 수: {Intl.NumberFormat('ko-KR').format(totalCharCount)}<br />
       <a
-        href={`https://en.wikipedia.org/wiki/${block.name.replaceAll(' ', '_')}_(Unicode_block)`}
+        href={`https://en.wikipedia.org/wiki/${unicodeBlock.name.replaceAll(' ', '_')}_(Unicode_block)`}
         target="_blank"
         rel="nofollow noreferrer noopener"
       >
@@ -104,20 +104,20 @@ const charsMap = new Map(chars.map((c) => [c.code, c]))
       </div>
       <div class="flex gap-2">
         <div class="basis-17.5 shrink-0 flex flex-col gap-1 xl:gap-2 tabular-nums">
-          {rowLabels.map((e) => <div class="grow flex items-center justify-end">U+{e}</div>)}
+          {rowPrefixes.map((prefix) => <div class="grow flex items-center justify-end">U+{prefix}</div>)}
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
-          {currentSlotsCodes.map((e) => {
-            const charData = charsMap.get(e);
+          {pageCodePoints.map((codePoint) => {
+            const charData = unicodeCharMap.get(codePoint);
             return charData
               ? (
                 <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(charData.name.toLowerCase()))}>
                   <a
                     class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
-                    href={`/unicode/${e.toString(16).padStart(4, '0')}`}
-                    aria-label={`${unicodeTitleCase(titleCase(charData.name.toLowerCase()))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
+                    href={`/unicode/${codePoint.toString(16).padStart(4, '0')}`}
+                    aria-label={`${unicodeTitleCase(titleCase(charData.name.toLowerCase()))} (U+${codePoint.toString(16).padStart(4, '0').toUpperCase()})`}
                   >
-                    {String.fromCodePoint(e)}
+                    {String.fromCodePoint(codePoint)}
                   </a>
                 </TooltipButton>
               ) : <Button disabled variant="outline" size="lg" className="item" />
@@ -125,7 +125,7 @@ const charsMap = new Map(chars.map((c) => [c.code, c]))
         </div>
       </div>
     </section>
-    <Paginate currentPage={currentPage} totalPage={totalPage} url={`/unicode/block/${id}`} />
+    <Paginate currentPage={pageNumber} totalPages={totalPages} url={`/unicode/block/${id}`} />
   </main>
   <Footer />
 </Layout>
