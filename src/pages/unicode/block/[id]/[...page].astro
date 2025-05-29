@@ -62,6 +62,8 @@ const chars = await db
   .select({code: unicodeData.code, name: unicodeData.name})
   .from(unicodeData)
   .where(between(unicodeData.code, pageStartCode, pageEndCode))
+
+const charsMap = new Map(chars.map((c) => [c.code, c]))
 ---
 
 <Layout title={`유니코드 블록 ‘${block.nameKo ? block.nameKo : block.name}’`}>
@@ -109,13 +111,14 @@ const chars = await db
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center">
           {currentSlotsCodes.map((e) => {
-            return chars.find((f) => f.code === e)
+            const charData = charsMap.get(e);
+            return charData
               ? (
-                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(chars.find((f) => f.code === e)?.name.toLowerCase()!))}>
+                <TooltipButton client:load tooltip={unicodeTitleCase(titleCase(charData.name.toLowerCase()))}>
                   <a
                     class={`${buttonVariants({variant: 'secondary', size: 'lg'})} item`}
                     href={`/unicode/${e.toString(16).padStart(4, '0')}`}
-                    aria-label={`${unicodeTitleCase(titleCase(chars.find((f) => f.code === e)?.name.toLowerCase()!))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
+                    aria-label={`${unicodeTitleCase(titleCase(charData.name.toLowerCase()))} (U+${e.toString(16).padStart(4, '0').toUpperCase()})`}
                   >
                     {String.fromCodePoint(e)}
                   </a>
