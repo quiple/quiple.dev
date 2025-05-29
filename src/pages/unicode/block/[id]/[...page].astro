@@ -40,7 +40,6 @@ const totalCount = (
     .from(unicodeData)
     .where(between(unicodeData.code, block.first, block.last))
 )[0].count
-const zero2F = Array.from({length: 16}, (_e, i) => i.toString(16).toUpperCase())
 const allCodes = Array.from({length: block.last - block.first + 1}, (_e, i) => i + block.first)
 const currentSlotsCodes = Array.from(
   {
@@ -92,7 +91,22 @@ const chars = await db
         <div class="basis-17.5 shrink-0">
         </div>
         <div class="grid grid-cols-16 gap-1 xl:gap-2 grow text-center tabular-nums">
-          {zero2F.map((n) => <div>{n}</div>)}
+          <div>0</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+          <div>E</div>
+          <div>F</div>
         </div>
       </div>
       <div class="flex gap-2">
