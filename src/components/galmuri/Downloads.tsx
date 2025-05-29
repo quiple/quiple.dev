@@ -3,21 +3,16 @@ import {buttonVariants} from '@/components/ui/button'
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from '@/components/ui/card'
 import galmuri from '@/lib/galmuri'
 
-interface family {
-  name: string
-  size: number
-}
-
-const families = fonts
-  .map((font) => {
-    return {name: font.family, size: font.size}
-  })
-  .reduce((prev: family[], now) => {
-    if (!prev.some((obj: family) => obj.name === now.name && obj.size === now.size)) {
-      prev.push(now)
+const families = Array.from(
+  fonts.reduce((map, font) => {
+    const key = `${font.family}-${font.size}`
+    if (!map.has(key)) {
+      map.set(key, {name: font.family, size: font.size})
     }
-    return prev
-  }, [])
+    return map
+  }, new Map()),
+  ([, value]) => value,
+)
 
 export function Downloads() {
   return (

@@ -1,3 +1,4 @@
+import React from 'react'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table'
 
 interface UnicodeBlock {
@@ -12,6 +13,20 @@ interface UnicodeData {
 }
 
 export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: UnicodeData[]}) {
+  const blockCountMap = React.useMemo(() => {
+    const map = new Map<number, number>()
+    for (const block of blocks) {
+      map.set(block.first, 0)
+    }
+    for (const char of data) {
+      const block = blocks.find((b) => char.code >= b.first && char.code <= b.last)
+      if (block) {
+        map.set(block.first, (map.get(block.first) || 0) + 1)
+      }
+    }
+    return map
+  }, [blocks, data])
+
   return (
     <Table>
       <TableHeader className="pointer-events-none">
@@ -23,9 +38,7 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
       </TableHeader>
       <TableBody>
         {blocks.map((block: UnicodeBlock) => {
-          const count = data.filter((char) => {
-            return char.code >= block.first && char.code <= block.last
-          }).length
+          const count = blockCountMap.get(block.first) || 0
 
           return ['private', 'surrogate'].some((i) => block.name.toLowerCase().includes(i)) ? (
             <TableRow key={block.first} className="pointer-events-none">

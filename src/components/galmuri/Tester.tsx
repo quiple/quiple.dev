@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import {bigFamily, type font, fonts, pangramEn, pangramKo} from '@/components/galmuri/data'
 import {Button} from '@/components/ui/button'
@@ -16,22 +16,20 @@ export function Tester() {
     slug: 'g11',
   })
 
-  let randIndexEn = 0
-  let lastIndexEn = 0
-  let randIndexKo = 0
-  let lastIndexKo = 0
+  const lastIndexEn = useRef(0)
+  const lastIndexKo = useRef(0)
 
   function shuffle() {
+    let randIndexEn: number, randIndexKo: number
     do {
       randIndexEn = Math.floor(Math.random() * pangramEn.length)
-    } while (randIndexEn === lastIndexEn)
+    } while (randIndexEn === lastIndexEn.current)
     do {
       randIndexKo = Math.floor(Math.random() * pangramKo.length)
-    } while (randIndexKo === lastIndexKo)
-
+    } while (randIndexKo === lastIndexKo.current)
     setExampleText(`${pangramKo[randIndexKo]}\n${pangramEn[randIndexEn]}`)
-    lastIndexEn = randIndexEn
-    lastIndexKo = randIndexKo
+    lastIndexEn.current = randIndexEn
+    lastIndexKo.current = randIndexKo
   }
 
   useEffect(shuffle, [])

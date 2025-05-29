@@ -18,19 +18,18 @@ const linkPrefix = {
   patch: 'https://',
 }
 
-const showcase = galmuri.showcase
-showcase.reverse()
+const showcase = [...galmuri.showcase].reverse()
 
 export function Showcase() {
   const [screenshots, setScreenshots] = useState<Record<string, GetImageResult>>({})
 
   useEffect(() => {
+    let isMounted = true
     const fetchData = async () => {
       const screenshots: Record<string, GetImageResult> = {}
       const images = import.meta.glob<{default: ImageMetadata}>('/src/assets/showcase/*/*')
-
       await Promise.all(
-        galmuri.showcase.map(async (game) => {
+        showcase.map(async (game) => {
           const imagePath = `/src/assets/${game.screenshot}`
           const imageModule = images[imagePath]
           if (imageModule) {
@@ -43,9 +42,12 @@ export function Showcase() {
           }
         }),
       )
-      setScreenshots(screenshots)
+      if (isMounted) setScreenshots(screenshots)
     }
     fetchData()
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   return (
