@@ -19,14 +19,11 @@ if (page && Number.isNaN(pageNumber)) return Astro.redirect('/404')
 const totalBlockCount = (await db.select({count: count()}).from(unicodeBlocks))[0].count
 const totalPages = Math.ceil(totalBlockCount / pageSize)
 
-const fetchUnicodeBlocks = async (pageNumber = 1, pageSize = 15) => {
-  return await db
-    .select()
-    .from(unicodeBlocks)
-    .limit(pageSize)
-    .offset((pageNumber - 1) * pageSize)
-}
-const unicodeBlocksPage = await fetchUnicodeBlocks(pageNumber, pageSize)
+const unicodeBlocksPage = await db
+  .select()
+  .from(unicodeBlocks)
+  .limit(pageSize)
+  .offset((pageNumber - 1) * pageSize)
 if (unicodeBlocksPage.length === 0) return Astro.redirect('/404')
 const unicodeBlockData = await db
   .select({code: unicodeData.code})
