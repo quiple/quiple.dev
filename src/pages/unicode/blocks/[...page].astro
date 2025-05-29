@@ -31,7 +31,13 @@ if (unicodeBlocksPage.length === 0) return Astro.redirect('/404')
 const unicodeBlockData = await db
   .select({code: unicodeData.code})
   .from(unicodeData)
-  .where(between(unicodeData.code, unicodeBlocksPage[0].first, unicodeBlocksPage[unicodeBlocksPage.length - 1].last))
+  .where(
+    between(
+      unicodeData.code,
+      unicodeBlocksPage[0].first,
+      unicodeBlocksPage[unicodeBlocksPage.length - 1].last,
+    ),
+  )
 ---
 
 <Layout title="유니코드 블록">

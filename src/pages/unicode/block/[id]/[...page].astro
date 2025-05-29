@@ -32,14 +32,18 @@ const unicodeBlock = (
 if (unicodeBlock === undefined) return Astro.redirect('/404')
 
 const blockStartCode = unicodeBlock.first + (pageNumber - 1) * pageSize
-const blockEndCode = blockStartCode + pageSize < unicodeBlock.last ? blockStartCode + pageSize : unicodeBlock.last
+const blockEndCode =
+  blockStartCode + pageSize < unicodeBlock.last ? blockStartCode + pageSize : unicodeBlock.last
 const totalCharCount = (
   await db
     .select({count: count()})
     .from(unicodeData)
     .where(between(unicodeData.code, unicodeBlock.first, unicodeBlock.last))
 )[0].count
-const allCodePoints = Array.from({length: unicodeBlock.last - unicodeBlock.first + 1}, (_e, i) => i + unicodeBlock.first)
+const allCodePoints = Array.from(
+  {length: unicodeBlock.last - unicodeBlock.first + 1},
+  (_e, i) => i + unicodeBlock.first,
+)
 const pageStartIdx = (pageNumber - 1) * pageSize
 const pageEndIdx = Math.min(pageStartIdx + pageSize, allCodePoints.length)
 const pageCodePoints = allCodePoints.slice(pageStartIdx, pageEndIdx)
