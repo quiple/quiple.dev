@@ -19,9 +19,17 @@ export function BlocksTable({blocks, data}: {blocks: UnicodeBlock[]; data: Unico
       map.set(block.first, 0)
     }
     for (const char of data) {
-      const block = blocks.find((b) => char.code >= b.first && char.code <= b.last)
-      if (block) {
-        map.set(block.first, (map.get(block.first) || 0) + 1)
+      let l = 0
+      let r = blocks.length - 1
+      while (l <= r) {
+        const m = (l + r) >> 1
+        const [start, end] = [blocks[m].first, blocks[m].last]
+        if (char.code < start) r = m - 1
+        else if (char.code > end) l = m + 1
+        else {
+          map.set(blocks[m].first, (map.get(blocks[m].first) || 0) + 1)
+          break
+        }
       }
     }
     return map
