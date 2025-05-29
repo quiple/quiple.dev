@@ -33,7 +33,6 @@ if (block === undefined) return Astro.redirect('/404')
 
 const pageStartCode = block.first + (currentPage - 1) * pageSize
 const pageEndCode = pageStartCode + pageSize < block.last ? pageStartCode + pageSize : block.last
-const remainSlotCount = block.last - pageStartCode + 1
 const totalCount = (
   await db
     .select({count: count()})
