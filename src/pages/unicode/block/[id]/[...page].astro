@@ -1,6 +1,8 @@
 ---
 import {between, count, eq} from 'drizzle-orm'
 import {drizzle} from 'drizzle-orm/neon-http'
+import {SquareArrowOutUpRight} from 'lucide-react'
+import {siUnicode, siWikipedia} from 'simple-icons'
 import {titleCase} from 'title-case'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
@@ -70,18 +72,30 @@ const unicodeCharMap = new Map(unicodeChars.map((c) => [c.code, c]))
 <Layout title={`유니코드 블록 ‘${unicodeBlock.nameKo ? unicodeBlock.nameKo : unicodeBlock.name}’`}>
   <Header />
   <main class="container-x py-4">
-    <section>
-      범위: U+{unicodeBlock.first.toString(16).padStart(4, '0').toUpperCase()}~{unicodeBlock.last.toString(16).padStart(4, '0').toUpperCase()}<br />
-      이름: {unicodeBlock.nameKo}<br />
-      이름: {unicodeBlock.name}<br />
-      문자 수: {Intl.NumberFormat('ko-KR').format(totalCharCount)}<br />
-      <a
-        href={`https://en.wikipedia.org/wiki/${unicodeBlock.name.replaceAll(' ', '_')}_(Unicode_block)`}
-        target="_blank"
-        rel="nofollow noreferrer noopener"
-      >
-        위키백과 (영어)
-      </a>
+    <section class="my-4">
+      <h1 class="scroll-m-20 text-4xl font-extrabold text-balance mb-1">
+        {unicodeBlock.nameKo ? unicodeBlock.nameKo : unicodeBlock.name}
+        {unicodeBlock.nameKo ? <small class="text-muted-foreground">{unicodeBlock.name}</small> : undefined}
+      </h1>
+      <p>범위: U+{unicodeBlock.first.toString(16).padStart(4, '0').toUpperCase()}~{unicodeBlock.last.toString(16).padStart(4, '0').toUpperCase()} ({Intl.NumberFormat('ko-KR').format(totalCharCount)}/{Intl.NumberFormat('ko-KR').format(allCodePoints.length)}자)</p>
+      <div class="flex gap-1 mt-2">
+        <a
+          class={buttonVariants({variant: 'secondary', size: 'sm'})}
+          href={`https://en.wikipedia.org/wiki/${unicodeBlock.name.replaceAll(' ', '_')}_(Unicode_block)`}
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        >
+          <span class="fill-current" set:html={siWikipedia.svg} /> 위키백과 (영어) <SquareArrowOutUpRight />
+        </a><br />
+        <a
+          class={buttonVariants({variant: 'secondary', size: 'sm'})}
+          href={`https://unicode.org/charts/PDF/U${unicodeBlock.first.toString(16).padStart(4, '0').toUpperCase()}.pdf`}
+          target="_blank"
+          rel="nofollow noreferrer noopener"
+        >
+          <span class="fill-current" set:html={siUnicode.svg} /> 유니코드 차트 <SquareArrowOutUpRight />
+        </a>
+      </div>
     </section>
     <section class="block-grid">
       <div class="flex gap-2">
