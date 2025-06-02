@@ -18,7 +18,7 @@ const pageSize = 256
 const {env} = Astro.locals.runtime
 const db = drizzle(env.DATABASE_URL)
 
-if (id === undefined || /[^a-fA-F0-9]+/.test(id)) return Astro.redirect('/404')
+if (id === undefined || /[^0-9A-Fa-f]+/.test(id)) return Astro.redirect('/404')
 if (/[A-F]+/.test(id) || id.length < 4)
   return Astro.redirect(`/unicode/block/${id.toLowerCase().padStart(4, '0')}`)
 
