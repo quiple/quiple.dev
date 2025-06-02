@@ -64,6 +64,7 @@ const totalPages = Math.ceil(allCodePoints.length / pageSize)
 const unicodeChars = await db
   .select({code: unicodeData.code, name: unicodeData.name})
   .from(unicodeData)
+  .orderBy(unicodeData.code)
   .where(between(unicodeData.code, blockStartCode, blockEndCode))
 
 const unicodeCharMap = new Map(unicodeChars.map((c) => [c.code, c]))

@@ -22,12 +22,14 @@ const totalPages = Math.ceil(totalBlockCount / pageSize)
 const unicodeBlocksPage = await db
   .select()
   .from(unicodeBlocks)
+  .orderBy(unicodeBlocks.first)
   .limit(pageSize)
   .offset((pageNumber - 1) * pageSize)
 if (unicodeBlocksPage.length === 0) return Astro.redirect('/404')
 const unicodeBlockData = await db
   .select({code: unicodeData.code})
   .from(unicodeData)
+  .orderBy(unicodeData.code)
   .where(
     between(
       unicodeData.code,
