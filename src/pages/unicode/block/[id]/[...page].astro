@@ -97,6 +97,14 @@ const unicodeCharMap = new Map(unicodeChars.map((c) => [c.code, c]))
           >
             <span class="fill-current" set:html={siUnicode.svg} /> 유니코드 차트 <SquareArrowOutUpRight />
           </a>
+          <a
+            class={buttonVariants({variant: 'secondary', size: 'sm'})}
+            href={`https://unicode.org/charts/nameslist/c_${unicodeBlock.first.toString(16).padStart(4, '0').toUpperCase()}.html`}
+            target="_blank"
+            rel="nofollow noreferrer noopener"
+          >
+            <span class="fill-current" set:html={siUnicode.svg} /> 유니코드 페이지 <SquareArrowOutUpRight />
+          </a>
         </div>
       </div>
       <div class="shrink-0 text-muted-foreground">유니코드 블록</div>
