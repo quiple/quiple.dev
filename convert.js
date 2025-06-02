@@ -15,9 +15,12 @@ const data = parse(await fs.promises.readFile(`${process.cwd()}/unicode_data.csv
 
 await fs.promises.writeFile(`${process.cwd()}/unicode_data.output.csv`, data.join('\n'), 'utf8')
 
-const hangul_syllables = parse(await fs.promises.readFile(`${process.cwd()}/unicode_hangul_syllables.csv`, 'utf8'), {
-  delimiter: ';',
-}).map((char, i) => {
+const hangul_syllables = parse(
+  await fs.promises.readFile(`${process.cwd()}/unicode_hangul_syllables.csv`, 'utf8'),
+  {
+    delimiter: ';',
+  },
+).map((char, i) => {
   if (i !== 0) {
     char[0] = parseInt(char[0], 16)
     char[12] = char[12] && parseInt(char[12], 16)
@@ -27,7 +30,11 @@ const hangul_syllables = parse(await fs.promises.readFile(`${process.cwd()}/unic
   return char.join(';')
 })
 
-await fs.promises.writeFile(`${process.cwd()}/unicode_hangul_syllables.output.csv`, hangul_syllables.join('\n'), 'utf8')
+await fs.promises.writeFile(
+  `${process.cwd()}/unicode_hangul_syllables.output.csv`,
+  hangul_syllables.join('\n'),
+  'utf8',
+)
 
 const blocks = parse(await fs.promises.readFile(`${process.cwd()}/unicode_blocks.csv`, 'utf8'), {
   delimiter: ';',
