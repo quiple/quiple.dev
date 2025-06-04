@@ -72,6 +72,7 @@ export const pangramEn = [
   'My heart beats a rhythm just for you',
   'I wish that I could fall a little bit harder',
   'So let the Anthropocene watch me going fucking crazy',
+  'Don’t you find it all romantic, the way things used to be?',
   'Thank you sex',
   'But the moon’s not burning through my skin tonight',
   'I wanna be an ordinary man, not just an ego caught inside a trend',
