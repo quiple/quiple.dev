@@ -44,7 +44,6 @@ export const fonts: font[] = [
 ]
 
 export const pangramEn = [
-  // English pangrams
   'The quick brown fox jumps over the lazy dog',
   'Glib jocks quiz nymph to vex dwarf',
   'How quickly daft jumping zebras vex',
@@ -68,20 +67,19 @@ export const pangramEn = [
   'Grumpy wizards make toxic brew for the evil Queen and Jack',
   'A quick movement of the enemy will jeopardize six gunboats',
   'Jaded zombies acted quaintly but kept driving their oxen forward',
-  // lyrics
-  'Tie my tongue or love instead?', // jamie paige
-  'My heart beats a rhythm just for you', // jamie paige
-  'I wish that I could fall a little bit harder', // jamie paige
-  'So let the Anthropocene watch me going fucking crazy', // jamie paige
-  'Thank you sex', // wasureranneyo
-  'But the moon’s not burning through my skin tonight', // dom fera
-  'I wanna be an ordinary man, not just an ego caught inside a trend', // monkey majik
-  'For I just threw out the love of my dreams', // weezer
-  'This way is a waterslide away from me that takes her further every day', // weezer
+
+  'Tie my tongue or love instead?',
+  'My heart beats a rhythm just for you',
+  'I wish that I could fall a little bit harder',
+  'So let the Anthropocene watch me going fucking crazy', 
+  'Thank you sex',
+  'But the moon’s not burning through my skin tonight',
+  'I wanna be an ordinary man, not just an ego caught inside a trend',
+  'For I just threw out the love of my dreams',
+  'This way is a waterslide away from me that takes her further every day',
 ]
 
 export const pangramKo = [
-  // Korean pangrams
   '다람쥐 헌 쳇바퀴에 타고파',
   '동녘 구름 틈새로 퍼지는 햇빛',
   '그는 미쳐서 칼부림하는 인성파탄자일 뿐이다',
@@ -93,39 +91,39 @@ export const pangramKo = [
   '참나무 타는 소리와 야경만큼 밤의 여유를 표현해 주는 것도 없다',
   '키스의 고유 조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다',
   '콩고물과 우유가 들어간 빙수는 차게 먹어야 특별한 맛이 잘 표현된다',
-  // lyrics
-  '세상은 그것을 사랑이라고 부른다', // sambomaster
-  '울고 싶은 순간에 눈물은 나오는가', // eastern youth
-  '더러운 안경이 푸르게 물들면 발을 울리며 나도 웃으리라', // eastern youth
-  '아직 산 채로 끝나지 않은 이 몸이라면 죄도 악도 나와 더불어 있으니', // eastern youth
-  '물러난 백색충은 산탄총에 흩날리고 푸른 하늘을 꿈꾸며 피아노 선이 되었네', // cock roach
-  '오늘 밤은 연회, 붉은 고기를 먹는다\n우리를 업신여긴 그 자식의 고기를 먹는다', // cock roach
-  '한 번뿐인 인생이니까 좋은 추억을 만들자', // seiko oomori
-  '강은 바다로 넓어지고 사람은 죽음으로 넘치네', // seiko oomori
-  '네가 좋아하는 일이 바로 너만이 할 수 있는 일이야', // seiko oomori
-  '그 한 번의 실수로 모든 것을 부정당해도 기죽지 마', // seiko oomori
-  '기적은 손수 만드는 것이고 모든 것은 땅으로 이어진다', // seiko oomori
-  '새벽녘의 기억은 흐릿하고 집에 돌아가기 위해 살아 있는 몸', // seiko oomori
-  '사랑해 달란 말을 하지 않는 이유는 아침해가 눈부셔서, 그저 그것뿐', // seiko oomori
-  '내 꿈은 네가 걷어찬 못생기고 너덜너덜한 삶을 주워모아서 커다란 거울을 만드는 것', // seiko oomori
-  '아름답게 살고 싶을 뿐', // pop never dies
-  '우리는 역시 지리멸렬히 사랑하고 사랑받지 않겠는가', // pop never dies
-  '사막에서 걷는 법을 알려줘\n신발에 모래가 들어가서 발을 델 것 같아', // pop never dies
-  '옥상 끝에서 난간을 잡고 하늘을 올려다봐\n아래를 내려다보면 빨려들어가 내딛고 싶어지니까', // pop never dies
-  '하늘을 올려다봐도 하늘밖에 없다', // wasureranneyo
-  '여태껏 우리의 음악을 깔봐온 그 자식을 음악의 힘으로 뛰어넘고 싶어', // wasureranneyo
-  '신께서는 이 세상을 엿새만에 만드시고 이레째에 마술을 했다고 한다', // suichu sorewa kurushii
-  '너희처럼 살고 싶지 않다며 소설가를 믿은 채 열여덟살의 사상을 모두 꽃으로 만들었네', // seesooany
-  '한 번 눈을 감고 점점 낙담해간 내가 저 앞에서는 웃고 있어', // kuhakugokko
-  '흔해빠진 말로도 다정함이 오고가서 절묘한 곳으로 만들어 주네', // another infinity
+
+  '세상은 그것을 사랑이라고 부른다',
+  '울고 싶은 순간에 눈물은 나오는가',
+  '더러운 안경이 푸르게 물들면 발을 울리며 나도 웃으리라',
+  '아직 산 채로 끝나지 않은 이 몸이라면 죄도 악도 나와 더불어 있으니',
+  '물러난 백색충은 산탄총에 흩날리고 푸른 하늘을 꿈꾸며 피아노 선이 되었네',
+  '오늘 밤은 연회, 붉은 고기를 먹는다\n우리를 업신여긴 그 자식의 고기를 먹는다',
+  '한 번뿐인 인생이니까 좋은 추억을 만들자',
+  '강은 바다로 넓어지고 사람은 죽음으로 넘치네',
+  '네가 좋아하는 일이 바로 너만이 할 수 있는 일이야',
+  '그 한 번의 실수로 모든 것을 부정당해도 기죽지 마',
+  '기적은 손수 만드는 것이고 모든 것은 땅으로 이어진다',
+  '새벽녘의 기억은 흐릿하고 집에 돌아가기 위해 살아 있는 몸',
+  '사랑해 달란 말을 하지 않는 이유는 아침해가 눈부셔서, 그저 그것뿐',
+  '내 꿈은 네가 걷어찬 못생기고 너덜너덜한 삶을 주워모아서 커다란 거울을 만드는 것',
+  '아름답게 살고 싶을 뿐',
+  '우리는 역시 지리멸렬히 사랑하고 사랑받지 않겠는가',
+  '사막에서 걷는 법을 알려줘\n신발에 모래가 들어가서 발을 델 것 같아',
+  '옥상 끝에서 난간을 잡고 하늘을 올려다봐\n아래를 내려다보면 빨려들어가 내딛고 싶어지니까',
+  '하늘을 올려다봐도 하늘밖에 없다',
+  '여태껏 우리의 음악을 깔봐온 그 자식을 음악의 힘으로 뛰어넘고 싶어', 
+  '신께서는 이 세상을 엿새만에 만드시고 이레째에 마술을 했다고 한다', 
+  '너희처럼 살고 싶지 않다며 소설가를 믿은 채 열여덟살의 사상을 모두 꽃으로 만들었네', 
+  '한 번 눈을 감고 점점 낙담해간 내가 저 앞에서는 웃고 있어', 
+  '흔해빠진 말로도 다정함이 오고가서 절묘한 곳으로 만들어 주네', 
   '승리를 위하여 이글스여 함성을 외쳐라',
-  // k-pops
+
   '언젠가 그가 너를 맘 아프게 해 너 혼자 울고 있는 걸 봤어',
   '사랑도 명예도 이름도 남김없이 한평생 나가자던 뜨거운 맹세',
   '내 조그만 공간 속에 추억만 쌓이고 까닭 모를 눈물만이 아른거리네',
   '그러니 우리 우연히라도 그때의 맘 그날의 밤 떠오르게 만들지는 마요',
   '오 때론 난 망가져 갈지도 모르지 허나 젊음엔 그건 중요한 게 아니야',
-  // memes
+
   '뭉탱이로 있다가 유링게숭 아니 그냥',
   '맛스타 해외승인 직불출금 십이만천육백팔십칠원',
   '마즈피플 코스프레 나도 이제 할 수 있다 (너도 할 수 있다)',
