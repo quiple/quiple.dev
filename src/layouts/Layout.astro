@@ -65,11 +65,9 @@ const {title, description} = Astro.props
   }
 </script>
 
-<script>
-  const main = document.getElementsByTagName('main')[0]
-  const header = document.getElementsByTagName('header')[0]
-  const footer = document.getElementsByTagName('footer')[0]
-  if (main && header && footer) {
-    main.style.minHeight = `calc(100vh - ${header.clientHeight + footer.clientHeight + 1}px)`
-  }
-</script>
+<style lang="sass" is:global>
+  @reference '@/styles/global.css'
+
+  main
+    min-height: calc(-129px + 100vh)
+</style>
