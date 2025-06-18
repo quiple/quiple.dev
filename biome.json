@@ -27,6 +27,11 @@
       "quoteStyle": "single"
     }
   },
+  "html": {
+    "formatter": {
+      "enabled": true
+    }
+  },
   "overrides": [
     {
       "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],

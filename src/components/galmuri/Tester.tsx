@@ -78,7 +78,6 @@ export function Tester() {
         Galmuri 폰트 테스트
       </label>
       <Textarea
-        id="tester"
         className="textarea"
         autosize="true"
         style={{
