@@ -35,6 +35,30 @@ export interface ChzzkToken extends ChzzkCommon {
   }
 }
 
+export interface ChzzkSession extends ChzzkCommon {
+  content?: {
+    url: string
+  }
+}
+
+export interface ChzzkSessionList extends ChzzkCommon {
+  content?: {
+    data: [
+      {
+        sessionKey: string
+        connectedDate: string
+        disconnectedDate: string
+        subscribedEvents: [
+          {
+            eventType: string
+            channelId: String
+          },
+        ]
+      },
+    ]
+  }
+}
+
 export interface ChzzkSessionSystem {
   type: string
   data: object
@@ -69,6 +93,23 @@ export interface ChzzkSessionDonation {
   }
 }
 
+export const getToken = async (refresh: boolean, locals: App.Locals, searchParams?: URLSearchParams, cookies?: AstroCookies): Promise<ChzzkToken> => {
+  const {env} = locals.runtime
+  const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
+    method: 'post',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      grantType: refresh ? 'refresh_token' : 'authorization_code',
+      clientId: env.CHZZK_CLIENTID,
+      clientSecret: env.CHZZK_CLIENTSECRET,
+      code: !refresh && searchParams?.get('code'),
+      state: !refresh && searchParams?.get('state'),
+      refreshToken: refresh && cookies?.get('refreshToken')?.value,
+    }),
+  })
+  return await response.json()
+}
+
 export const getUser = async (accessToken: string | undefined): Promise<ChzzkUser> => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
     method: 'get',
@@ -99,7 +140,7 @@ export const getChannel = async (
   return await response.json()
 }
 
-export const createSession = async (accessToken: string | undefined) => {
+export const createSession = async (accessToken: string | undefined): Promise<ChzzkSession> => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/sessions/auth', {
     method: 'get',
     headers: {
@@ -110,7 +151,7 @@ export const createSession = async (accessToken: string | undefined) => {
   return await response.json()
 }
 
-export const getSession = async (accessToken: string | undefined) => {
+export const getSession = async (accessToken: string | undefined): Promise<ChzzkSessionList> => {
   const params = new URLSearchParams({
     size: '5',
     page: '0',
@@ -160,18 +201,7 @@ export const subscribeDonation = async (accessToken: string | undefined, session
 }
 
 export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Locals) => {
-  const {env} = locals.runtime
-  const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
-    method: 'post',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      grantType: 'refresh_token',
-      clientId: env.CHZZK_CLIENTID,
-      clientSecret: env.CHZZK_CLIENTSECRET,
-      refreshToken: cookies.get('refreshToken')?.value,
-    }),
-  })
-  const data: ChzzkToken = await response.json()
+  const data = await getToken(true, locals, undefined, cookies)
 
   if (data.code === 200 && data.content) {
     console.log('Refresh Access Token:', data)

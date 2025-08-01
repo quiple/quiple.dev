@@ -23,7 +23,7 @@ if (!isSignedIn) {
 const accessToken = Astro.cookies.get('accessToken')?.value
 const sessionCreate = await createSession(accessToken)
 
-if (sessionCreate.code !== 200) {
+if (sessionCreate.code !== 200 || !sessionCreate.content) {
   console.log('세션 생성 실패:', sessionCreate.message)
   return Astro.redirect('/chzzk')
 }
@@ -31,6 +31,12 @@ if (sessionCreate.code !== 200) {
 console.log('Create Session:', sessionCreate)
 
 const session = await getSession(accessToken)
+
+if (session.code !== 200 || !session.content) {
+  console.log('세션 가져오기 실패:', session.message)
+  return Astro.redirect('/chzzk')
+}
+
 console.log('Session List:', session.content.data)
 
 const sessionKey = session.content.data[0].sessionKey

@@ -3,11 +3,20 @@ import {ChzzkProfile} from '@/components/chzzk/profile'
 import {getChannel, getUser} from '@/lib/chzzk'
 
 const user = await getUser(Astro.cookies.get('accessToken')?.value)
-if (!user.content) return false
+
+if (user.code !== 200 || !user.content) {
+  console.log('사용자 가져오기 실패:', user.message)
+  return Astro.redirect('/chzzk')
+}
 
 console.log('User:', user)
+
 const channel = await getChannel([user.content.channelId], Astro.locals)
-if (!channel.content) return false
+
+if (channel.code !== 200 || !channel.content) {
+  console.log('채널 가져오기 실패:', channel.message)
+  return Astro.redirect('/chzzk')
+}
 
 console.log('Channel:', channel)
 console.log('Channel Data:', channel.content.data)
