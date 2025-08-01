@@ -80,7 +80,10 @@ export const getUser = async (accessToken: string | undefined): Promise<ChzzkUse
   return await response.json()
 }
 
-export const getChannel = async (channelIds: string[], locals: App.Locals) => {
+export const getChannel = async (
+  channelIds: string[],
+  locals: App.Locals,
+): Promise<ChzzkChannel> => {
   const {env} = locals.runtime
   const params = new URLSearchParams({
     channelIds: channelIds.join(','),
