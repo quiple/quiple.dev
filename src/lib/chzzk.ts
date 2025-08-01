@@ -13,8 +13,25 @@ export interface ChzzkChannel extends ChzzkCommon {
         channelName: string
         channelImageUrl: string
         followerCount: number
+        verifiedMark: boolean
       },
     ]
+  }
+}
+
+export interface ChzzkUser extends ChzzkCommon {
+  content?: {
+    channelId: string
+    channelName: string
+  }
+}
+
+export interface ChzzkToken extends ChzzkCommon {
+  content?: {
+    accessToken: string
+    refreshToken: string
+    tokenType: string
+    expiresIn: number
   }
 }
 
@@ -52,7 +69,7 @@ export interface ChzzkSessionDonation {
   }
 }
 
-export const getUser = async (accessToken: string | undefined) => {
+export const getUser = async (accessToken: string | undefined): Promise<ChzzkUser> => {
   const response = await fetch('https://openapi.chzzk.naver.com/open/v1/users/me', {
     method: 'get',
     headers: {
@@ -151,9 +168,9 @@ export const refreshAccessToken = async (cookies: AstroCookies, locals: App.Loca
       refreshToken: cookies.get('refreshToken')?.value,
     }),
   })
-  const data = await response.json()
+  const data: ChzzkToken = await response.json()
 
-  if (data.code === 200) {
+  if (data.code === 200 && data.content) {
     console.log('Refresh Access Token:', data)
     cookies.set('accessToken', data.content.accessToken, {
       httpOnly: true,
