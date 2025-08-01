@@ -89,10 +89,12 @@ import Layout from '@/layouts/Layout.astro'
     @apply grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[1em] mb-[1em] mt-[.5em]
     .card
       @include g(g7, 2)
-      @apply border-(length:--px) rounded-none shadow-none
-      .card-title
-        @include g(g9, 2)
-        @apply font-normal
+      @apply border-(length:--px) rounded-none shadow-none py-0 gap-0
+      [data-slot=card-header]
+        @apply gap-0
+        .card-title
+          @include g(g9, 2)
+          @apply font-normal
       .buttons
         @apply flex flex-wrap gap-[.5em]
         a
