@@ -13,7 +13,7 @@
     "lint": "biome lint --write",
     "check": "biome check --write",
     "prepare": "husky",
-    "shadcn:update": "pnpm dlx shadcn@latest add -y -o avatar button card carousel dropdown-menu pagination scroll-area select skeleton slider table textarea tooltip"
+    "shadcn:up": "pnpm dlx shadcn@latest add -y -o avatar button card carousel dropdown-menu pagination scroll-area select skeleton slider table textarea tooltip"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
