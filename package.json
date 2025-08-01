@@ -7,7 +7,7 @@
     "db:pull": "drizzle-kit pull",
     "convert": "node ./convert.js",
     "build": "astro check && astro build",
-    "preview": "wrangler dev ./dist",
+    "preview": "wrangler pages dev ./dist",
     "astro": "astro",
     "format": "biome format --write",
     "lint": "biome lint --write",
