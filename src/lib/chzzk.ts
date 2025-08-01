@@ -51,7 +51,7 @@ export interface ChzzkSessionList extends ChzzkCommon {
         subscribedEvents: [
           {
             eventType: string
-            channelId: String
+            channelId: string
           },
         ]
       },
@@ -93,7 +93,12 @@ export interface ChzzkSessionDonation {
   }
 }
 
-export const getToken = async (refresh: boolean, locals: App.Locals, searchParams?: URLSearchParams, cookies?: AstroCookies): Promise<ChzzkToken> => {
+export const getToken = async (
+  refresh: boolean,
+  locals: App.Locals,
+  searchParams?: URLSearchParams,
+  cookies?: AstroCookies,
+): Promise<ChzzkToken> => {
   const {env} = locals.runtime
   const response = await fetch('https://openapi.chzzk.naver.com/auth/v1/token', {
     method: 'post',
