@@ -8,6 +8,7 @@ export interface TextareaProps extends React.ComponentProps<'textarea'> {
 
 function Textarea({className, ...props}: TextareaProps) {
   return props.autosize ? (
+    // @ts-ignore
     <TextareaAutosize
       data-slot="textarea"
       className={cn(
