@@ -222,6 +222,16 @@
       "type": "steam",
       "link": "2436940",
       "screenshot": "showcase/sephiria/screenshot.png"
+    },
+    {
+      "title": {
+        "name": "Time Flies",
+        "slug": "time-flies"
+      },
+      "author": "Playables",
+      "type": "steam",
+      "link": "2000120",
+      "screenshot": "showcase/time-flies/screenshot.png"
     }
   ]
 }
