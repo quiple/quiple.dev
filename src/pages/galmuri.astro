@@ -39,7 +39,7 @@ import Layout from '@/layouts/Layout.astro'
       @include g(g7, 9)
       @apply flex text-white pl-(--px) items-center leading-none mt-[calc(var(--px)_/_2)] cursor-default
       ::selection
-        @apply bg-transparent
+        @apply bg-transparent text-white
       span
         @apply relative [paint-order:stroke_fill] [-webkit-text-stroke:calc(var(--px)_*_2)_hsl(var(--galmuri-fixed))] -translate-y-(--px) active:translate-none active:before:translate-none
         &::before
