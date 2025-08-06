@@ -96,11 +96,11 @@
   @apply pt-[.75em] pr-[calc(1em_-_var(--px)_/_2)] pb-[.75em] pl-[calc(1em_+_var(--px)_/_2)];
 }
 
-@utility pg-.75 {
+@utility pg-0.75 {
   @apply pt-[.5em] pr-[calc(.75em_-_var(--px)_/_2)] pb-[.5em] pl-[calc(.75em_+_var(--px)_/_2)];
 }
 
-@utility pg-.5 {
+@utility pg-0.5 {
   @apply pt-[.25em] pr-[calc(.5em_-_var(--px)_/_2)] pb-[.25em] pl-[calc(.5em_+_var(--px)_/_2)];
 }
 

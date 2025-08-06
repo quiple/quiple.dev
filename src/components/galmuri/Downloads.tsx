@@ -20,10 +20,10 @@ export function Downloads() {
       {families.map((family) => {
         return (
           <Card key={family.name} className="card flex flex-col">
-            <CardHeader className="p-[1em] py-[calc(1em_-_7px)]">
+            <CardHeader className="pg-1">
               <CardTitle className="card-title">{family.name}</CardTitle>
             </CardHeader>
-            <CardContent className="p-[1em] pt-0 pb-[calc(1em_-_6px)] flex-1">
+            <CardContent className="pg-1 !pt-0 flex-1">
               <div className="buttons">
                 {fonts
                   .filter((font) => font.family === family.name)
@@ -49,12 +49,12 @@ export function Downloads() {
                   })}
               </div>
             </CardContent>
-            <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">{`${family.size}px`}</CardFooter>
+            <CardFooter className="pg-1 !pt-0">{`${family.size}px`}</CardFooter>
           </Card>
         )
       })}
       <Card className="card flex flex-col">
-        <CardContent className="p-[1em] pb-[calc(1em_-_6px)] flex-1">
+        <CardContent className="pg-1 !pt-[1em] !pb-0 flex-1">
           <div className="buttons">
             <a
               className={`${buttonVariants({variant: 'outline'})} button outline-button`}
@@ -66,7 +66,7 @@ export function Downloads() {
             </a>
           </div>
         </CardContent>
-        <CardFooter className="p-[1em] pt-0 pb-[calc(1em_-_6px)]">
+        <CardFooter className="pg-1">
           비트맵 스트라이크를 포함한 TrueType 폰트 및 TrueType 컬렉션 포함
         </CardFooter>
       </Card>

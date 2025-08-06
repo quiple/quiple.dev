@@ -49,13 +49,15 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   img
     image-rendering: pixelated
   .button
-    @apply rounded-none shadow-none focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) focus-visible:ring-offset-background
+    @apply rounded-none shadow-none focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) focus-visible:ring-offset-background h-auto
     &:not(.icon-button)
-      @apply h-[42px] pl-[12px] pr-[calc(12px_-_var(--px))]
+      @apply pg-0.75
+    &.icon-button
+      @apply p-[.5em]
     &.outline-button
       @apply border-(length:--px)
   [role=combobox]
-    @apply h-[42px] rounded-none shadow-none transition focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) focus-visible:ring-offset-background border-(length:--px) relative pr-[calc(1em_+_(12px_-_var(--px))_*_2)]
+    @apply rounded-none shadow-none transition focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) focus-visible:ring-offset-background border-(length:--px) relative h-auto pg-0.75 !pr-[2.25em]
     svg
       @apply hidden
     &::after
