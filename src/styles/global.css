@@ -92,6 +92,18 @@
   @apply container mx-auto w-full px-6 sm:px-8 md:px-12 lg:px-16;
 }
 
+@utility pg-1 {
+  @apply pt-[.75em] pr-[calc(1em_-_var(--px)_/_2)] pb-[.75em] pl-[calc(1em_+_var(--px)_/_2)];
+}
+
+@utility pg-.75 {
+  @apply pt-[.5em] pr-[calc(.75em_-_var(--px)_/_2)] pb-[.5em] pl-[calc(.75em_+_var(--px)_/_2)];
+}
+
+@utility pg-.5 {
+  @apply pt-[.25em] pr-[calc(.5em_-_var(--px)_/_2)] pb-[.25em] pl-[calc(.5em_+_var(--px)_/_2)];
+}
+
 .prose {
   @apply max-w-none prose-zinc dark:prose-invert prose-a:text-blue-500 dark:prose-a:text-blue-400;
 }
