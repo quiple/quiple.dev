@@ -34,7 +34,7 @@
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.2.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "astro": "~5.11.2",
@@ -50,7 +50,7 @@
     "react-dom": "^19.1.1",
     "react-textarea-autosize": "^8.5.9",
     "rehype-external-links": "^3.0.0",
-    "sass": "^1.89.2",
+    "sass": "^1.90.0",
     "simple-icons": "^15.9.0",
     "socket.io-client": "^2.5.0",
     "tailwind-merge": "^3.3.1",
@@ -67,6 +67,6 @@
     "drizzle-orm": "^0.44.4",
     "husky": "^9.1.7",
     "tsx": "^4.20.3",
-    "wrangler": "^4.27.0"
+    "wrangler": "^4.28.0"
   }
 }
