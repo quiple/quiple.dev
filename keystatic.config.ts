@@ -42,7 +42,7 @@ export default config({
       schema: {
         title: fields.text({label: '제목', validation: {isRequired: true}}),
         description: fields.text({label: '설명'}),
-        tagline: fields.text({label: '태그라인', multiline: true}),
+        // tagline: fields.text({label: '태그라인', multiline: true}),
         summary: fields.mdx({label: '요약'}),
         showcase: fields.array(
           fields.object({
