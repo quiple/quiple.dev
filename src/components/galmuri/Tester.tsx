@@ -69,7 +69,7 @@ export function Tester() {
           />
           <div className="tester-indicator">{`${fontSize}px`}</div>
         </div>
-        <div className="grow hidden md:block"></div>
+        <div className="grow hidden md:block" />
         <Button
           aria-label="예문 섞기"
           variant="outline"
