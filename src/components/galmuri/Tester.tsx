@@ -7,7 +7,7 @@ import {Slider} from '@/components/ui/slider'
 import {Textarea} from '@/components/ui/textarea'
 
 export function Tester() {
-  const [fontSize, setFontSize] = useState(36)
+  const [fontSize, setFontSize] = useState(24)
   const [exampleText, setExampleText] = useState('')
   const [testerFont, setTesterFont] = useState<font | undefined>({
     family: `${bigFamily}11`,
@@ -18,6 +18,8 @@ export function Tester() {
 
   const lastIndexEn = useRef(0)
   const lastIndexKo = useRef(0)
+
+  useEffect(() => {window.innerWidth >= 640 && setFontSize(36)}, [])
 
   function shuffle() {
     let randIndexEn: number, randIndexKo: number

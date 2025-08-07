@@ -77,7 +77,7 @@
       'ss08' 1;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-pretty;
   }
   button {
     @apply cursor-pointer;
