@@ -49,11 +49,9 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
   img
     image-rendering: pixelated
   .button
-    @apply rounded-none shadow-none focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) focus-visible:ring-offset-background h-auto
-    &:not(.icon-button)
-      @apply pg-0.75
+    @apply rounded-none shadow-none focus-visible:ring-(length:--px) focus-visible:ring-galmuri focus-visible:ring-offset-(length:--px) focus-visible:ring-offset-background h-auto pg-0.75
     &.icon-button
-      @apply p-[.5em]
+      @apply pgi-0.5
     &.outline-button
       @apply border-(length:--px)
   [role=combobox]
@@ -137,7 +135,7 @@ $fonts: 14 14, 11 11, 11 11-Bold, 11 11-Condensed, 9 9, 7 7, Mono11 Mono11, Mono
     //   </svg>\
     // ')
     button
-      @apply top-20 sm:top-[calc(13rem_/_2)] md:top-[calc(15rem_/_2)] lg:top-36 xl:top-40 rounded-none shadow-none border-(length:--px) text-[1em] hidden md:flex
+      @apply pgi-0.5 top-20 sm:top-[calc(13rem_/_2)] md:top-[calc(15rem_/_2)] lg:top-36 xl:top-40 rounded-none shadow-none border-(length:--px) text-[1em] h-auto w-auto hidden md:flex
       svg
         @apply hidden
       &::after

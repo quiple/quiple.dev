@@ -25,9 +25,9 @@ import {ModeToggle} from '@/components/ModeToggle'
     nav
       @apply container-x flex justify-between items-center
       .quiple
-        @apply flex justify-center items-center gap-[.25em] text-lg font-medium
+        @apply flex justify-center items-center gap-[.25em] text-lg font-medium leading-none
         &::before
-          @apply bg-current inline-block w-4 h-4 content-['']
+          @apply bg-current w-[1em] h-[1em] content-['']
           mask:
             image: $q
             repeat: no-repeat

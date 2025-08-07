@@ -93,15 +93,33 @@
 }
 
 @utility pg-1 {
-  @apply pt-[.75em] pr-[calc(1em_-_var(--px)_/_2)] pb-[.75em] pl-[calc(1em_+_var(--px)_/_2)];
+  /* @apply pt-[.75em] pr-[calc(1em_-_var(--px)_/_2)] pb-[.75em] pl-[calc(1em_+_var(--px)_/_2)]; */
+  @apply pt-[calc(.75em_-_var(--px))] pr-[calc(1em_-_var(--px))] pb-[.75em] pl-[1em];
+}
+
+@utility pgi-1 {
+  /* @apply pt-[1em] pr-[calc(1em_-_var(--px)_/_2)] pb-[1em] pl-[calc(1em_+_var(--px)_/_2)]; */
+  @apply pt-[calc(1em_-_var(--px))] pr-[calc(1em_-_var(--px))] pb-[1em] pl-[1em];
 }
 
 @utility pg-0.75 {
-  @apply pt-[.5em] pr-[calc(.75em_-_var(--px)_/_2)] pb-[.5em] pl-[calc(.75em_+_var(--px)_/_2)];
+  /* @apply pt-[.5em] pr-[calc(.75em_-_var(--px)_/_2)] pb-[.5em] pl-[calc(.75em_+_var(--px)_/_2)]; */
+  @apply pt-[calc(.5em_-_var(--px))] pr-[calc(.75em_-_var(--px))] pb-[.5em] pl-[.75em];
+}
+
+@utility pgi-0.75 {
+  /* @apply pt-[.75em] pr-[calc(.75em_-_var(--px)_/_2)] pb-[.75em] pl-[calc(.75em_+_var(--px)_/_2)]; */
+  @apply pt-[calc(.75em_-_var(--px))] pr-[calc(.75em_-_var(--px))] pb-[.75em] pl-[.75em];
 }
 
 @utility pg-0.5 {
-  @apply pt-[.25em] pr-[calc(.5em_-_var(--px)_/_2)] pb-[.25em] pl-[calc(.5em_+_var(--px)_/_2)];
+  /* @apply pt-[.25em] pr-[calc(.5em_-_var(--px)_/_2)] pb-[.25em] pl-[calc(.5em_+_var(--px)_/_2)]; */
+  @apply pt-[calc(.25em_-_var(--px))] pr-[calc(.5em_-_var(--px))] pb-[.25em] pl-[.5em];
+}
+
+@utility pgi-0.5 {
+  /* @apply pt-[.5em] pr-[calc(.5em_-_var(--px)_/_2)] pb-[.5em] pl-[calc(.5em_+_var(--px)_/_2)]; */
+  @apply pt-[calc(.5em_-_var(--px))] pr-[calc(.5em_-_var(--px))] pb-[.5em] pl-[.5em];
 }
 
 .prose {
