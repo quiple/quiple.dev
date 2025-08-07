@@ -58,7 +58,7 @@ export function Tester() {
             })}
           </SelectContent>
         </Select>
-        <div className='tester-font-size'>
+        <div className="tester-font-size">
           <Slider
             className="tester-slider slider"
             value={[fontSize]}
@@ -69,7 +69,7 @@ export function Tester() {
           />
           <div className="tester-indicator">{`${fontSize}px`}</div>
         </div>
-        <div className='grow hidden md:block'></div>
+        <div className="grow hidden md:block"></div>
         <Button
           aria-label="예문 섞기"
           variant="outline"
