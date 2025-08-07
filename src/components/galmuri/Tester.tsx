@@ -19,7 +19,9 @@ export function Tester() {
   const lastIndexEn = useRef(0)
   const lastIndexKo = useRef(0)
 
-  useEffect(() => {window.innerWidth >= 640 && setFontSize(36)}, [])
+  useEffect(() => {
+    window.innerWidth >= 640 && setFontSize(36)
+  }, [])
 
   function shuffle() {
     let randIndexEn: number, randIndexKo: number
