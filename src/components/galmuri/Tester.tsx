@@ -83,7 +83,6 @@ export function Tester() {
         Galmuri 폰트 테스트
       </label>
       <Textarea
-        className="textarea"
         autosize="true"
         style={{
           fontFamily: `${testerFont?.family}-web, ${testerFont?.slug.startsWith('gm') ? 'monospace' : 'sans-serif'}`,
