@@ -23,7 +23,7 @@ export function Downloads() {
             <CardHeader className="pg-1">
               <CardTitle className="card-title">{family.name}</CardTitle>
             </CardHeader>
-            <CardContent className="pg-1 !pt-0 flex-1">
+            <CardContent className="pg-1 !pt-0 grow">
               <div className="buttons">
                 {fonts
                   .filter((font) => font.family === family.name)
@@ -54,7 +54,7 @@ export function Downloads() {
         )
       })}
       <Card className="card flex flex-col">
-        <CardContent className="pg-1 !pt-[1em] !pb-0 flex-1">
+        <CardContent className="pg-1 !pt-[1em] !pb-0 grow">
           <div className="buttons">
             <a
               className={`${buttonVariants({variant: 'outline'})} button outline-button`}

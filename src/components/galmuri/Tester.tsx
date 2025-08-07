@@ -41,24 +41,24 @@ export function Tester() {
   return (
     <section className="tester">
       <div className="control">
-        <div className="left">
-          <Select
-            defaultValue="g11"
-            onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
-          >
-            <SelectTrigger aria-label="폰트 선택" className="tester-select">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {fonts.map((font) => {
-                return (
-                  <SelectItem key={font.slug} value={font.slug}>
-                    {font.name}
-                  </SelectItem>
-                )
-              })}
-            </SelectContent>
-          </Select>
+        <Select
+          defaultValue="g11"
+          onValueChange={(e) => setTesterFont(fonts.find((f) => f.slug === e))}
+        >
+          <SelectTrigger aria-label="폰트 선택" className="tester-select">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {fonts.map((font) => {
+              return (
+                <SelectItem key={font.slug} value={font.slug}>
+                  {font.name}
+                </SelectItem>
+              )
+            })}
+          </SelectContent>
+        </Select>
+        <div className='tester-font-size'>
           <Slider
             className="tester-slider slider"
             value={[fontSize]}
@@ -67,8 +67,9 @@ export function Tester() {
             max={120}
             step={1}
           />
-          <div className="tester-font-size">{`${fontSize}px`}</div>
+          <div className="tester-indicator">{`${fontSize}px`}</div>
         </div>
+        <div className='grow hidden md:block'></div>
         <Button
           aria-label="예문 섞기"
           variant="outline"
